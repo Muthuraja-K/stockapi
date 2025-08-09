@@ -1,0 +1,582 @@
+[
+  {
+    "ticker": "RGTI",
+    "sector": "Quantum",
+    "isxticker": false
+  },
+  {
+    "ticker": "QBTS",
+    "sector": "Quantum",
+    "isxticker": false
+  },
+  {
+    "ticker": "QUBT",
+    "sector": "Quantum",
+    "isxticker": false
+  },
+  {
+    "ticker": "IONX",
+    "sector": "Quantum",
+    "isxticker": true
+  },
+  {
+    "ticker": "RGTX",
+    "sector": "Quantum",
+    "isxticker": true
+  },
+  {
+    "ticker": "QBTX",
+    "sector": "Quantum",
+    "isxticker": true
+  },
+  {
+    "ticker": "QUBX",
+    "sector": "Quantum",
+    "isxticker": true
+  },
+  {
+    "ticker": "ARCH",
+    "sector": "Drone Delivery/FlyingTaxi",
+    "isxticker": false
+  },
+  {
+    "ticker": "UBER",
+    "sector": "Drone Delivery/FlyingTaxi",
+    "isxticker": false
+  },
+  {
+    "ticker": "JOBY",
+    "sector": "Drone Delivery/FlyingTaxi",
+    "isxticker": false
+  },
+  {
+    "ticker": "SRFM",
+    "sector": "Drone Delivery/FlyingTaxi",
+    "isxticker": false
+  },
+  {
+    "ticker": "ARCX",
+    "sector": "Drone Delivery/FlyingTaxi",
+    "isxticker": true
+  },
+  {
+    "ticker": "UBRL",
+    "sector": "Drone Delivery/FlyingTaxi",
+    "isxticker": true
+  },
+  {
+    "ticker": "SMCI",
+    "sector": "SemiConductor",
+    "isxticker": false
+  },
+  {
+    "ticker": "AMD",
+    "sector": "SemiConductor",
+    "isxticker": false
+  },
+  {
+    "ticker": "MRVL",
+    "sector": "SemiConductor",
+    "isxticker": false
+  },
+  {
+    "ticker": "ARM",
+    "sector": "SemiConductor",
+    "isxticker": false
+  },
+  {
+    "ticker": "SNPS",
+    "sector": "SemiConductor",
+    "isxticker": false
+  },
+  {
+    "ticker": "NXPI",
+    "sector": "SemiConductor",
+    "isxticker": false
+  },
+  {
+    "ticker": "CDNS",
+    "sector": "SemiConductor",
+    "isxticker": false
+  },
+  {
+    "ticker": "SMTC",
+    "sector": "SemiConductor",
+    "isxticker": false
+  },
+  {
+    "ticker": "NVTS",
+    "sector": "SemiConductor",
+    "isxticker": false
+  },
+  {
+    "ticker": "SMCX",
+    "sector": "SemiConductor",
+    "isxticker": true
+  },
+  {
+    "ticker": "AMDL",
+    "sector": "SemiConductor",
+    "isxticker": true
+  },
+  {
+    "ticker": "MVLL",
+    "sector": "SemiConductor",
+    "isxticker": true
+  },
+  {
+    "ticker": "ARMU",
+    "sector": "SemiConductor",
+    "isxticker": true
+  },
+  {
+    "ticker": "NAIL",
+    "sector": "Real Estate",
+    "isxticker": false
+  },
+  {
+    "ticker": "OPEN",
+    "sector": "Real Estate",
+    "isxticker": false
+  },
+  {
+    "ticker": "FNMA",
+    "sector": "Real Estate",
+    "isxticker": false
+  },
+  {
+    "ticker": "FMCC",
+    "sector": "Real Estate",
+    "isxticker": false
+  },
+  {
+    "ticker": "RKT",
+    "sector": "Real Estate",
+    "isxticker": false
+  },
+  {
+    "ticker": "COIN",
+    "sector": "Crypto",
+    "isxticker": false
+  },
+  {
+    "ticker": "MARA",
+    "sector": "Crypto",
+    "isxticker": false
+  },
+  {
+    "ticker": "RIOT",
+    "sector": "Crypto",
+    "isxticker": false
+  },
+  {
+    "ticker": "SOL-USD",
+    "sector": "Crypto",
+    "isxticker": false
+  },
+  {
+    "ticker": "BTC-USD",
+    "sector": "Crypto",
+    "isxticker": false
+  },
+  {
+    "ticker": "ETH-USD",
+    "sector": "Crypto",
+    "isxticker": false
+  },
+  {
+    "ticker": "CRCL",
+    "sector": "Crypto",
+    "isxticker": false
+  },
+  {
+    "ticker": "BMTR",
+    "sector": "Crypto",
+    "isxticker": false
+  },
+  {
+    "ticker": "CONL",
+    "sector": "Crypto",
+    "isxticker": true
+  },
+  {
+    "ticker": "COIG",
+    "sector": "Crypto",
+    "isxticker": true
+  },
+  {
+    "ticker": "MRAL",
+    "sector": "Crypto",
+    "isxticker": true
+  },
+  {
+    "ticker": "RIOX",
+    "sector": "Crypto",
+    "isxticker": true
+  },
+  {
+    "ticker": "MSTX",
+    "sector": "Crypto",
+    "isxticker": true
+  },
+  {
+    "ticker": "SOLT",
+    "sector": "Crypto",
+    "isxticker": true
+  },
+  {
+    "ticker": "BITU",
+    "sector": "Crypto",
+    "isxticker": true
+  },
+  {
+    "ticker": "ETHU",
+    "sector": "Crypto",
+    "isxticker": true
+  },
+  {
+    "ticker": "SNOW",
+    "sector": "Security/Software Product",
+    "isxticker": false
+  },
+  {
+    "ticker": "PANW",
+    "sector": "Security/Software Product",
+    "isxticker": false
+  },
+  {
+    "ticker": "CRWD",
+    "sector": "Security/Software Product",
+    "isxticker": false
+  },
+  {
+    "ticker": "CRM",
+    "sector": "Security/Software Product",
+    "isxticker": false
+  },
+  {
+    "ticker": "MDB",
+    "sector": "Security/Software Product",
+    "isxticker": false
+  },
+  {
+    "ticker": "FTNT",
+    "sector": "Security/Software Product",
+    "isxticker": false
+  },
+  {
+    "ticker": "ZS",
+    "sector": "Security/Software Product",
+    "isxticker": false
+  },
+  {
+    "ticker": "OKTA",
+    "sector": "Security/Software Product",
+    "isxticker": false
+  },
+  {
+    "ticker": "SNOU",
+    "sector": "Security/Software Product",
+    "isxticker": true
+  },
+  {
+    "ticker": "PANG",
+    "sector": "Security/Software Product",
+    "isxticker": true
+  },
+  {
+    "ticker": "CRWL",
+    "sector": "Security/Software Product",
+    "isxticker": true
+  },
+  {
+    "ticker": "CRMG",
+    "sector": "Security/Software Product",
+    "isxticker": true
+  },
+  {
+    "ticker": "HOOD",
+    "sector": "Finance",
+    "isxticker": false
+  },
+  {
+    "ticker": "UPST",
+    "sector": "Finance",
+    "isxticker": false
+  },
+  {
+    "ticker": "SOFX",
+    "sector": "Finance",
+    "isxticker": true
+  },
+  {
+    "ticker": "ROBN",
+    "sector": "Finance",
+    "isxticker": true
+  },
+  {
+    "ticker": "HOOX",
+    "sector": "Finance",
+    "isxticker": true
+  },
+  {
+    "ticker": "UPSX",
+    "sector": "Finance",
+    "isxticker": true
+  },
+  {
+    "ticker": "PLTR",
+    "sector": "AI Service",
+    "isxticker": false
+  },
+  {
+    "ticker": "SOUN",
+    "sector": "AI Service",
+    "isxticker": false
+  },
+  {
+    "ticker": "VRTL",
+    "sector": "AI Service",
+    "isxticker": false
+  },
+  {
+    "ticker": "BBAI",
+    "sector": "AI Service",
+    "isxticker": false
+  },
+  {
+    "ticker": "CRWV",
+    "sector": "AI Service",
+    "isxticker": false
+  },
+  {
+    "ticker": "GRRR",
+    "sector": "AI Service",
+    "isxticker": false
+  },
+  {
+    "ticker": "AI",
+    "sector": "AI Service",
+    "isxticker": false
+  },
+  {
+    "ticker": "NBIS",
+    "sector": "AI Service",
+    "isxticker": false
+  },
+  {
+    "ticker": "PLTU",
+    "sector": "AI Service",
+    "isxticker": true
+  },
+  {
+    "ticker": "SOUX",
+    "sector": "AI Service",
+    "isxticker": true
+  },
+  {
+    "ticker": "META",
+    "sector": "Mega Stocks",
+    "isxticker": false
+  },
+  {
+    "ticker": "AMZN",
+    "sector": "Mega Stocks",
+    "isxticker": false
+  },
+  {
+    "ticker": "TSLA",
+    "sector": "Mega Stocks",
+    "isxticker": false
+  },
+  {
+    "ticker": "METU",
+    "sector": "Mega Stocks",
+    "isxticker": true
+  },
+  {
+    "ticker": "AMZU",
+    "sector": "Mega Stocks",
+    "isxticker": true
+  },
+  {
+    "ticker": "TSLL",
+    "sector": "Mega Stocks",
+    "isxticker": true
+  },
+  {
+    "ticker": "NVDL",
+    "sector": "Mega Stocks",
+    "isxticker": true
+  },
+  {
+    "ticker": "NFXL",
+    "sector": "Mega Stocks",
+    "isxticker": true
+  },
+  {
+    "ticker": "AAPU",
+    "sector": "Mega Stocks",
+    "isxticker": true
+  },
+  {
+    "ticker": "GGLL",
+    "sector": "Mega Stocks",
+    "isxticker": true
+  },
+  {
+    "ticker": "MSFU",
+    "sector": "Mega Stocks",
+    "isxticker": true
+  },
+  {
+    "ticker": "TQQQ",
+    "sector": "Mega Stocks",
+    "isxticker": true
+  },
+  {
+    "ticker": "OKLO",
+    "sector": "Energy",
+    "isxticker": false
+  },
+  {
+    "ticker": "NNE",
+    "sector": "Energy",
+    "isxticker": false
+  },
+  {
+    "ticker": "SMR",
+    "sector": "Energy",
+    "isxticker": false
+  },
+  {
+    "ticker": "UUUU",
+    "sector": "Energy",
+    "isxticker": false
+  },
+  {
+    "ticker": "NXE",
+    "sector": "Energy",
+    "isxticker": false
+  },
+  {
+    "ticker": "OKLL",
+    "sector": "Energy",
+    "isxticker": true
+  },
+  {
+    "ticker": "HIMS",
+    "sector": "Healthcare",
+    "isxticker": false
+  },
+  {
+    "ticker": "TEM",
+    "sector": "Healthcare",
+    "isxticker": false
+  },
+  {
+    "ticker": "NVO",
+    "sector": "Healthcare",
+    "isxticker": false
+  },
+  {
+    "ticker": "HIMZ",
+    "sector": "Healthcare",
+    "isxticker": true
+  },
+  {
+    "ticker": "TEMT",
+    "sector": "Healthcare",
+    "isxticker": true
+  },
+  {
+    "ticker": "NVOX",
+    "sector": "Healthcare",
+    "isxticker": true
+  },
+  {
+    "ticker": "RDTL",
+    "sector": "Others",
+    "isxticker": false
+  },
+  {
+    "ticker": "APPS",
+    "sector": "Others",
+    "isxticker": false
+  },
+  {
+    "ticker": "RBLU",
+    "sector": "Others",
+    "isxticker": false
+  },
+  {
+    "ticker": "CVNX",
+    "sector": "Others",
+    "isxticker": false
+  },
+  {
+    "ticker": "SERV",
+    "sector": "Others",
+    "isxticker": false
+  },
+  {
+    "ticker": "ARQQ",
+    "sector": "Quantum",
+    "isxticker": false
+  },
+  {
+    "ticker": "IONQ",
+    "sector": "Quantum",
+    "isxticker": false
+  },
+  {
+    "ticker": "AIRE",
+    "sector": "Real Estate",
+    "isxticker": false
+  },
+  {
+    "ticker": "APLD",
+    "sector": "AI Service",
+    "isxticker": false
+  },
+  {
+    "ticker": "SOFI",
+    "sector": "Finance",
+    "isxticker": false
+  },
+  {
+    "ticker": "NFLX",
+    "sector": "Mega Stocks",
+    "isxticker": false
+  },
+  {
+    "ticker": "AAPL",
+    "sector": "Mega Stocks",
+    "isxticker": false
+  },
+  {
+    "ticker": "GOOG",
+    "sector": "Mega Stocks",
+    "isxticker": false
+  },
+  {
+    "ticker": "NVDA",
+    "sector": "Mega Stocks",
+    "isxticker": false
+  },
+  {
+    "ticker": "MSFT",
+    "sector": "Mega Stocks",
+    "isxticker": false
+  },
+  {
+    "ticker": "QQQ",
+    "sector": "Mega Stocks",
+    "isxticker": false
+  },
+  {
+    "ticker": "SMU",
+    "sector": "Energy",
+    "isxticker": true
+  }
+]
