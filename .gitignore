@@ -135,6 +135,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # Angular build output
+StockUI/
 StockUI/dist/
 StockUI/.angular/
 
