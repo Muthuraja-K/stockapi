@@ -21,7 +21,7 @@ from earning_summary import get_earning_summary
 from sentiment_analysis import get_sentiment_analysis
 
 # Configure logging
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(level=logging.WARNING)
 logger = logging.getLogger(__name__)
 
 # Create FastAPI app with performance optimizations
@@ -91,8 +91,7 @@ session.mount("https://", adapter)
 # Application startup event
 @app.on_event("startup")
 async def startup_event():
-    logging.info("Stock Prediction API started successfully!")
-    logging.info("Health endpoint available at /health")
+    pass
 
 @app.get("/")
 async def serve_frontend():
@@ -167,11 +166,7 @@ async def get_stockdetails_route(
     tickers_param = ticker.strip()
     sector_param = sector.strip().lower()
     
-    logging.info(f"Stock details request: ticker='{tickers_param}', sector='{sector_param}'")
-    
     result = get_stock_details(tickers_param, sector_param, isxticker, sort_by, sort_order)
-    
-    logging.info(f"Stock details result: {len(result.get('results', []))} stocks returned")
     
     return result
 
@@ -187,11 +182,7 @@ async def get_enhanced_stockdetails_route(
     tickers_param = ticker.strip()
     sector_param = sector.strip().lower()
     
-    logging.info(f"Enhanced stock details request: ticker='{tickers_param}', sector='{sector_param}', leverage='{leverage_filter}'")
-    
     result = get_enhanced_stock_details(tickers_param, sector_param, leverage_filter, sort_by, sort_order)
-    
-    logging.info(f"Enhanced stock details result: {len(result.get('results', []))} stocks returned")
     
     return result
 
@@ -237,7 +228,6 @@ async def force_update_ticker_data_route(
 ):
     """Force update Ticker_Today.json regardless of daily update check"""
     try:
-        logging.info(f"Force ticker data update requested by admin: {current_user.get('username', 'unknown')}")
         result = force_update_ticker_today_data()
         return {
             'message': f'Successfully force updated data for {len(result)} stocks',
@@ -272,16 +262,9 @@ async def update_stock_route(
     request: StockUpdateRequest,
     current_user: Dict[str, Any] = Depends(require_admin)
 ):
-    logging.info(f"Updating stock")
-    logging.info(f"Request data: {request.dict()}")
-    
     new_ticker = request.ticker if request.ticker else request.oldTicker
     
-    logging.info(f"Updating stock {request.oldTicker} to {new_ticker} with sector: {request.sector}, isxticker: {request.isxticker}")
-    
     success, message = update_stock_in_file(request.oldTicker, request.sector, request.isxticker, new_ticker)
-    
-    logging.info(f"Update result: success={success}, message={message}")
     
     if success:
         return {
