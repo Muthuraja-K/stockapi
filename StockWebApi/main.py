@@ -1,7 +1,5 @@
 from fastapi import FastAPI, HTTPException, Depends, Query, Header
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.staticfiles import StaticFiles
-from fastapi.responses import FileResponse
 import uvicorn
 import logging
 import os
@@ -48,8 +46,7 @@ app.add_middleware(
     max_age=3600,  # Cache preflight requests for 1 hour
 )
 
-# Performance optimization: Mount static files efficiently
-app.mount("/static", StaticFiles(directory="static"), name="static")
+
 
 # Global performance tracking
 _request_times = {}
@@ -99,11 +96,7 @@ async def startup_event():
 
 @app.get("/")
 async def serve_frontend():
-    try:
-        return FileResponse("static/index.html")
-    except Exception as e:
-        logging.error(f"Error serving frontend: {e}")
-        return {"message": "Stock Prediction API is running", "status": "ok"}
+    return {"message": "Stock Prediction API is running", "status": "ok", "docs": "/docs"}
 
 @app.get("/health")
 async def health_check():
@@ -554,23 +547,7 @@ async def test_earnings_route(
         logging.error(f"Error testing earnings for {ticker}: {str(e)}")
         raise HTTPException(status_code=500, detail={'error': 'Failed to test earnings data'})
 
-# Catch-all route for static files - must be at the end
-@app.get("/{path:path}")
-async def serve_static(path: str):
-    try:
-        file_path = os.path.join("static", path)
-        if os.path.exists(file_path) and os.path.isfile(file_path):
-            return FileResponse(file_path)
-        else:
-            # Fallback to index.html for SPA routing
-            index_path = os.path.join("static", "index.html")
-            if os.path.exists(index_path):
-                return FileResponse(index_path)
-            else:
-                raise HTTPException(status_code=404, detail="Static files not found")
-    except Exception as e:
-        logging.error(f"Error serving static file {path}: {e}")
-        raise HTTPException(status_code=404, detail="File not found")
+
 
 if __name__ == "__main__":
     import uvicorn
