@@ -140,7 +140,7 @@ StockUI/dist/
 StockUI/.angular/
 
 # StockWebApi build artifacts
-StockWebApi/static/
+# StockWebApi/static/
 
 # IDE files
 .vscode/
