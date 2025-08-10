@@ -1,5 +1,7 @@
 from fastapi import FastAPI, HTTPException, Depends, Query, Header
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 import uvicorn
 import logging
 import os
@@ -7,6 +9,7 @@ import json
 from typing import Optional, List, Dict, Any
 import asyncio
 import time
+from datetime import datetime
 
 # Import models and operations
 from models import *
@@ -17,7 +20,7 @@ from history_cache import history_cache
 from stock_summary import get_stock_summary
 from sector_operations import get_sectors_with_filters, add_sector_to_file, update_sector_in_file, delete_sector_from_file
 from user_operations import get_users_with_filters, add_user_to_file, update_user_in_file, delete_user_from_file
-from earning_summary import get_earning_summary
+from earning_summary import get_earning_summary, get_after_hours_data
 from sentiment_analysis import get_sentiment_analysis
 
 # Configure logging
@@ -46,6 +49,8 @@ app.add_middleware(
     max_age=3600,  # Cache preflight requests for 1 hour
 )
 
+# Mount static files for frontend
+app.mount("/static", StaticFiles(directory="static"), name="static")
 
 
 # Global performance tracking
@@ -95,7 +100,8 @@ async def startup_event():
 
 @app.get("/")
 async def serve_frontend():
-    return {"message": "Stock Prediction API is running", "status": "ok", "docs": "/docs"}
+    """Serve the main frontend page"""
+    return FileResponse("static/index.html")
 
 @app.get("/health")
 async def health_check():
@@ -447,19 +453,160 @@ async def get_earning_summary_route(
     result = get_earning_summary(sectors_param, date_from_param, date_to_param, page, per_page)
     return result
 
+@app.get('/api/historical-price/{ticker}/{date}')
+async def get_historical_price_route(
+    ticker: str,
+    date: str,
+    interval: str = Query('1m', description="Data interval: '1m' for intraday, '1h' for hourly, '1d' for daily"),
+    current_user: Dict[str, Any] = Depends(require_auth)
+):
+    """
+    Get historical price data for a specific ticker and date.
+    
+    Args:
+        ticker: Stock ticker symbol
+        date: Date in YYYY-MM-DD format
+        interval: Data interval ('1m' for intraday, '1h' for hourly, '1d' for daily)
+    
+    Returns:
+        Historical price data including intraday points and after-hours data
+    """
+    try:
+        from earning_summary import get_historical_price_data
+        result = get_historical_price_data(ticker, date, interval)
+        
+        if "error" in result:
+            raise HTTPException(status_code=404, detail=result["error"])
+        
+        return result
+    except Exception as e:
+        logger.error(f"Error getting historical price data for {ticker} on {date}: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Failed to get historical price data: {str(e)}")
+
+
+@app.get('/api/after-hours/{ticker}/{date}')
+async def get_after_hours_route(
+    ticker: str,
+    date: str,
+    current_user: Dict[str, Any] = Depends(require_auth)
+):
+    """
+    Get specifically after-hours and pre-market data for a ticker on a specific date.
+    
+    Args:
+        ticker: Stock ticker symbol
+        date: Date in YYYY-MM-DD format
+    
+    Returns:
+        After-hours and pre-market data including price points and changes
+    """
+    try:
+        # Validate ticker format
+        if not ticker or not ticker.strip():
+            raise HTTPException(status_code=400, detail="Ticker symbol is required")
+        
+        ticker = ticker.strip().upper()
+        
+        # Validate date format
+        try:
+            datetime.strptime(date, '%Y-%m-%d')
+        except ValueError:
+            raise HTTPException(status_code=400, detail="Invalid date format. Please use YYYY-MM-DD format.")
+        
+        # Check if date is in the future
+        current_date = datetime.now().date()
+        target_date = datetime.strptime(date, '%Y-%m-%d').date()
+        if target_date > current_date:
+            raise HTTPException(
+                status_code=400, 
+                detail=f"Date {date} is in the future. Yahoo Finance only provides data for past dates."
+            )
+        
+        # Check if date is too far in the past
+        days_ago = (current_date - target_date).days
+        if days_ago > 60:
+            raise HTTPException(
+                status_code=400,
+                detail=f"Date {date} is too far in the past. Yahoo Finance only provides detailed data for the last 60 days."
+            )
+        
+        result = get_after_hours_data(ticker, date)
+        
+        if "error" in result:
+            raise HTTPException(status_code=404, detail=result["error"])
+        
+        return result
+    except HTTPException:
+        # Re-raise HTTP exceptions as-is
+        raise
+    except Exception as e:
+        logger.error(f"Error getting after-hours data for {ticker} on {date}: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Failed to get after-hours data: {str(e)}")
+
+# Test endpoint for after-hours validation (no auth required)
+@app.get('/api/test-after-hours-validation/{ticker}/{date}')
+async def test_after_hours_validation_route(ticker: str, date: str):
+    """
+    Test endpoint for after-hours date validation (no authentication required)
+    """
+    try:
+        # Validate ticker format
+        if not ticker or not ticker.strip():
+            raise HTTPException(status_code=400, detail="Ticker symbol is required")
+        
+        ticker = ticker.strip().upper()
+        
+        # Validate date format
+        try:
+            datetime.strptime(date, '%Y-%m-%d')
+        except ValueError:
+            raise HTTPException(status_code=400, detail="Invalid date format. Please use YYYY-MM-DD format.")
+        
+        # Check if date is in the future
+        current_date = datetime.now().date()
+        target_date = datetime.strptime(date, '%Y-%m-%d').date()
+        if target_date > current_date:
+            raise HTTPException(
+                status_code=400, 
+                detail=f"Date {date} is in the future. Yahoo Finance only provides data for past dates."
+            )
+        
+        # Check if date is too far in the past
+        days_ago = (current_date - target_date).days
+        if days_ago > 60:
+            raise HTTPException(
+                status_code=400,
+                detail=f"Date {date} is too far in the past. Yahoo Finance only provides detailed data for the last 60 days."
+            )
+        
+        return {
+            "message": "Date validation passed",
+            "ticker": ticker,
+            "date": date,
+            "days_ago": days_ago,
+            "is_valid": True
+        }
+        
+    except HTTPException:
+        # Re-raise HTTP exceptions as-is
+        raise
+    except Exception as e:
+        logger.error(f"Error validating date for {ticker} on {date}: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Failed to validate date: {str(e)}")
+
 # Download endpoints
 @app.get('/api/download/{file_type}')
 async def download_file_route(
     file_type: str,
     current_user: Dict[str, Any] = Depends(require_auth)
 ):
-    """Download JSON files based on file type"""
+    """Download JSON files based on file type - Admin only"""
     try:
+        # Only admin can download any files
+        if current_user.get('role') != 'admin':
+            raise HTTPException(status_code=403, detail={'error': 'Admin access required'})
+        
         if file_type == 'users':
-            # Only admin can download users file
-            if current_user.get('role') != 'admin':
-                raise HTTPException(status_code=403, detail={'error': 'Admin access required'})
-            
             with open('user.json', 'r') as file:
                 data = json.load(file)
             
@@ -531,6 +678,23 @@ async def test_earnings_route(
         raise HTTPException(status_code=500, detail={'error': 'Failed to test earnings data'})
 
 
+# Catch-all route for static files - must be at the end
+@app.get("/{path:path}")
+async def serve_static(path: str):
+    try:
+        file_path = os.path.join("static", path)
+        if os.path.exists(file_path) and os.path.isfile(file_path):
+            return FileResponse(file_path)
+        else:
+            # Fallback to index.html for SPA routing
+            index_path = os.path.join("static", "index.html")
+            if os.path.exists(index_path):
+                return FileResponse(index_path)
+            else:
+                raise HTTPException(status_code=404, detail="Static files not found")
+    except Exception as e:
+        logging.error(f"Error serving static file {path}: {e}")
+        raise HTTPException(status_code=404, detail="File not found")
 
 if __name__ == "__main__":
     import uvicorn

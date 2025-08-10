@@ -1,120 +1,81 @@
 [
   {
-    "ticker": "JOBY",
-    "sector": "Drone Delivery/FlyingTaxi",
-    "isxticker": false,
-    "market_cap": "$14.00B",
-    "earning_date": "2025-08-06",
-    "current_price": "$16.64",
-    "today": {
-      "low": "$16.30",
-      "high": "$17.36",
-      "percentage": "-3.54%"
-    },
-    "previous_day": {
-      "low": "$16.90",
-      "high": "$19.47",
-      "percentage": "-8.87%"
-    },
-    "five_day": {
-      "low": "$16.30",
-      "high": "$20.95",
-      "percentage": "-18.39%"
-    },
-    "one_month": {
-      "low": "$8.12",
-      "high": "$20.95",
-      "percentage": "31.75%"
-    },
-    "six_month": {
-      "low": "$4.96",
-      "high": "$20.95",
-      "percentage": "109.57%"
-    },
-    "one_year": {
-      "low": "$4.50",
-      "high": "$20.95",
-      "percentage": "238.90%"
-    },
-    "ah_percentage": "-3.19%"
-  },
-  {
-    "ticker": "UBRL",
-    "sector": "Drone Delivery/FlyingTaxi",
+    "ticker": "QUBX",
+    "sector": "Quantum",
     "isxticker": true,
     "market_cap": "N/A",
     "earning_date": "N/A",
-    "current_price": "$30.27",
+    "current_price": "$18.96",
     "today": {
-      "low": "$29.78",
-      "high": "$33.51",
-      "percentage": "-6.51%"
+      "low": "$18.23",
+      "high": "$19.86",
+      "percentage": "5.33%"
     },
     "previous_day": {
-      "low": "$30.07",
-      "high": "$32.48",
-      "percentage": "7.53%"
+      "low": "$17.72",
+      "high": "$19.49",
+      "percentage": "-5.95%"
     },
     "five_day": {
-      "low": "$27.58",
-      "high": "$33.51",
-      "percentage": "2.12%"
+      "low": "$14.39",
+      "high": "$21.88",
+      "percentage": "5.62%"
     },
     "one_month": {
-      "low": "$26.30",
-      "high": "$36.47",
-      "percentage": "-9.77%"
+      "low": "$14.39",
+      "high": "$37.24",
+      "percentage": "-31.52%"
     },
     "six_month": {
-      "low": "$15.00",
-      "high": "$36.47",
-      "percentage": "7.76%"
+      "low": "$14.39",
+      "high": "$37.24",
+      "percentage": "-24.29%"
     },
     "one_year": {
-      "low": "$15.00",
-      "high": "$36.47",
-      "percentage": "22.27%"
+      "low": "N/A",
+      "high": "N/A",
+      "percentage": "N/A"
     },
-    "ah_percentage": "-6.45%"
+    "ah_percentage": "NIL"
   },
   {
-    "ticker": "RGTI",
+    "ticker": "QBTX",
     "sector": "Quantum",
-    "isxticker": false,
-    "market_cap": "$5.05B",
-    "earning_date": "2025-08-12",
-    "current_price": "$15.45",
+    "isxticker": true,
+    "market_cap": "N/A",
+    "earning_date": "N/A",
+    "current_price": "$82.87",
     "today": {
-      "low": "$15.19",
-      "high": "$16.15",
-      "percentage": "-1.40%"
+      "low": "$79.83",
+      "high": "$91.59",
+      "percentage": "-3.74%"
     },
     "previous_day": {
-      "low": "$15.26",
-      "high": "$16.06",
-      "percentage": "-2.06%"
+      "low": "$79.63",
+      "high": "$93.32",
+      "percentage": "-5.22%"
     },
     "five_day": {
-      "low": "$13.61",
-      "high": "$16.85",
-      "percentage": "-2.03%"
+      "low": "$76.16",
+      "high": "$112.00",
+      "percentage": "-4.57%"
     },
     "one_month": {
-      "low": "$10.30",
-      "high": "$17.39",
-      "percentage": "20.91%"
+      "low": "$59.60",
+      "high": "$128.20",
+      "percentage": "6.03%"
     },
     "six_month": {
-      "low": "$5.95",
-      "high": "$17.39",
-      "percentage": "46.77%"
+      "low": "$19.67",
+      "high": "$135.94",
+      "percentage": "216.64%"
     },
     "one_year": {
-      "low": "$0.66",
-      "high": "$21.42",
-      "percentage": "1884.58%"
+      "low": "$19.67",
+      "high": "$135.94",
+      "percentage": "216.64%"
     },
-    "ah_percentage": "-1.02%"
+    "ah_percentage": "NIL"
   },
   {
     "ticker": "QUBT",
@@ -153,436 +114,7 @@
       "high": "$27.15",
       "percentage": "2476.68%"
     },
-    "ah_percentage": "2.92%"
-  },
-  {
-    "ticker": "RGTX",
-    "sector": "Quantum",
-    "isxticker": true,
-    "market_cap": "N/A",
-    "earning_date": "N/A",
-    "current_price": "$46.63",
-    "today": {
-      "low": "$44.98",
-      "high": "$50.72",
-      "percentage": "-3.07%"
-    },
-    "previous_day": {
-      "low": "$45.50",
-      "high": "$50.41",
-      "percentage": "-3.95%"
-    },
-    "five_day": {
-      "low": "$36.72",
-      "high": "$55.55",
-      "percentage": "-4.62%"
-    },
-    "one_month": {
-      "low": "$24.27",
-      "high": "$61.81",
-      "percentage": "32.05%"
-    },
-    "six_month": {
-      "low": "$14.93",
-      "high": "$61.81",
-      "percentage": "141.83%"
-    },
-    "one_year": {
-      "low": "$14.93",
-      "high": "$61.81",
-      "percentage": "141.83%"
-    },
-    "ah_percentage": "-2.00%"
-  },
-  {
-    "ticker": "ARM",
-    "sector": "SemiConductor",
-    "isxticker": false,
-    "market_cap": "$146.71B",
-    "earning_date": "2025-07-30",
-    "current_price": "$138.47",
-    "today": {
-      "low": "$135.36",
-      "high": "$139.45",
-      "percentage": "2.16%"
-    },
-    "previous_day": {
-      "low": "$134.61",
-      "high": "$139.68",
-      "percentage": "-0.40%"
-    },
-    "five_day": {
-      "low": "$134.61",
-      "high": "$166.88",
-      "percentage": "-1.11%"
-    },
-    "one_month": {
-      "low": "$134.57",
-      "high": "$168.31",
-      "percentage": "-4.18%"
-    },
-    "six_month": {
-      "low": "$80.00",
-      "high": "$182.88",
-      "percentage": "-13.61%"
-    },
-    "one_year": {
-      "low": "$46.50",
-      "high": "$188.75",
-      "percentage": "29.33%"
-    },
-    "ah_percentage": "2.29%"
-  },
-  {
-    "ticker": "SMCI",
-    "sector": "SemiConductor",
-    "isxticker": false,
-    "market_cap": "$27.85B",
-    "earning_date": "2025-08-05",
-    "current_price": "$44.58",
-    "today": {
-      "low": "$44.53",
-      "high": "$47.37",
-      "percentage": "-4.44%"
-    },
-    "previous_day": {
-      "low": "$46.57",
-      "high": "$48.82",
-      "percentage": "-0.26%"
-    },
-    "five_day": {
-      "low": "$44.53",
-      "high": "$62.36",
-      "percentage": "-23.41%"
-    },
-    "one_month": {
-      "low": "$40.74",
-      "high": "$62.36",
-      "percentage": "-10.32%"
-    },
-    "six_month": {
-      "low": "$25.71",
-      "high": "$66.44",
-      "percentage": "-20.07%"
-    },
-    "one_year": {
-      "low": "$17.25",
-      "high": "$122.90",
-      "percentage": "-9.48%"
-    },
-    "ah_percentage": "-3.94%"
-  },
-  {
-    "ticker": "ARCX",
-    "sector": "Drone Delivery/FlyingTaxi",
-    "isxticker": true,
-    "market_cap": "N/A",
-    "earning_date": "N/A",
-    "current_price": "$15.77",
-    "today": {
-      "low": "$15.25",
-      "high": "$16.35",
-      "percentage": "-2.17%"
-    },
-    "previous_day": {
-      "low": "$15.54",
-      "high": "$16.94",
-      "percentage": "-0.37%"
-    },
-    "five_day": {
-      "low": "$15.25",
-      "high": "$22.86",
-      "percentage": "-14.20%"
-    },
-    "one_month": {
-      "low": "$15.25",
-      "high": "$33.07",
-      "percentage": "-24.15%"
-    },
-    "six_month": {
-      "low": "$15.25",
-      "high": "$33.07",
-      "percentage": "-38.04%"
-    },
-    "one_year": {
-      "low": "N/A",
-      "high": "N/A",
-      "percentage": "N/A"
-    },
-    "ah_percentage": "-0.81%"
-  },
-  {
-    "ticker": "AMD",
-    "sector": "SemiConductor",
-    "isxticker": false,
-    "market_cap": "$280.36B",
-    "earning_date": "2025-08-05",
-    "current_price": "$172.78",
-    "today": {
-      "low": "$170.52",
-      "high": "$176.48",
-      "percentage": "0.21%"
-    },
-    "previous_day": {
-      "low": "$166.70",
-      "high": "$175.75",
-      "percentage": "5.69%"
-    },
-    "five_day": {
-      "low": "$157.80",
-      "high": "$182.50",
-      "percentage": "-2.27%"
-    },
-    "one_month": {
-      "low": "$115.06",
-      "high": "$182.50",
-      "percentage": "18.13%"
-    },
-    "six_month": {
-      "low": "$76.48",
-      "high": "$182.50",
-      "percentage": "51.17%"
-    },
-    "one_year": {
-      "low": "$76.48",
-      "high": "$227.30",
-      "percentage": "34.27%"
-    },
-    "ah_percentage": "0.08%"
-  },
-  {
-    "ticker": "QBTX",
-    "sector": "Quantum",
-    "isxticker": true,
-    "market_cap": "N/A",
-    "earning_date": "N/A",
-    "current_price": "$82.87",
-    "today": {
-      "low": "$79.84",
-      "high": "$91.59",
-      "percentage": "-3.74%"
-    },
-    "previous_day": {
-      "low": "$79.63",
-      "high": "$93.32",
-      "percentage": "-5.22%"
-    },
-    "five_day": {
-      "low": "$76.16",
-      "high": "$112.00",
-      "percentage": "-4.57%"
-    },
-    "one_month": {
-      "low": "$59.60",
-      "high": "$128.20",
-      "percentage": "6.03%"
-    },
-    "six_month": {
-      "low": "$19.67",
-      "high": "$135.94",
-      "percentage": "216.64%"
-    },
-    "one_year": {
-      "low": "$19.67",
-      "high": "$135.94",
-      "percentage": "216.64%"
-    },
-    "ah_percentage": "-3.63%"
-  },
-  {
-    "ticker": "CDNS",
-    "sector": "SemiConductor",
-    "isxticker": false,
-    "market_cap": "$95.93B",
-    "earning_date": "2025-07-28",
-    "current_price": "$352.38",
-    "today": {
-      "low": "$351.51",
-      "high": "$357.58",
-      "percentage": "-0.64%"
-    },
-    "previous_day": {
-      "low": "$349.66",
-      "high": "$365.40",
-      "percentage": "-1.62%"
-    },
-    "five_day": {
-      "low": "$328.46",
-      "high": "$376.45",
-      "percentage": "-3.51%"
-    },
-    "one_month": {
-      "low": "$289.69",
-      "high": "$376.45",
-      "percentage": "10.89%"
-    },
-    "six_month": {
-      "low": "$221.56",
-      "high": "$376.45",
-      "percentage": "17.19%"
-    },
-    "one_year": {
-      "low": "$217.77",
-      "high": "$376.45",
-      "percentage": "40.65%"
-    },
-    "ah_percentage": "-0.24%"
-  },
-  {
-    "ticker": "SNPS",
-    "sector": "SemiConductor",
-    "isxticker": false,
-    "market_cap": "$114.62B",
-    "earning_date": "2025-09-09",
-    "current_price": "$619.42",
-    "today": {
-      "low": "$618.39",
-      "high": "$625.23",
-      "percentage": "-0.15%"
-    },
-    "previous_day": {
-      "low": "$608.19",
-      "high": "$632.99",
-      "percentage": "-0.89%"
-    },
-    "five_day": {
-      "low": "$588.37",
-      "high": "$651.73",
-      "percentage": "-2.61%"
-    },
-    "one_month": {
-      "low": "$460.89",
-      "high": "$651.73",
-      "percentage": "12.72%"
-    },
-    "six_month": {
-      "low": "$365.74",
-      "high": "$651.73",
-      "percentage": "17.98%"
-    },
-    "one_year": {
-      "low": "$365.74",
-      "high": "$651.73",
-      "percentage": "26.42%"
-    },
-    "ah_percentage": "0.16%"
-  },
-  {
-    "ticker": "SRFM",
-    "sector": "Drone Delivery/FlyingTaxi",
-    "isxticker": false,
-    "market_cap": "$137.27M",
-    "earning_date": "2025-08-12",
-    "current_price": "$4.00",
-    "today": {
-      "low": "$3.99",
-      "high": "$4.28",
-      "percentage": "-4.09%"
-    },
-    "previous_day": {
-      "low": "$3.93",
-      "high": "$4.19",
-      "percentage": "1.96%"
-    },
-    "five_day": {
-      "low": "$3.87",
-      "high": "$5.83",
-      "percentage": "-10.14%"
-    },
-    "one_month": {
-      "low": "$1.77",
-      "high": "$9.91",
-      "percentage": "-40.45%"
-    },
-    "six_month": {
-      "low": "$1.77",
-      "high": "$9.91",
-      "percentage": "-23.85%"
-    },
-    "one_year": {
-      "low": "$0.90",
-      "high": "$17.50",
-      "percentage": "100.00%"
-    },
-    "ah_percentage": "-2.42%"
-  },
-  {
-    "ticker": "MRVL",
-    "sector": "SemiConductor",
-    "isxticker": false,
-    "market_cap": "$66.68B",
-    "earning_date": "2025-08-28",
-    "current_price": "$77.36",
-    "today": {
-      "low": "$75.61",
-      "high": "$77.39",
-      "percentage": "1.96%"
-    },
-    "previous_day": {
-      "low": "$74.19",
-      "high": "$77.25",
-      "percentage": "0.70%"
-    },
-    "five_day": {
-      "low": "$73.42",
-      "high": "$85.27",
-      "percentage": "1.06%"
-    },
-    "one_month": {
-      "low": "$66.92",
-      "high": "$85.27",
-      "percentage": "6.66%"
-    },
-    "six_month": {
-      "low": "$47.00",
-      "high": "$127.23",
-      "percentage": "-27.77%"
-    },
-    "one_year": {
-      "low": "$45.79",
-      "high": "$127.23",
-      "percentage": "38.19%"
-    },
-    "ah_percentage": "2.31%"
-  },
-  {
-    "ticker": "NXPI",
-    "sector": "SemiConductor",
-    "isxticker": false,
-    "market_cap": "$52.23B",
-    "earning_date": "2025-07-21",
-    "current_price": "$207.20",
-    "today": {
-      "low": "$204.59",
-      "high": "$209.81",
-      "percentage": "0.61%"
-    },
-    "previous_day": {
-      "low": "$204.52",
-      "high": "$210.54",
-      "percentage": "-0.00%"
-    },
-    "five_day": {
-      "low": "$203.24",
-      "high": "$233.11",
-      "percentage": "-2.28%"
-    },
-    "one_month": {
-      "low": "$203.24",
-      "high": "$236.46",
-      "percentage": "-7.77%"
-    },
-    "six_month": {
-      "low": "$147.40",
-      "high": "$253.02",
-      "percentage": "-8.61%"
-    },
-    "one_year": {
-      "low": "$147.40",
-      "high": "$290.65",
-      "percentage": "-7.96%"
-    },
-    "ah_percentage": "1.02%"
+    "ah_percentage": "NIL"
   },
   {
     "ticker": "IONX",
@@ -592,7 +124,7 @@
     "earning_date": "N/A",
     "current_price": "$61.30",
     "today": {
-      "low": "$57.31",
+      "low": "$57.25",
       "high": "$62.72",
       "percentage": "7.17%"
     },
@@ -621,46 +153,7 @@
       "high": "$96.53",
       "percentage": "130.82%"
     },
-    "ah_percentage": "6.37%"
-  },
-  {
-    "ticker": "QUBX",
-    "sector": "Quantum",
-    "isxticker": true,
-    "market_cap": "N/A",
-    "earning_date": "N/A",
-    "current_price": "$18.96",
-    "today": {
-      "low": "$18.23",
-      "high": "$19.74",
-      "percentage": "5.33%"
-    },
-    "previous_day": {
-      "low": "$17.72",
-      "high": "$19.49",
-      "percentage": "-5.95%"
-    },
-    "five_day": {
-      "low": "$14.39",
-      "high": "$21.88",
-      "percentage": "5.62%"
-    },
-    "one_month": {
-      "low": "$14.39",
-      "high": "$37.24",
-      "percentage": "-31.52%"
-    },
-    "six_month": {
-      "low": "$14.39",
-      "high": "$37.24",
-      "percentage": "-24.29%"
-    },
-    "one_year": {
-      "low": "N/A",
-      "high": "N/A",
-      "percentage": "N/A"
-    },
-    "ah_percentage": "7.38%"
+    "ah_percentage": "NIL"
   },
   {
     "ticker": "UBER",
@@ -699,13 +192,208 @@
       "high": "$97.71",
       "percentage": "36.65%"
     },
-    "ah_percentage": "-3.23%"
+    "ah_percentage": "NIL"
+  },
+  {
+    "ticker": "RGTX",
+    "sector": "Quantum",
+    "isxticker": true,
+    "market_cap": "N/A",
+    "earning_date": "N/A",
+    "current_price": "$46.63",
+    "today": {
+      "low": "$44.98",
+      "high": "$50.72",
+      "percentage": "-3.07%"
+    },
+    "previous_day": {
+      "low": "$45.50",
+      "high": "$50.41",
+      "percentage": "-3.95%"
+    },
+    "five_day": {
+      "low": "$36.72",
+      "high": "$55.55",
+      "percentage": "-4.62%"
+    },
+    "one_month": {
+      "low": "$24.27",
+      "high": "$61.81",
+      "percentage": "32.05%"
+    },
+    "six_month": {
+      "low": "$14.93",
+      "high": "$61.81",
+      "percentage": "141.83%"
+    },
+    "one_year": {
+      "low": "$14.93",
+      "high": "$61.81",
+      "percentage": "141.83%"
+    },
+    "ah_percentage": "NIL"
+  },
+  {
+    "ticker": "SMCI",
+    "sector": "SemiConductor",
+    "isxticker": false,
+    "market_cap": "$26.62B",
+    "earning_date": "2025-08-05",
+    "current_price": "$44.58",
+    "today": {
+      "low": "$44.53",
+      "high": "$47.37",
+      "percentage": "-4.44%"
+    },
+    "previous_day": {
+      "low": "$46.57",
+      "high": "$48.82",
+      "percentage": "-0.26%"
+    },
+    "five_day": {
+      "low": "$44.53",
+      "high": "$62.36",
+      "percentage": "-23.41%"
+    },
+    "one_month": {
+      "low": "$40.74",
+      "high": "$62.36",
+      "percentage": "-10.32%"
+    },
+    "six_month": {
+      "low": "$25.71",
+      "high": "$66.44",
+      "percentage": "-20.07%"
+    },
+    "one_year": {
+      "low": "$17.25",
+      "high": "$122.90",
+      "percentage": "-9.48%"
+    },
+    "ah_percentage": "NIL"
+  },
+  {
+    "ticker": "ARM",
+    "sector": "SemiConductor",
+    "isxticker": false,
+    "market_cap": "$146.71B",
+    "earning_date": "2025-07-30",
+    "current_price": "$138.47",
+    "today": {
+      "low": "$135.36",
+      "high": "$139.45",
+      "percentage": "2.16%"
+    },
+    "previous_day": {
+      "low": "$134.61",
+      "high": "$139.68",
+      "percentage": "-0.40%"
+    },
+    "five_day": {
+      "low": "$134.61",
+      "high": "$166.88",
+      "percentage": "-1.11%"
+    },
+    "one_month": {
+      "low": "$134.57",
+      "high": "$168.31",
+      "percentage": "-4.18%"
+    },
+    "six_month": {
+      "low": "$80.00",
+      "high": "$182.88",
+      "percentage": "-13.61%"
+    },
+    "one_year": {
+      "low": "$46.50",
+      "high": "$188.75",
+      "percentage": "29.33%"
+    },
+    "ah_percentage": "NIL"
+  },
+  {
+    "ticker": "NXPI",
+    "sector": "SemiConductor",
+    "isxticker": false,
+    "market_cap": "$52.23B",
+    "earning_date": "2025-07-21",
+    "current_price": "$207.20",
+    "today": {
+      "low": "$204.59",
+      "high": "$209.81",
+      "percentage": "0.61%"
+    },
+    "previous_day": {
+      "low": "$204.52",
+      "high": "$210.54",
+      "percentage": "-0.00%"
+    },
+    "five_day": {
+      "low": "$203.24",
+      "high": "$233.11",
+      "percentage": "-2.28%"
+    },
+    "one_month": {
+      "low": "$203.24",
+      "high": "$236.46",
+      "percentage": "-7.77%"
+    },
+    "six_month": {
+      "low": "$147.40",
+      "high": "$253.02",
+      "percentage": "-8.61%"
+    },
+    "one_year": {
+      "low": "$147.40",
+      "high": "$290.65",
+      "percentage": "-7.96%"
+    },
+    "ah_percentage": "NIL"
+  },
+  {
+    "ticker": "AMD",
+    "sector": "SemiConductor",
+    "isxticker": false,
+    "market_cap": "$280.36B",
+    "earning_date": "2025-08-05",
+    "current_price": "$172.78",
+    "today": {
+      "low": "$170.52",
+      "high": "$176.48",
+      "percentage": "0.21%"
+    },
+    "previous_day": {
+      "low": "$166.70",
+      "high": "$175.75",
+      "percentage": "5.69%"
+    },
+    "five_day": {
+      "low": "$157.80",
+      "high": "$182.50",
+      "percentage": "-2.27%"
+    },
+    "one_month": {
+      "low": "$115.06",
+      "high": "$182.50",
+      "percentage": "18.13%"
+    },
+    "six_month": {
+      "low": "$76.48",
+      "high": "$182.50",
+      "percentage": "51.17%"
+    },
+    "one_year": {
+      "low": "$76.48",
+      "high": "$227.30",
+      "percentage": "34.27%"
+    },
+    "ah_percentage": "NIL"
   },
   {
     "ticker": "QBTS",
     "sector": "Quantum",
     "isxticker": false,
-    "market_cap": "$5.37B",
+    "market_cap": "$5.78B",
     "earning_date": "2025-08-07",
     "current_price": "$16.88",
     "today": {
@@ -738,7 +426,319 @@
       "high": "$20.56",
       "percentage": "1986.42%"
     },
-    "ah_percentage": "-1.22%"
+    "ah_percentage": "NIL"
+  },
+  {
+    "ticker": "UBRL",
+    "sector": "Drone Delivery/FlyingTaxi",
+    "isxticker": true,
+    "market_cap": "N/A",
+    "earning_date": "N/A",
+    "current_price": "$30.27",
+    "today": {
+      "low": "$29.78",
+      "high": "$33.51",
+      "percentage": "-6.51%"
+    },
+    "previous_day": {
+      "low": "$30.07",
+      "high": "$32.48",
+      "percentage": "7.53%"
+    },
+    "five_day": {
+      "low": "$27.58",
+      "high": "$33.51",
+      "percentage": "2.12%"
+    },
+    "one_month": {
+      "low": "$26.30",
+      "high": "$36.47",
+      "percentage": "-9.77%"
+    },
+    "six_month": {
+      "low": "$15.00",
+      "high": "$36.47",
+      "percentage": "7.76%"
+    },
+    "one_year": {
+      "low": "$15.00",
+      "high": "$36.47",
+      "percentage": "22.27%"
+    },
+    "ah_percentage": "NIL"
+  },
+  {
+    "ticker": "JOBY",
+    "sector": "Drone Delivery/FlyingTaxi",
+    "isxticker": false,
+    "market_cap": "$14.24B",
+    "earning_date": "2025-08-06",
+    "current_price": "$16.64",
+    "today": {
+      "low": "$16.30",
+      "high": "$17.36",
+      "percentage": "-3.54%"
+    },
+    "previous_day": {
+      "low": "$16.90",
+      "high": "$19.47",
+      "percentage": "-8.87%"
+    },
+    "five_day": {
+      "low": "$16.30",
+      "high": "$20.95",
+      "percentage": "-18.39%"
+    },
+    "one_month": {
+      "low": "$8.12",
+      "high": "$20.95",
+      "percentage": "31.75%"
+    },
+    "six_month": {
+      "low": "$4.96",
+      "high": "$20.95",
+      "percentage": "109.57%"
+    },
+    "one_year": {
+      "low": "$4.50",
+      "high": "$20.95",
+      "percentage": "238.90%"
+    },
+    "ah_percentage": "NIL"
+  },
+  {
+    "ticker": "ARCX",
+    "sector": "Drone Delivery/FlyingTaxi",
+    "isxticker": true,
+    "market_cap": "N/A",
+    "earning_date": "N/A",
+    "current_price": "$15.77",
+    "today": {
+      "low": "$15.25",
+      "high": "$16.40",
+      "percentage": "-2.17%"
+    },
+    "previous_day": {
+      "low": "$15.54",
+      "high": "$16.94",
+      "percentage": "-0.37%"
+    },
+    "five_day": {
+      "low": "$15.25",
+      "high": "$22.86",
+      "percentage": "-14.20%"
+    },
+    "one_month": {
+      "low": "$15.25",
+      "high": "$33.07",
+      "percentage": "-24.15%"
+    },
+    "six_month": {
+      "low": "$15.25",
+      "high": "$33.07",
+      "percentage": "-38.04%"
+    },
+    "one_year": {
+      "low": "N/A",
+      "high": "N/A",
+      "percentage": "N/A"
+    },
+    "ah_percentage": "NIL"
+  },
+  {
+    "ticker": "SNPS",
+    "sector": "SemiConductor",
+    "isxticker": false,
+    "market_cap": "$114.62B",
+    "earning_date": "2025-09-09",
+    "current_price": "$619.42",
+    "today": {
+      "low": "$618.36",
+      "high": "$625.23",
+      "percentage": "-0.15%"
+    },
+    "previous_day": {
+      "low": "$608.19",
+      "high": "$632.99",
+      "percentage": "-0.89%"
+    },
+    "five_day": {
+      "low": "$588.37",
+      "high": "$651.73",
+      "percentage": "-2.61%"
+    },
+    "one_month": {
+      "low": "$460.89",
+      "high": "$651.73",
+      "percentage": "12.72%"
+    },
+    "six_month": {
+      "low": "$365.74",
+      "high": "$651.73",
+      "percentage": "17.98%"
+    },
+    "one_year": {
+      "low": "$365.74",
+      "high": "$651.73",
+      "percentage": "26.42%"
+    },
+    "ah_percentage": "NIL"
+  },
+  {
+    "ticker": "CDNS",
+    "sector": "SemiConductor",
+    "isxticker": false,
+    "market_cap": "$95.93B",
+    "earning_date": "2025-07-28",
+    "current_price": "$352.38",
+    "today": {
+      "low": "$351.50",
+      "high": "$357.59",
+      "percentage": "-0.64%"
+    },
+    "previous_day": {
+      "low": "$349.66",
+      "high": "$365.40",
+      "percentage": "-1.62%"
+    },
+    "five_day": {
+      "low": "$328.46",
+      "high": "$376.45",
+      "percentage": "-3.51%"
+    },
+    "one_month": {
+      "low": "$289.69",
+      "high": "$376.45",
+      "percentage": "10.89%"
+    },
+    "six_month": {
+      "low": "$221.56",
+      "high": "$376.45",
+      "percentage": "17.19%"
+    },
+    "one_year": {
+      "low": "$217.77",
+      "high": "$376.45",
+      "percentage": "40.65%"
+    },
+    "ah_percentage": "NIL"
+  },
+  {
+    "ticker": "SRFM",
+    "sector": "Drone Delivery/FlyingTaxi",
+    "isxticker": false,
+    "market_cap": "$137.27M",
+    "earning_date": "2025-08-12",
+    "current_price": "$4.00",
+    "today": {
+      "low": "$3.99",
+      "high": "$4.28",
+      "percentage": "-4.09%"
+    },
+    "previous_day": {
+      "low": "$3.93",
+      "high": "$4.19",
+      "percentage": "1.96%"
+    },
+    "five_day": {
+      "low": "$3.87",
+      "high": "$5.83",
+      "percentage": "-10.14%"
+    },
+    "one_month": {
+      "low": "$1.77",
+      "high": "$9.91",
+      "percentage": "-40.45%"
+    },
+    "six_month": {
+      "low": "$1.77",
+      "high": "$9.91",
+      "percentage": "-23.85%"
+    },
+    "one_year": {
+      "low": "$0.90",
+      "high": "$17.50",
+      "percentage": "100.00%"
+    },
+    "ah_percentage": "NIL"
+  },
+  {
+    "ticker": "RGTI",
+    "sector": "Quantum",
+    "isxticker": false,
+    "market_cap": "$4.98B",
+    "earning_date": "2025-08-12",
+    "current_price": "$15.45",
+    "today": {
+      "low": "$15.18",
+      "high": "$16.16",
+      "percentage": "-1.40%"
+    },
+    "previous_day": {
+      "low": "$15.26",
+      "high": "$16.06",
+      "percentage": "-2.06%"
+    },
+    "five_day": {
+      "low": "$13.61",
+      "high": "$16.85",
+      "percentage": "-2.03%"
+    },
+    "one_month": {
+      "low": "$10.30",
+      "high": "$17.39",
+      "percentage": "20.91%"
+    },
+    "six_month": {
+      "low": "$5.95",
+      "high": "$17.39",
+      "percentage": "46.77%"
+    },
+    "one_year": {
+      "low": "$0.66",
+      "high": "$21.42",
+      "percentage": "1884.58%"
+    },
+    "ah_percentage": "NIL"
+  },
+  {
+    "ticker": "MRVL",
+    "sector": "SemiConductor",
+    "isxticker": false,
+    "market_cap": "$66.68B",
+    "earning_date": "2025-08-28",
+    "current_price": "$77.36",
+    "today": {
+      "low": "$75.61",
+      "high": "$77.39",
+      "percentage": "1.96%"
+    },
+    "previous_day": {
+      "low": "$74.19",
+      "high": "$77.25",
+      "percentage": "0.70%"
+    },
+    "five_day": {
+      "low": "$73.42",
+      "high": "$85.27",
+      "percentage": "1.06%"
+    },
+    "one_month": {
+      "low": "$66.92",
+      "high": "$85.27",
+      "percentage": "6.66%"
+    },
+    "six_month": {
+      "low": "$47.00",
+      "high": "$127.23",
+      "percentage": "-27.77%"
+    },
+    "one_year": {
+      "low": "$45.79",
+      "high": "$127.23",
+      "percentage": "38.19%"
+    },
+    "ah_percentage": "NIL"
   },
   {
     "ticker": "ARCH",
@@ -780,6 +780,162 @@
     "ah_percentage": "NIL"
   },
   {
+    "ticker": "SMTC",
+    "sector": "SemiConductor",
+    "isxticker": false,
+    "market_cap": "$4.41B",
+    "earning_date": "2025-05-27",
+    "current_price": "$50.85",
+    "today": {
+      "low": "$50.72",
+      "high": "$52.03",
+      "percentage": "-1.26%"
+    },
+    "previous_day": {
+      "low": "$50.00",
+      "high": "$52.05",
+      "percentage": "1.04%"
+    },
+    "five_day": {
+      "low": "$47.34",
+      "high": "$55.80",
+      "percentage": "-1.63%"
+    },
+    "one_month": {
+      "low": "$38.14",
+      "high": "$55.80",
+      "percentage": "8.35%"
+    },
+    "six_month": {
+      "low": "$24.05",
+      "high": "$79.52",
+      "percentage": "37.25%"
+    },
+    "one_year": {
+      "low": "$13.13",
+      "high": "$79.52",
+      "percentage": "84.17%"
+    },
+    "ah_percentage": "NIL"
+  },
+  {
+    "ticker": "MVLL",
+    "sector": "SemiConductor",
+    "isxticker": true,
+    "market_cap": "N/A",
+    "earning_date": "N/A",
+    "current_price": "$22.11",
+    "today": {
+      "low": "$21.16",
+      "high": "$22.16",
+      "percentage": "3.92%"
+    },
+    "previous_day": {
+      "low": "$20.43",
+      "high": "$22.08",
+      "percentage": "1.18%"
+    },
+    "five_day": {
+      "low": "$20.00",
+      "high": "$27.02",
+      "percentage": "1.84%"
+    },
+    "one_month": {
+      "low": "$17.51",
+      "high": "$27.02",
+      "percentage": "10.39%"
+    },
+    "six_month": {
+      "low": "$9.66",
+      "high": "$27.02",
+      "percentage": "-7.80%"
+    },
+    "one_year": {
+      "low": "$9.66",
+      "high": "$27.02",
+      "percentage": "-7.80%"
+    },
+    "ah_percentage": "NIL"
+  },
+  {
+    "ticker": "NAIL",
+    "sector": "Real Estate",
+    "isxticker": false,
+    "market_cap": "N/A",
+    "earning_date": "N/A",
+    "current_price": "$69.74",
+    "today": {
+      "low": "$68.53",
+      "high": "$70.63",
+      "percentage": "1.42%"
+    },
+    "previous_day": {
+      "low": "$68.32",
+      "high": "$72.89",
+      "percentage": "1.25%"
+    },
+    "five_day": {
+      "low": "$57.18",
+      "high": "$72.89",
+      "percentage": "5.43%"
+    },
+    "one_month": {
+      "low": "$44.02",
+      "high": "$72.89",
+      "percentage": "14.91%"
+    },
+    "six_month": {
+      "low": "$39.71",
+      "high": "$104.17",
+      "percentage": "-9.88%"
+    },
+    "one_year": {
+      "low": "$39.46",
+      "high": "$176.08",
+      "percentage": "-37.05%"
+    },
+    "ah_percentage": "NIL"
+  },
+  {
+    "ticker": "ARMU",
+    "sector": "SemiConductor",
+    "isxticker": true,
+    "market_cap": "N/A",
+    "earning_date": "N/A",
+    "current_price": "$25.75",
+    "today": {
+      "low": "$25.08",
+      "high": "$26.16",
+      "percentage": "4.08%"
+    },
+    "previous_day": {
+      "low": "$24.58",
+      "high": "$26.28",
+      "percentage": "-0.71%"
+    },
+    "five_day": {
+      "low": "$24.58",
+      "high": "$38.42",
+      "percentage": "-2.54%"
+    },
+    "one_month": {
+      "low": "$24.58",
+      "high": "$39.51",
+      "percentage": "-12.10%"
+    },
+    "six_month": {
+      "low": "$10.37",
+      "high": "$39.51",
+      "percentage": "0.73%"
+    },
+    "one_year": {
+      "low": "$10.37",
+      "high": "$39.51",
+      "percentage": "0.73%"
+    },
+    "ah_percentage": "NIL"
+  },
+  {
     "ticker": "SMCX",
     "sector": "SemiConductor",
     "isxticker": true,
@@ -816,7 +972,241 @@
       "high": "$412.20",
       "percentage": "-83.87%"
     },
-    "ah_percentage": "-7.71%"
+    "ah_percentage": "NIL"
+  },
+  {
+    "ticker": "AMDL",
+    "sector": "SemiConductor",
+    "isxticker": true,
+    "market_cap": "N/A",
+    "earning_date": "N/A",
+    "current_price": "$12.18",
+    "today": {
+      "low": "$11.87",
+      "high": "$12.71",
+      "percentage": "0.08%"
+    },
+    "previous_day": {
+      "low": "$11.39",
+      "high": "$12.59",
+      "percentage": "11.46%"
+    },
+    "five_day": {
+      "low": "$10.14",
+      "high": "$13.76",
+      "percentage": "-5.59%"
+    },
+    "one_month": {
+      "low": "$5.69",
+      "high": "$13.76",
+      "percentage": "35.67%"
+    },
+    "six_month": {
+      "low": "$2.77",
+      "high": "$13.76",
+      "percentage": "84.39%"
+    },
+    "one_year": {
+      "low": "$2.77",
+      "high": "$25.62",
+      "percentage": "24.56%"
+    },
+    "ah_percentage": "NIL"
+  },
+  {
+    "ticker": "NVTS",
+    "sector": "SemiConductor",
+    "isxticker": false,
+    "market_cap": "$1.42B",
+    "earning_date": "2025-08-04",
+    "current_price": "$6.66",
+    "today": {
+      "low": "$6.53",
+      "high": "$7.00",
+      "percentage": "-1.91%"
+    },
+    "previous_day": {
+      "low": "$6.47",
+      "high": "$6.96",
+      "percentage": "6.93%"
+    },
+    "five_day": {
+      "low": "$6.24",
+      "high": "$9.48",
+      "percentage": "-17.27%"
+    },
+    "one_month": {
+      "low": "$5.68",
+      "high": "$9.48",
+      "percentage": "13.46%"
+    },
+    "six_month": {
+      "low": "$1.52",
+      "high": "$9.48",
+      "percentage": "100.00%"
+    },
+    "one_year": {
+      "low": "$1.52",
+      "high": "$10.10",
+      "percentage": "108.78%"
+    },
+    "ah_percentage": "NIL"
+  },
+  {
+    "ticker": "MARA",
+    "sector": "Crypto",
+    "isxticker": false,
+    "market_cap": "$5.70B",
+    "earning_date": "2025-07-29",
+    "current_price": "$15.38",
+    "today": {
+      "low": "$15.29",
+      "high": "$16.18",
+      "percentage": "-3.57%"
+    },
+    "previous_day": {
+      "low": "$15.60",
+      "high": "$16.50",
+      "percentage": "0.38%"
+    },
+    "five_day": {
+      "low": "$15.01",
+      "high": "$17.92",
+      "percentage": "-4.11%"
+    },
+    "one_month": {
+      "low": "$13.49",
+      "high": "$21.50",
+      "percentage": "-19.94%"
+    },
+    "six_month": {
+      "low": "$9.81",
+      "high": "$21.50",
+      "percentage": "-4.17%"
+    },
+    "one_year": {
+      "low": "$7.16",
+      "high": "$34.09",
+      "percentage": "-2.90%"
+    },
+    "ah_percentage": "NIL"
+  },
+  {
+    "ticker": "CRCL",
+    "sector": "Crypto",
+    "isxticker": false,
+    "market_cap": "$39.38B",
+    "earning_date": "2025-08-12",
+    "current_price": "$159.04",
+    "today": {
+      "low": "$154.12",
+      "high": "$163.22",
+      "percentage": "3.99%"
+    },
+    "previous_day": {
+      "low": "$151.10",
+      "high": "$169.92",
+      "percentage": "-5.43%"
+    },
+    "five_day": {
+      "low": "$149.00",
+      "high": "$197.90",
+      "percentage": "-3.51%"
+    },
+    "one_month": {
+      "low": "$101.51",
+      "high": "$298.99",
+      "percentage": "-22.31%"
+    },
+    "six_month": {
+      "low": "$64.00",
+      "high": "$298.99",
+      "percentage": "91.07%"
+    },
+    "one_year": {
+      "low": "N/A",
+      "high": "N/A",
+      "percentage": "N/A"
+    },
+    "ah_percentage": "NIL"
+  },
+  {
+    "ticker": "FNMA",
+    "sector": "Real Estate",
+    "isxticker": false,
+    "market_cap": "$11.57B",
+    "earning_date": "2025-07-30",
+    "current_price": "$9.84",
+    "today": {
+      "low": "$8.30",
+      "high": "$10.13",
+      "percentage": "20.51%"
+    },
+    "previous_day": {
+      "low": "$8.20",
+      "high": "$8.60",
+      "percentage": "2.09%"
+    },
+    "five_day": {
+      "low": "$7.45",
+      "high": "$10.13",
+      "percentage": "16.57%"
+    },
+    "one_month": {
+      "low": "$7.30",
+      "high": "$10.33",
+      "percentage": "9.42%"
+    },
+    "six_month": {
+      "low": "$4.83",
+      "high": "$11.91",
+      "percentage": "37.60%"
+    },
+    "one_year": {
+      "low": "$0.45",
+      "high": "$11.91",
+      "percentage": "791.96%"
+    },
+    "ah_percentage": "NIL"
+  },
+  {
+    "ticker": "FMCC",
+    "sector": "Real Estate",
+    "isxticker": false,
+    "market_cap": "$5.19B",
+    "earning_date": "2025-07-31",
+    "current_price": "$7.98",
+    "today": {
+      "low": "$6.60",
+      "high": "$8.02",
+      "percentage": "20.91%"
+    },
+    "previous_day": {
+      "low": "$6.56",
+      "high": "$7.00",
+      "percentage": "0.15%"
+    },
+    "five_day": {
+      "low": "$6.07",
+      "high": "$8.02",
+      "percentage": "14.00%"
+    },
+    "one_month": {
+      "low": "$5.65",
+      "high": "$8.58",
+      "percentage": "4.31%"
+    },
+    "six_month": {
+      "low": "$4.05",
+      "high": "$8.90",
+      "percentage": "22.58%"
+    },
+    "one_year": {
+      "low": "$0.45",
+      "high": "$8.90",
+      "percentage": "638.89%"
+    },
+    "ah_percentage": "NIL"
   },
   {
     "ticker": "BMTR",
@@ -858,433 +1248,43 @@
     "ah_percentage": "NIL"
   },
   {
-    "ticker": "OPEN",
-    "sector": "Real Estate",
-    "isxticker": false,
-    "market_cap": "$1.44B",
-    "earning_date": "2025-08-05",
-    "current_price": "$1.95",
-    "today": {
-      "low": "$1.77",
-      "high": "$2.02",
-      "percentage": "5.41%"
-    },
-    "previous_day": {
-      "low": "$1.70",
-      "high": "$1.93",
-      "percentage": "-2.63%"
-    },
-    "five_day": {
-      "low": "$1.70",
-      "high": "$2.75",
-      "percentage": "-20.73%"
-    },
-    "one_month": {
-      "low": "$0.51",
-      "high": "$4.97",
-      "percentage": "116.43%"
-    },
-    "six_month": {
-      "low": "$0.51",
-      "high": "$4.97",
-      "percentage": "23.42%"
-    },
-    "one_year": {
-      "low": "$0.51",
-      "high": "$4.97",
-      "percentage": "21.88%"
-    },
-    "ah_percentage": "4.33%"
-  },
-  {
-    "ticker": "ARMU",
-    "sector": "SemiConductor",
-    "isxticker": true,
-    "market_cap": "N/A",
-    "earning_date": "N/A",
-    "current_price": "$25.75",
-    "today": {
-      "low": "$25.08",
-      "high": "$26.16",
-      "percentage": "4.08%"
-    },
-    "previous_day": {
-      "low": "$24.58",
-      "high": "$26.28",
-      "percentage": "-0.71%"
-    },
-    "five_day": {
-      "low": "$24.58",
-      "high": "$38.42",
-      "percentage": "-2.54%"
-    },
-    "one_month": {
-      "low": "$24.58",
-      "high": "$39.51",
-      "percentage": "-12.10%"
-    },
-    "six_month": {
-      "low": "$10.37",
-      "high": "$39.51",
-      "percentage": "0.73%"
-    },
-    "one_year": {
-      "low": "$10.37",
-      "high": "$39.51",
-      "percentage": "0.73%"
-    },
-    "ah_percentage": "4.68%"
-  },
-  {
-    "ticker": "NVTS",
-    "sector": "SemiConductor",
-    "isxticker": false,
-    "market_cap": "$1.42B",
-    "earning_date": "2025-08-04",
-    "current_price": "$6.66",
-    "today": {
-      "low": "$6.53",
-      "high": "$7.00",
-      "percentage": "-1.91%"
-    },
-    "previous_day": {
-      "low": "$6.47",
-      "high": "$6.96",
-      "percentage": "6.93%"
-    },
-    "five_day": {
-      "low": "$6.24",
-      "high": "$9.48",
-      "percentage": "-17.27%"
-    },
-    "one_month": {
-      "low": "$5.68",
-      "high": "$9.48",
-      "percentage": "13.46%"
-    },
-    "six_month": {
-      "low": "$1.52",
-      "high": "$9.48",
-      "percentage": "100.00%"
-    },
-    "one_year": {
-      "low": "$1.52",
-      "high": "$10.10",
-      "percentage": "108.78%"
-    },
-    "ah_percentage": "-1.77%"
-  },
-  {
-    "ticker": "SMTC",
-    "sector": "SemiConductor",
-    "isxticker": false,
-    "market_cap": "$4.46B",
-    "earning_date": "2025-05-27",
-    "current_price": "$50.85",
-    "today": {
-      "low": "$50.72",
-      "high": "$52.03",
-      "percentage": "-1.26%"
-    },
-    "previous_day": {
-      "low": "$50.00",
-      "high": "$52.05",
-      "percentage": "1.04%"
-    },
-    "five_day": {
-      "low": "$47.34",
-      "high": "$55.80",
-      "percentage": "-1.63%"
-    },
-    "one_month": {
-      "low": "$38.14",
-      "high": "$55.80",
-      "percentage": "8.35%"
-    },
-    "six_month": {
-      "low": "$24.05",
-      "high": "$79.52",
-      "percentage": "37.25%"
-    },
-    "one_year": {
-      "low": "$13.13",
-      "high": "$79.52",
-      "percentage": "84.17%"
-    },
-    "ah_percentage": "0.62%"
-  },
-  {
-    "ticker": "FNMA",
-    "sector": "Real Estate",
-    "isxticker": false,
-    "market_cap": "$11.51B",
-    "earning_date": "2025-07-30",
-    "current_price": "$9.84",
-    "today": {
-      "low": "$8.35",
-      "high": "$10.13",
-      "percentage": "19.90%"
-    },
-    "previous_day": {
-      "low": "$8.20",
-      "high": "$8.60",
-      "percentage": "2.09%"
-    },
-    "five_day": {
-      "low": "$7.45",
-      "high": "$10.13",
-      "percentage": "15.99%"
-    },
-    "one_month": {
-      "low": "$7.30",
-      "high": "$10.33",
-      "percentage": "8.87%"
-    },
-    "six_month": {
-      "low": "$4.83",
-      "high": "$11.91",
-      "percentage": "36.91%"
-    },
-    "one_year": {
-      "low": "$0.45",
-      "high": "$11.91",
-      "percentage": "787.50%"
-    },
-    "ah_percentage": "19.90%"
-  },
-  {
-    "ticker": "AMDL",
-    "sector": "SemiConductor",
-    "isxticker": true,
-    "market_cap": "N/A",
-    "earning_date": "N/A",
-    "current_price": "$12.18",
-    "today": {
-      "low": "$11.87",
-      "high": "$12.71",
-      "percentage": "0.08%"
-    },
-    "previous_day": {
-      "low": "$11.39",
-      "high": "$12.59",
-      "percentage": "11.46%"
-    },
-    "five_day": {
-      "low": "$10.14",
-      "high": "$13.76",
-      "percentage": "-5.59%"
-    },
-    "one_month": {
-      "low": "$5.69",
-      "high": "$13.76",
-      "percentage": "35.67%"
-    },
-    "six_month": {
-      "low": "$2.77",
-      "high": "$13.76",
-      "percentage": "84.39%"
-    },
-    "one_year": {
-      "low": "$2.77",
-      "high": "$25.62",
-      "percentage": "24.56%"
-    },
-    "ah_percentage": "0.08%"
-  },
-  {
-    "ticker": "SOL-USD",
+    "ticker": "COIN",
     "sector": "Crypto",
     "isxticker": false,
-    "market_cap": "$95.42B",
-    "earning_date": "N/A",
-    "current_price": "$176.94",
+    "market_cap": "$79.79B",
+    "earning_date": "2025-07-31",
+    "current_price": "$310.63",
     "today": {
-      "low": "$176.77",
-      "high": "$177.05",
-      "percentage": "5.21%"
+      "low": "$301.23",
+      "high": "$313.70",
+      "percentage": "-0.08%"
     },
     "previous_day": {
-      "low": "$161.40",
-      "high": "$169.86",
-      "percentage": "2.49%"
+      "low": "$306.98",
+      "high": "$317.94",
+      "percentage": "2.37%"
     },
     "five_day": {
-      "low": "$156.08",
-      "high": "$182.48",
-      "percentage": "9.25%"
+      "low": "$293.31",
+      "high": "$395.39",
+      "percentage": "-2.40%"
     },
     "one_month": {
-      "low": "$126.83",
-      "high": "$205.87",
-      "percentage": "-0.07%"
+      "low": "$235.29",
+      "high": "$444.65",
+      "percentage": "-21.18%"
     },
     "six_month": {
-      "low": "$96.59",
-      "high": "$294.33",
-      "percentage": "56.86%"
+      "low": "$142.58",
+      "high": "$444.65",
+      "percentage": "17.35%"
     },
     "one_year": {
-      "low": "$17.46",
-      "high": "$294.33",
-      "percentage": "-27.35%"
+      "low": "$69.63",
+      "high": "$444.65",
+      "percentage": "73.57%"
     },
-    "ah_percentage": "0.10%"
-  },
-  {
-    "ticker": "MVLL",
-    "sector": "SemiConductor",
-    "isxticker": true,
-    "market_cap": "N/A",
-    "earning_date": "N/A",
-    "current_price": "$22.11",
-    "today": {
-      "low": "$21.16",
-      "high": "$22.16",
-      "percentage": "3.92%"
-    },
-    "previous_day": {
-      "low": "$20.43",
-      "high": "$22.08",
-      "percentage": "1.18%"
-    },
-    "five_day": {
-      "low": "$20.00",
-      "high": "$27.02",
-      "percentage": "1.84%"
-    },
-    "one_month": {
-      "low": "$17.51",
-      "high": "$27.02",
-      "percentage": "10.39%"
-    },
-    "six_month": {
-      "low": "$9.66",
-      "high": "$27.02",
-      "percentage": "-7.80%"
-    },
-    "one_year": {
-      "low": "$9.66",
-      "high": "$27.02",
-      "percentage": "-7.80%"
-    },
-    "ah_percentage": "4.63%"
-  },
-  {
-    "ticker": "ETH-USD",
-    "sector": "Crypto",
-    "isxticker": false,
-    "market_cap": "$485.28B",
-    "earning_date": "N/A",
-    "current_price": "$4,019.83",
-    "today": {
-      "low": "$4,007.95",
-      "high": "$4,020.21",
-      "percentage": "9.13%"
-    },
-    "previous_day": {
-      "low": "$3,567.10",
-      "high": "$3,698.12",
-      "percentage": "1.99%"
-    },
-    "five_day": {
-      "low": "$3,357.94",
-      "high": "$4,020.21",
-      "percentage": "14.95%"
-    },
-    "one_month": {
-      "low": "$2,116.68",
-      "high": "$4,020.21",
-      "percentage": "11.82%"
-    },
-    "six_month": {
-      "low": "$1,386.80",
-      "high": "$4,020.21",
-      "percentage": "164.05%"
-    },
-    "one_year": {
-      "low": "$1,386.80",
-      "high": "$4,106.96",
-      "percentage": "11.87%"
-    },
-    "ah_percentage": "0.25%"
-  },
-  {
-    "ticker": "CRCL",
-    "sector": "Crypto",
-    "isxticker": false,
-    "market_cap": "$37.87B",
-    "earning_date": "2025-08-12",
-    "current_price": "$159.04",
-    "today": {
-      "low": "$154.12",
-      "high": "$163.20",
-      "percentage": "3.99%"
-    },
-    "previous_day": {
-      "low": "$151.10",
-      "high": "$169.92",
-      "percentage": "-5.43%"
-    },
-    "five_day": {
-      "low": "$149.00",
-      "high": "$197.90",
-      "percentage": "-3.51%"
-    },
-    "one_month": {
-      "low": "$101.51",
-      "high": "$298.99",
-      "percentage": "-22.31%"
-    },
-    "six_month": {
-      "low": "$64.00",
-      "high": "$298.99",
-      "percentage": "91.07%"
-    },
-    "one_year": {
-      "low": "N/A",
-      "high": "N/A",
-      "percentage": "N/A"
-    },
-    "ah_percentage": "4.51%"
-  },
-  {
-    "ticker": "BTC-USD",
-    "sector": "Crypto",
-    "isxticker": false,
-    "market_cap": "$2.32T",
-    "earning_date": "N/A",
-    "current_price": "$116,648.66",
-    "today": {
-      "low": "$116,652.90",
-      "high": "$116,739.95",
-      "percentage": "2.20%"
-    },
-    "previous_day": {
-      "low": "$112,701.11",
-      "high": "$115,117.44",
-      "percentage": "-2.15%"
-    },
-    "five_day": {
-      "low": "$111,943.80",
-      "high": "$118,919.98",
-      "percentage": "3.67%"
-    },
-    "one_month": {
-      "low": "$98,286.20",
-      "high": "$123,091.61",
-      "percentage": "-1.14%"
-    },
-    "six_month": {
-      "low": "$74,436.68",
-      "high": "$123,091.61",
-      "percentage": "41.27%"
-    },
-    "one_year": {
-      "low": "$24,930.30",
-      "high": "$123,091.61",
-      "percentage": "21.95%"
-    },
-    "ah_percentage": "-0.03%"
+    "ah_percentage": "NIL"
   },
   {
     "ticker": "RKT",
@@ -1323,96 +1323,18 @@
       "high": "$20.23",
       "percentage": "2.74%"
     },
-    "ah_percentage": "-3.65%"
-  },
-  {
-    "ticker": "NAIL",
-    "sector": "Real Estate",
-    "isxticker": false,
-    "market_cap": "N/A",
-    "earning_date": "N/A",
-    "current_price": "$69.74",
-    "today": {
-      "low": "$68.53",
-      "high": "$70.58",
-      "percentage": "1.42%"
-    },
-    "previous_day": {
-      "low": "$68.32",
-      "high": "$72.89",
-      "percentage": "1.25%"
-    },
-    "five_day": {
-      "low": "$57.18",
-      "high": "$72.89",
-      "percentage": "5.43%"
-    },
-    "one_month": {
-      "low": "$44.02",
-      "high": "$72.89",
-      "percentage": "14.91%"
-    },
-    "six_month": {
-      "low": "$39.71",
-      "high": "$104.17",
-      "percentage": "-9.88%"
-    },
-    "one_year": {
-      "low": "$39.46",
-      "high": "$176.08",
-      "percentage": "-37.05%"
-    },
-    "ah_percentage": "1.86%"
-  },
-  {
-    "ticker": "COIN",
-    "sector": "Crypto",
-    "isxticker": false,
-    "market_cap": "$79.85B",
-    "earning_date": "2025-07-31",
-    "current_price": "$310.63",
-    "today": {
-      "low": "$301.23",
-      "high": "$313.70",
-      "percentage": "-0.08%"
-    },
-    "previous_day": {
-      "low": "$306.98",
-      "high": "$317.94",
-      "percentage": "2.37%"
-    },
-    "five_day": {
-      "low": "$293.31",
-      "high": "$395.39",
-      "percentage": "-2.40%"
-    },
-    "one_month": {
-      "low": "$235.29",
-      "high": "$444.65",
-      "percentage": "-21.18%"
-    },
-    "six_month": {
-      "low": "$142.58",
-      "high": "$444.65",
-      "percentage": "17.35%"
-    },
-    "one_year": {
-      "low": "$69.63",
-      "high": "$444.65",
-      "percentage": "73.57%"
-    },
-    "ah_percentage": "-0.35%"
+    "ah_percentage": "NIL"
   },
   {
     "ticker": "RIOT",
     "sector": "Crypto",
     "isxticker": false,
-    "market_cap": "$4.29B",
+    "market_cap": "$4.10B",
     "earning_date": "2025-07-31",
     "current_price": "$11.07",
     "today": {
       "low": "$10.95",
-      "high": "$11.78",
+      "high": "$11.79",
       "percentage": "-4.32%"
     },
     "previous_day": {
@@ -1440,85 +1362,163 @@
       "high": "$18.75",
       "percentage": "45.03%"
     },
-    "ah_percentage": "-4.23%"
+    "ah_percentage": "NIL"
   },
   {
-    "ticker": "FMCC",
-    "sector": "Real Estate",
-    "isxticker": false,
-    "market_cap": "$5.19B",
-    "earning_date": "2025-07-31",
-    "current_price": "$7.98",
-    "today": {
-      "low": "$6.60",
-      "high": "$8.02",
-      "percentage": "20.91%"
-    },
-    "previous_day": {
-      "low": "$6.56",
-      "high": "$7.00",
-      "percentage": "0.15%"
-    },
-    "five_day": {
-      "low": "$6.07",
-      "high": "$8.02",
-      "percentage": "14.00%"
-    },
-    "one_month": {
-      "low": "$5.65",
-      "high": "$8.58",
-      "percentage": "4.31%"
-    },
-    "six_month": {
-      "low": "$4.05",
-      "high": "$8.90",
-      "percentage": "22.58%"
-    },
-    "one_year": {
-      "low": "$0.45",
-      "high": "$8.90",
-      "percentage": "638.89%"
-    },
-    "ah_percentage": "20.91%"
-  },
-  {
-    "ticker": "MARA",
+    "ticker": "BTC-USD",
     "sector": "Crypto",
     "isxticker": false,
-    "market_cap": "$5.91B",
-    "earning_date": "2025-07-29",
-    "current_price": "$15.38",
+    "market_cap": "$2.36T",
+    "earning_date": "N/A",
+    "current_price": "$118,733.67",
     "today": {
-      "low": "$15.29",
-      "high": "$16.17",
-      "percentage": "-3.57%"
+      "low": "$116,503.58",
+      "high": "$119,064.38",
+      "percentage": "1.73%"
     },
     "previous_day": {
-      "low": "$15.60",
-      "high": "$16.50",
-      "percentage": "0.38%"
+      "low": "$115,917.46",
+      "high": "$117,689.20",
+      "percentage": "-0.69%"
     },
     "five_day": {
-      "low": "$15.01",
-      "high": "$17.92",
-      "percentage": "-4.11%"
+      "low": "$111,943.80",
+      "high": "$119,064.38",
+      "percentage": "4.00%"
     },
     "one_month": {
-      "low": "$13.49",
-      "high": "$21.50",
-      "percentage": "-19.94%"
+      "low": "$98,286.20",
+      "high": "$123,091.61",
+      "percentage": "1.08%"
     },
     "six_month": {
-      "low": "$9.81",
-      "high": "$21.50",
-      "percentage": "-4.17%"
+      "low": "$74,436.68",
+      "high": "$123,091.61",
+      "percentage": "39.19%"
     },
     "one_year": {
-      "low": "$7.16",
-      "high": "$34.09",
-      "percentage": "-2.90%"
+      "low": "$24,930.30",
+      "high": "$123,091.61",
+      "percentage": "22.03%"
     },
-    "ah_percentage": "-2.82%"
+    "ah_percentage": "NIL"
+  },
+  {
+    "ticker": "ETH-USD",
+    "sector": "Crypto",
+    "isxticker": false,
+    "market_cap": "$509.80B",
+    "earning_date": "N/A",
+    "current_price": "$4,220.48",
+    "today": {
+      "low": "$4,163.94",
+      "high": "$4,332.21",
+      "percentage": "5.33%"
+    },
+    "previous_day": {
+      "low": "$3,882.44",
+      "high": "$4,068.85",
+      "percentage": "2.44%"
+    },
+    "five_day": {
+      "low": "$3,357.94",
+      "high": "$4,332.21",
+      "percentage": "16.93%"
+    },
+    "one_month": {
+      "low": "$2,116.68",
+      "high": "$4,332.21",
+      "percentage": "12.22%"
+    },
+    "six_month": {
+      "low": "$1,386.80",
+      "high": "$4,332.21",
+      "percentage": "156.97%"
+    },
+    "one_year": {
+      "low": "$1,386.80",
+      "high": "$4,332.21",
+      "percentage": "13.80%"
+    },
+    "ah_percentage": "NIL"
+  },
+  {
+    "ticker": "OPEN",
+    "sector": "Real Estate",
+    "isxticker": false,
+    "market_cap": "$1.44B",
+    "earning_date": "2025-08-05",
+    "current_price": "$1.95",
+    "today": {
+      "low": "$1.77",
+      "high": "$2.02",
+      "percentage": "5.41%"
+    },
+    "previous_day": {
+      "low": "$1.70",
+      "high": "$1.93",
+      "percentage": "-2.63%"
+    },
+    "five_day": {
+      "low": "$1.70",
+      "high": "$2.75",
+      "percentage": "-20.73%"
+    },
+    "one_month": {
+      "low": "$0.51",
+      "high": "$4.97",
+      "percentage": "116.43%"
+    },
+    "six_month": {
+      "low": "$0.51",
+      "high": "$4.97",
+      "percentage": "23.42%"
+    },
+    "one_year": {
+      "low": "$0.51",
+      "high": "$4.97",
+      "percentage": "21.88%"
+    },
+    "ah_percentage": "NIL"
+  },
+  {
+    "ticker": "SOL-USD",
+    "sector": "Crypto",
+    "isxticker": false,
+    "market_cap": "$97.99B",
+    "earning_date": "N/A",
+    "current_price": "$181.67",
+    "today": {
+      "low": "$178.08",
+      "high": "$185.91",
+      "percentage": "2.78%"
+    },
+    "previous_day": {
+      "low": "$173.70",
+      "high": "$179.36",
+      "percentage": "0.73%"
+    },
+    "five_day": {
+      "low": "$156.08",
+      "high": "$185.91",
+      "percentage": "10.72%"
+    },
+    "one_month": {
+      "low": "$126.83",
+      "high": "$205.87",
+      "percentage": "-7.30%"
+    },
+    "six_month": {
+      "low": "$96.59",
+      "high": "$294.33",
+      "percentage": "37.37%"
+    },
+    "one_year": {
+      "low": "$17.46",
+      "high": "$294.33",
+      "percentage": "-23.36%"
+    },
+    "ah_percentage": "NIL"
   },
   {
     "ticker": "CONL",
@@ -1528,7 +1528,7 @@
     "earning_date": "N/A",
     "current_price": "$33.47",
     "today": {
-      "low": "$31.46",
+      "low": "$31.45",
       "high": "$34.11",
       "percentage": "-0.36%"
     },
@@ -1557,7 +1557,7 @@
       "high": "$87.37",
       "percentage": "23.11%"
     },
-    "ah_percentage": "-1.13%"
+    "ah_percentage": "NIL"
   },
   {
     "ticker": "COIG",
@@ -1589,131 +1589,14 @@
     "six_month": {
       "low": "$9.35",
       "high": "$71.99",
-      "percentage": "96.27%"
+      "percentage": "96.26%"
     },
     "one_year": {
       "low": "$9.35",
       "high": "$71.99",
-      "percentage": "96.27%"
+      "percentage": "96.26%"
     },
-    "ah_percentage": "-0.98%"
-  },
-  {
-    "ticker": "MRAL",
-    "sector": "Crypto",
-    "isxticker": true,
-    "market_cap": "N/A",
-    "earning_date": "N/A",
-    "current_price": "$17.74",
-    "today": {
-      "low": "$17.46",
-      "high": "$19.58",
-      "percentage": "-6.98%"
-    },
-    "previous_day": {
-      "low": "$18.27",
-      "high": "$20.37",
-      "percentage": "0.54%"
-    },
-    "five_day": {
-      "low": "$16.95",
-      "high": "$24.08",
-      "percentage": "-8.60%"
-    },
-    "one_month": {
-      "low": "$14.75",
-      "high": "$35.57",
-      "percentage": "-38.59%"
-    },
-    "six_month": {
-      "low": "$9.21",
-      "high": "$35.57",
-      "percentage": "-37.20%"
-    },
-    "one_year": {
-      "low": "$9.21",
-      "high": "$35.57",
-      "percentage": "-37.20%"
-    },
-    "ah_percentage": "-6.12%"
-  },
-  {
-    "ticker": "RIOX",
-    "sector": "Crypto",
-    "isxticker": true,
-    "market_cap": "N/A",
-    "earning_date": "N/A",
-    "current_price": "$12.79",
-    "today": {
-      "low": "$12.53",
-      "high": "$14.47",
-      "percentage": "-10.00%"
-    },
-    "previous_day": {
-      "low": "$13.71",
-      "high": "$15.82",
-      "percentage": "-0.28%"
-    },
-    "five_day": {
-      "low": "$11.80",
-      "high": "$23.88",
-      "percentage": "-7.32%"
-    },
-    "one_month": {
-      "low": "$9.29",
-      "high": "$26.28",
-      "percentage": "-28.52%"
-    },
-    "six_month": {
-      "low": "$5.15",
-      "high": "$36.00",
-      "percentage": "-40.72%"
-    },
-    "one_year": {
-      "low": "$5.15",
-      "high": "$36.00",
-      "percentage": "-53.04%"
-    },
-    "ah_percentage": "-9.58%"
-  },
-  {
-    "ticker": "MSTX",
-    "sector": "Crypto",
-    "isxticker": true,
-    "market_cap": "N/A",
-    "earning_date": "N/A",
-    "current_price": "$35.31",
-    "today": {
-      "low": "$34.18",
-      "high": "$37.96",
-      "percentage": "-3.63%"
-    },
-    "previous_day": {
-      "low": "$34.10",
-      "high": "$37.36",
-      "percentage": "9.49%"
-    },
-    "five_day": {
-      "low": "$30.75",
-      "high": "$40.60",
-      "percentage": "1.91%"
-    },
-    "one_month": {
-      "low": "$30.75",
-      "high": "$49.76",
-      "percentage": "-27.46%"
-    },
-    "six_month": {
-      "low": "$16.45",
-      "high": "$64.40",
-      "percentage": "-16.49%"
-    },
-    "one_year": {
-      "low": "$11.05",
-      "high": "$160.85",
-      "percentage": "137.92%"
-    },
-    "ah_percentage": "-3.50%"
+    "ah_percentage": "NIL"
   },
   {
     "ticker": "SOLT",
@@ -1752,17 +1635,173 @@
       "high": "$26.84",
       "percentage": "39.22%"
     },
-    "ah_percentage": "6.61%"
+    "ah_percentage": "NIL"
+  },
+  {
+    "ticker": "MRAL",
+    "sector": "Crypto",
+    "isxticker": true,
+    "market_cap": "N/A",
+    "earning_date": "N/A",
+    "current_price": "$17.74",
+    "today": {
+      "low": "$17.46",
+      "high": "$19.59",
+      "percentage": "-6.98%"
+    },
+    "previous_day": {
+      "low": "$18.27",
+      "high": "$20.37",
+      "percentage": "0.54%"
+    },
+    "five_day": {
+      "low": "$16.95",
+      "high": "$24.08",
+      "percentage": "-8.60%"
+    },
+    "one_month": {
+      "low": "$14.75",
+      "high": "$35.57",
+      "percentage": "-38.59%"
+    },
+    "six_month": {
+      "low": "$9.21",
+      "high": "$35.57",
+      "percentage": "-37.20%"
+    },
+    "one_year": {
+      "low": "$9.21",
+      "high": "$35.57",
+      "percentage": "-37.20%"
+    },
+    "ah_percentage": "NIL"
+  },
+  {
+    "ticker": "ETHU",
+    "sector": "Crypto",
+    "isxticker": true,
+    "market_cap": "N/A",
+    "earning_date": "N/A",
+    "current_price": "$137.57",
+    "today": {
+      "low": "$127.19",
+      "high": "$137.86",
+      "percentage": "9.96%"
+    },
+    "previous_day": {
+      "low": "$119.44",
+      "high": "$125.62",
+      "percentage": "10.27%"
+    },
+    "five_day": {
+      "low": "$102.62",
+      "high": "$137.86",
+      "percentage": "21.87%"
+    },
+    "one_month": {
+      "low": "$42.86",
+      "high": "$137.86",
+      "percentage": "74.72%"
+    },
+    "six_month": {
+      "low": "$22.05",
+      "high": "$166.39",
+      "percentage": "64.84%"
+    },
+    "one_year": {
+      "low": "$22.05",
+      "high": "$322.38",
+      "percentage": "36.74%"
+    },
+    "ah_percentage": "NIL"
+  },
+  {
+    "ticker": "RIOX",
+    "sector": "Crypto",
+    "isxticker": true,
+    "market_cap": "N/A",
+    "earning_date": "N/A",
+    "current_price": "$12.79",
+    "today": {
+      "low": "$12.53",
+      "high": "$14.55",
+      "percentage": "-10.00%"
+    },
+    "previous_day": {
+      "low": "$13.71",
+      "high": "$15.82",
+      "percentage": "-0.28%"
+    },
+    "five_day": {
+      "low": "$11.80",
+      "high": "$23.88",
+      "percentage": "-7.32%"
+    },
+    "one_month": {
+      "low": "$9.29",
+      "high": "$26.28",
+      "percentage": "-28.52%"
+    },
+    "six_month": {
+      "low": "$5.15",
+      "high": "$36.00",
+      "percentage": "-40.72%"
+    },
+    "one_year": {
+      "low": "$5.15",
+      "high": "$36.00",
+      "percentage": "-53.04%"
+    },
+    "ah_percentage": "NIL"
+  },
+  {
+    "ticker": "MSTX",
+    "sector": "Crypto",
+    "isxticker": true,
+    "market_cap": "N/A",
+    "earning_date": "N/A",
+    "current_price": "$35.31",
+    "today": {
+      "low": "$34.18",
+      "high": "$37.96",
+      "percentage": "-3.63%"
+    },
+    "previous_day": {
+      "low": "$34.10",
+      "high": "$37.36",
+      "percentage": "9.49%"
+    },
+    "five_day": {
+      "low": "$30.75",
+      "high": "$40.60",
+      "percentage": "1.91%"
+    },
+    "one_month": {
+      "low": "$30.75",
+      "high": "$49.76",
+      "percentage": "-27.46%"
+    },
+    "six_month": {
+      "low": "$16.45",
+      "high": "$64.40",
+      "percentage": "-16.49%"
+    },
+    "one_year": {
+      "low": "$11.05",
+      "high": "$160.85",
+      "percentage": "137.92%"
+    },
+    "ah_percentage": "NIL"
   },
   {
     "ticker": "SNOW",
     "sector": "Security/Software Product",
     "isxticker": false,
-    "market_cap": "$68.87B",
+    "market_cap": "$63.97B",
     "earning_date": "2025-08-27",
     "current_price": "$191.64",
     "today": {
-      "low": "$191.35",
+      "low": "$191.33",
       "high": "$206.40",
       "percentage": "-7.11%"
     },
@@ -1772,12 +1811,12 @@
       "percentage": "-1.97%"
     },
     "five_day": {
-      "low": "$191.35",
+      "low": "$191.33",
       "high": "$229.27",
       "percentage": "-8.03%"
     },
     "one_month": {
-      "low": "$191.35",
+      "low": "$191.33",
       "high": "$229.27",
       "percentage": "-10.21%"
     },
@@ -1791,7 +1830,7 @@
       "high": "$237.72",
       "percentage": "66.58%"
     },
-    "ah_percentage": "-6.76%"
+    "ah_percentage": "NIL"
   },
   {
     "ticker": "BITU",
@@ -1801,7 +1840,7 @@
     "earning_date": "N/A",
     "current_price": "$57.99",
     "today": {
-      "low": "$57.35",
+      "low": "$57.34",
       "high": "$58.93",
       "percentage": "-2.04%"
     },
@@ -1830,124 +1869,46 @@
       "high": "$64.70",
       "percentage": "204.46%"
     },
-    "ah_percentage": "-1.76%"
+    "ah_percentage": "NIL"
   },
   {
-    "ticker": "SNOU",
-    "sector": "Security/Software Product",
-    "isxticker": true,
-    "market_cap": "N/A",
-    "earning_date": "N/A",
-    "current_price": "$38.86",
-    "today": {
-      "low": "$38.83",
-      "high": "$44.71",
-      "percentage": "-14.22%"
-    },
-    "previous_day": {
-      "low": "$42.90",
-      "high": "$49.19",
-      "percentage": "-3.88%"
-    },
-    "five_day": {
-      "low": "$38.83",
-      "high": "$56.19",
-      "percentage": "-16.12%"
-    },
-    "one_month": {
-      "low": "$38.83",
-      "high": "$56.19",
-      "percentage": "-21.29%"
-    },
-    "six_month": {
-      "low": "$27.02",
-      "high": "$56.19",
-      "percentage": "34.62%"
-    },
-    "one_year": {
-      "low": "$27.02",
-      "high": "$56.19",
-      "percentage": "34.62%"
-    },
-    "ah_percentage": "-13.91%"
-  },
-  {
-    "ticker": "ZS",
+    "ticker": "CRM",
     "sector": "Security/Software Product",
     "isxticker": false,
-    "market_cap": "$41.99B",
-    "earning_date": "2025-09-02",
-    "current_price": "$269.59",
+    "market_cap": "$229.93B",
+    "earning_date": "2025-09-03",
+    "current_price": "$240.48",
     "today": {
-      "low": "$268.26",
-      "high": "$274.83",
-      "percentage": "-1.03%"
+      "low": "$237.83",
+      "high": "$242.95",
+      "percentage": "-0.15%"
     },
     "previous_day": {
-      "low": "$265.88",
-      "high": "$291.07",
-      "percentage": "-5.81%"
+      "low": "$236.97",
+      "high": "$253.01",
+      "percentage": "-3.33%"
     },
     "five_day": {
-      "low": "$265.88",
-      "high": "$293.63",
-      "percentage": "-5.65%"
+      "low": "$236.97",
+      "high": "$274.00",
+      "percentage": "-4.68%"
     },
     "one_month": {
-      "low": "$265.88",
-      "high": "$318.46",
-      "percentage": "-7.37%"
+      "low": "$236.97",
+      "high": "$276.80",
+      "percentage": "-7.38%"
     },
     "six_month": {
-      "low": "$164.78",
-      "high": "$318.46",
-      "percentage": "24.36%"
+      "low": "$229.28",
+      "high": "$365.93",
+      "percentage": "-26.66%"
     },
     "one_year": {
-      "low": "$131.59",
-      "high": "$318.46",
-      "percentage": "62.27%"
+      "low": "$192.00",
+      "high": "$367.42",
+      "percentage": "0.79%"
     },
-    "ah_percentage": "-0.65%"
-  },
-  {
-    "ticker": "PANG",
-    "sector": "Security/Software Product",
-    "isxticker": true,
-    "market_cap": "N/A",
-    "earning_date": "N/A",
-    "current_price": "$10.93",
-    "today": {
-      "low": "$10.88",
-      "high": "$11.30",
-      "percentage": "-1.08%"
-    },
-    "previous_day": {
-      "low": "$10.70",
-      "high": "$11.71",
-      "percentage": "-6.04%"
-    },
-    "five_day": {
-      "low": "$10.70",
-      "high": "$17.53",
-      "percentage": "-4.86%"
-    },
-    "one_month": {
-      "low": "$10.70",
-      "high": "$17.53",
-      "percentage": "-25.29%"
-    },
-    "six_month": {
-      "low": "$9.18",
-      "high": "$17.53",
-      "percentage": "-25.67%"
-    },
-    "one_year": {
-      "low": "$9.18",
-      "high": "$17.53",
-      "percentage": "-25.67%"
-    },
-    "ah_percentage": "-1.08%"
+    "ah_percentage": "NIL"
   },
   {
     "ticker": "MDB",
@@ -1986,124 +1947,7 @@
       "high": "$509.62",
       "percentage": "-6.99%"
     },
-    "ah_percentage": "-7.62%"
-  },
-  {
-    "ticker": "CRMG",
-    "sector": "Security/Software Product",
-    "isxticker": true,
-    "market_cap": "N/A",
-    "earning_date": "N/A",
-    "current_price": "$12.26",
-    "today": {
-      "low": "$12.06",
-      "high": "$12.45",
-      "percentage": "-0.47%"
-    },
-    "previous_day": {
-      "low": "$11.97",
-      "high": "$13.63",
-      "percentage": "-6.74%"
-    },
-    "five_day": {
-      "low": "$11.97",
-      "high": "$16.04",
-      "percentage": "-9.79%"
-    },
-    "one_month": {
-      "low": "$11.97",
-      "high": "$16.56",
-      "percentage": "-15.84%"
-    },
-    "six_month": {
-      "low": "$11.97",
-      "high": "$19.41",
-      "percentage": "-7.32%"
-    },
-    "one_year": {
-      "low": "$11.97",
-      "high": "$19.41",
-      "percentage": "-7.32%"
-    },
-    "ah_percentage": "-0.48%"
-  },
-  {
-    "ticker": "CRM",
-    "sector": "Security/Software Product",
-    "isxticker": false,
-    "market_cap": "$229.93B",
-    "earning_date": "2025-09-03",
-    "current_price": "$240.48",
-    "today": {
-      "low": "$237.83",
-      "high": "$242.86",
-      "percentage": "-0.15%"
-    },
-    "previous_day": {
-      "low": "$236.97",
-      "high": "$253.01",
-      "percentage": "-3.33%"
-    },
-    "five_day": {
-      "low": "$236.97",
-      "high": "$274.00",
-      "percentage": "-4.68%"
-    },
-    "one_month": {
-      "low": "$236.97",
-      "high": "$276.80",
-      "percentage": "-7.38%"
-    },
-    "six_month": {
-      "low": "$229.28",
-      "high": "$365.93",
-      "percentage": "-26.66%"
-    },
-    "one_year": {
-      "low": "$192.00",
-      "high": "$367.42",
-      "percentage": "0.79%"
-    },
-    "ah_percentage": "-0.26%"
-  },
-  {
-    "ticker": "ETHU",
-    "sector": "Crypto",
-    "isxticker": true,
-    "market_cap": "N/A",
-    "earning_date": "N/A",
-    "current_price": "$137.57",
-    "today": {
-      "low": "$127.19",
-      "high": "$137.86",
-      "percentage": "9.96%"
-    },
-    "previous_day": {
-      "low": "$119.44",
-      "high": "$125.62",
-      "percentage": "10.27%"
-    },
-    "five_day": {
-      "low": "$102.62",
-      "high": "$137.86",
-      "percentage": "21.87%"
-    },
-    "one_month": {
-      "low": "$42.86",
-      "high": "$137.86",
-      "percentage": "74.72%"
-    },
-    "six_month": {
-      "low": "$22.05",
-      "high": "$166.36",
-      "percentage": "64.88%"
-    },
-    "one_year": {
-      "low": "$22.05",
-      "high": "$322.31",
-      "percentage": "36.76%"
-    },
-    "ah_percentage": "7.40%"
+    "ah_percentage": "NIL"
   },
   {
     "ticker": "PANW",
@@ -2114,7 +1958,7 @@
     "current_price": "$167.09",
     "today": {
       "low": "$166.56",
-      "high": "$170.45",
+      "high": "$170.46",
       "percentage": "-0.62%"
     },
     "previous_day": {
@@ -2142,13 +1986,91 @@
       "high": "$210.39",
       "percentage": "9.83%"
     },
-    "ah_percentage": "-0.59%"
+    "ah_percentage": "NIL"
+  },
+  {
+    "ticker": "CRWD",
+    "sector": "Security/Software Product",
+    "isxticker": false,
+    "market_cap": "$105.80B",
+    "earning_date": "2025-08-27",
+    "current_price": "$424.49",
+    "today": {
+      "low": "$420.42",
+      "high": "$434.50",
+      "percentage": "-0.12%"
+    },
+    "previous_day": {
+      "low": "$422.00",
+      "high": "$451.98",
+      "percentage": "-5.91%"
+    },
+    "five_day": {
+      "low": "$420.42",
+      "high": "$480.72",
+      "percentage": "-6.68%"
+    },
+    "one_month": {
+      "low": "$420.42",
+      "high": "$517.98",
+      "percentage": "-10.86%"
+    },
+    "six_month": {
+      "low": "$298.00",
+      "high": "$517.98",
+      "percentage": "-6.78%"
+    },
+    "one_year": {
+      "low": "$140.52",
+      "high": "$517.98",
+      "percentage": "84.02%"
+    },
+    "ah_percentage": "NIL"
+  },
+  {
+    "ticker": "ZS",
+    "sector": "Security/Software Product",
+    "isxticker": false,
+    "market_cap": "$41.99B",
+    "earning_date": "2025-09-02",
+    "current_price": "$269.59",
+    "today": {
+      "low": "$268.26",
+      "high": "$274.83",
+      "percentage": "-1.03%"
+    },
+    "previous_day": {
+      "low": "$265.88",
+      "high": "$291.07",
+      "percentage": "-5.81%"
+    },
+    "five_day": {
+      "low": "$265.88",
+      "high": "$293.63",
+      "percentage": "-5.65%"
+    },
+    "one_month": {
+      "low": "$265.88",
+      "high": "$318.46",
+      "percentage": "-7.37%"
+    },
+    "six_month": {
+      "low": "$164.78",
+      "high": "$318.46",
+      "percentage": "24.36%"
+    },
+    "one_year": {
+      "low": "$131.59",
+      "high": "$318.46",
+      "percentage": "62.27%"
+    },
+    "ah_percentage": "NIL"
   },
   {
     "ticker": "FTNT",
     "sector": "Security/Software Product",
     "isxticker": false,
-    "market_cap": "$56.94B",
+    "market_cap": "$57.00B",
     "earning_date": "2025-08-06",
     "current_price": "$74.39",
     "today": {
@@ -2181,7 +2103,46 @@
       "high": "$114.82",
       "percentage": "6.38%"
     },
-    "ah_percentage": "-1.14%"
+    "ah_percentage": "NIL"
+  },
+  {
+    "ticker": "PANG",
+    "sector": "Security/Software Product",
+    "isxticker": true,
+    "market_cap": "N/A",
+    "earning_date": "N/A",
+    "current_price": "$10.93",
+    "today": {
+      "low": "$10.88",
+      "high": "$11.30",
+      "percentage": "-1.08%"
+    },
+    "previous_day": {
+      "low": "$10.70",
+      "high": "$11.71",
+      "percentage": "-6.04%"
+    },
+    "five_day": {
+      "low": "$10.70",
+      "high": "$17.53",
+      "percentage": "-4.86%"
+    },
+    "one_month": {
+      "low": "$10.70",
+      "high": "$17.53",
+      "percentage": "-25.28%"
+    },
+    "six_month": {
+      "low": "$9.18",
+      "high": "$17.53",
+      "percentage": "-25.66%"
+    },
+    "one_year": {
+      "low": "$9.18",
+      "high": "$17.53",
+      "percentage": "-25.66%"
+    },
+    "ah_percentage": "NIL"
   },
   {
     "ticker": "OKTA",
@@ -2220,46 +2181,7 @@
       "high": "$127.57",
       "percentage": "6.75%"
     },
-    "ah_percentage": "-1.70%"
-  },
-  {
-    "ticker": "CRWD",
-    "sector": "Security/Software Product",
-    "isxticker": false,
-    "market_cap": "$105.80B",
-    "earning_date": "2025-08-27",
-    "current_price": "$424.49",
-    "today": {
-      "low": "$420.43",
-      "high": "$434.39",
-      "percentage": "-0.12%"
-    },
-    "previous_day": {
-      "low": "$422.00",
-      "high": "$451.98",
-      "percentage": "-5.91%"
-    },
-    "five_day": {
-      "low": "$420.43",
-      "high": "$480.72",
-      "percentage": "-6.68%"
-    },
-    "one_month": {
-      "low": "$420.43",
-      "high": "$517.98",
-      "percentage": "-10.86%"
-    },
-    "six_month": {
-      "low": "$298.00",
-      "high": "$517.98",
-      "percentage": "-6.78%"
-    },
-    "one_year": {
-      "low": "$140.52",
-      "high": "$517.98",
-      "percentage": "84.02%"
-    },
-    "ah_percentage": "-0.14%"
+    "ah_percentage": "NIL"
   },
   {
     "ticker": "CRWL",
@@ -2298,13 +2220,91 @@
       "high": "$43.49",
       "percentage": "13.13%"
     },
-    "ah_percentage": "-1.41%"
+    "ah_percentage": "NIL"
+  },
+  {
+    "ticker": "SNOU",
+    "sector": "Security/Software Product",
+    "isxticker": true,
+    "market_cap": "N/A",
+    "earning_date": "N/A",
+    "current_price": "$38.86",
+    "today": {
+      "low": "$38.83",
+      "high": "$45.30",
+      "percentage": "-14.22%"
+    },
+    "previous_day": {
+      "low": "$42.90",
+      "high": "$49.19",
+      "percentage": "-3.88%"
+    },
+    "five_day": {
+      "low": "$38.83",
+      "high": "$56.19",
+      "percentage": "-16.12%"
+    },
+    "one_month": {
+      "low": "$38.83",
+      "high": "$56.19",
+      "percentage": "-21.29%"
+    },
+    "six_month": {
+      "low": "$27.02",
+      "high": "$56.19",
+      "percentage": "34.62%"
+    },
+    "one_year": {
+      "low": "$27.02",
+      "high": "$56.19",
+      "percentage": "34.62%"
+    },
+    "ah_percentage": "NIL"
+  },
+  {
+    "ticker": "CRMG",
+    "sector": "Security/Software Product",
+    "isxticker": true,
+    "market_cap": "N/A",
+    "earning_date": "N/A",
+    "current_price": "$12.26",
+    "today": {
+      "low": "$12.06",
+      "high": "$12.50",
+      "percentage": "-0.46%"
+    },
+    "previous_day": {
+      "low": "$11.97",
+      "high": "$13.63",
+      "percentage": "-6.74%"
+    },
+    "five_day": {
+      "low": "$11.97",
+      "high": "$16.04",
+      "percentage": "-9.79%"
+    },
+    "one_month": {
+      "low": "$11.97",
+      "high": "$16.56",
+      "percentage": "-15.84%"
+    },
+    "six_month": {
+      "low": "$11.97",
+      "high": "$19.41",
+      "percentage": "-7.32%"
+    },
+    "one_year": {
+      "low": "$11.97",
+      "high": "$19.41",
+      "percentage": "-7.32%"
+    },
+    "ah_percentage": "NIL"
   },
   {
     "ticker": "HOOD",
     "sector": "Finance",
     "isxticker": false,
-    "market_cap": "$98.85B",
+    "market_cap": "$101.87B",
     "earning_date": "2025-07-30",
     "current_price": "$114.59",
     "today": {
@@ -2337,241 +2337,7 @@
       "high": "$117.00",
       "percentage": "569.57%"
     },
-    "ah_percentage": "3.42%"
-  },
-  {
-    "ticker": "UPST",
-    "sector": "Finance",
-    "isxticker": false,
-    "market_cap": "$6.69B",
-    "earning_date": "2025-08-05",
-    "current_price": "$68.74",
-    "today": {
-      "low": "$68.61",
-      "high": "$71.55",
-      "percentage": "-1.11%"
-    },
-    "previous_day": {
-      "low": "$68.21",
-      "high": "$71.56",
-      "percentage": "3.56%"
-    },
-    "five_day": {
-      "low": "$66.60",
-      "high": "$87.30",
-      "percentage": "-16.99%"
-    },
-    "one_month": {
-      "low": "$51.59",
-      "high": "$87.30",
-      "percentage": "-8.30%"
-    },
-    "six_month": {
-      "low": "$31.40",
-      "high": "$96.43",
-      "percentage": "-20.87%"
-    },
-    "one_year": {
-      "low": "$19.84",
-      "high": "$96.43",
-      "percentage": "106.49%"
-    },
-    "ah_percentage": "-0.71%"
-  },
-  {
-    "ticker": "UPSX",
-    "sector": "Finance",
-    "isxticker": true,
-    "market_cap": "N/A",
-    "earning_date": "N/A",
-    "current_price": "$31.34",
-    "today": {
-      "low": "$31.34",
-      "high": "$33.78",
-      "percentage": "-2.70%"
-    },
-    "previous_day": {
-      "low": "$30.88",
-      "high": "$33.80",
-      "percentage": "7.04%"
-    },
-    "five_day": {
-      "low": "$29.19",
-      "high": "$53.38",
-      "percentage": "-34.82%"
-    },
-    "one_month": {
-      "low": "$20.18",
-      "high": "$53.38",
-      "percentage": "-21.50%"
-    },
-    "six_month": {
-      "low": "$20.18",
-      "high": "$53.38",
-      "percentage": "24.35%"
-    },
-    "one_year": {
-      "low": "N/A",
-      "high": "N/A",
-      "percentage": "N/A"
-    },
-    "ah_percentage": "-1.92%"
-  },
-  {
-    "ticker": "VRTL",
-    "sector": "AI Service",
-    "isxticker": false,
-    "market_cap": "N/A",
-    "earning_date": "N/A",
-    "current_price": "$44.19",
-    "today": {
-      "low": "$43.42",
-      "high": "$45.00",
-      "percentage": "0.79%"
-    },
-    "previous_day": {
-      "low": "$42.77",
-      "high": "$45.04",
-      "percentage": "-0.76%"
-    },
-    "five_day": {
-      "low": "$41.52",
-      "high": "$53.08",
-      "percentage": "-0.90%"
-    },
-    "one_month": {
-      "low": "$27.40",
-      "high": "$53.08",
-      "percentage": "22.82%"
-    },
-    "six_month": {
-      "low": "$7.57",
-      "high": "$53.08",
-      "percentage": "85.23%"
-    },
-    "one_year": {
-      "low": "$7.57",
-      "high": "$53.08",
-      "percentage": "85.23%"
-    },
-    "ah_percentage": "0.82%"
-  },
-  {
-    "ticker": "PLTR",
-    "sector": "AI Service",
-    "isxticker": false,
-    "market_cap": "$443.53B",
-    "earning_date": "2025-08-04",
-    "current_price": "$187.00",
-    "today": {
-      "low": "$184.41",
-      "high": "$187.99",
-      "percentage": "2.61%"
-    },
-    "previous_day": {
-      "low": "$178.17",
-      "high": "$184.48",
-      "percentage": "1.48%"
-    },
-    "five_day": {
-      "low": "$151.06",
-      "high": "$187.99",
-      "percentage": "16.37%"
-    },
-    "one_month": {
-      "low": "$124.80",
-      "high": "$187.99",
-      "percentage": "25.35%"
-    },
-    "six_month": {
-      "low": "$63.40",
-      "high": "$187.99",
-      "percentage": "50.02%"
-    },
-    "one_year": {
-      "low": "$13.68",
-      "high": "$187.99",
-      "percentage": "610.33%"
-    },
-    "ah_percentage": "3.02%"
-  },
-  {
-    "ticker": "ROBN",
-    "sector": "Finance",
-    "isxticker": true,
-    "market_cap": "N/A",
-    "earning_date": "N/A",
-    "current_price": "$74.64",
-    "today": {
-      "low": "$70.15",
-      "high": "$77.58",
-      "percentage": "6.19%"
-    },
-    "previous_day": {
-      "low": "$65.80",
-      "high": "$72.10",
-      "percentage": "10.22%"
-    },
-    "five_day": {
-      "low": "$49.57",
-      "high": "$77.58",
-      "percentage": "15.68%"
-    },
-    "one_month": {
-      "low": "$28.81",
-      "high": "$77.58",
-      "percentage": "27.31%"
-    },
-    "six_month": {
-      "low": "$6.05",
-      "high": "$77.58",
-      "percentage": "139.75%"
-    },
-    "one_year": {
-      "low": "$6.05",
-      "high": "$77.58",
-      "percentage": "211.17%"
-    },
-    "ah_percentage": "6.88%"
-  },
-  {
-    "ticker": "CRWV",
-    "sector": "AI Service",
-    "isxticker": false,
-    "market_cap": "$58.30B",
-    "earning_date": "2025-08-12",
-    "current_price": "$129.66",
-    "today": {
-      "low": "$121.70",
-      "high": "$130.98",
-      "percentage": "7.00%"
-    },
-    "previous_day": {
-      "low": "$115.02",
-      "high": "$122.20",
-      "percentage": "9.83%"
-    },
-    "five_day": {
-      "low": "$100.80",
-      "high": "$130.98",
-      "percentage": "22.21%"
-    },
-    "one_month": {
-      "low": "$100.80",
-      "high": "$187.00",
-      "percentage": "-2.13%"
-    },
-    "six_month": {
-      "low": "$33.51",
-      "high": "$187.00",
-      "percentage": "223.88%"
-    },
-    "one_year": {
-      "low": "$33.51",
-      "high": "$187.00",
-      "percentage": "223.88%"
-    },
-    "ah_percentage": "7.20%"
+    "ah_percentage": "NIL"
   },
   {
     "ticker": "HOOX",
@@ -2610,7 +2376,7 @@
       "high": "$129.34",
       "percentage": "450.16%"
     },
-    "ah_percentage": "6.40%"
+    "ah_percentage": "NIL"
   },
   {
     "ticker": "SOFX",
@@ -2649,7 +2415,163 @@
       "high": "$36.62",
       "percentage": "30.55%"
     },
-    "ah_percentage": "0.09%"
+    "ah_percentage": "NIL"
+  },
+  {
+    "ticker": "UPST",
+    "sector": "Finance",
+    "isxticker": false,
+    "market_cap": "$6.62B",
+    "earning_date": "2025-08-05",
+    "current_price": "$68.74",
+    "today": {
+      "low": "$68.61",
+      "high": "$71.55",
+      "percentage": "-1.11%"
+    },
+    "previous_day": {
+      "low": "$68.21",
+      "high": "$71.56",
+      "percentage": "3.56%"
+    },
+    "five_day": {
+      "low": "$66.60",
+      "high": "$87.30",
+      "percentage": "-16.99%"
+    },
+    "one_month": {
+      "low": "$51.59",
+      "high": "$87.30",
+      "percentage": "-8.30%"
+    },
+    "six_month": {
+      "low": "$31.40",
+      "high": "$96.43",
+      "percentage": "-20.87%"
+    },
+    "one_year": {
+      "low": "$19.84",
+      "high": "$96.43",
+      "percentage": "106.49%"
+    },
+    "ah_percentage": "NIL"
+  },
+  {
+    "ticker": "UPSX",
+    "sector": "Finance",
+    "isxticker": true,
+    "market_cap": "N/A",
+    "earning_date": "N/A",
+    "current_price": "$31.34",
+    "today": {
+      "low": "$31.34",
+      "high": "$33.78",
+      "percentage": "-2.70%"
+    },
+    "previous_day": {
+      "low": "$30.88",
+      "high": "$33.80",
+      "percentage": "7.04%"
+    },
+    "five_day": {
+      "low": "$29.19",
+      "high": "$53.38",
+      "percentage": "-34.82%"
+    },
+    "one_month": {
+      "low": "$20.18",
+      "high": "$53.38",
+      "percentage": "-21.50%"
+    },
+    "six_month": {
+      "low": "$20.18",
+      "high": "$53.38",
+      "percentage": "24.35%"
+    },
+    "one_year": {
+      "low": "N/A",
+      "high": "N/A",
+      "percentage": "N/A"
+    },
+    "ah_percentage": "NIL"
+  },
+  {
+    "ticker": "VRTL",
+    "sector": "AI Service",
+    "isxticker": false,
+    "market_cap": "N/A",
+    "earning_date": "N/A",
+    "current_price": "$44.19",
+    "today": {
+      "low": "$43.42",
+      "high": "$45.01",
+      "percentage": "0.79%"
+    },
+    "previous_day": {
+      "low": "$42.77",
+      "high": "$45.04",
+      "percentage": "-0.76%"
+    },
+    "five_day": {
+      "low": "$41.52",
+      "high": "$53.08",
+      "percentage": "-0.90%"
+    },
+    "one_month": {
+      "low": "$27.40",
+      "high": "$53.08",
+      "percentage": "22.82%"
+    },
+    "six_month": {
+      "low": "$7.57",
+      "high": "$53.08",
+      "percentage": "85.23%"
+    },
+    "one_year": {
+      "low": "$7.57",
+      "high": "$53.08",
+      "percentage": "85.23%"
+    },
+    "ah_percentage": "NIL"
+  },
+  {
+    "ticker": "SOUN",
+    "sector": "AI Service",
+    "isxticker": false,
+    "market_cap": "$5.50B",
+    "earning_date": "2025-08-07",
+    "current_price": "$13.52",
+    "today": {
+      "low": "$12.75",
+      "high": "$14.25",
+      "percentage": "26.40%"
+    },
+    "previous_day": {
+      "low": "$10.45",
+      "high": "$11.06",
+      "percentage": "-0.74%"
+    },
+    "five_day": {
+      "low": "$9.71",
+      "high": "$14.25",
+      "percentage": "27.35%"
+    },
+    "one_month": {
+      "low": "$9.01",
+      "high": "$14.25",
+      "percentage": "18.34%"
+    },
+    "six_month": {
+      "low": "$6.52",
+      "high": "$17.65",
+      "percentage": "18.44%"
+    },
+    "one_year": {
+      "low": "$1.49",
+      "high": "$24.98",
+      "percentage": "215.12%"
+    },
+    "ah_percentage": "NIL"
   },
   {
     "ticker": "BBAI",
@@ -2688,7 +2610,85 @@
       "high": "$10.36",
       "percentage": "500.00%"
     },
-    "ah_percentage": "8.17%"
+    "ah_percentage": "NIL"
+  },
+  {
+    "ticker": "PLTU",
+    "sector": "AI Service",
+    "isxticker": true,
+    "market_cap": "N/A",
+    "earning_date": "N/A",
+    "current_price": "$111.86",
+    "today": {
+      "low": "$108.96",
+      "high": "$113.01",
+      "percentage": "5.14%"
+    },
+    "previous_day": {
+      "low": "$101.82",
+      "high": "$109.05",
+      "percentage": "2.89%"
+    },
+    "five_day": {
+      "low": "$73.76",
+      "high": "$113.01",
+      "percentage": "34.17%"
+    },
+    "one_month": {
+      "low": "$52.66",
+      "high": "$113.01",
+      "percentage": "54.07%"
+    },
+    "six_month": {
+      "low": "$16.53",
+      "high": "$113.01",
+      "percentage": "64.69%"
+    },
+    "one_year": {
+      "low": "$16.53",
+      "high": "$113.01",
+      "percentage": "330.93%"
+    },
+    "ah_percentage": "NIL"
+  },
+  {
+    "ticker": "PLTR",
+    "sector": "AI Service",
+    "isxticker": false,
+    "market_cap": "$443.53B",
+    "earning_date": "2025-08-04",
+    "current_price": "$187.00",
+    "today": {
+      "low": "$184.41",
+      "high": "$187.99",
+      "percentage": "2.61%"
+    },
+    "previous_day": {
+      "low": "$178.17",
+      "high": "$184.48",
+      "percentage": "1.48%"
+    },
+    "five_day": {
+      "low": "$151.06",
+      "high": "$187.99",
+      "percentage": "16.37%"
+    },
+    "one_month": {
+      "low": "$124.80",
+      "high": "$187.99",
+      "percentage": "25.35%"
+    },
+    "six_month": {
+      "low": "$63.40",
+      "high": "$187.99",
+      "percentage": "50.02%"
+    },
+    "one_year": {
+      "low": "$13.68",
+      "high": "$187.99",
+      "percentage": "610.33%"
+    },
+    "ah_percentage": "NIL"
   },
   {
     "ticker": "GRRR",
@@ -2727,85 +2727,46 @@
       "high": "$44.15",
       "percentage": "658.22%"
     },
-    "ah_percentage": "11.25%"
+    "ah_percentage": "NIL"
   },
   {
-    "ticker": "PLTU",
-    "sector": "AI Service",
-    "isxticker": true,
-    "market_cap": "N/A",
-    "earning_date": "N/A",
-    "current_price": "$111.86",
-    "today": {
-      "low": "$109.00",
-      "high": "$113.01",
-      "percentage": "5.14%"
-    },
-    "previous_day": {
-      "low": "$101.82",
-      "high": "$109.05",
-      "percentage": "2.89%"
-    },
-    "five_day": {
-      "low": "$73.76",
-      "high": "$113.01",
-      "percentage": "34.17%"
-    },
-    "one_month": {
-      "low": "$52.66",
-      "high": "$113.01",
-      "percentage": "54.07%"
-    },
-    "six_month": {
-      "low": "$16.53",
-      "high": "$113.01",
-      "percentage": "64.69%"
-    },
-    "one_year": {
-      "low": "$16.53",
-      "high": "$113.01",
-      "percentage": "330.93%"
-    },
-    "ah_percentage": "5.86%"
-  },
-  {
-    "ticker": "SOUN",
+    "ticker": "CRWV",
     "sector": "AI Service",
     "isxticker": false,
-    "market_cap": "$5.44B",
-    "earning_date": "2025-08-07",
-    "current_price": "$13.52",
+    "market_cap": "$62.37B",
+    "earning_date": "2025-08-12",
+    "current_price": "$129.66",
     "today": {
-      "low": "$12.75",
-      "high": "$14.25",
-      "percentage": "26.40%"
+      "low": "$121.70",
+      "high": "$130.98",
+      "percentage": "7.00%"
     },
     "previous_day": {
-      "low": "$10.45",
-      "high": "$11.06",
-      "percentage": "-0.74%"
+      "low": "$115.02",
+      "high": "$122.20",
+      "percentage": "9.83%"
     },
     "five_day": {
-      "low": "$9.71",
-      "high": "$14.25",
-      "percentage": "27.35%"
+      "low": "$100.80",
+      "high": "$130.98",
+      "percentage": "22.21%"
     },
     "one_month": {
-      "low": "$9.01",
-      "high": "$14.25",
-      "percentage": "18.34%"
+      "low": "$100.80",
+      "high": "$187.00",
+      "percentage": "-2.13%"
     },
     "six_month": {
-      "low": "$6.52",
-      "high": "$17.65",
-      "percentage": "18.44%"
+      "low": "$33.51",
+      "high": "$187.00",
+      "percentage": "223.88%"
     },
     "one_year": {
-      "low": "$1.49",
-      "high": "$24.98",
-      "percentage": "215.12%"
+      "low": "$33.51",
+      "high": "$187.00",
+      "percentage": "223.88%"
     },
-    "ah_percentage": "26.77%"
+    "ah_percentage": "NIL"
   },
   {
     "ticker": "NBIS",
@@ -2844,46 +2805,7 @@
       "high": "$71.49",
       "percentage": "243.90%"
     },
-    "ah_percentage": "6.37%"
-  },
-  {
-    "ticker": "SOUX",
-    "sector": "AI Service",
-    "isxticker": true,
-    "market_cap": "N/A",
-    "earning_date": "N/A",
-    "current_price": "$35.29",
-    "today": {
-      "low": "$32.00",
-      "high": "$38.39",
-      "percentage": "51.20%"
-    },
-    "previous_day": {
-      "low": "$22.13",
-      "high": "$24.58",
-      "percentage": "-1.14%"
-    },
-    "five_day": {
-      "low": "$19.16",
-      "high": "$38.39",
-      "percentage": "53.29%"
-    },
-    "one_month": {
-      "low": "$19.16",
-      "high": "$38.39",
-      "percentage": "27.22%"
-    },
-    "six_month": {
-      "low": "$19.16",
-      "high": "$38.39",
-      "percentage": "64.74%"
-    },
-    "one_year": {
-      "low": "N/A",
-      "high": "N/A",
-      "percentage": "N/A"
-    },
-    "ah_percentage": "51.58%"
+    "ah_percentage": "NIL"
   },
   {
     "ticker": "AMZN",
@@ -2922,124 +2844,7 @@
       "high": "$242.52",
       "percentage": "36.81%"
     },
-    "ah_percentage": "-0.19%"
-  },
-  {
-    "ticker": "AI",
-    "sector": "AI Service",
-    "isxticker": false,
-    "market_cap": "$3.05B",
-    "earning_date": "2025-05-28",
-    "current_price": "$22.14",
-    "today": {
-      "low": "$22.07",
-      "high": "$22.95",
-      "percentage": "-2.34%"
-    },
-    "previous_day": {
-      "low": "$22.22",
-      "high": "$23.68",
-      "percentage": "-2.54%"
-    },
-    "five_day": {
-      "low": "$22.07",
-      "high": "$26.42",
-      "percentage": "-4.57%"
-    },
-    "one_month": {
-      "low": "$22.07",
-      "high": "$30.11",
-      "percentage": "-17.43%"
-    },
-    "six_month": {
-      "low": "$17.03",
-      "high": "$35.98",
-      "percentage": "-30.37%"
-    },
-    "one_year": {
-      "low": "$17.03",
-      "high": "$45.08",
-      "percentage": "-5.43%"
-    },
-    "ah_percentage": "-15.75%"
-  },
-  {
-    "ticker": "META",
-    "sector": "Mega Stocks",
-    "isxticker": false,
-    "market_cap": "$1.93T",
-    "earning_date": "2025-07-30",
-    "current_price": "$769.29",
-    "today": {
-      "low": "$758.58",
-      "high": "$769.90",
-      "percentage": "0.98%"
-    },
-    "previous_day": {
-      "low": "$759.55",
-      "high": "$775.00",
-      "percentage": "-1.32%"
-    },
-    "five_day": {
-      "low": "$691.20",
-      "high": "$784.75",
-      "percentage": "-0.91%"
-    },
-    "one_month": {
-      "low": "$678.67",
-      "high": "$784.75",
-      "percentage": "6.71%"
-    },
-    "six_month": {
-      "low": "$479.43",
-      "high": "$784.75",
-      "percentage": "7.57%"
-    },
-    "one_year": {
-      "low": "$272.88",
-      "high": "$784.75",
-      "percentage": "57.89%"
-    },
-    "ah_percentage": "1.07%"
-  },
-  {
-    "ticker": "TSLA",
-    "sector": "Mega Stocks",
-    "isxticker": false,
-    "market_cap": "$1.06T",
-    "earning_date": "2025-07-23",
-    "current_price": "$329.68",
-    "today": {
-      "low": "$320.98",
-      "high": "$334.99",
-      "percentage": "2.29%"
-    },
-    "previous_day": {
-      "low": "$316.16",
-      "high": "$322.40",
-      "percentage": "0.74%"
-    },
-    "five_day": {
-      "low": "$297.82",
-      "high": "$334.99",
-      "percentage": "6.59%"
-    },
-    "one_month": {
-      "low": "$281.85",
-      "high": "$357.54",
-      "percentage": "4.02%"
-    },
-    "six_month": {
-      "low": "$214.25",
-      "high": "$439.74",
-      "percentage": "-6.91%"
-    },
-    "one_year": {
-      "low": "$138.80",
-      "high": "$488.54",
-      "percentage": "71.91%"
-    },
-    "ah_percentage": "2.43%"
+    "ah_percentage": "NIL"
   },
   {
     "ticker": "METU",
@@ -3078,7 +2883,163 @@
       "high": "$51.55",
       "percentage": "96.17%"
     },
-    "ah_percentage": "1.95%"
+    "ah_percentage": "NIL"
+  },
+  {
+    "ticker": "SOUX",
+    "sector": "AI Service",
+    "isxticker": true,
+    "market_cap": "N/A",
+    "earning_date": "N/A",
+    "current_price": "$35.29",
+    "today": {
+      "low": "$32.00",
+      "high": "$38.39",
+      "percentage": "51.20%"
+    },
+    "previous_day": {
+      "low": "$22.13",
+      "high": "$24.58",
+      "percentage": "-1.14%"
+    },
+    "five_day": {
+      "low": "$19.16",
+      "high": "$38.39",
+      "percentage": "53.29%"
+    },
+    "one_month": {
+      "low": "$19.16",
+      "high": "$38.39",
+      "percentage": "27.22%"
+    },
+    "six_month": {
+      "low": "$19.16",
+      "high": "$38.39",
+      "percentage": "64.74%"
+    },
+    "one_year": {
+      "low": "N/A",
+      "high": "N/A",
+      "percentage": "N/A"
+    },
+    "ah_percentage": "NIL"
+  },
+  {
+    "ticker": "META",
+    "sector": "Mega Stocks",
+    "isxticker": false,
+    "market_cap": "$1.93T",
+    "earning_date": "2025-07-30",
+    "current_price": "$769.29",
+    "today": {
+      "low": "$758.58",
+      "high": "$769.90",
+      "percentage": "0.98%"
+    },
+    "previous_day": {
+      "low": "$759.55",
+      "high": "$775.00",
+      "percentage": "-1.32%"
+    },
+    "five_day": {
+      "low": "$691.20",
+      "high": "$784.75",
+      "percentage": "-0.91%"
+    },
+    "one_month": {
+      "low": "$678.67",
+      "high": "$784.75",
+      "percentage": "6.71%"
+    },
+    "six_month": {
+      "low": "$479.43",
+      "high": "$784.75",
+      "percentage": "7.57%"
+    },
+    "one_year": {
+      "low": "$272.88",
+      "high": "$784.75",
+      "percentage": "57.89%"
+    },
+    "ah_percentage": "NIL"
+  },
+  {
+    "ticker": "TSLA",
+    "sector": "Mega Stocks",
+    "isxticker": false,
+    "market_cap": "$1.06T",
+    "earning_date": "2025-07-23",
+    "current_price": "$329.68",
+    "today": {
+      "low": "$320.98",
+      "high": "$335.15",
+      "percentage": "2.29%"
+    },
+    "previous_day": {
+      "low": "$316.16",
+      "high": "$322.40",
+      "percentage": "0.74%"
+    },
+    "five_day": {
+      "low": "$297.82",
+      "high": "$335.15",
+      "percentage": "6.59%"
+    },
+    "one_month": {
+      "low": "$281.85",
+      "high": "$357.54",
+      "percentage": "4.02%"
+    },
+    "six_month": {
+      "low": "$214.25",
+      "high": "$439.74",
+      "percentage": "-6.91%"
+    },
+    "one_year": {
+      "low": "$138.80",
+      "high": "$488.54",
+      "percentage": "71.91%"
+    },
+    "ah_percentage": "NIL"
+  },
+  {
+    "ticker": "AI",
+    "sector": "AI Service",
+    "isxticker": false,
+    "market_cap": "$2.97B",
+    "earning_date": "2025-05-28",
+    "current_price": "$22.14",
+    "today": {
+      "low": "$22.07",
+      "high": "$22.95",
+      "percentage": "-2.34%"
+    },
+    "previous_day": {
+      "low": "$22.22",
+      "high": "$23.68",
+      "percentage": "-2.54%"
+    },
+    "five_day": {
+      "low": "$22.07",
+      "high": "$26.42",
+      "percentage": "-4.57%"
+    },
+    "one_month": {
+      "low": "$22.07",
+      "high": "$30.11",
+      "percentage": "-17.43%"
+    },
+    "six_month": {
+      "low": "$17.03",
+      "high": "$35.98",
+      "percentage": "-30.37%"
+    },
+    "one_year": {
+      "low": "$17.03",
+      "high": "$45.08",
+      "percentage": "-5.43%"
+    },
+    "ah_percentage": "NIL"
   },
   {
     "ticker": "AMZU",
@@ -3117,7 +3078,7 @@
       "high": "$49.92",
       "percentage": "49.77%"
     },
-    "ah_percentage": "-0.38%"
+    "ah_percentage": "NIL"
   },
   {
     "ticker": "TSLL",
@@ -3156,7 +3117,7 @@
       "high": "$40.74",
       "percentage": "57.88%"
     },
-    "ah_percentage": "4.91%"
+    "ah_percentage": "NIL"
   },
   {
     "ticker": "NFXL",
@@ -3167,7 +3128,7 @@
     "current_price": "$58.82",
     "today": {
       "low": "$55.81",
-      "high": "$59.01",
+      "high": "$59.06",
       "percentage": "5.49%"
     },
     "previous_day": {
@@ -3177,7 +3138,7 @@
     },
     "five_day": {
       "low": "$52.60",
-      "high": "$59.01",
+      "high": "$59.06",
       "percentage": "6.79%"
     },
     "one_month": {
@@ -3195,46 +3156,7 @@
       "high": "$73.71",
       "percentage": "142.26%"
     },
-    "ah_percentage": "6.02%"
-  },
-  {
-    "ticker": "GGLL",
-    "sector": "Mega Stocks",
-    "isxticker": true,
-    "market_cap": "N/A",
-    "earning_date": "N/A",
-    "current_price": "$44.64",
-    "today": {
-      "low": "$42.78",
-      "high": "$45.11",
-      "percentage": "5.01%"
-    },
-    "previous_day": {
-      "low": "$41.60",
-      "high": "$42.94",
-      "percentage": "0.43%"
-    },
-    "five_day": {
-      "low": "$38.91",
-      "high": "$45.11",
-      "percentage": "6.51%"
-    },
-    "one_month": {
-      "low": "$29.50",
-      "high": "$45.11",
-      "percentage": "21.73%"
-    },
-    "six_month": {
-      "low": "$23.40",
-      "high": "$52.93",
-      "percentage": "8.36%"
-    },
-    "one_year": {
-      "low": "$23.40",
-      "high": "$52.93",
-      "percentage": "31.47%"
-    },
-    "ah_percentage": "5.27%"
+    "ah_percentage": "NIL"
   },
   {
     "ticker": "NVDL",
@@ -3244,7 +3166,7 @@
     "earning_date": "N/A",
     "current_price": "$92.40",
     "today": {
-      "low": "$90.04",
+      "low": "$90.03",
       "high": "$92.93",
       "percentage": "2.02%"
     },
@@ -3273,124 +3195,7 @@
       "high": "$93.56",
       "percentage": "123.03%"
     },
-    "ah_percentage": "2.13%"
-  },
-  {
-    "ticker": "TQQQ",
-    "sector": "Mega Stocks",
-    "isxticker": true,
-    "market_cap": "N/A",
-    "earning_date": "N/A",
-    "current_price": "$92.17",
-    "today": {
-      "low": "$90.10",
-      "high": "$92.28",
-      "percentage": "2.70%"
-    },
-    "previous_day": {
-      "low": "$87.82",
-      "high": "$91.67",
-      "percentage": "1.01%"
-    },
-    "five_day": {
-      "low": "$81.86",
-      "high": "$92.75",
-      "percentage": "5.37%"
-    },
-    "one_month": {
-      "low": "$71.22",
-      "high": "$92.75",
-      "percentage": "8.92%"
-    },
-    "six_month": {
-      "low": "$34.90",
-      "high": "$92.75",
-      "percentage": "2.55%"
-    },
-    "one_year": {
-      "low": "$29.75",
-      "high": "$92.94",
-      "percentage": "75.41%"
-    },
-    "ah_percentage": "3.45%"
-  },
-  {
-    "ticker": "UUUU",
-    "sector": "Energy",
-    "isxticker": false,
-    "market_cap": "$2.21B",
-    "earning_date": "2025-08-06",
-    "current_price": "$9.55",
-    "today": {
-      "low": "$9.54",
-      "high": "$10.74",
-      "percentage": "-0.52%"
-    },
-    "previous_day": {
-      "low": "$9.03",
-      "high": "$9.96",
-      "percentage": "-0.83%"
-    },
-    "five_day": {
-      "low": "$8.23",
-      "high": "$10.74",
-      "percentage": "-1.75%"
-    },
-    "one_month": {
-      "low": "$5.24",
-      "high": "$10.74",
-      "percentage": "36.23%"
-    },
-    "six_month": {
-      "low": "$3.20",
-      "high": "$10.74",
-      "percentage": "93.32%"
-    },
-    "one_year": {
-      "low": "$3.20",
-      "high": "$10.74",
-      "percentage": "114.61%"
-    },
-    "ah_percentage": "-0.21%"
-  },
-  {
-    "ticker": "NNE",
-    "sector": "Energy",
-    "isxticker": false,
-    "market_cap": "$1.47B",
-    "earning_date": "2025-08-14",
-    "current_price": "$35.46",
-    "today": {
-      "low": "$35.16",
-      "high": "$37.60",
-      "percentage": "-3.90%"
-    },
-    "previous_day": {
-      "low": "$35.80",
-      "high": "$38.50",
-      "percentage": "-3.63%"
-    },
-    "five_day": {
-      "low": "$33.22",
-      "high": "$42.89",
-      "percentage": "-0.34%"
-    },
-    "one_month": {
-      "low": "$30.15",
-      "high": "$43.75",
-      "percentage": "-1.50%"
-    },
-    "six_month": {
-      "low": "$17.26",
-      "high": "$48.05",
-      "percentage": "12.57%"
-    },
-    "one_year": {
-      "low": "$3.25",
-      "high": "$48.05",
-      "percentage": "352.87%"
-    },
-    "ah_percentage": "-3.39%"
+    "ah_percentage": "NIL"
   },
   {
     "ticker": "AAPU",
@@ -3429,96 +3234,57 @@
       "high": "$40.21",
       "percentage": "-1.65%"
     },
-    "ah_percentage": "8.90%"
+    "ah_percentage": "NIL"
   },
   {
-    "ticker": "OKLL",
-    "sector": "Energy",
+    "ticker": "GGLL",
+    "sector": "Mega Stocks",
     "isxticker": true,
     "market_cap": "N/A",
     "earning_date": "N/A",
-    "current_price": "$32.68",
+    "current_price": "$44.64",
     "today": {
-      "low": "$31.76",
-      "high": "$37.48",
-      "percentage": "-10.35%"
+      "low": "$42.78",
+      "high": "$45.12",
+      "percentage": "5.01%"
     },
     "previous_day": {
-      "low": "$33.80",
-      "high": "$40.74",
-      "percentage": "-8.86%"
+      "low": "$41.60",
+      "high": "$42.94",
+      "percentage": "0.43%"
     },
     "five_day": {
-      "low": "$26.76",
-      "high": "$42.11",
-      "percentage": "-4.02%"
+      "low": "$38.91",
+      "high": "$45.12",
+      "percentage": "6.51%"
     },
     "one_month": {
-      "low": "$16.09",
-      "high": "$42.11",
-      "percentage": "34.25%"
+      "low": "$29.50",
+      "high": "$45.12",
+      "percentage": "21.73%"
     },
     "six_month": {
-      "low": "$16.09",
-      "high": "$42.11",
-      "percentage": "35.96%"
+      "low": "$23.40",
+      "high": "$52.93",
+      "percentage": "8.36%"
     },
     "one_year": {
-      "low": "N/A",
-      "high": "N/A",
-      "percentage": "N/A"
+      "low": "$23.40",
+      "high": "$52.93",
+      "percentage": "31.47%"
     },
-    "ah_percentage": "-9.04%"
-  },
-  {
-    "ticker": "NXE",
-    "sector": "Energy",
-    "isxticker": false,
-    "market_cap": "$3.99B",
-    "earning_date": "2025-05-12",
-    "current_price": "$6.88",
-    "today": {
-      "low": "$6.86",
-      "high": "$7.27",
-      "percentage": "-1.43%"
-    },
-    "previous_day": {
-      "low": "$6.84",
-      "high": "$7.15",
-      "percentage": "-1.83%"
-    },
-    "five_day": {
-      "low": "$6.30",
-      "high": "$7.29",
-      "percentage": "1.78%"
-    },
-    "one_month": {
-      "low": "$6.26",
-      "high": "$7.45",
-      "percentage": "1.78%"
-    },
-    "six_month": {
-      "low": "$3.91",
-      "high": "$7.69",
-      "percentage": "11.87%"
-    },
-    "one_year": {
-      "low": "$3.91",
-      "high": "$8.96",
-      "percentage": "27.88%"
-    },
-    "ah_percentage": "-1.43%"
+    "ah_percentage": "NIL"
   },
   {
     "ticker": "SMR",
     "sector": "Energy",
     "isxticker": false,
-    "market_cap": "$5.25B",
+    "market_cap": "$5.27B",
     "earning_date": "2025-08-07",
     "current_price": "$39.35",
     "today": {
       "low": "$38.85",
-      "high": "$44.69",
+      "high": "$44.74",
       "percentage": "-11.93%"
     },
     "previous_day": {
@@ -3546,85 +3312,7 @@
       "high": "$53.50",
       "percentage": "353.34%"
     },
-    "ah_percentage": "-9.36%"
-  },
-  {
-    "ticker": "MSFU",
-    "sector": "Mega Stocks",
-    "isxticker": true,
-    "market_cap": "N/A",
-    "earning_date": "N/A",
-    "current_price": "$53.98",
-    "today": {
-      "low": "$53.49",
-      "high": "$54.49",
-      "percentage": "0.39%"
-    },
-    "previous_day": {
-      "low": "$53.14",
-      "high": "$55.30",
-      "percentage": "-1.63%"
-    },
-    "five_day": {
-      "low": "$51.77",
-      "high": "$61.16",
-      "percentage": "-5.16%"
-    },
-    "one_month": {
-      "low": "$44.12",
-      "high": "$61.16",
-      "percentage": "6.61%"
-    },
-    "six_month": {
-      "low": "$24.86",
-      "high": "$61.16",
-      "percentage": "50.64%"
-    },
-    "one_year": {
-      "low": "$24.86",
-      "high": "$61.16",
-      "percentage": "48.13%"
-    },
-    "ah_percentage": "0.67%"
-  },
-  {
-    "ticker": "HIMZ",
-    "sector": "Healthcare",
-    "isxticker": true,
-    "market_cap": "N/A",
-    "earning_date": "N/A",
-    "current_price": "$20.92",
-    "today": {
-      "low": "$19.78",
-      "high": "$21.58",
-      "percentage": "3.31%"
-    },
-    "previous_day": {
-      "low": "$19.68",
-      "high": "$22.25",
-      "percentage": "-0.39%"
-    },
-    "five_day": {
-      "low": "$19.59",
-      "high": "$39.82",
-      "percentage": "-35.15%"
-    },
-    "one_month": {
-      "low": "$14.70",
-      "high": "$51.20",
-      "percentage": "-8.56%"
-    },
-    "six_month": {
-      "low": "$9.00",
-      "high": "$57.00",
-      "percentage": "23.10%"
-    },
-    "one_year": {
-      "low": "$9.00",
-      "high": "$57.00",
-      "percentage": "23.10%"
-    },
-    "ah_percentage": "3.09%"
+    "ah_percentage": "NIL"
   },
   {
     "ticker": "OKLO",
@@ -3634,7 +3322,7 @@
     "earning_date": "2025-08-11",
     "current_price": "$75.40",
     "today": {
-      "low": "$74.30",
+      "low": "$74.29",
       "high": "$80.80",
       "percentage": "-5.04%"
     },
@@ -3663,7 +3351,202 @@
       "high": "$85.35",
       "percentage": "909.65%"
     },
-    "ah_percentage": "-4.25%"
+    "ah_percentage": "NIL"
+  },
+  {
+    "ticker": "TQQQ",
+    "sector": "Mega Stocks",
+    "isxticker": true,
+    "market_cap": "N/A",
+    "earning_date": "N/A",
+    "current_price": "$92.17",
+    "today": {
+      "low": "$90.10",
+      "high": "$92.28",
+      "percentage": "2.70%"
+    },
+    "previous_day": {
+      "low": "$87.82",
+      "high": "$91.67",
+      "percentage": "1.01%"
+    },
+    "five_day": {
+      "low": "$81.86",
+      "high": "$92.75",
+      "percentage": "5.37%"
+    },
+    "one_month": {
+      "low": "$71.22",
+      "high": "$92.75",
+      "percentage": "8.92%"
+    },
+    "six_month": {
+      "low": "$34.90",
+      "high": "$92.75",
+      "percentage": "2.55%"
+    },
+    "one_year": {
+      "low": "$29.75",
+      "high": "$92.94",
+      "percentage": "75.41%"
+    },
+    "ah_percentage": "NIL"
+  },
+  {
+    "ticker": "MSFU",
+    "sector": "Mega Stocks",
+    "isxticker": true,
+    "market_cap": "N/A",
+    "earning_date": "N/A",
+    "current_price": "$53.98",
+    "today": {
+      "low": "$53.49",
+      "high": "$54.50",
+      "percentage": "0.39%"
+    },
+    "previous_day": {
+      "low": "$53.14",
+      "high": "$55.30",
+      "percentage": "-1.63%"
+    },
+    "five_day": {
+      "low": "$51.77",
+      "high": "$61.16",
+      "percentage": "-5.16%"
+    },
+    "one_month": {
+      "low": "$44.12",
+      "high": "$61.16",
+      "percentage": "6.61%"
+    },
+    "six_month": {
+      "low": "$24.86",
+      "high": "$61.16",
+      "percentage": "50.64%"
+    },
+    "one_year": {
+      "low": "$24.86",
+      "high": "$61.16",
+      "percentage": "48.13%"
+    },
+    "ah_percentage": "NIL"
+  },
+  {
+    "ticker": "NNE",
+    "sector": "Energy",
+    "isxticker": false,
+    "market_cap": "$1.47B",
+    "earning_date": "2025-08-14",
+    "current_price": "$35.46",
+    "today": {
+      "low": "$35.16",
+      "high": "$37.62",
+      "percentage": "-3.90%"
+    },
+    "previous_day": {
+      "low": "$35.80",
+      "high": "$38.50",
+      "percentage": "-3.63%"
+    },
+    "five_day": {
+      "low": "$33.22",
+      "high": "$42.89",
+      "percentage": "-0.34%"
+    },
+    "one_month": {
+      "low": "$30.15",
+      "high": "$43.75",
+      "percentage": "-1.50%"
+    },
+    "six_month": {
+      "low": "$17.26",
+      "high": "$48.05",
+      "percentage": "12.57%"
+    },
+    "one_year": {
+      "low": "$3.25",
+      "high": "$48.05",
+      "percentage": "352.87%"
+    },
+    "ah_percentage": "NIL"
+  },
+  {
+    "ticker": "NXE",
+    "sector": "Energy",
+    "isxticker": false,
+    "market_cap": "$3.93B",
+    "earning_date": "2025-05-12",
+    "current_price": "$6.88",
+    "today": {
+      "low": "$6.86",
+      "high": "$7.28",
+      "percentage": "-1.43%"
+    },
+    "previous_day": {
+      "low": "$6.84",
+      "high": "$7.15",
+      "percentage": "-1.83%"
+    },
+    "five_day": {
+      "low": "$6.30",
+      "high": "$7.29",
+      "percentage": "1.78%"
+    },
+    "one_month": {
+      "low": "$6.26",
+      "high": "$7.45",
+      "percentage": "1.78%"
+    },
+    "six_month": {
+      "low": "$3.91",
+      "high": "$7.69",
+      "percentage": "11.87%"
+    },
+    "one_year": {
+      "low": "$3.91",
+      "high": "$8.96",
+      "percentage": "27.88%"
+    },
+    "ah_percentage": "NIL"
+  },
+  {
+    "ticker": "OKLL",
+    "sector": "Energy",
+    "isxticker": true,
+    "market_cap": "N/A",
+    "earning_date": "N/A",
+    "current_price": "$32.68",
+    "today": {
+      "low": "$31.75",
+      "high": "$37.48",
+      "percentage": "-10.35%"
+    },
+    "previous_day": {
+      "low": "$33.80",
+      "high": "$40.74",
+      "percentage": "-8.86%"
+    },
+    "five_day": {
+      "low": "$26.76",
+      "high": "$42.11",
+      "percentage": "-4.02%"
+    },
+    "one_month": {
+      "low": "$16.09",
+      "high": "$42.11",
+      "percentage": "34.25%"
+    },
+    "six_month": {
+      "low": "$16.09",
+      "high": "$42.11",
+      "percentage": "35.96%"
+    },
+    "one_year": {
+      "low": "N/A",
+      "high": "N/A",
+      "percentage": "N/A"
+    },
+    "ah_percentage": "NIL"
   },
   {
     "ticker": "TEM",
@@ -3702,46 +3585,7 @@
       "high": "$91.45",
       "percentage": "56.80%"
     },
-    "ah_percentage": "3.17%"
-  },
-  {
-    "ticker": "NVO",
-    "sector": "Healthcare",
-    "isxticker": false,
-    "market_cap": "$199.59B",
-    "earning_date": "2025-11-05",
-    "current_price": "$51.06",
-    "today": {
-      "low": "$50.11",
-      "high": "$51.30",
-      "percentage": "4.76%"
-    },
-    "previous_day": {
-      "low": "$47.92",
-      "high": "$49.10",
-      "percentage": "7.45%"
-    },
-    "five_day": {
-      "low": "$45.05",
-      "high": "$71.28",
-      "percentage": "4.65%"
-    },
-    "one_month": {
-      "low": "$45.05",
-      "high": "$81.44",
-      "percentage": "-25.91%"
-    },
-    "six_month": {
-      "low": "$45.05",
-      "high": "$92.31",
-      "percentage": "-36.96%"
-    },
-    "one_year": {
-      "low": "$45.05",
-      "high": "$145.26",
-      "percentage": "-56.31%"
-    },
-    "ah_percentage": "4.96%"
+    "ah_percentage": "NIL"
   },
   {
     "ticker": "HIMS",
@@ -3751,8 +3595,8 @@
     "earning_date": "2025-08-04",
     "current_price": "$51.91",
     "today": {
-      "low": "$50.43",
-      "high": "$52.70",
+      "low": "$50.42",
+      "high": "$52.71",
       "percentage": "1.74%"
     },
     "previous_day": {
@@ -3780,7 +3624,46 @@
       "high": "$72.98",
       "percentage": "223.82%"
     },
-    "ah_percentage": "1.70%"
+    "ah_percentage": "NIL"
+  },
+  {
+    "ticker": "TEMT",
+    "sector": "Healthcare",
+    "isxticker": true,
+    "market_cap": "N/A",
+    "earning_date": "N/A",
+    "current_price": "$19.05",
+    "today": {
+      "low": "$17.30",
+      "high": "$22.00",
+      "percentage": "6.84%"
+    },
+    "previous_day": {
+      "low": "$16.70",
+      "high": "$17.95",
+      "percentage": "11.86%"
+    },
+    "five_day": {
+      "low": "$14.82",
+      "high": "$22.71",
+      "percentage": "10.82%"
+    },
+    "one_month": {
+      "low": "$14.82",
+      "high": "$31.00",
+      "percentage": "5.89%"
+    },
+    "six_month": {
+      "low": "$14.82",
+      "high": "$33.19",
+      "percentage": "-36.73%"
+    },
+    "one_year": {
+      "low": "$14.82",
+      "high": "$33.19",
+      "percentage": "-36.73%"
+    },
+    "ah_percentage": "NIL"
   },
   {
     "ticker": "NVOX",
@@ -3819,7 +3702,124 @@
       "high": "$21.09",
       "percentage": "-84.88%"
     },
-    "ah_percentage": "8.96%"
+    "ah_percentage": "NIL"
+  },
+  {
+    "ticker": "HIMZ",
+    "sector": "Healthcare",
+    "isxticker": true,
+    "market_cap": "N/A",
+    "earning_date": "N/A",
+    "current_price": "$20.92",
+    "today": {
+      "low": "$19.78",
+      "high": "$21.58",
+      "percentage": "3.31%"
+    },
+    "previous_day": {
+      "low": "$19.68",
+      "high": "$22.25",
+      "percentage": "-0.39%"
+    },
+    "five_day": {
+      "low": "$19.59",
+      "high": "$39.82",
+      "percentage": "-35.15%"
+    },
+    "one_month": {
+      "low": "$14.70",
+      "high": "$51.20",
+      "percentage": "-8.56%"
+    },
+    "six_month": {
+      "low": "$9.00",
+      "high": "$57.00",
+      "percentage": "23.10%"
+    },
+    "one_year": {
+      "low": "$9.00",
+      "high": "$57.00",
+      "percentage": "23.10%"
+    },
+    "ah_percentage": "NIL"
+  },
+  {
+    "ticker": "UUUU",
+    "sector": "Energy",
+    "isxticker": false,
+    "market_cap": "$2.21B",
+    "earning_date": "2025-08-06",
+    "current_price": "$9.55",
+    "today": {
+      "low": "$9.54",
+      "high": "$10.74",
+      "percentage": "-0.52%"
+    },
+    "previous_day": {
+      "low": "$9.03",
+      "high": "$9.96",
+      "percentage": "-0.83%"
+    },
+    "five_day": {
+      "low": "$8.23",
+      "high": "$10.74",
+      "percentage": "-1.75%"
+    },
+    "one_month": {
+      "low": "$5.24",
+      "high": "$10.74",
+      "percentage": "36.23%"
+    },
+    "six_month": {
+      "low": "$3.20",
+      "high": "$10.74",
+      "percentage": "93.32%"
+    },
+    "one_year": {
+      "low": "$3.20",
+      "high": "$10.74",
+      "percentage": "114.61%"
+    },
+    "ah_percentage": "NIL"
+  },
+  {
+    "ticker": "NVO",
+    "sector": "Healthcare",
+    "isxticker": false,
+    "market_cap": "$214.43B",
+    "earning_date": "2025-11-05",
+    "current_price": "$51.06",
+    "today": {
+      "low": "$50.11",
+      "high": "$51.30",
+      "percentage": "4.76%"
+    },
+    "previous_day": {
+      "low": "$47.92",
+      "high": "$49.10",
+      "percentage": "7.45%"
+    },
+    "five_day": {
+      "low": "$45.05",
+      "high": "$71.28",
+      "percentage": "4.65%"
+    },
+    "one_month": {
+      "low": "$45.05",
+      "high": "$81.44",
+      "percentage": "-25.91%"
+    },
+    "six_month": {
+      "low": "$45.05",
+      "high": "$92.31",
+      "percentage": "-36.96%"
+    },
+    "one_year": {
+      "low": "$45.05",
+      "high": "$145.26",
+      "percentage": "-56.31%"
+    },
+    "ah_percentage": "NIL"
   },
   {
     "ticker": "RDTL",
@@ -3830,7 +3830,7 @@
     "current_price": "$54.95",
     "today": {
       "low": "$51.63",
-      "high": "$56.49",
+      "high": "$56.60",
       "percentage": "3.23%"
     },
     "previous_day": {
@@ -3840,64 +3840,25 @@
     },
     "five_day": {
       "low": "$24.71",
-      "high": "$56.49",
+      "high": "$56.60",
       "percentage": "13.02%"
     },
     "one_month": {
       "low": "$15.86",
-      "high": "$56.49",
+      "high": "$56.60",
       "percentage": "105.54%"
     },
     "six_month": {
       "low": "$9.72",
-      "high": "$56.49",
+      "high": "$56.60",
       "percentage": "116.84%"
     },
     "one_year": {
       "low": "$9.72",
-      "high": "$56.49",
+      "high": "$56.60",
       "percentage": "116.84%"
     },
-    "ah_percentage": "3.72%"
-  },
-  {
-    "ticker": "TEMT",
-    "sector": "Healthcare",
-    "isxticker": true,
-    "market_cap": "N/A",
-    "earning_date": "N/A",
-    "current_price": "$19.05",
-    "today": {
-      "low": "$17.36",
-      "high": "$22.00",
-      "percentage": "6.84%"
-    },
-    "previous_day": {
-      "low": "$16.70",
-      "high": "$17.95",
-      "percentage": "11.86%"
-    },
-    "five_day": {
-      "low": "$14.82",
-      "high": "$22.71",
-      "percentage": "10.82%"
-    },
-    "one_month": {
-      "low": "$14.82",
-      "high": "$31.00",
-      "percentage": "5.89%"
-    },
-    "six_month": {
-      "low": "$14.82",
-      "high": "$33.19",
-      "percentage": "-36.73%"
-    },
-    "one_year": {
-      "low": "$14.82",
-      "high": "$33.19",
-      "percentage": "-36.73%"
-    },
-    "ah_percentage": "5.83%"
+    "ah_percentage": "NIL"
   },
   {
     "ticker": "CVNX",
@@ -3936,46 +3897,46 @@
       "high": "N/A",
       "percentage": "N/A"
     },
-    "ah_percentage": "-6.93%"
+    "ah_percentage": "NIL"
   },
   {
-    "ticker": "RBLU",
-    "sector": "Others",
-    "isxticker": false,
+    "ticker": "ROBN",
+    "sector": "Finance",
+    "isxticker": true,
     "market_cap": "N/A",
     "earning_date": "N/A",
-    "current_price": "$90.19",
+    "current_price": "$74.64",
     "today": {
-      "low": "$89.92",
-      "high": "$95.96",
-      "percentage": "-1.47%"
+      "low": "$70.15",
+      "high": "$77.58",
+      "percentage": "6.19%"
     },
     "previous_day": {
-      "low": "$88.19",
-      "high": "$99.24",
-      "percentage": "-6.61%"
+      "low": "$65.80",
+      "high": "$72.10",
+      "percentage": "10.22%"
     },
     "five_day": {
-      "low": "$76.70",
-      "high": "$123.05",
-      "percentage": "-3.67%"
+      "low": "$49.57",
+      "high": "$77.58",
+      "percentage": "15.68%"
     },
     "one_month": {
-      "low": "$49.02",
-      "high": "$123.05",
-      "percentage": "26.60%"
+      "low": "$28.81",
+      "high": "$77.58",
+      "percentage": "27.31%"
     },
     "six_month": {
-      "low": "$15.78",
-      "high": "$123.05",
-      "percentage": "256.06%"
+      "low": "$6.05",
+      "high": "$77.58",
+      "percentage": "139.75%"
     },
     "one_year": {
-      "low": "$15.78",
-      "high": "$123.05",
-      "percentage": "256.06%"
+      "low": "$6.05",
+      "high": "$77.58",
+      "percentage": "211.17%"
     },
-    "ah_percentage": "-0.93%"
+    "ah_percentage": "NIL"
   },
   {
     "ticker": "APPS",
@@ -4014,85 +3975,46 @@
       "high": "$10.00",
       "percentage": "144.38%"
     },
-    "ah_percentage": "-6.60%"
+    "ah_percentage": "NIL"
   },
   {
-    "ticker": "AIRE",
-    "sector": "Real Estate",
+    "ticker": "RBLU",
+    "sector": "Others",
     "isxticker": false,
-    "market_cap": "$28.51M",
+    "market_cap": "N/A",
     "earning_date": "N/A",
-    "current_price": "$0.34",
+    "current_price": "$90.19",
     "today": {
-      "low": "$0.33",
-      "high": "$0.37",
-      "percentage": "-0.59%"
+      "low": "$89.92",
+      "high": "$95.96",
+      "percentage": "-1.47%"
     },
     "previous_day": {
-      "low": "$0.32",
-      "high": "$0.36",
-      "percentage": "-6.06%"
+      "low": "$88.19",
+      "high": "$99.24",
+      "percentage": "-6.61%"
     },
     "five_day": {
-      "low": "$0.32",
-      "high": "$0.45",
-      "percentage": "-13.08%"
+      "low": "$76.70",
+      "high": "$123.05",
+      "percentage": "-3.67%"
     },
     "one_month": {
-      "low": "$0.14",
-      "high": "$0.98",
-      "percentage": "38.93%"
+      "low": "$49.02",
+      "high": "$123.05",
+      "percentage": "26.60%"
     },
     "six_month": {
-      "low": "$0.14",
-      "high": "$2.08",
-      "percentage": "-81.68%"
+      "low": "$15.78",
+      "high": "$123.05",
+      "percentage": "256.06%"
     },
     "one_year": {
-      "low": "$0.14",
-      "high": "$575.41",
-      "percentage": "-74.89%"
+      "low": "$15.78",
+      "high": "$123.05",
+      "percentage": "256.06%"
     },
-    "ah_percentage": "2.79%"
-  },
-  {
-    "ticker": "ARQQ",
-    "sector": "Quantum",
-    "isxticker": false,
-    "market_cap": "$464.08M",
-    "earning_date": "2025-05-22",
-    "current_price": "$32.31",
-    "today": {
-      "low": "$32.14",
-      "high": "$34.20",
-      "percentage": "-0.03%"
-    },
-    "previous_day": {
-      "low": "$31.88",
-      "high": "$35.08",
-      "percentage": "-6.91%"
-    },
-    "five_day": {
-      "low": "$30.89",
-      "high": "$38.83",
-      "percentage": "-8.39%"
-    },
-    "one_month": {
-      "low": "$23.50",
-      "high": "$50.21",
-      "percentage": "-11.52%"
-    },
-    "six_month": {
-      "low": "$11.00",
-      "high": "$50.21",
-      "percentage": "103.46%"
-    },
-    "one_year": {
-      "low": "$3.72",
-      "high": "$52.79",
-      "percentage": "319.87%"
-    },
-    "ah_percentage": "-0.12%"
+    "ah_percentage": "NIL"
   },
   {
     "ticker": "SERV",
@@ -4131,13 +4053,130 @@
       "high": "$30.00",
       "percentage": "-26.83%"
     },
-    "ah_percentage": "-1.60%"
+    "ah_percentage": "NIL"
+  },
+  {
+    "ticker": "AIRE",
+    "sector": "Real Estate",
+    "isxticker": false,
+    "market_cap": "$28.39M",
+    "earning_date": "N/A",
+    "current_price": "$0.34",
+    "today": {
+      "low": "$0.33",
+      "high": "$0.37",
+      "percentage": "-0.59%"
+    },
+    "previous_day": {
+      "low": "$0.32",
+      "high": "$0.36",
+      "percentage": "-6.06%"
+    },
+    "five_day": {
+      "low": "$0.32",
+      "high": "$0.45",
+      "percentage": "-13.08%"
+    },
+    "one_month": {
+      "low": "$0.14",
+      "high": "$0.98",
+      "percentage": "38.93%"
+    },
+    "six_month": {
+      "low": "$0.14",
+      "high": "$2.08",
+      "percentage": "-81.68%"
+    },
+    "one_year": {
+      "low": "$0.14",
+      "high": "$575.41",
+      "percentage": "-74.89%"
+    },
+    "ah_percentage": "NIL"
+  },
+  {
+    "ticker": "ARQQ",
+    "sector": "Quantum",
+    "isxticker": false,
+    "market_cap": "$464.08M",
+    "earning_date": "2025-05-22",
+    "current_price": "$32.31",
+    "today": {
+      "low": "$32.14",
+      "high": "$34.20",
+      "percentage": "-0.03%"
+    },
+    "previous_day": {
+      "low": "$31.88",
+      "high": "$35.08",
+      "percentage": "-6.91%"
+    },
+    "five_day": {
+      "low": "$30.89",
+      "high": "$38.83",
+      "percentage": "-8.39%"
+    },
+    "one_month": {
+      "low": "$23.50",
+      "high": "$50.21",
+      "percentage": "-11.52%"
+    },
+    "six_month": {
+      "low": "$11.00",
+      "high": "$50.21",
+      "percentage": "103.46%"
+    },
+    "one_year": {
+      "low": "$3.72",
+      "high": "$52.79",
+      "percentage": "319.87%"
+    },
+    "ah_percentage": "NIL"
+  },
+  {
+    "ticker": "IONQ",
+    "sector": "Quantum",
+    "isxticker": false,
+    "market_cap": "$12.42B",
+    "earning_date": "2025-08-06",
+    "current_price": "$41.89",
+    "today": {
+      "low": "$40.41",
+      "high": "$42.37",
+      "percentage": "3.36%"
+    },
+    "previous_day": {
+      "low": "$38.61",
+      "high": "$41.58",
+      "percentage": "-1.79%"
+    },
+    "five_day": {
+      "low": "$37.25",
+      "high": "$44.53",
+      "percentage": "4.99%"
+    },
+    "one_month": {
+      "low": "$36.03",
+      "high": "$47.88",
+      "percentage": "-1.32%"
+    },
+    "six_month": {
+      "low": "$17.88",
+      "high": "$48.94",
+      "percentage": "23.31%"
+    },
+    "one_year": {
+      "low": "$6.22",
+      "high": "$54.74",
+      "percentage": "515.44%"
+    },
+    "ah_percentage": "NIL"
   },
   {
     "ticker": "SOFI",
     "sector": "Finance",
     "isxticker": false,
-    "market_cap": "$26.44B",
+    "market_cap": "$26.46B",
     "earning_date": "2025-07-29",
     "current_price": "$22.09",
     "today": {
@@ -4170,52 +4209,13 @@
       "high": "$25.11",
       "percentage": "249.68%"
     },
-    "ah_percentage": "0.18%"
-  },
-  {
-    "ticker": "IONQ",
-    "sector": "Quantum",
-    "isxticker": false,
-    "market_cap": "$12.42B",
-    "earning_date": "2025-08-06",
-    "current_price": "$41.89",
-    "today": {
-      "low": "$40.41",
-      "high": "$42.36",
-      "percentage": "3.36%"
-    },
-    "previous_day": {
-      "low": "$38.61",
-      "high": "$41.58",
-      "percentage": "-1.79%"
-    },
-    "five_day": {
-      "low": "$37.25",
-      "high": "$44.53",
-      "percentage": "4.99%"
-    },
-    "one_month": {
-      "low": "$36.03",
-      "high": "$47.88",
-      "percentage": "-1.32%"
-    },
-    "six_month": {
-      "low": "$17.88",
-      "high": "$48.94",
-      "percentage": "23.31%"
-    },
-    "one_year": {
-      "low": "$6.22",
-      "high": "$54.74",
-      "percentage": "515.44%"
-    },
-    "ah_percentage": "3.21%"
+    "ah_percentage": "NIL"
   },
   {
     "ticker": "APLD",
     "sector": "AI Service",
     "isxticker": false,
-    "market_cap": "$3.72B",
+    "market_cap": "$3.71B",
     "earning_date": "2025-07-30",
     "current_price": "$14.21",
     "today": {
@@ -4248,7 +4248,7 @@
       "high": "$15.42",
       "percentage": "264.10%"
     },
-    "ah_percentage": "-0.07%"
+    "ah_percentage": "NIL"
   },
   {
     "ticker": "NFLX",
@@ -4287,85 +4287,7 @@
       "high": "$1,341.15",
       "percentage": "98.15%"
     },
-    "ah_percentage": "2.89%"
-  },
-  {
-    "ticker": "GOOG",
-    "sector": "Mega Stocks",
-    "isxticker": false,
-    "market_cap": "$2.44T",
-    "earning_date": "2025-07-23",
-    "current_price": "$202.16",
-    "today": {
-      "low": "$197.90",
-      "high": "$203.43",
-      "percentage": "2.44%"
-    },
-    "previous_day": {
-      "low": "$195.22",
-      "high": "$198.37",
-      "percentage": "0.18%"
-    },
-    "five_day": {
-      "low": "$188.70",
-      "high": "$203.43",
-      "percentage": "3.24%"
-    },
-    "one_month": {
-      "low": "$163.33",
-      "high": "$203.43",
-      "percentage": "10.55%"
-    },
-    "six_month": {
-      "low": "$142.49",
-      "high": "$208.21",
-      "percentage": "9.02%"
-    },
-    "one_year": {
-      "low": "$120.74",
-      "high": "$208.21",
-      "percentage": "26.32%"
-    },
-    "ah_percentage": "2.63%"
-  },
-  {
-    "ticker": "SMU",
-    "sector": "Energy",
-    "isxticker": true,
-    "market_cap": "N/A",
-    "earning_date": "N/A",
-    "current_price": "$27.15",
-    "today": {
-      "low": "$26.38",
-      "high": "$35.04",
-      "percentage": "-24.08%"
-    },
-    "previous_day": {
-      "low": "$33.49",
-      "high": "$38.69",
-      "percentage": "-5.51%"
-    },
-    "five_day": {
-      "low": "$26.38",
-      "high": "$52.00",
-      "percentage": "-19.79%"
-    },
-    "one_month": {
-      "low": "$24.52",
-      "high": "$52.00",
-      "percentage": "-19.83%"
-    },
-    "six_month": {
-      "low": "N/A",
-      "high": "N/A",
-      "percentage": "N/A"
-    },
-    "one_year": {
-      "low": "N/A",
-      "high": "N/A",
-      "percentage": "N/A"
-    },
-    "ah_percentage": "-19.51%"
+    "ah_percentage": "NIL"
   },
   {
     "ticker": "MSFT",
@@ -4404,7 +4326,7 @@
       "high": "$555.45",
       "percentage": "32.03%"
     },
-    "ah_percentage": "0.34%"
+    "ah_percentage": "NIL"
   },
   {
     "ticker": "AAPL",
@@ -4415,7 +4337,7 @@
     "current_price": "$229.37",
     "today": {
       "low": "$219.25",
-      "high": "$230.99",
+      "high": "$231.00",
       "percentage": "4.24%"
     },
     "previous_day": {
@@ -4425,12 +4347,12 @@
     },
     "five_day": {
       "low": "$201.50",
-      "high": "$230.99",
+      "high": "$231.00",
       "percentage": "12.79%"
     },
     "one_month": {
       "low": "$195.07",
-      "high": "$230.99",
+      "high": "$231.00",
       "percentage": "9.94%"
     },
     "six_month": {
@@ -4439,50 +4361,89 @@
       "percentage": "-6.06%"
     },
     "one_year": {
-      "low": "$163.09",
+      "low": "$163.10",
       "high": "$259.47",
       "percentage": "9.82%"
     },
-    "ah_percentage": "4.53%"
+    "ah_percentage": "NIL"
   },
   {
-    "ticker": "QQQ",
+    "ticker": "GOOG",
     "sector": "Mega Stocks",
     "isxticker": false,
-    "market_cap": "$225.86B",
-    "earning_date": "N/A",
-    "current_price": "$574.55",
+    "market_cap": "$2.44T",
+    "earning_date": "2025-07-23",
+    "current_price": "$202.16",
     "today": {
-      "low": "$570.16",
-      "high": "$574.77",
-      "percentage": "0.93%"
+      "low": "$197.90",
+      "high": "$203.43",
+      "percentage": "2.44%"
     },
     "previous_day": {
-      "low": "$565.11",
-      "high": "$573.32",
-      "percentage": "0.34%"
+      "low": "$195.22",
+      "high": "$198.37",
+      "percentage": "0.18%"
     },
     "five_day": {
-      "low": "$551.68",
-      "high": "$574.77",
-      "percentage": "1.85%"
+      "low": "$188.70",
+      "high": "$203.43",
+      "percentage": "3.24%"
     },
     "one_month": {
-      "low": "$523.65",
-      "high": "$574.77",
-      "percentage": "3.30%"
+      "low": "$163.33",
+      "high": "$203.43",
+      "percentage": "10.55%"
     },
     "six_month": {
-      "low": "$401.94",
-      "high": "$574.77",
-      "percentage": "6.80%"
+      "low": "$142.49",
+      "high": "$208.21",
+      "percentage": "9.02%"
     },
     "one_year": {
-      "low": "$338.58",
-      "high": "$574.77",
-      "percentage": "32.90%"
+      "low": "$120.74",
+      "high": "$208.21",
+      "percentage": "26.32%"
     },
-    "ah_percentage": "1.18%"
+    "ah_percentage": "NIL"
+  },
+  {
+    "ticker": "SMU",
+    "sector": "Energy",
+    "isxticker": true,
+    "market_cap": "N/A",
+    "earning_date": "N/A",
+    "current_price": "$27.15",
+    "today": {
+      "low": "$26.37",
+      "high": "$35.04",
+      "percentage": "-24.08%"
+    },
+    "previous_day": {
+      "low": "$33.49",
+      "high": "$38.69",
+      "percentage": "-5.51%"
+    },
+    "five_day": {
+      "low": "$26.37",
+      "high": "$52.00",
+      "percentage": "-19.79%"
+    },
+    "one_month": {
+      "low": "$24.52",
+      "high": "$52.00",
+      "percentage": "-19.83%"
+    },
+    "six_month": {
+      "low": "N/A",
+      "high": "N/A",
+      "percentage": "N/A"
+    },
+    "one_year": {
+      "low": "N/A",
+      "high": "N/A",
+      "percentage": "N/A"
+    },
+    "ah_percentage": "NIL"
   },
   {
     "ticker": "NVDA",
@@ -4521,6 +4482,45 @@
       "high": "$183.88",
       "percentage": "84.77%"
     },
-    "ah_percentage": "1.14%"
+    "ah_percentage": "NIL"
+  },
+  {
+    "ticker": "QQQ",
+    "sector": "Mega Stocks",
+    "isxticker": false,
+    "market_cap": "$225.86B",
+    "earning_date": "N/A",
+    "current_price": "$574.55",
+    "today": {
+      "low": "$570.15",
+      "high": "$574.77",
+      "percentage": "0.93%"
+    },
+    "previous_day": {
+      "low": "$565.11",
+      "high": "$573.32",
+      "percentage": "0.34%"
+    },
+    "five_day": {
+      "low": "$551.68",
+      "high": "$574.77",
+      "percentage": "1.85%"
+    },
+    "one_month": {
+      "low": "$523.65",
+      "high": "$574.77",
+      "percentage": "3.30%"
+    },
+    "six_month": {
+      "low": "$401.94",
+      "high": "$574.77",
+      "percentage": "6.80%"
+    },
+    "one_year": {
+      "low": "$338.58",
+      "high": "$574.77",
+      "percentage": "32.90%"
+    },
+    "ah_percentage": "NIL"
   }
 ]

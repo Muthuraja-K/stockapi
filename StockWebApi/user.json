@@ -5,5 +5,12 @@
     "role": "admin",
     "firstname": "Admin",
     "lastname": "User"
+  },
+  {
+    "username": "test",
+    "password": "$2b$12$Q6oK3aWFfzeFO5rQ1m98ve8pw9hXzFfporFcUiBue9VxJ0y6.EB1u",
+    "role": "user",
+    "firstname": "Friends",
+    "lastname": "Test"
   }
 ]

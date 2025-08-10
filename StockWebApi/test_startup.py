@@ -41,7 +41,19 @@ def test_static_files():
         print("✓ Static directory exists")
         if os.path.exists("static/index.html"):
             print("✓ index.html exists")
-            return True
+            # Test if we can read the file
+            try:
+                with open("static/index.html", "r", encoding="utf-8") as f:
+                    content = f.read()
+                    if "Stock Prediction API" in content:
+                        print("✓ index.html contains expected content")
+                        return True
+                    else:
+                        print("✗ index.html content validation failed")
+                        return False
+            except Exception as e:
+                print(f"✗ Error reading index.html: {e}")
+                return False
         else:
             print("✗ index.html not found")
             return False

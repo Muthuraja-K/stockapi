@@ -60,6 +60,21 @@ def get_sentiment_analysis(ticker):
         # Generate technical indicators
         technical_indicators = generate_technical_indicators(stock, current_price)
         
+        # Generate institutional holdings data
+        institutional_holdings = generate_institutional_holdings(ticker, overall_sentiment)
+        
+        # Generate individual holdings data
+        individual_holdings = generate_individual_holdings(ticker, overall_sentiment)
+        
+        # Generate major holders data
+        major_holders = generate_major_holders(ticker, overall_sentiment)
+        
+        # Generate top institutional holders with dates
+        top_institutional_holders = generate_top_institutional_holders(ticker, overall_sentiment)
+        
+        # Generate top mutual fund holders
+        top_mutual_fund_holders = generate_top_mutual_fund_holders(ticker, overall_sentiment)
+        
         return {
             "ticker": ticker,
             "overall_sentiment": overall_sentiment,
@@ -70,7 +85,12 @@ def get_sentiment_analysis(ticker):
             "news_count": len(recent_news),
             "recent_news": recent_news,
             "social_media_sentiment": social_sentiment,
-            "technical_indicators": technical_indicators
+            "technical_indicators": technical_indicators,
+            "institutional_holdings": institutional_holdings,
+            "individual_holdings": individual_holdings,
+            "major_holders": major_holders,
+            "top_institutional_holders": top_institutional_holders,
+            "top_mutual_fund_holders": top_mutual_fund_holders
         }
         
     except Exception as e:
@@ -224,6 +244,352 @@ def generate_technical_indicators(stock, current_price):
         "resistance_level": resistance_level
     }
 
+def generate_institutional_holdings(ticker, overall_sentiment):
+    """Generate mock institutional holdings data"""
+    # List of major financial institutions
+    institutions = [
+        "BlackRock Inc.",
+        "Vanguard Group Inc.",
+        "State Street Corp.",
+        "Fidelity Management & Research Co.",
+        "T. Rowe Price Associates Inc.",
+        "Capital Research & Management Co.",
+        "Wellington Management Co. LLP",
+        "Invesco Ltd.",
+        "Northern Trust Corp.",
+        "Goldman Sachs Asset Management",
+        "Morgan Stanley Investment Management",
+        "JPMorgan Chase & Co.",
+        "Bank of America Corp.",
+        "Wells Fargo & Co.",
+        "Charles Schwab Corp.",
+        "Ameriprise Financial Inc.",
+        "Franklin Resources Inc.",
+        "Eaton Vance Corp.",
+        "Allianz Global Investors",
+        "PIMCO LLC"
+    ]
+    
+    # Generate holdings based on sentiment
+    if overall_sentiment == "Positive":
+        # More institutions likely to hold positive sentiment stocks
+        num_institutions = random.randint(8, 15)
+        base_percentage = random.uniform(0.5, 2.5)
+    elif overall_sentiment == "Negative":
+        # Fewer institutions likely to hold negative sentiment stocks
+        num_institutions = random.randint(4, 10)
+        base_percentage = random.uniform(0.2, 1.5)
+    else:
+        # Neutral sentiment - moderate holdings
+        num_institutions = random.randint(6, 12)
+        base_percentage = random.uniform(0.3, 2.0)
+    
+    # Select random institutions
+    selected_institutions = random.sample(institutions, min(num_institutions, len(institutions)))
+    
+    holdings = []
+    total_percentage = 0
+    
+    for i, institution in enumerate(selected_institutions):
+        if i == 0:
+            # First institution gets the highest percentage
+            percentage = base_percentage + random.uniform(0.5, 2.0)
+        elif i < 3:
+            # Top 3 institutions get significant percentages
+            percentage = base_percentage + random.uniform(0.2, 1.5)
+        else:
+            # Other institutions get smaller percentages
+            percentage = base_percentage * random.uniform(0.1, 0.8)
+        
+        # Ensure percentage is reasonable
+        percentage = max(0.1, min(5.0, percentage))
+        
+        holdings.append({
+            "institution_name": institution,
+            "percentage_held": round(percentage, 2),
+            "shares_held": random.randint(100000, 5000000),
+            "market_value": round(percentage * random.uniform(1000000, 50000000), 2)
+        })
+        
+        total_percentage += percentage
+    
+    # Sort by percentage held (descending)
+    holdings.sort(key=lambda x: x["percentage_held"], reverse=True)
+    
+    return {
+        "total_institutions": len(holdings),
+        "total_percentage_held": round(total_percentage, 2),
+        "holdings": holdings
+    }
+
+def generate_individual_holdings(ticker, overall_sentiment):
+    """Generate mock individual holdings data"""
+    # List of individual investor names (fictional)
+    individual_investors = [
+        "John Smith",
+        "Sarah Johnson",
+        "Michael Brown",
+        "Emily Davis",
+        "David Wilson",
+        "Lisa Anderson",
+        "Robert Taylor",
+        "Jennifer Martinez",
+        "William Garcia",
+        "Amanda Rodriguez",
+        "James Lopez",
+        "Michelle White",
+        "Christopher Lee",
+        "Jessica Hall",
+        "Daniel Allen",
+        "Ashley Young",
+        "Matthew King",
+        "Nicole Wright",
+        "Joshua Green",
+        "Stephanie Baker"
+    ]
+    
+    # Generate holdings based on sentiment
+    if overall_sentiment == "Positive":
+        # More individuals likely to hold positive sentiment stocks
+        num_individuals = random.randint(6, 12)
+        base_percentage = random.uniform(0.1, 1.0)
+    elif overall_sentiment == "Negative":
+        # Fewer individuals likely to hold negative sentiment stocks
+        num_individuals = random.randint(3, 8)
+        base_percentage = random.uniform(0.05, 0.5)
+    else:
+        # Neutral sentiment - moderate holdings
+        num_individuals = random.randint(4, 10)
+        base_percentage = random.uniform(0.08, 0.8)
+    
+    # Select random individuals
+    selected_individuals = random.sample(individual_investors, min(num_individuals, len(individual_investors)))
+    
+    holdings = []
+    total_percentage = 0
+    
+    for i, individual in enumerate(selected_individuals):
+        if i == 0:
+            # First individual gets the highest percentage
+            percentage = base_percentage + random.uniform(0.2, 0.8)
+        elif i < 3:
+            # Top 3 individuals get significant percentages
+            percentage = base_percentage + random.uniform(0.1, 0.5)
+        else:
+            # Other individuals get smaller percentages
+            percentage = base_percentage * random.uniform(0.05, 0.4)
+        
+        # Ensure percentage is reasonable for individual holdings
+        percentage = max(0.01, min(2.0, percentage))
+        
+        holdings.append({
+            "investor_name": individual,
+            "percentage_held": round(percentage, 2),
+            "shares_held": random.randint(1000, 100000),
+            "market_value": round(percentage * random.uniform(100000, 5000000), 2)
+        })
+        
+        total_percentage += percentage
+    
+    # Sort by percentage held (descending)
+    holdings.sort(key=lambda x: x["percentage_held"], reverse=True)
+    
+    return {
+        "total_individuals": len(holdings),
+        "total_percentage_held": round(total_percentage, 2),
+        "holdings": holdings
+    }
+
+def generate_major_holders(ticker, overall_sentiment):
+    """Generate mock major holders data showing percentage held by different categories"""
+    # Generate realistic percentages based on sentiment
+    if overall_sentiment == "Positive":
+        insider_percentage = random.uniform(1.5, 4.0)
+        institutional_percentage = random.uniform(55.0, 75.0)
+        retail_percentage = random.uniform(15.0, 35.0)
+    elif overall_sentiment == "Negative":
+        insider_percentage = random.uniform(0.5, 2.5)
+        institutional_percentage = random.uniform(40.0, 60.0)
+        retail_percentage = random.uniform(25.0, 45.0)
+    else:
+        insider_percentage = random.uniform(1.0, 3.0)
+        institutional_percentage = random.uniform(50.0, 70.0)
+        retail_percentage = random.uniform(20.0, 40.0)
+    
+    # Ensure percentages add up to approximately 100%
+    total = insider_percentage + institutional_percentage + retail_percentage
+    if total > 100:
+        # Scale down proportionally
+        scale_factor = 100 / total
+        insider_percentage *= scale_factor
+        institutional_percentage *= scale_factor
+        retail_percentage *= scale_factor
+    
+    return {
+        "insider_percentage": round(insider_percentage, 2),
+        "institutional_percentage": round(institutional_percentage, 2),
+        "retail_percentage": round(retail_percentage, 2),
+        "total_percentage": round(insider_percentage + institutional_percentage + retail_percentage, 2)
+    }
+
+def generate_top_institutional_holders(ticker, overall_sentiment):
+    """Generate mock top institutional holders data with dates"""
+    # List of major financial institutions
+    institutions = [
+        "BlackRock Inc.",
+        "Vanguard Group Inc.",
+        "State Street Corp.",
+        "Fidelity Management & Research Co.",
+        "T. Rowe Price Associates Inc.",
+        "Capital Research & Management Co.",
+        "Wellington Management Co. LLP",
+        "Invesco Ltd.",
+        "Northern Trust Corp.",
+        "Goldman Sachs Asset Management",
+        "Morgan Stanley Investment Management",
+        "JPMorgan Chase & Co.",
+        "Bank of America Corp.",
+        "Wells Fargo & Co.",
+        "Charles Schwab Corp."
+    ]
+    
+    # Generate holdings based on sentiment
+    if overall_sentiment == "Positive":
+        num_institutions = random.randint(8, 12)
+        base_percentage = random.uniform(0.8, 3.0)
+    elif overall_sentiment == "Negative":
+        num_institutions = random.randint(5, 9)
+        base_percentage = random.uniform(0.3, 2.0)
+    else:
+        num_institutions = random.randint(6, 11)
+        base_percentage = random.uniform(0.5, 2.5)
+    
+    # Select random institutions
+    selected_institutions = random.sample(institutions, min(num_institutions, len(institutions)))
+    
+    holdings = []
+    total_percentage = 0
+    
+    for i, institution in enumerate(selected_institutions):
+        if i == 0:
+            # First institution gets the highest percentage
+            percentage = base_percentage + random.uniform(0.8, 2.5)
+        elif i < 3:
+            # Top 3 institutions get significant percentages
+            percentage = base_percentage + random.uniform(0.3, 1.8)
+        else:
+            # Other institutions get smaller percentages
+            percentage = base_percentage * random.uniform(0.15, 0.9)
+        
+        # Ensure percentage is reasonable
+        percentage = max(0.1, min(6.0, percentage))
+        
+        # Generate random date within last 6 months
+        days_ago = random.randint(30, 180)
+        date_reported = (datetime.now() - timedelta(days=days_ago)).strftime("%Y-%m-%d")
+        
+        # Calculate shares and value
+        shares_held = random.randint(100000, 8000000)
+        market_value = round(percentage * random.uniform(2000000, 100000000), 2)
+        
+        holdings.append({
+            "holder": institution,
+            "shares": shares_held,
+            "date_reported": date_reported,
+            "percentage_out": round(percentage, 2),
+            "value": market_value
+        })
+        
+        total_percentage += percentage
+    
+    # Sort by percentage held (descending)
+    holdings.sort(key=lambda x: x["percentage_out"], reverse=True)
+    
+    return {
+        "total_institutions": len(holdings),
+        "total_percentage_held": round(total_percentage, 2),
+        "holdings": holdings
+    }
+
+def generate_top_mutual_fund_holders(ticker, overall_sentiment):
+    """Generate mock top mutual fund holders data"""
+    # List of major mutual fund companies
+    mutual_funds = [
+        "Vanguard 500 Index Fund",
+        "Fidelity 500 Index Fund",
+        "SPDR S&P 500 ETF Trust",
+        "iShares Core S&P 500 ETF",
+        "Vanguard Total Stock Market Index Fund",
+        "Fidelity Total Market Index Fund",
+        "T. Rowe Price Blue Chip Growth Fund",
+        "American Funds Growth Fund of America",
+        "Dodge & Cox Stock Fund",
+        "Fidelity Contrafund",
+        "Vanguard Growth Index Fund",
+        "Fidelity Growth Company Fund",
+        "T. Rowe Price Growth Stock Fund",
+        "American Funds Investment Company of America",
+        "Vanguard Value Index Fund"
+    ]
+    
+    # Generate holdings based on sentiment
+    if overall_sentiment == "Positive":
+        num_funds = random.randint(6, 10)
+        base_percentage = random.uniform(0.5, 2.0)
+    elif overall_sentiment == "Negative":
+        num_funds = random.randint(3, 7)
+        base_percentage = random.uniform(0.2, 1.2)
+    else:
+        num_funds = random.randint(4, 9)
+        base_percentage = random.uniform(0.3, 1.6)
+    
+    # Select random mutual funds
+    selected_funds = random.sample(mutual_funds, min(num_funds, len(mutual_funds)))
+    
+    holdings = []
+    total_percentage = 0
+    
+    for i, fund in enumerate(selected_funds):
+        if i == 0:
+            # First fund gets the highest percentage
+            percentage = base_percentage + random.uniform(0.5, 1.8)
+        elif i < 3:
+            # Top 3 funds get significant percentages
+            percentage = base_percentage + random.uniform(0.2, 1.2)
+        else:
+            # Other funds get smaller percentages
+            percentage = base_percentage * random.uniform(0.1, 0.7)
+        
+        # Ensure percentage is reasonable
+        percentage = max(0.05, min(4.0, percentage))
+        
+        # Generate random date within last 3 months
+        days_ago = random.randint(15, 90)
+        date_reported = (datetime.now() - timedelta(days=days_ago)).strftime("%Y-%m-%d")
+        
+        # Calculate shares and value
+        shares_held = random.randint(50000, 3000000)
+        market_value = round(percentage * random.uniform(1000000, 50000000), 2)
+        
+        holdings.append({
+            "holder": fund,
+            "shares": shares_held,
+            "date_reported": date_reported,
+            "percentage_out": round(percentage, 2),
+            "value": market_value
+        })
+        
+        total_percentage += percentage
+    
+    # Sort by percentage held (descending)
+    holdings.sort(key=lambda x: x["percentage_out"], reverse=True)
+    
+    return {
+        "total_funds": len(holdings),
+        "total_percentage_held": round(total_percentage, 2),
+        "holdings": holdings
+    }
+
 def get_fallback_sentiment(ticker):
     """Return fallback sentiment data if API fails"""
     return {
@@ -259,5 +625,73 @@ def get_fallback_sentiment(ticker):
             "moving_averages": "Mixed",
             "support_level": 0,
             "resistance_level": 0
+        },
+        "institutional_holdings": {
+            "total_institutions": 10,
+            "total_percentage_held": 100.0,
+            "holdings": [
+                {"institution_name": "BlackRock Inc.", "percentage_held": 25.0, "shares_held": 1000000, "market_value": 100000000.0},
+                {"institution_name": "Vanguard Group Inc.", "percentage_held": 15.0, "shares_held": 500000, "market_value": 50000000.0},
+                {"institution_name": "State Street Corp.", "percentage_held": 10.0, "shares_held": 300000, "market_value": 30000000.0},
+                {"institution_name": "Fidelity Management & Research Co.", "percentage_held": 8.0, "shares_held": 200000, "market_value": 20000000.0},
+                {"institution_name": "T. Rowe Price Associates Inc.", "percentage_held": 7.0, "shares_held": 150000, "market_value": 15000000.0},
+                {"institution_name": "Capital Research & Management Co.", "percentage_held": 6.0, "shares_held": 120000, "market_value": 12000000.0},
+                {"institution_name": "Wellington Management Co. LLP", "percentage_held": 5.0, "shares_held": 100000, "market_value": 10000000.0},
+                {"institution_name": "Invesco Ltd.", "percentage_held": 4.0, "shares_held": 80000, "market_value": 8000000.0},
+                {"institution_name": "Northern Trust Corp.", "percentage_held": 3.0, "shares_held": 60000, "market_value": 6000000.0},
+                {"institution_name": "Goldman Sachs Asset Management", "percentage_held": 2.0, "shares_held": 40000, "market_value": 4000000.0}
+            ]
+        },
+        "individual_holdings": {
+            "total_individuals": 8,
+            "total_percentage_held": 15.0,
+            "holdings": [
+                {"investor_name": "John Smith", "percentage_held": 3.5, "shares_held": 50000, "market_value": 5000000.0},
+                {"investor_name": "Sarah Johnson", "percentage_held": 2.8, "shares_held": 40000, "market_value": 4000000.0},
+                {"investor_name": "Michael Brown", "percentage_held": 2.2, "shares_held": 30000, "market_value": 3000000.0},
+                {"investor_name": "Emily Davis", "percentage_held": 1.8, "shares_held": 25000, "market_value": 2500000.0},
+                {"investor_name": "David Wilson", "percentage_held": 1.5, "shares_held": 20000, "market_value": 2000000.0},
+                {"investor_name": "Lisa Anderson", "percentage_held": 1.2, "shares_held": 15000, "market_value": 1500000.0},
+                {"investor_name": "Robert Taylor", "percentage_held": 1.0, "shares_held": 12000, "market_value": 1200000.0},
+                {"investor_name": "Jennifer Martinez", "percentage_held": 1.0, "shares_held": 10000, "market_value": 1000000.0}
+            ]
+        },
+        "major_holders": {
+            "insider_percentage": 2.5,
+            "institutional_percentage": 65.0,
+            "retail_percentage": 32.5,
+            "total_percentage": 100.0
+        },
+        "top_institutional_holders": {
+            "total_institutions": 10,
+            "total_percentage_held": 100.0,
+            "holdings": [
+                {"holder": "BlackRock Inc.", "shares": 1000000, "date_reported": (datetime.now() - timedelta(days=60)).strftime("%Y-%m-%d"), "percentage_out": 25.0, "value": 100000000.0},
+                {"holder": "Vanguard Group Inc.", "shares": 500000, "date_reported": (datetime.now() - timedelta(days=90)).strftime("%Y-%m-%d"), "percentage_out": 15.0, "value": 50000000.0},
+                {"holder": "State Street Corp.", "shares": 300000, "date_reported": (datetime.now() - timedelta(days=120)).strftime("%Y-%m-%d"), "percentage_out": 10.0, "value": 30000000.0},
+                {"holder": "Fidelity Management & Research Co.", "shares": 200000, "date_reported": (datetime.now() - timedelta(days=150)).strftime("%Y-%m-%d"), "percentage_out": 8.0, "value": 20000000.0},
+                {"holder": "T. Rowe Price Associates Inc.", "shares": 150000, "date_reported": (datetime.now() - timedelta(days=180)).strftime("%Y-%m-%d"), "percentage_out": 7.0, "value": 15000000.0},
+                {"holder": "Capital Research & Management Co.", "shares": 120000, "date_reported": (datetime.now() - timedelta(days=210)).strftime("%Y-%m-%d"), "percentage_out": 6.0, "value": 12000000.0},
+                {"holder": "Wellington Management Co. LLP", "shares": 100000, "date_reported": (datetime.now() - timedelta(days=240)).strftime("%Y-%m-%d"), "percentage_out": 5.0, "value": 10000000.0},
+                {"holder": "Invesco Ltd.", "shares": 80000, "date_reported": (datetime.now() - timedelta(days=270)).strftime("%Y-%m-%d"), "percentage_out": 4.0, "value": 8000000.0},
+                {"holder": "Northern Trust Corp.", "shares": 60000, "date_reported": (datetime.now() - timedelta(days=300)).strftime("%Y-%m-%d"), "percentage_out": 3.0, "value": 6000000.0},
+                {"holder": "Goldman Sachs Asset Management", "shares": 40000, "date_reported": (datetime.now() - timedelta(days=330)).strftime("%Y-%m-%d"), "percentage_out": 2.0, "value": 4000000.0}
+            ]
+        },
+        "top_mutual_fund_holders": {
+            "total_funds": 10,
+            "total_percentage_held": 100.0,
+            "holdings": [
+                {"holder": "Vanguard 500 Index Fund", "shares": 1000000, "date_reported": (datetime.now() - timedelta(days=30)).strftime("%Y-%m-%d"), "percentage_out": 20.0, "value": 20000000.0},
+                {"holder": "Fidelity 500 Index Fund", "shares": 800000, "date_reported": (datetime.now() - timedelta(days=60)).strftime("%Y-%m-%d"), "percentage_out": 16.0, "value": 16000000.0},
+                {"holder": "SPDR S&P 500 ETF Trust", "shares": 700000, "date_reported": (datetime.now() - timedelta(days=90)).strftime("%Y-%m-%d"), "percentage_out": 14.0, "value": 14000000.0},
+                {"holder": "iShares Core S&P 500 ETF", "shares": 600000, "date_reported": (datetime.now() - timedelta(days=120)).strftime("%Y-%m-%d"), "percentage_out": 12.0, "value": 12000000.0},
+                {"holder": "Vanguard Total Stock Market Index Fund", "shares": 500000, "date_reported": (datetime.now() - timedelta(days=150)).strftime("%Y-%m-%d"), "percentage_out": 10.0, "value": 10000000.0},
+                {"holder": "Fidelity Total Market Index Fund", "shares": 400000, "date_reported": (datetime.now() - timedelta(days=180)).strftime("%Y-%m-%d"), "percentage_out": 8.0, "value": 8000000.0},
+                {"holder": "T. Rowe Price Blue Chip Growth Fund", "shares": 300000, "date_reported": (datetime.now() - timedelta(days=210)).strftime("%Y-%m-%d"), "percentage_out": 6.0, "value": 6000000.0},
+                {"holder": "American Funds Growth Fund of America", "shares": 250000, "date_reported": (datetime.now() - timedelta(days=240)).strftime("%Y-%m-%d"), "percentage_out": 5.0, "value": 5000000.0},
+                {"holder": "Dodge & Cox Stock Fund", "shares": 200000, "date_reported": (datetime.now() - timedelta(days=270)).strftime("%Y-%m-%d"), "percentage_out": 4.0, "value": 4000000.0},
+                {"holder": "Fidelity Contrafund", "shares": 150000, "date_reported": (datetime.now() - timedelta(days=300)).strftime("%Y-%m-%d"), "percentage_out": 3.0, "value": 3000000.0}
+            ]
         }
     } 
