@@ -139,6 +139,9 @@ StockUI/
 StockUI/dist/
 StockUI/.angular/
 
+# StockWebApi build artifacts
+StockWebApi/static/
+
 # IDE files
 .vscode/
 .idea/
