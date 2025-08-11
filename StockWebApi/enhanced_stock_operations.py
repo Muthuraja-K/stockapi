@@ -13,51 +13,16 @@ import os
 import requests
 from bs4 import BeautifulSoup
 import re
+from api_rate_limiter import enforce_rate_limit, safe_yfinance_call, safe_finviz_call
 
 # Global cache for stock data to avoid repeated API calls
 _stock_cache = {}
 _cache_ttl = 300  # 5 minutes cache TTL
 _max_cache_size = 1000  # Maximum number of cached items
 
-# Rate limiting for API calls
-_last_api_call_time = 0
-_min_api_call_interval = 0.5  # Minimum 500ms between API calls (increased from 100ms)
-
-def enforce_rate_limit():
-    """Enforce rate limiting between API calls"""
-    global _last_api_call_time
-    current_time = time.time()
-    time_since_last_call = current_time - _last_api_call_time
-    
-    if time_since_last_call < _min_api_call_interval:
-        sleep_time = _min_api_call_interval - time_since_last_call
-        logging.info(f"Rate limiting: sleeping for {sleep_time:.3f}s")
-        time.sleep(sleep_time)
-    
-    _last_api_call_time = time.time()
-
-def cleanup_cache():
-    """Clean up expired cache entries and limit cache size"""
-    global _stock_cache
-    current_time = time.time()
-    
-    # Remove expired entries
-    expired_keys = [
-        key for key, (_, timestamp) in _stock_cache.items() 
-        if current_time - timestamp > _cache_ttl
-    ]
-    for key in expired_keys:
-        del _stock_cache[key]
-    
-    # Limit cache size by removing oldest entries
-    if len(_stock_cache) > _max_cache_size:
-        # Sort by timestamp and remove oldest entries
-        sorted_items = sorted(_stock_cache.items(), key=lambda x: x[1][1])
-        items_to_remove = len(_stock_cache) - _max_cache_size
-        for i in range(items_to_remove):
-            del _stock_cache[sorted_items[i][0]]
-    
-    logging.info(f"Cache cleanup: {len(expired_keys)} expired entries removed, cache size: {len(_stock_cache)}")
+# Global rate limiting variables - now using centralized system
+# _last_api_call_time = 0
+# _min_api_call_interval = 1.0  # Increased from 0.5 to 1.0 second
 
 def is_after_hours() -> bool:
     """Check if current time is after regular market hours (4:00 PM ET)"""
@@ -171,86 +136,14 @@ def get_after_hours_data(ticker: str) -> Dict[str, Any]:
 
 @lru_cache(maxsize=1000)
 def get_finviz_data(ticker: str) -> Dict[str, Any]:
-    """Get real-time data from Finviz with caching and rate limiting"""
-    global _last_api_call_time
-    
-    # Rate limiting
-    current_time = time.time()
-    time_since_last_call = current_time - _last_api_call_time
-    if time_since_last_call < _min_api_call_interval:
-        time.sleep(_min_api_call_interval - time_since_last_call)
-    
-    _last_api_call_time = time.time()
-    
+    """Get additional data from Finviz using centralized rate limiting"""
     try:
-        url = f"https://finviz.com/quote.ashx?t={ticker}"
-        headers = {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
-        }
+        # Use the centralized rate limiter
+        enforce_rate_limit()
         
-        response = requests.get(url, headers=headers, timeout=10)
-        response.raise_for_status()
+        # Use the safe Finviz call function
+        return safe_finviz_call(ticker)
         
-        soup = BeautifulSoup(response.content, 'html.parser')
-        
-        # Extract current price - try multiple selectors
-        current_price = None
-        price_selectors = [
-            'span.fvz-price',
-            'span[class*="price"]',
-            'td[class*="price"]',
-            'b[class*="price"]'
-        ]
-        for selector in price_selectors:
-            price_element = soup.select_one(selector)
-            if price_element:
-                current_price = price_element.text.strip()
-                break
-        
-        # Extract today's change - try multiple selectors
-        today_change = None
-        change_selectors = [
-            'span.fvz-change',
-            'span[class*="change"]',
-            'td[class*="change"]',
-            'span[class*="percent"]'
-        ]
-        for selector in change_selectors:
-            change_element = soup.select_one(selector)
-            if change_element:
-                today_change = change_element.text.strip()
-                break
-        
-        # Extract market cap
-        market_cap = None
-        for row in soup.find_all('tr'):
-            cells = row.find_all('td')
-            if len(cells) >= 2:
-                if 'Market Cap' in cells[0].text:
-                    market_cap = cells[1].text.strip()
-                    break
-        
-        # Extract earning date
-        earning_date = None
-        for row in soup.find_all('tr'):
-            cells = row.find_all('td')
-            if len(cells) >= 2:
-                if 'Earnings' in cells[0].text:
-                    earning_date = cells[1].text.strip()
-                    break
-        
-        # Log the extracted data for debugging
-        if not current_price:
-            logging.warning(f"No current price found for {ticker} on Finviz")
-        if not today_change:
-            logging.warning(f"No today change found for {ticker} on Finviz")
-            
-        return {
-            'current_price': current_price,
-            'today_change': today_change,
-            'market_cap': market_cap,
-            'earning_date': earning_date
-        }
     except Exception as e:
         logging.error(f"Error fetching Finviz data for {ticker}: {e}")
         return {}
@@ -258,9 +151,10 @@ def get_finviz_data(ticker: str) -> Dict[str, Any]:
 def get_yahoo_realtime_data(ticker: str) -> Dict[str, Any]:
     """Get real-time data from Yahoo Finance with different approaches for before/after market close"""
     try:
-        # Enforce rate limiting
+        # Enforce rate limiting using centralized system
         enforce_rate_limit()
         
+        # Use safe yfinance call
         ticker_obj = yf.Ticker(ticker)
         
         # Check if it's after hours

@@ -15,7 +15,7 @@ _max_summary_cache_size = 500  # Maximum number of cached items
 
 # Rate limiting for API calls
 _last_api_call_time = 0
-_min_api_call_interval = 0.5  # Minimum 500ms between API calls
+_min_api_call_interval = 1.0  # Increased to 1.0 second between API calls
 
 def enforce_rate_limit():
     """Enforce rate limiting between API calls"""

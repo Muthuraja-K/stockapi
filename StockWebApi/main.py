@@ -22,6 +22,7 @@ from sector_operations import get_sectors_with_filters, add_sector_to_file, upda
 from user_operations import get_users_with_filters, add_user_to_file, update_user_in_file, delete_user_from_file
 from earning_summary import get_earning_summary, get_after_hours_data
 from sentiment_analysis import get_sentiment_analysis
+from api_rate_limiter import get_rate_limiter
 
 # Configure logging
 logging.basicConfig(level=logging.WARNING)
@@ -677,6 +678,41 @@ async def test_earnings_route(
         logging.error(f"Error testing earnings for {ticker}: {str(e)}")
         raise HTTPException(status_code=500, detail={'error': 'Failed to test earnings data'})
 
+@app.get('/api/rate-limiter-status')
+async def get_rate_limiter_status():
+    """Get the current status of the API rate limiter"""
+    try:
+        rate_limiter = get_rate_limiter()
+        status = rate_limiter.get_status()
+        return {
+            "status": "success",
+            "data": status,
+            "timestamp": datetime.now().isoformat()
+        }
+    except Exception as e:
+        logger.error(f"Error getting rate limiter status: {e}")
+        raise HTTPException(status_code=500, detail=f"Error getting rate limiter status: {str(e)}")
+
+@app.post('/api/rate-limiter-reset')
+async def reset_rate_limiter(current_user: Dict[str, Any] = Depends(require_admin)):
+    """Manually reset the rate limiter circuit breaker (admin only)"""
+    try:
+        rate_limiter = get_rate_limiter()
+        
+        # Reset the circuit breaker
+        with rate_limiter.lock:
+            rate_limiter.consecutive_429_errors = 0
+            rate_limiter.circuit_breaker_opened_at = None
+        
+        logger.info("Rate limiter manually reset by admin")
+        return {
+            "status": "success",
+            "message": "Rate limiter circuit breaker reset successfully",
+            "timestamp": datetime.now().isoformat()
+        }
+    except Exception as e:
+        logger.error(f"Error resetting rate limiter: {e}")
+        raise HTTPException(status_code=500, detail=f"Error resetting rate limiter: {str(e)}")
 
 # Catch-all route for static files - must be at the end
 @app.get("/{path:path}")
