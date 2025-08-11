@@ -156,8 +156,8 @@ class APIRateLimiter:
         if hasattr(self, 'worker_thread'):
             self.worker_thread.join(timeout=5)
 
-# Global instance with more conservative rate limiting
-_rate_limiter = APIRateLimiter(calls_per_second=0.3)
+# Global instance with Railway-friendly rate limiting
+_rate_limiter = APIRateLimiter(calls_per_second=0.5)  # Increased from 0.3 to 0.5 (1 call every 2 seconds)
 
 def enforce_rate_limit():
     """Global function to enforce rate limiting"""
@@ -218,22 +218,43 @@ def safe_yfinance_call(ticker_symbol: str, operation: str = "info"):
     """
     try:
         import yfinance as yf
+        logger.info(f"Making yfinance call for {ticker_symbol} operation: {operation}")
+        
         ticker = yf.Ticker(ticker_symbol)
         
         if operation == "info":
-            return ticker.info
+            result = ticker.info
+            logger.info(f"Successfully got info for {ticker_symbol}")
+            return result
         elif operation == "history":
-            return ticker.history(period="1d", interval="1m", prepost=True)
+            result = ticker.history(period="1d", interval="1m", prepost=True)
+            logger.info(f"Successfully got history for {ticker_symbol} with {len(result)} data points")
+            return result
         elif operation == "earnings":
-            return ticker.earnings
+            result = ticker.earnings
+            logger.info(f"Successfully got earnings for {ticker_symbol}")
+            return result
         elif operation == "financials":
-            return ticker.financials
+            result = ticker.financials
+            logger.info(f"Successfully got financials for {ticker_symbol}")
+            return result
         else:
-            return ticker.info
+            result = ticker.info
+            logger.info(f"Successfully got default info for {ticker_symbol}")
+            return result
             
     except Exception as e:
-        logger.error(f"Error in safe_yfinance_call for {ticker_symbol}: {e}")
-        raise
+        error_msg = str(e)
+        logger.error(f"Error in safe_yfinance_call for {ticker_symbol} operation {operation}: {error_msg}")
+        
+        # Check if this is a 429 error
+        if "429" in error_msg or "Too Many Requests" in error_msg:
+            logger.warning(f"429 error detected for {ticker_symbol}, will trigger retry logic")
+            # Re-raise to trigger retry decorator
+            raise Exception(f"429 Client Error: Too Many Requests for {ticker_symbol}")
+        else:
+            # For non-429 errors, just re-raise
+            raise
 
 @retry_on_429(max_retries=3, base_delay=3.0)
 def safe_finviz_call(ticker_symbol: str):
