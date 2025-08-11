@@ -13,6 +13,22 @@ _summary_cache = {}
 _summary_cache_ttl = 300  # 5 minutes cache TTL
 _max_summary_cache_size = 500  # Maximum number of cached items
 
+# Rate limiting for API calls
+_last_api_call_time = 0
+_min_api_call_interval = 0.5  # Minimum 500ms between API calls
+
+def enforce_rate_limit():
+    """Enforce rate limiting between API calls"""
+    global _last_api_call_time
+    current_time = time.time()
+    
+    if current_time - _last_api_call_time < _min_api_call_interval:
+        sleep_time = _min_api_call_interval - (current_time - _last_api_call_time)
+        logging.info(f"Rate limiting: sleeping for {sleep_time:.3f}s")
+        time.sleep(sleep_time)
+    
+    _last_api_call_time = time.time()
+
 def cleanup_summary_cache():
     """Clean up expired cache entries and limit cache size"""
     global _summary_cache
@@ -53,6 +69,9 @@ def get_cached_summary_data(symbol: str, date_from_iso: str, date_to_iso: str) -
     
     # Fetch fresh data
     try:
+        # Enforce rate limiting
+        enforce_rate_limit()
+        
         ticker = yf.Ticker(symbol)
         info = ticker.info
         
@@ -184,8 +203,8 @@ def process_sector_stocks(sector_stocks: List[Dict], date_from_iso: str, date_to
     if not sector_stocks:
         return sector, [], 0
 
-    # Process stocks in parallel
-    max_workers = min(30, len(sector_stocks))  # Further increased concurrent requests limit for faster performance
+    # Process stocks in parallel with reduced workers to avoid rate limiting
+    max_workers = min(5, len(sector_stocks))  # Reduced from 30 to 5 to avoid rate limits
     
     with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
         # Submit all tasks for this sector
@@ -211,6 +230,8 @@ def process_sector_stocks(sector_stocks: List[Dict], date_from_iso: str, date_to
                         # Remove raw_percentage from final result
                         del result['raw_percentage']
                     logging.info(f"Completed processing for {stock['ticker']} in sector {sector}")
+                    # Add small delay between completions to avoid rate limiting
+                    time.sleep(0.1)
             except Exception as e:
                 logging.error(f"Exception occurred while processing {stock['ticker']}: {e}")
                 continue
@@ -251,7 +272,7 @@ def get_stock_summary(sectors_param, isxticker_param, date_from_param, date_to_p
 
     # Process each sector group in parallel with batch processing
     results = []
-    max_sector_workers = min(20, len(sector_groups))  # Further increased for batch processing
+    max_sector_workers = min(5, len(sector_groups))  # Reduced from 20 to 5 to avoid rate limits
     batch_size = 30  # Process stocks in batches of 30 per sector
     
     logging.info(f"Processing {len(sector_groups)} sectors with {max_sector_workers} workers in batches of {batch_size}")

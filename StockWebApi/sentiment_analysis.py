@@ -2,6 +2,22 @@ import yfinance as yf
 import random
 from datetime import datetime, timedelta
 import json
+import time
+
+# Rate limiting for API calls
+_last_api_call_time = 0
+_min_api_call_interval = 0.5  # Minimum 500ms between API calls
+
+def enforce_rate_limit():
+    """Enforce rate limiting between API calls"""
+    global _last_api_call_time
+    current_time = time.time()
+    
+    if current_time - _last_api_call_time < _min_api_call_interval:
+        sleep_time = _min_api_call_interval - (current_time - _last_api_call_time)
+        time.sleep(sleep_time)
+    
+    _last_api_call_time = time.time()
 
 def get_sentiment_analysis(ticker):
     """
@@ -9,6 +25,9 @@ def get_sentiment_analysis(ticker):
     This is a mock implementation that generates realistic sentiment data
     """
     try:
+        # Enforce rate limiting
+        enforce_rate_limit()
+        
         # Get stock info from yfinance
         stock = yf.Ticker(ticker)
         info = stock.info

@@ -10,6 +10,22 @@ import time
 
 logger = logging.getLogger(__name__)
 
+# Rate limiting for API calls
+_last_api_call_time = 0
+_min_api_call_interval = 0.5  # Minimum 500ms between API calls
+
+def enforce_rate_limit():
+    """Enforce rate limiting between API calls"""
+    global _last_api_call_time
+    current_time = time.time()
+    
+    if current_time - _last_api_call_time < _min_api_call_interval:
+        sleep_time = _min_api_call_interval - (current_time - _last_api_call_time)
+        logger.info(f"Rate limiting: sleeping for {sleep_time:.3f}s")
+        time.sleep(sleep_time)
+    
+    _last_api_call_time = time.time()
+
 class HistoryCache:
     def __init__(self, cache_file: str = "history.json"):
         self.cache_file = cache_file
@@ -75,6 +91,9 @@ class HistoryCache:
     def fetch_historical_data(self, symbol: str) -> Optional[Dict]:
         """Fetch 1-year historical data for a stock"""
         try:
+            # Enforce rate limiting
+            enforce_rate_limit()
+            
             ticker = yf.Ticker(symbol)
             
             # Fetch 1 year of historical data
@@ -281,7 +300,7 @@ class HistoryCache:
         logger.info(f"Starting daily update for {len(symbols)} stocks")
         
         updated_data = {}
-        max_workers = min(20, len(symbols))  # Limit concurrent requests
+        max_workers = min(5, len(symbols))  # Reduced from 20 to 5 to avoid rate limits
         
         with ThreadPoolExecutor(max_workers=max_workers) as executor:
             # Submit all tasks
@@ -296,6 +315,8 @@ class HistoryCache:
                         updated_data[symbol] = result
                         self.update_stock_cache(symbol, result)
                         logger.info(f"Updated cache for {symbol}")
+                        # Add small delay between completions to avoid rate limiting
+                        time.sleep(0.1)
                     else:
                         logger.warning(f"No data received for {symbol}")
                 except Exception as e:
@@ -310,6 +331,9 @@ class HistoryCache:
     def get_current_price_only(self, symbol: str) -> Optional[float]:
         """Fetch only current price for a stock"""
         try:
+            # Enforce rate limiting
+            enforce_rate_limit()
+            
             ticker = yf.Ticker(symbol)
             info = ticker.info
             
@@ -333,6 +357,9 @@ class HistoryCache:
     def get_realtime_data(self, symbol: str) -> Optional[Dict]:
         """Fetch real-time current price, today's high/low, and today's change"""
         try:
+            # Enforce rate limiting
+            enforce_rate_limit()
+            
             ticker = yf.Ticker(symbol)
             info = ticker.info
             

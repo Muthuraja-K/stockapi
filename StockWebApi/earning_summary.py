@@ -3,6 +3,22 @@ import pandas as pd
 from datetime import datetime, timedelta
 import logging
 from utils import load_stocks
+import time
+
+# Rate limiting for API calls
+_last_api_call_time = 0
+_min_api_call_interval = 0.5  # Minimum 500ms between API calls
+
+def enforce_rate_limit():
+    """Enforce rate limiting between API calls"""
+    global _last_api_call_time
+    current_time = time.time()
+    
+    if current_time - _last_api_call_time < _min_api_call_interval:
+        sleep_time = _min_api_call_interval - (current_time - _last_api_call_time)
+        time.sleep(sleep_time)
+    
+    _last_api_call_time = time.time()
 
 def get_after_hours_data(ticker: str, date: str):
     """
@@ -16,6 +32,9 @@ def get_after_hours_data(ticker: str, date: str):
         Dictionary with after-hours and pre-market data
     """
     try:
+        # Enforce rate limiting
+        enforce_rate_limit()
+        
         logging.info(f"Starting after-hours data fetch for {ticker} on {date}")
         
         # Validate date format and check if it's in the future
@@ -209,6 +228,9 @@ def get_historical_price_data(ticker: str, date: str, interval: str = '1m'):
         # Try to get specified interval data for the specific date
         start_date = target_date
         end_date = target_date + timedelta(days=1)
+        
+        # Enforce rate limiting
+        enforce_rate_limit()
         
         yf_ticker = yf.Ticker(ticker)
         
@@ -437,6 +459,9 @@ def get_earning_summary(sectors_param=None, date_from_param=None, date_to_param=
                     continue
                 
                 # Get stock info from yfinance
+                # Enforce rate limiting
+                enforce_rate_limit()
+                
                 yf_ticker = yf.Ticker(ticker)
                 info = yf_ticker.info
                 
