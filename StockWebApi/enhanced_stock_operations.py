@@ -21,7 +21,20 @@ _max_cache_size = 1000  # Maximum number of cached items
 
 # Rate limiting for API calls
 _last_api_call_time = 0
-_min_api_call_interval = 0.1  # Minimum 100ms between API calls
+_min_api_call_interval = 0.5  # Minimum 500ms between API calls (increased from 100ms)
+
+def enforce_rate_limit():
+    """Enforce rate limiting between API calls"""
+    global _last_api_call_time
+    current_time = time.time()
+    time_since_last_call = current_time - _last_api_call_time
+    
+    if time_since_last_call < _min_api_call_interval:
+        sleep_time = _min_api_call_interval - time_since_last_call
+        logging.info(f"Rate limiting: sleeping for {sleep_time:.3f}s")
+        time.sleep(sleep_time)
+    
+    _last_api_call_time = time.time()
 
 def cleanup_cache():
     """Clean up expired cache entries and limit cache size"""
@@ -81,6 +94,9 @@ def is_after_hours() -> bool:
 def get_after_hours_data(ticker: str) -> Dict[str, Any]:
     """Get after-hours percentage change for a ticker"""
     try:
+        # Enforce rate limiting
+        enforce_rate_limit()
+        
         ticker_obj = yf.Ticker(ticker)
         
         # Get after-hours data
@@ -242,6 +258,9 @@ def get_finviz_data(ticker: str) -> Dict[str, Any]:
 def get_yahoo_realtime_data(ticker: str) -> Dict[str, Any]:
     """Get real-time data from Yahoo Finance with different approaches for before/after market close"""
     try:
+        # Enforce rate limiting
+        enforce_rate_limit()
+        
         ticker_obj = yf.Ticker(ticker)
         
         # Check if it's after hours
@@ -337,6 +356,8 @@ def get_yahoo_realtime_data(ticker: str) -> Dict[str, Any]:
 def get_yahoo_finance_data(ticker: str) -> Dict[str, Any]:
     """Get historical data from Yahoo Finance including after-hours data"""
     try:
+        # Enforce rate limiting
+        enforce_rate_limit()
         ticker_obj = yf.Ticker(ticker)
         
         # Get historical data for different periods with more data points
@@ -676,9 +697,9 @@ def update_ticker_today_data():
     
     logging.info(f"Updating Ticker_Today.json with data for {len(symbols)} stocks")
     
-    # Process stocks in parallel
+    # Process stocks with reduced parallelism to avoid rate limiting
     results = []
-    max_workers = min(20, len(symbols))
+    max_workers = min(5, len(symbols))  # Reduced from 20 to 5 to avoid rate limits
     
     with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
         future_to_symbol = {
@@ -692,6 +713,8 @@ def update_ticker_today_data():
                 result = future.result()
                 results.append(result)
                 logging.info(f"Completed processing for {symbol}")
+                # Add small delay between completions to avoid rate limiting
+                time.sleep(0.1)
             except Exception as e:
                 logging.error(f"Exception occurred while processing {symbol}: {e}")
                 results.append(process_single_enhanced_stock(symbol, stocks))
@@ -884,8 +907,8 @@ def get_realtime_price_updates(tickers: List[str]) -> Dict[str, Dict[str, str]]:
     updates = {}
     
     # Use ThreadPoolExecutor for parallel processing to avoid blocking
-    # Limit workers to prevent too many concurrent requests
-    max_workers = min(10, len(tickers))
+    # Limit workers to prevent too many concurrent requests and rate limiting
+    max_workers = min(5, len(tickers))  # Reduced from 10 to 5 to avoid rate limits
     with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
         # Submit all ticker requests - use Yahoo Finance for after-hours data
         future_to_ticker = {
@@ -947,6 +970,9 @@ def get_realtime_price_updates(tickers: List[str]) -> Dict[str, Dict[str, str]]:
                     logging.info(f"Regular hours update for {ticker}: current_price={current_price}, today_change={today_change}, ah_percentage={ah_percentage}")
                 
                 logging.info(f"Processed real-time data for {ticker}: {updates[ticker]}")
+                
+                # Add small delay between processing to avoid rate limiting
+                time.sleep(0.1)
                 
             except Exception as e:
                 logging.error(f"Error getting real-time data for {ticker}: {e}")
