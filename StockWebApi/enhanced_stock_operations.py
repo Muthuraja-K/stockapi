@@ -59,10 +59,8 @@ def is_after_hours() -> bool:
 def get_after_hours_data(ticker: str) -> Dict[str, Any]:
     """Get after-hours percentage change for a ticker"""
     try:
-        # Enforce rate limiting
-        enforce_rate_limit()
-        
-        ticker_obj = yf.Ticker(ticker)
+        # Use safe yfinance call instead of direct yf.Ticker
+        ticker_info = safe_yfinance_call(ticker, "info")
         
         # Get after-hours data
         after_hours_data = {}
@@ -73,13 +71,12 @@ def get_after_hours_data(ticker: str) -> Dict[str, Any]:
             return after_hours_data
         
         try:
-            # Try to get extended hours data
-            # First attempt: Get intraday data with pre/post market
-            live_data = ticker_obj.history(period='1d', interval='1m', prepost=True)
+            # Try to get extended hours data using safe call
+            live_data = safe_yfinance_call(ticker, "history")
             
             if not live_data.empty:
                 # Get ticker info for regular market prices
-                info = ticker_obj.info
+                info = ticker_info
                 regular_close = info.get('regularMarketPreviousClose') or info.get('previousClose')
                 
                 if regular_close:
@@ -114,7 +111,7 @@ def get_after_hours_data(ticker: str) -> Dict[str, Any]:
             
             # Ultimate fallback: try to get basic price info
             try:
-                info = ticker_obj.info
+                info = ticker_info
                 current_price = info.get('currentPrice') or info.get('regularMarketPrice')
                 previous_close = info.get('previousClose')
                 
@@ -151,11 +148,8 @@ def get_finviz_data(ticker: str) -> Dict[str, Any]:
 def get_yahoo_realtime_data(ticker: str) -> Dict[str, Any]:
     """Get real-time data from Yahoo Finance with different approaches for before/after market close"""
     try:
-        # Enforce rate limiting using centralized system
-        enforce_rate_limit()
-        
-        # Use safe yfinance call
-        ticker_obj = yf.Ticker(ticker)
+        # Use safe yfinance call instead of direct yf.Ticker
+        ticker_info = safe_yfinance_call(ticker, "info")
         
         # Check if it's after hours
         is_after_hours_trading = is_after_hours()
@@ -169,14 +163,14 @@ def get_yahoo_realtime_data(ticker: str) -> Dict[str, Any]:
             logging.info(f"Using after-hours approach for {ticker}")
             try:
                 # Get 1-minute interval data for today (includes after-hours)
-                live_data = ticker_obj.history(period='1d', interval='1m', prepost=True)
+                live_data = safe_yfinance_call(ticker, "history")
                 if not live_data.empty:
                     current_price = live_data.iloc[-1]['Close']
                     logging.info(f"Got after-hours live data for {ticker}: {current_price}")
                     
                     # Calculate today's change based on previous close
                     try:
-                        info = ticker_obj.info
+                        info = ticker_info
                         previous_close = info.get('previousClose')
                         if previous_close:
                             today_change = ((current_price - previous_close) / previous_close) * 100
@@ -191,7 +185,7 @@ def get_yahoo_realtime_data(ticker: str) -> Dict[str, Any]:
             # Fallback for after-hours: try regular market price
             if not current_price:
                 try:
-                    info = ticker_obj.info
+                    info = ticker_info
                     current_price = info.get('regularMarketPrice')
                     if current_price:
                         previous_close = info.get('previousClose')
@@ -205,14 +199,14 @@ def get_yahoo_realtime_data(ticker: str) -> Dict[str, Any]:
             logging.info(f"Using regular market approach for {ticker}")
             try:
                 # Get regular market data (1-minute intervals, no prepost)
-                live_data = ticker_obj.history(period='1d', interval='1m', prepost=False)
+                live_data = safe_yfinance_call(ticker, "history")
                 if not live_data.empty:
                     current_price = live_data.iloc[-1]['Close']
                     logging.info(f"Got regular market live data for {ticker}: {current_price}")
                     
                     # Calculate today's change based on previous close
                     try:
-                        info = ticker_obj.info
+                        info = ticker_info
                         previous_close = info.get('previousClose')
                         if previous_close:
                             today_change = ((current_price - previous_close) / previous_close) * 100
@@ -227,7 +221,7 @@ def get_yahoo_realtime_data(ticker: str) -> Dict[str, Any]:
             # Fallback for regular hours: try regular market price from info
             if not current_price:
                 try:
-                    info = ticker_obj.info
+                    info = ticker_info
                     current_price = info.get('regularMarketPrice')
                     if current_price:
                         previous_close = info.get('previousClose')
@@ -252,24 +246,24 @@ def get_yahoo_finance_data(ticker: str) -> Dict[str, Any]:
     try:
         # Enforce rate limiting
         enforce_rate_limit()
-        ticker_obj = yf.Ticker(ticker)
+        ticker_info = safe_yfinance_call(ticker, "info")
         
         # Get historical data for different periods with more data points
-        hist_1d = ticker_obj.history(period='5d')  # Get more days to ensure we have enough data
-        hist_5d = ticker_obj.history(period='10d')  # Get more days for 5-day calculation
-        hist_1m = ticker_obj.history(period='2mo')  # Get more data for 1-month calculation
-        hist_6m = ticker_obj.history(period='7mo')  # Get more data for 6-month calculation
-        hist_1y = ticker_obj.history(period='2y')   # Get more data for 1-year calculation
+        hist_1d = safe_yfinance_call(ticker, "history")  # Get more days to ensure we have enough data
+        hist_5d = safe_yfinance_call(ticker, "history")  # Get more days for 5-day calculation
+        hist_1m = safe_yfinance_call(ticker, "history")  # Get more data for 1-month calculation
+        hist_6m = safe_yfinance_call(ticker, "history")  # Get more data for 6-month calculation
+        hist_1y = safe_yfinance_call(ticker, "history")   # Get more data for 1-year calculation
         
         # Get info for market cap and earning date
-        info = ticker_obj.info
+        info = ticker_info
         
         # Get current price including after-hours data
         current_price = None
         try:
             # Try to get real-time price with after-hours data
             # This includes pre-market and after-hours trading data
-            live_price = ticker_obj.history(period='1d', interval='1m')
+            live_price = safe_yfinance_call(ticker, "history")
             if not live_price.empty:
                 current_price = live_price.iloc[-1]['Close']
             else:

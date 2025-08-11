@@ -4,21 +4,9 @@ from datetime import datetime, timedelta
 import logging
 from utils import load_stocks
 import time
+from api_rate_limiter import enforce_rate_limit, safe_yfinance_call
 
-# Rate limiting for API calls
-_last_api_call_time = 0
-_min_api_call_interval = 1.0  # Increased to 1.0 second between API calls
-
-def enforce_rate_limit():
-    """Enforce rate limiting between API calls"""
-    global _last_api_call_time
-    current_time = time.time()
-    
-    if current_time - _last_api_call_time < _min_api_call_interval:
-        sleep_time = _min_api_call_interval - (current_time - _last_api_call_time)
-        time.sleep(sleep_time)
-    
-    _last_api_call_time = time.time()
+# Remove old rate limiting variables and functions - now using centralized rate limiter
 
 def get_after_hours_data(ticker: str, date: str):
     """
@@ -32,7 +20,7 @@ def get_after_hours_data(ticker: str, date: str):
         Dictionary with after-hours and pre-market data
     """
     try:
-        # Enforce rate limiting
+        # Use centralized rate limiting
         enforce_rate_limit()
         
         logging.info(f"Starting after-hours data fetch for {ticker} on {date}")
@@ -65,7 +53,8 @@ def get_after_hours_data(ticker: str, date: str):
                 "date": date
             }
         
-        yf_ticker = yf.Ticker(ticker)
+        # Use safe yfinance call instead of direct yf.Ticker
+        yf_ticker_info = safe_yfinance_call(ticker, "info")
         
         # Get extended range data to capture all after-hours activity
         # Yahoo Finance often has data from 4 AM to 8 PM ET
@@ -76,20 +65,20 @@ def get_after_hours_data(ticker: str, date: str):
         
         # Try to get 1-minute data for granular after-hours information
         try:
-            detailed_data = yf_ticker.history(start=extended_start, end=extended_end, interval='1m')
+            detailed_data = safe_yfinance_call(ticker, "history")
             if not detailed_data.empty:
                 interval_data = detailed_data
                 use_detailed = True
                 logging.info(f"Got 1-minute data with {len(detailed_data)} points")
             else:
                 # Fallback to 5-minute data
-                interval_data = yf_ticker.history(start=extended_start, end=extended_end, interval='5m')
+                interval_data = safe_yfinance_call(ticker, "history")
                 use_detailed = False
                 logging.info(f"Got 5-minute data with {len(interval_data)} points")
         except Exception as e:
             logging.warning(f"Failed to get 1-minute data, falling back to 5-minute: {str(e)}")
             # Fallback to 5-minute data
-            interval_data = yf_ticker.history(start=extended_start, end=extended_end, interval='5m')
+            interval_data = safe_yfinance_call(ticker, "history")
             use_detailed = False
         
         if interval_data.empty:
@@ -101,7 +90,7 @@ def get_after_hours_data(ticker: str, date: str):
             }
         
         # Get daily OHLC for reference
-        daily_data = yf_ticker.history(start=target_date, end=target_date + timedelta(days=1), interval='1d')
+        daily_data = safe_yfinance_call(ticker, "history")
         if not daily_data.empty:
             daily_row = daily_data.iloc[0]
             market_close = daily_row['Close']
@@ -229,13 +218,14 @@ def get_historical_price_data(ticker: str, date: str, interval: str = '1m'):
         start_date = target_date
         end_date = target_date + timedelta(days=1)
         
-        # Enforce rate limiting
+        # Use centralized rate limiting
         enforce_rate_limit()
         
-        yf_ticker = yf.Ticker(ticker)
+        # Use safe yfinance call instead of direct yf.Ticker
+        yf_ticker_info = safe_yfinance_call(ticker, "info")
         
         # Get daily data for the target date
-        daily_data = yf_ticker.history(start=start_date, end=end_date, interval='1d')
+        daily_data = safe_yfinance_call(ticker, "history")
         
         if daily_data.empty:
             return {
@@ -258,20 +248,20 @@ def get_historical_price_data(ticker: str, date: str, interval: str = '1m'):
             if interval == '1h':
                 # For hourly charts, try to get 1-minute data first, then aggregate
                 try:
-                    detailed_data = yf_ticker.history(start=extended_start, end=extended_end, interval='1m')
+                    detailed_data = safe_yfinance_call(ticker, "history")
                     if not detailed_data.empty:
                         interval_data = detailed_data
                         use_detailed = True
                     else:
                         # Fallback to hourly data
-                        interval_data = yf_ticker.history(start=extended_start, end=extended_end, interval='1h')
+                        interval_data = safe_yfinance_call(ticker, "history")
                         use_detailed = False
                 except:
                     # Fallback to hourly data
-                    interval_data = yf_ticker.history(start=extended_start, end=extended_end, interval='1h')
+                    interval_data = safe_yfinance_call(ticker, "history")
                     use_detailed = False
             else:
-                interval_data = yf_ticker.history(start=extended_start, end=extended_end, interval=interval)
+                interval_data = safe_yfinance_call(ticker, "history")
                 use_detailed = False
             
             if not interval_data.empty:
@@ -458,18 +448,17 @@ def get_earning_summary(sectors_param=None, date_from_param=None, date_to_param=
                 if not ticker:
                     continue
                 
-                # Get stock info from yfinance
-                # Enforce rate limiting
+                # Get stock info from yfinance using centralized rate limiting
                 enforce_rate_limit()
                 
-                yf_ticker = yf.Ticker(ticker)
-                info = yf_ticker.info
+                # Use safe yfinance call instead of direct yf.Ticker
+                yf_ticker_info = safe_yfinance_call(ticker, "info")
                 
                 # Get current price
-                current_price = info.get('currentPrice', 0)
+                current_price = yf_ticker_info.get('currentPrice', 0)
                 if current_price is None or current_price == 0:
                     # Try to get from historical data
-                    hist = yf_ticker.history(period="1d")
+                    hist = safe_yfinance_call(ticker, "history")
                     if not hist.empty:
                         current_price = hist.iloc[-1]['Close']
                     else:
@@ -525,7 +514,7 @@ def get_earning_summary(sectors_param=None, date_from_param=None, date_to_param=
                 last_two_earnings = []
                 try:
                     # Get earnings calendar for the last few quarters
-                    earnings_calendar = yf_ticker.earnings_dates
+                    earnings_calendar = yf_ticker_info.get('earnings_dates', None)
                     if earnings_calendar is not None and not earnings_calendar.empty:
                         # Get the last 2 earnings dates
                         last_earnings = earnings_calendar.head(2)
@@ -547,7 +536,7 @@ def get_earning_summary(sectors_param=None, date_from_param=None, date_to_param=
                             try:
                                 # First try to get earnings data from earnings property
                                 try:
-                                    earnings_data = yf_ticker.earnings
+                                    earnings_data = yf_ticker_info.get('earnings', None)
                                     if earnings_data is not None and not earnings_data.empty:
                                         # Get the most recent earnings data
                                         latest_earnings = earnings_data.iloc[0] if len(earnings_data) > 0 else None

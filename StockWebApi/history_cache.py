@@ -7,24 +7,11 @@ import yfinance as yf
 import pandas as pd
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import time
+from api_rate_limiter import enforce_rate_limit, safe_yfinance_call
 
 logger = logging.getLogger(__name__)
 
-# Rate limiting for API calls
-_last_api_call_time = 0
-_min_api_call_interval = 1.0  # Increased to 1.0 second between API calls
-
-def enforce_rate_limit():
-    """Enforce rate limiting between API calls"""
-    global _last_api_call_time
-    current_time = time.time()
-    
-    if current_time - _last_api_call_time < _min_api_call_interval:
-        sleep_time = _min_api_call_interval - (current_time - _last_api_call_time)
-        logger.info(f"Rate limiting: sleeping for {sleep_time:.3f}s")
-        time.sleep(sleep_time)
-    
-    _last_api_call_time = time.time()
+# Remove old rate limiting variables and functions - now using centralized rate limiter
 
 class HistoryCache:
     def __init__(self, cache_file: str = "history.json"):
@@ -91,13 +78,11 @@ class HistoryCache:
     def fetch_historical_data(self, symbol: str) -> Optional[Dict]:
         """Fetch 1-year historical data for a stock"""
         try:
-            # Enforce rate limiting
+            # Use centralized rate limiting
             enforce_rate_limit()
             
-            ticker = yf.Ticker(symbol)
-            
-            # Fetch 1 year of historical data
-            hist = ticker.history(period="1y")
+            # Use safe yfinance call instead of direct yf.Ticker
+            hist = safe_yfinance_call(symbol, "history")
             
             if hist.empty:
                 logger.warning(f"No historical data found for {symbol}")
@@ -331,20 +316,20 @@ class HistoryCache:
     def get_current_price_only(self, symbol: str) -> Optional[float]:
         """Fetch only current price for a stock"""
         try:
-            # Enforce rate limiting
+            # Use centralized rate limiting
             enforce_rate_limit()
             
-            ticker = yf.Ticker(symbol)
-            info = ticker.info
+            # Use safe yfinance call instead of direct yf.Ticker
+            ticker_info = safe_yfinance_call(symbol, "info")
             
             # Try to get current price from info
-            current_price = info.get('currentPrice') or info.get('regularMarketPrice')
+            current_price = ticker_info.get('currentPrice') or ticker_info.get('regularMarketPrice')
             
             if current_price:
                 return float(current_price)
             
             # Fallback to historical data
-            hist = ticker.history(period="1d")
+            hist = safe_yfinance_call(symbol, "history")
             if not hist.empty:
                 return float(hist['Close'].iloc[-1])
             
@@ -357,17 +342,17 @@ class HistoryCache:
     def get_realtime_data(self, symbol: str) -> Optional[Dict]:
         """Fetch real-time current price, today's high/low, and today's change"""
         try:
-            # Enforce rate limiting
+            # Use centralized rate limiting
             enforce_rate_limit()
             
-            ticker = yf.Ticker(symbol)
-            info = ticker.info
+            # Use safe yfinance call instead of direct yf.Ticker
+            ticker_info = safe_yfinance_call(symbol, "info")
             
             # Get current price
-            current_price = info.get('currentPrice') or info.get('regularMarketPrice')
+            current_price = ticker_info.get('currentPrice') or ticker_info.get('regularMarketPrice')
             if not current_price:
                 # Fallback to historical data
-                hist = ticker.history(period="1d")
+                hist = safe_yfinance_call(symbol, "history")
                 if not hist.empty:
                     current_price = float(hist['Close'].iloc[-1])
                 else:
@@ -376,12 +361,12 @@ class HistoryCache:
             current_price = float(current_price)
             
             # Get today's high/low from info
-            today_high = info.get('dayHigh') or info.get('regularMarketDayHigh')
-            today_low = info.get('dayLow') or info.get('regularMarketDayLow')
+            today_high = ticker_info.get('dayHigh') or ticker_info.get('regularMarketDayHigh')
+            today_low = ticker_info.get('dayLow') or ticker_info.get('regularMarketDayLow')
             
             # If not available in info, try historical data
             if not today_high or not today_low:
-                hist = ticker.history(period="1d")
+                hist = safe_yfinance_call(symbol, "history")
                 if not hist.empty:
                     today_high = float(hist['High'].iloc[-1])
                     today_low = float(hist['Low'].iloc[-1])
@@ -398,7 +383,7 @@ class HistoryCache:
                 prev_day_close = cached_data['historical_data']['prev_day_close']
             else:
                 # Fetch historical data to get previous day close
-                hist = ticker.history(period="5d")
+                hist = safe_yfinance_call(symbol, "history")
                 if len(hist) > 1:
                     prev_day_close = float(hist['Close'].iloc[-2])
                 else:
@@ -429,7 +414,8 @@ class HistoryCache:
         }
         
         try:
-            # Method 1: ticker.income_stmt
+            # Method 1: ticker.income_stmt - using centralized rate limiting
+            enforce_rate_limit()
             ticker = yf.Ticker(symbol)
             income_stmt = ticker.income_stmt
             if income_stmt is not None and not income_stmt.empty:
@@ -444,7 +430,8 @@ class HistoryCache:
             result['method1_income_stmt'] = f'Error: {str(e)}'
         
         try:
-            # Method 2: ticker.earnings
+            # Method 2: ticker.earnings - using centralized rate limiting
+            enforce_rate_limit()
             ticker = yf.Ticker(symbol)
             earnings2 = ticker.earnings
             if earnings2 is not None and not earnings2.empty:
@@ -459,7 +446,8 @@ class HistoryCache:
             result['method2_ticker_earnings'] = f'Error: {str(e)}'
         
         try:
-            # Method 3: ticker.earnings_dates
+            # Method 3: ticker.earnings_dates - using centralized rate limiting
+            enforce_rate_limit()
             ticker = yf.Ticker(symbol)
             earnings3 = ticker.earnings_dates
             if earnings3 is not None and not earnings3.empty:

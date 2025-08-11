@@ -7,27 +7,14 @@ from utils import load_stocks, fmt_currency, fmt_percent, convert_ui_date_to_iso
 import concurrent.futures
 from typing import List, Dict, Any, Tuple
 import time
+from api_rate_limiter import enforce_rate_limit, safe_yfinance_call
 
 # Global cache for stock summary data
 _summary_cache = {}
 _summary_cache_ttl = 300  # 5 minutes cache TTL
 _max_summary_cache_size = 500  # Maximum number of cached items
 
-# Rate limiting for API calls
-_last_api_call_time = 0
-_min_api_call_interval = 1.0  # Increased to 1.0 second between API calls
-
-def enforce_rate_limit():
-    """Enforce rate limiting between API calls"""
-    global _last_api_call_time
-    current_time = time.time()
-    
-    if current_time - _last_api_call_time < _min_api_call_interval:
-        sleep_time = _min_api_call_interval - (current_time - _last_api_call_time)
-        logging.info(f"Rate limiting: sleeping for {sleep_time:.3f}s")
-        time.sleep(sleep_time)
-    
-    _last_api_call_time = time.time()
+# Remove old rate limiting variables and functions - now using centralized rate limiter
 
 def cleanup_summary_cache():
     """Clean up expired cache entries and limit cache size"""
@@ -67,13 +54,13 @@ def get_cached_summary_data(symbol: str, date_from_iso: str, date_to_iso: str) -
         if current_time - timestamp < _summary_cache_ttl:
             return cached_data
     
-    # Fetch fresh data
+    # Fetch fresh data using centralized rate limiter
     try:
-        # Enforce rate limiting
+        # Use centralized rate limiting
         enforce_rate_limit()
         
-        ticker = yf.Ticker(symbol)
-        info = ticker.info
+        # Use safe yfinance call instead of direct yf.Ticker
+        ticker_info = safe_yfinance_call(symbol, "info")
         
         # Determine the date range for historical data
         if date_from_iso and date_to_iso:
@@ -87,14 +74,14 @@ def get_cached_summary_data(symbol: str, date_from_iso: str, date_to_iso: str) -
                 logging.info(f"Stock summary same date scenario for {symbol}: date={date_from_iso}")
                 start_date = original_start_date - timedelta(days=5)  # Get 5 days before for comparison
                 end_date = original_end_date + timedelta(days=1)      # Get the target date
-                hist = ticker.history(start=start_date, end=end_date)
+                hist = safe_yfinance_call(symbol, "history")
             else:
                 # Different dates - subtract one day from from_date as requested
                 start_date = original_start_date - timedelta(days=1)
                 end_date = original_end_date
                 buffer_end = end_date + timedelta(days=1)
                 logging.info(f"Stock summary date range for {symbol}: original_from={date_from_iso}, adjusted_from={start_date.strftime('%Y-%m-%d')}, to={date_to_iso}")
-                hist = ticker.history(start=start_date, end=buffer_end)
+                hist = safe_yfinance_call(symbol, "history")
             
             # If the actual start date in the data is different from our requested start date,
             # it means Yahoo Finance adjusted for weekends/holidays. This is expected behavior.
@@ -106,22 +93,22 @@ def get_cached_summary_data(symbol: str, date_from_iso: str, date_to_iso: str) -
             start_date = original_start_date - timedelta(days=1)
             buffer_start = start_date - timedelta(days=5)
             logging.info(f"Stock summary date range for {symbol}: original_from={date_from_iso}, adjusted_from={start_date.strftime('%Y-%m-%d')}")
-            hist = ticker.history(start=buffer_start)
+            hist = safe_yfinance_call(symbol, "history")
         elif date_to_iso:
             # Only end date provided
             end_date = Timestamp(date_to_iso)
             buffer_end = end_date + timedelta(days=5)
             logging.info(f"Stock summary date range for {symbol}: to={date_to_iso}")
-            hist = ticker.history(end=buffer_end)
+            hist = safe_yfinance_call(symbol, "history")
         else:
             # No dates provided - use last year
             logging.info(f"Stock summary date range for {symbol}: using last year")
-            hist = ticker.history(period='1y')
+            hist = safe_yfinance_call(symbol, "history")
         
         # Cache the data
-        _summary_cache[cache_key] = ((info, hist), current_time)
+        _summary_cache[cache_key] = ((ticker_info, hist), current_time)
         
-        return info, hist
+        return ticker_info, hist
     except Exception as e:
         logging.error(f"Error fetching summary data for {symbol}: {e}")
         return None, None

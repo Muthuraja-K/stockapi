@@ -3,21 +3,9 @@ import random
 from datetime import datetime, timedelta
 import json
 import time
+from api_rate_limiter import enforce_rate_limit, safe_yfinance_call
 
-# Rate limiting for API calls
-_last_api_call_time = 0
-_min_api_call_interval = 1.0  # Increased to 1.0 second between API calls
-
-def enforce_rate_limit():
-    """Enforce rate limiting between API calls"""
-    global _last_api_call_time
-    current_time = time.time()
-    
-    if current_time - _last_api_call_time < _min_api_call_interval:
-        sleep_time = _min_api_call_interval - (current_time - _last_api_call_time)
-        time.sleep(sleep_time)
-    
-    _last_api_call_time = time.time()
+# Remove old rate limiting variables and functions - now using centralized rate limiter
 
 def get_sentiment_analysis(ticker):
     """
@@ -25,16 +13,15 @@ def get_sentiment_analysis(ticker):
     This is a mock implementation that generates realistic sentiment data
     """
     try:
-        # Enforce rate limiting
+        # Use centralized rate limiting
         enforce_rate_limit()
         
-        # Get stock info from yfinance
-        stock = yf.Ticker(ticker)
-        info = stock.info
+        # Get stock info from yfinance using safe call
+        stock_info = safe_yfinance_call(ticker, "info")
         
         # Generate realistic sentiment data based on stock performance
-        current_price = info.get('currentPrice', 100)
-        previous_close = info.get('previousClose', 100)
+        current_price = stock_info.get('currentPrice', 100)
+        previous_close = stock_info.get('previousClose', 100)
         
         # Calculate price change percentage
         if previous_close and previous_close > 0:
@@ -77,7 +64,7 @@ def get_sentiment_analysis(ticker):
         social_sentiment = generate_social_sentiment(overall_sentiment)
         
         # Generate technical indicators
-        technical_indicators = generate_technical_indicators(stock, current_price)
+        technical_indicators = generate_technical_indicators(ticker, current_price)
         
         # Generate institutional holdings data
         institutional_holdings = generate_institutional_holdings(ticker, overall_sentiment)
@@ -189,11 +176,11 @@ def generate_social_sentiment(overall_sentiment):
         "overall_social_score": round(overall_social_score, 3)
     }
 
-def generate_technical_indicators(stock, current_price):
+def generate_technical_indicators(ticker, current_price):
     """Generate technical indicators based on stock data"""
     try:
-        # Get historical data for technical analysis
-        hist = stock.history(period="30d")
+        # Get historical data for technical analysis using safe call
+        hist = safe_yfinance_call(ticker, "history")
         
         if len(hist) > 0:
             # Calculate RSI (simplified)
