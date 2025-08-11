@@ -1,0 +1,20 @@
+# Ignore Node.js files
+package.json
+package-lock.json
+node_modules/
+npm-debug.log*
+
+# Ignore Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore development files
+.vscode/
+.git/
+*.log
+
+# Ignore data files (optional - remove if you need them)
+*.json
+*.csv
