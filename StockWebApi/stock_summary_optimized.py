@@ -393,6 +393,201 @@ def get_stock_summary_optimized(sectors_param, isleverage_param, date_from_param
     
     return results
 
+def get_stock_summary_today(sectors_param, isleverage_param):
+    """
+    Get today's stock summary using Finviz API for real-time data.
+    
+    Args:
+        sectors_param: Comma-separated string of sectors to filter by
+        isleverage_param: Boolean to filter leveraged stocks
+    
+    Returns:
+        Dictionary with stock summary data grouped by sectors
+    """
+    try:
+        from stock_history_operations import stock_history_ops
+        import logging
+        
+        logger = logging.getLogger(__name__)
+        logger.info("Fetching today's stock summary using Finviz API")
+        
+        # Get all stocks from stocks.json
+        stocks_data = load_stocks()
+        
+        if not stocks_data:
+            logger.error("No stocks data available")
+            return {}
+        
+        # Filter by sectors if provided - use sectors from stock.json, not from Finviz
+        if sectors_param:
+            sectors_list = [s.strip() for s in sectors_param.split(',')]
+            stocks_data = [
+                stock for stock in stocks_data 
+                if stock.get('sector', '') in sectors_list
+            ]
+            logger.info(f"Filtered to {len(stocks_data)} stocks in sectors: {sectors_list}")
+        
+        # Filter by leverage if provided
+        if isleverage_param is not None:
+            stocks_data = [
+                stock for stock in stocks_data 
+                if stock.get('isleverage', False) == isleverage_param
+            ]
+            logger.info(f"Filtered to {len(stocks_data)} stocks with leverage={isleverage_param}")
+        
+        if not stocks_data:
+            logger.warning("No stocks found after filtering")
+            return {}
+        
+        # Extract ticker symbols for Finviz API
+        tickers = [stock.get('ticker', '') for stock in stocks_data if stock.get('ticker')]
+        
+        if not tickers:
+            logger.error("No valid tickers found")
+            return {}
+        
+        logger.info(f"Fetching Finviz data for {len(tickers)} tickers")
+        
+        # Get real-time data from Finviz API
+        finviz_data = stock_history_ops.get_finviz_data_for_tickers(tickers)
+        
+        if not finviz_data:
+            logger.error("No Finviz data received")
+            return {}
+        
+        # Process the Finviz data and group by sectors
+        sector_groups = {}
+        
+        for stock in stocks_data:
+            ticker = stock.get('ticker', '')
+            sector = stock.get('sector', 'Unknown')
+            
+            if ticker not in finviz_data:
+                logger.warning(f"No Finviz data for {ticker}")
+                continue
+            
+            finviz_stock_data = finviz_data[ticker]
+            
+            # Create stock summary entry with proper structure for frontend (matching 1D,1W,1M format)
+            # Use specific Finviz columns: 1=Ticker, 81=Prev Close, 86=Open, 65=Price, 66=Change
+            current_price = finviz_stock_data.get('Price', 'N/A')  # Column 65
+            prev_close = finviz_stock_data.get('Prev Close', 'N/A')  # Column 81
+            open_price = finviz_stock_data.get('Open', 'N/A')  # Column 86
+            change_percent = finviz_stock_data.get('Change', 'N/A')  # Column 66 (percentage change)
+            
+            # Format prices with currency symbol to match other periods
+            def format_price(price_str):
+                if price_str == 'N/A' or not price_str:
+                    return 'N/A'
+                try:
+                    # Remove any existing formatting and convert to float
+                    clean_price = str(price_str).replace('$', '').replace(',', '').strip()
+                    if clean_price and clean_price != 'N/A':
+                        price_val = float(clean_price)
+                        return f"${price_val:.2f}"
+                    return 'N/A'
+                except (ValueError, TypeError):
+                    return 'N/A'
+            
+            # Format percentage change to match other periods
+            def format_percentage(percent_str):
+                if percent_str == 'N/A' or not percent_str:
+                    return 'N/A'
+                try:
+                    # Remove any existing formatting and convert to float
+                    clean_percent = str(percent_str).replace('%', '').replace('+', '').strip()
+                    if clean_percent and clean_percent != 'N/A':
+                        percent_val = float(clean_percent)
+                        return f"{percent_val:.2f}%"
+                    return 'N/A'
+                except (ValueError, TypeError):
+                    return 'N/A'
+            
+            stock_entry = {
+                'ticker': ticker,
+                'companyName': stock.get('company_name', 'N/A'),  # Use company_name from stock.json
+                'sector': sector,
+                'currentPrice': format_price(current_price),  # Current price (Price column)
+                'startDateClosePrice': format_price(open_price),  # Start price (Open column)
+                'endDateClosePrice': format_price(current_price),  # End price (Price column)
+                'percentageChange': format_percentage(change_percent),  # Percentage change (Change column)
+                'volume': 'N/A',  # Not available in selected columns
+                'marketCap': 'N/A',  # Not available in selected columns
+                'peRatio': 'N/A',  # Not available in selected columns
+                'forwardPE': 'N/A',  # Not available in selected columns
+                'pegRatio': 'N/A',  # Not available in selected columns
+                'debtToEquity': 'N/A',  # Not available in selected columns
+                'profitMargin': 'N/A',  # Not available in selected columns
+                'operatingMargin': 'N/A',  # Not available in selected columns
+                'roa': 'N/A',  # Not available in selected columns
+                'roe': 'N/A',  # Not available in selected columns
+                'roi': 'N/A',  # Not available in selected columns
+                'revenueGrowth': 'N/A',  # Not available in selected columns
+                'earningsGrowth': 'N/A',  # Not available in selected columns
+                'isleverage': stock.get('isleverage', False)  # Use isleverage from stock.json
+            }
+            
+            # Group by sector
+            if sector not in sector_groups:
+                sector_groups[sector] = []
+            
+            sector_groups[sector].append(stock_entry)
+        
+        # Calculate average percentage for each sector and format the response
+        # Return as dictionary with sector names as keys (matching frontend expectation)
+        formatted_sector_groups = {}
+        
+        for sector, stocks in sector_groups.items():
+            # Calculate average percentage change for the sector
+            total_percentage = 0
+            valid_percentages = 0
+            
+            for stock in stocks:
+                change_percent = stock.get('percentageChange', 'N/A')
+                if change_percent != 'N/A' and change_percent:
+                    try:
+                        # Remove % and convert to float
+                        clean_percentage = str(change_percent).replace('%', '').replace('+', '').strip()
+                        if clean_percentage and clean_percentage != 'N/A':
+                            percentage_value = float(clean_percentage)
+                            total_percentage += percentage_value
+                            valid_percentages += 1
+                    except (ValueError, TypeError):
+                        continue
+            
+            # Calculate average percentage
+            average_percentage = '0%'
+            if valid_percentages > 0:
+                avg_pct = total_percentage / valid_percentages
+                average_percentage = f"{avg_pct:.2f}%"
+            
+            # Format sector group with proper structure
+            sector_group = {
+                'sector': sector,
+                'averagePercentage': average_percentage,
+                'stocks': stocks
+            }
+            
+            # Store with sector name as key (matching frontend expectation)
+            formatted_sector_groups[sector] = sector_group
+        
+        # Sort stocks within each sector by ticker
+        for sector_group in formatted_sector_groups.values():
+            sector_group['stocks'].sort(key=lambda x: x['ticker'])
+        
+        logger.info(f"Successfully processed {len(formatted_sector_groups)} sectors with Finviz data")
+        
+        # Convert dictionary to list format to match frontend expectation
+        # Frontend expects: [{'sector': 'Energy', 'averagePercentage': '-2.81%', 'stocks': [...]}]
+        # Backend was returning: {'Energy': {'sector': 'Energy', 'averagePercentage': '-2.81%', 'stocks': [...]}}
+        formatted_list = list(formatted_sector_groups.values())
+        
+        return formatted_list
+        
+    except Exception as e:
+        logger.error(f"Error in get_stock_summary_today: {str(e)}")
+        return {}
+
 # Legacy function for backward compatibility
 def get_stock_summary(sectors_param, isleverage_param, date_from_param, date_to_param):
     """

@@ -462,6 +462,80 @@ class StockHistoryOperations:
             logger.error(f"Error in populate_stock_market_data: {e}")
             return False
     
+    def get_finviz_data_for_tickers(self, tickers: List[str]) -> Dict[str, Dict[str, Any]]:
+        """
+        Get real-time data for specific tickers using Finviz API.
+        
+        Args:
+            tickers: List of ticker symbols
+            
+        Returns:
+            Dictionary with ticker as key and Finviz data as value
+        """
+        try:
+            if not tickers:
+                logger.warning("No tickers provided for Finviz data")
+                return {}
+            
+            logger.info(f"Fetching Finviz data for {len(tickers)} tickers")
+            
+            # Prepare Finviz API request with only required columns for Today filter
+            # Column mapping: 1=Ticker, 81=Prev Close, 86=Open, 65=Price, 66=Change
+            tickers_param = ','.join(tickers)
+            params = {
+                'v': '152',
+                't': tickers_param,
+                'auth': self.finviz_auth_id,
+                'c': '1,81,86,65,66'
+            }
+            
+            try:
+                response = requests.get(self.finviz_base_url, params=params, timeout=30)
+                response.raise_for_status()
+                
+                # Parse CSV data
+                csv_data = response.text
+                lines = csv_data.strip().split('\n')
+                
+                if len(lines) < 2:  # Need header + at least one data row
+                    logger.error("Invalid CSV response from Finviz")
+                    return {}
+                
+                # Parse header - clean up carriage returns and quotes
+                header = [h.strip().strip('"').strip('\r') for h in lines[0].split(',')]
+                logger.debug(f"Finviz columns: {header}")
+                
+                # Parse data rows
+                finviz_data = {}
+                for line in lines[1:]:
+                    if not line.strip():
+                        continue
+                    
+                    values = line.split(',')
+                    if len(values) != len(header):
+                        continue
+                    
+                    # Create data dictionary - clean up values
+                    row_data = dict(zip(header, [v.strip().strip('"').strip('\r') for v in values]))
+                    
+                    ticker = row_data.get('Ticker', '')
+                    if not ticker:
+                        continue
+                    
+                    # Store all available data for this ticker
+                    finviz_data[ticker] = row_data
+                
+                logger.info(f"Successfully fetched Finviz data for {len(finviz_data)} tickers")
+                return finviz_data
+                
+            except requests.RequestException as e:
+                logger.error(f"Error calling Finviz API: {e}")
+                return {}
+                
+        except Exception as e:
+            logger.error(f"Error in get_finviz_data_for_tickers: {e}")
+            return {}
+    
     def get_combined_stock_data(self) -> Dict[str, Any]:
         """Get combined data from both history and market data files"""
         try:

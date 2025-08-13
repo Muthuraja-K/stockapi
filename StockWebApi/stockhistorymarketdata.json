@@ -1,110 +1,110 @@
 [
   {
     "ticker": "AAPL",
-    "market_cap": "3456475.21",
+    "market_cap": "3440744.43",
     "earning_date": "7/31/2025 4:30:00 PM",
-    "current_price": "232.91",
+    "current_price": "231.85",
     "today": {
-      "percentage": "1.42%%"
+      "percentage": "0.96%%"
     }
   },
   {
     "ticker": "AAPU",
     "market_cap": "",
     "earning_date": "",
-    "current_price": "27.80",
+    "current_price": "27.54",
     "today": {
-      "percentage": "2.89%%"
+      "percentage": "1.92%%"
     }
   },
   {
     "ticker": "AI",
-    "market_cap": "2420.97",
+    "market_cap": "2429.70",
     "earning_date": "5/28/2025 4:30:00 PM",
-    "current_price": "18.01",
+    "current_price": "18.08",
     "today": {
-      "percentage": "6.53%%"
+      "percentage": "6.92%%"
     }
   },
   {
     "ticker": "AIRE",
-    "market_cap": "28.21",
+    "market_cap": "28.47",
     "earning_date": "5/16/2025 8:30:00 AM",
     "current_price": "0.34",
     "today": {
-      "percentage": "1.75%%"
+      "percentage": "2.72%%"
     }
   },
   {
     "ticker": "AMD",
-    "market_cap": "298781.76",
+    "market_cap": "298651.93",
     "earning_date": "8/5/2025 4:30:00 PM",
-    "current_price": "184.11",
+    "current_price": "184.03",
     "today": {
-      "percentage": "5.24%%"
+      "percentage": "5.19%%"
     }
   },
   {
     "ticker": "AMDL",
     "market_cap": "",
     "earning_date": "",
-    "current_price": "13.79",
+    "current_price": "13.78",
     "today": {
-      "percentage": "10.49%%"
+      "percentage": "10.42%%"
     }
   },
   {
     "ticker": "AMZN",
-    "market_cap": "2386380.68",
+    "market_cap": "2391926.48",
     "earning_date": "7/31/2025 4:30:00 PM",
-    "current_price": "223.76",
+    "current_price": "224.28",
     "today": {
-      "percentage": "1.03%%"
+      "percentage": "1.27%%"
     }
   },
   {
     "ticker": "AMZU",
     "market_cap": "",
     "earning_date": "",
-    "current_price": "37.20",
+    "current_price": "37.38",
     "today": {
-      "percentage": "2.09%%"
+      "percentage": "2.57%%"
     }
   },
   {
     "ticker": "APLD",
-    "market_cap": "3844.34",
+    "market_cap": "3862.07",
     "earning_date": "7/30/2025 4:30:00 PM",
-    "current_price": "14.70",
+    "current_price": "14.77",
     "today": {
-      "percentage": "-1.80%%"
+      "percentage": "-1.35%%"
     }
   },
   {
     "ticker": "APPS",
-    "market_cap": "462.22",
+    "market_cap": "458.97",
     "earning_date": "8/5/2025 4:30:00 PM",
-    "current_price": "4.26",
+    "current_price": "4.24",
     "today": {
-      "percentage": "-0.35%%"
+      "percentage": "-1.05%%"
     }
   },
   {
     "ticker": "ARCX",
     "market_cap": "",
     "earning_date": "",
-    "current_price": "16.80",
+    "current_price": "16.89",
     "today": {
-      "percentage": "-3.55%%"
+      "percentage": "-3.07%%"
     }
   },
   {
     "ticker": "ARM",
-    "market_cap": "150600.40",
+    "market_cap": "150319.76",
     "earning_date": "7/30/2025 4:30:00 PM",
-    "current_price": "142.21",
+    "current_price": "141.95",
     "today": {
-      "percentage": "-0.13%%"
+      "percentage": "-0.31%%"
     }
   },
   {
@@ -113,871 +113,871 @@
     "earning_date": "",
     "current_price": "27.19",
     "today": {
-      "percentage": "-0.12%%"
+      "percentage": "-0.13%%"
     }
   },
   {
     "ticker": "ARQQ",
-    "market_cap": "491.71",
+    "market_cap": "493.65",
     "earning_date": "5/22/2025 8:30:00 AM",
-    "current_price": "34.26",
+    "current_price": "34.39",
     "today": {
-      "percentage": "0.37%%"
+      "percentage": "0.76%%"
     }
   },
   {
     "ticker": "BBAI",
-    "market_cap": "2128.73",
+    "market_cap": "2088.91",
     "earning_date": "8/11/2025 4:30:00 PM",
-    "current_price": "5.74",
+    "current_price": "5.64",
     "today": {
-      "percentage": "-3.81%%"
+      "percentage": "-5.61%%"
     }
   },
   {
     "ticker": "BITU",
     "market_cap": "",
     "earning_date": "",
-    "current_price": "63.30",
+    "current_price": "63.24",
     "today": {
-      "percentage": "3.58%%"
+      "percentage": "3.49%%"
     }
   },
   {
     "ticker": "CDNS",
-    "market_cap": "95172.96",
+    "market_cap": "94981.84",
     "earning_date": "7/28/2025 4:30:00 PM",
-    "current_price": "349.27",
+    "current_price": "348.57",
     "today": {
-      "percentage": "-1.23%%"
+      "percentage": "-1.43%%"
     }
   },
   {
     "ticker": "COIG",
     "market_cap": "",
     "earning_date": "",
-    "current_price": "37.06",
+    "current_price": "36.93",
     "today": {
-      "percentage": "3.52%%"
+      "percentage": "3.15%%"
     }
   },
   {
     "ticker": "COIN",
-    "market_cap": "84363.07",
+    "market_cap": "84192.20",
     "earning_date": "7/31/2025 4:30:00 PM",
-    "current_price": "328.34",
+    "current_price": "327.67",
     "today": {
-      "percentage": "1.77%%"
+      "percentage": "1.57%%"
     }
   },
   {
     "ticker": "CONL",
     "market_cap": "",
     "earning_date": "",
-    "current_price": "37.29",
+    "current_price": "37.14",
     "today": {
-      "percentage": "3.43%%"
+      "percentage": "3.02%%"
     }
   },
   {
     "ticker": "CRCL",
-    "market_cap": "35030.04",
+    "market_cap": "34518.20",
     "earning_date": "8/12/2025 8:30:00 AM",
-    "current_price": "157.41",
+    "current_price": "155.11",
     "today": {
-      "percentage": "-3.55%%"
+      "percentage": "-4.96%%"
     }
   },
   {
     "ticker": "CRM",
-    "market_cap": "225036.47",
+    "market_cap": "224937.23",
     "earning_date": "9/3/2025 4:30:00 PM",
-    "current_price": "235.39",
+    "current_price": "235.29",
     "today": {
-      "percentage": "1.61%%"
+      "percentage": "1.57%%"
     }
   },
   {
     "ticker": "CRMG",
     "market_cap": "",
     "earning_date": "",
-    "current_price": "11.76",
+    "current_price": "11.75",
     "today": {
-      "percentage": "3.33%%"
+      "percentage": "3.25%%"
     }
   },
   {
     "ticker": "CRWD",
-    "market_cap": "107678.95",
+    "market_cap": "107338.97",
     "earning_date": "8/27/2025 4:30:00 PM",
-    "current_price": "432.02",
+    "current_price": "430.65",
     "today": {
-      "percentage": "-0.87%%"
+      "percentage": "-1.18%%"
     }
   },
   {
     "ticker": "CRWL",
     "market_cap": "",
     "earning_date": "",
-    "current_price": "29.44",
+    "current_price": "29.26",
     "today": {
-      "percentage": "-1.93%%"
+      "percentage": "-2.51%%"
     }
   },
   {
     "ticker": "CRWV",
-    "market_cap": "59862.89",
+    "market_cap": "59425.89",
     "earning_date": "8/12/2025 4:30:00 PM",
-    "current_price": "122.66",
+    "current_price": "121.76",
     "today": {
-      "percentage": "-17.54%%"
+      "percentage": "-18.14%%"
     }
   },
   {
     "ticker": "CVNX",
     "market_cap": "",
     "earning_date": "",
-    "current_price": "21.50",
+    "current_price": "21.18",
     "today": {
-      "percentage": "1.37%%"
+      "percentage": "-0.11%%"
     }
   },
   {
     "ticker": "ETHU",
     "market_cap": "",
     "earning_date": "",
-    "current_price": "182.28",
+    "current_price": "183.82",
     "today": {
-      "percentage": "7.63%%"
+      "percentage": "8.55%%"
     }
   },
   {
     "ticker": "FTNT",
-    "market_cap": "60266.83",
+    "market_cap": "60113.57",
     "earning_date": "8/6/2025 4:30:00 PM",
-    "current_price": "78.65",
+    "current_price": "78.45",
     "today": {
-      "percentage": "0.23%%"
+      "percentage": "-0.03%%"
     }
   },
   {
     "ticker": "GGLL",
     "market_cap": "",
     "earning_date": "",
-    "current_price": "45.06",
+    "current_price": "45.05",
     "today": {
-      "percentage": "-0.82%%"
+      "percentage": "-0.84%%"
     }
   },
   {
     "ticker": "GOOG",
-    "market_cap": "2456406.15",
+    "market_cap": "2456526.94",
     "earning_date": "7/23/2025 4:30:00 PM",
-    "current_price": "203.56",
+    "current_price": "203.57",
     "today": {
       "percentage": "-0.29%%"
     }
   },
   {
     "ticker": "GRRR",
-    "market_cap": "400.27",
+    "market_cap": "400.33",
     "earning_date": "6/18/2025 4:30:00 PM",
     "current_price": "17.66",
     "today": {
-      "percentage": "1.89%%"
+      "percentage": "1.90%%"
     }
   },
   {
     "ticker": "HIMS",
-    "market_cap": "10643.26",
+    "market_cap": "10773.45",
     "earning_date": "8/4/2025 4:30:00 PM",
-    "current_price": "47.09",
+    "current_price": "47.67",
     "today": {
-      "percentage": "-1.81%%"
+      "percentage": "-0.61%%"
     }
   },
   {
     "ticker": "HIMZ",
     "market_cap": "",
     "earning_date": "",
-    "current_price": "17.13",
+    "current_price": "17.55",
     "today": {
-      "percentage": "-3.44%%"
+      "percentage": "-1.07%%"
     }
   },
   {
     "ticker": "HOOD",
-    "market_cap": "96410.41",
+    "market_cap": "96831.10",
     "earning_date": "7/30/2025 4:30:00 PM",
-    "current_price": "108.49",
+    "current_price": "108.96",
     "today": {
-      "percentage": "-4.91%%"
+      "percentage": "-4.50%%"
     }
   },
   {
     "ticker": "HOOX",
     "market_cap": "",
     "earning_date": "",
-    "current_price": "111.64",
+    "current_price": "112.58",
     "today": {
-      "percentage": "-9.52%%"
+      "percentage": "-8.75%%"
     }
   },
   {
     "ticker": "IONQ",
-    "market_cap": "12256.22",
+    "market_cap": "12287.75",
     "earning_date": "8/6/2025 4:30:00 PM",
-    "current_price": "41.29",
+    "current_price": "41.40",
     "today": {
-      "percentage": "-3.98%%"
+      "percentage": "-3.73%%"
     }
   },
   {
     "ticker": "IONX",
     "market_cap": "",
     "earning_date": "",
-    "current_price": "59.15",
+    "current_price": "59.50",
     "today": {
-      "percentage": "-8.02%%"
+      "percentage": "-7.48%%"
     }
   },
   {
     "ticker": "JOBY",
-    "market_cap": "15251.54",
+    "market_cap": "15330.63",
     "earning_date": "8/6/2025 4:30:00 PM",
-    "current_price": "17.82",
+    "current_price": "17.91",
     "today": {
-      "percentage": "-1.07%%"
+      "percentage": "-0.56%%"
     }
   },
   {
     "ticker": "MARA",
-    "market_cap": "5936.59",
+    "market_cap": "5934.74",
     "earning_date": "7/29/2025 4:30:00 PM",
     "current_price": "16.02",
     "today": {
-      "percentage": "1.94%%"
+      "percentage": "1.91%%"
     }
   },
   {
     "ticker": "MDB",
-    "market_cap": "17082.30",
+    "market_cap": "17101.90",
     "earning_date": "8/26/2025 4:30:00 PM",
-    "current_price": "209.05",
+    "current_price": "209.29",
     "today": {
-      "percentage": "0.59%%"
+      "percentage": "0.71%%"
     }
   },
   {
     "ticker": "META",
-    "market_cap": "1968122.54",
+    "market_cap": "1965648.30",
     "earning_date": "7/30/2025 4:30:00 PM",
-    "current_price": "783.50",
+    "current_price": "782.52",
     "today": {
-      "percentage": "-0.82%%"
+      "percentage": "-0.95%%"
     }
   },
   {
     "ticker": "METU",
     "market_cap": "",
     "earning_date": "",
-    "current_price": "49.71",
+    "current_price": "49.51",
     "today": {
-      "percentage": "-1.64%%"
+      "percentage": "-2.05%%"
     }
   },
   {
     "ticker": "MRAL",
     "market_cap": "",
     "earning_date": "",
-    "current_price": "19.16",
+    "current_price": "19.21",
     "today": {
-      "percentage": "3.73%%"
+      "percentage": "4.01%%"
     }
   },
   {
     "ticker": "MRVL",
-    "market_cap": "68174.15",
+    "market_cap": "68251.76",
     "earning_date": "8/28/2025 4:30:00 PM",
-    "current_price": "79.07",
+    "current_price": "79.16",
     "today": {
-      "percentage": "1.62%%"
+      "percentage": "1.74%%"
     }
   },
   {
     "ticker": "MSFT",
-    "market_cap": "3925455.05",
+    "market_cap": "3901669.28",
     "earning_date": "7/30/2025 4:30:00 PM",
-    "current_price": "528.10",
+    "current_price": "524.90",
     "today": {
-      "percentage": "-0.22%%"
+      "percentage": "-0.82%%"
     }
   },
   {
     "ticker": "MSFU",
     "market_cap": "",
     "earning_date": "",
-    "current_price": "55.21",
+    "current_price": "54.51",
     "today": {
-      "percentage": "-0.58%%"
+      "percentage": "-1.84%%"
     }
   },
   {
     "ticker": "MSTX",
     "market_cap": "",
     "earning_date": "",
-    "current_price": "34.26",
+    "current_price": "34.25",
     "today": {
-      "percentage": "-2.13%%"
+      "percentage": "-2.15%%"
     }
   },
   {
     "ticker": "MVLL",
     "market_cap": "",
     "earning_date": "",
-    "current_price": "23.11",
+    "current_price": "23.21",
     "today": {
-      "percentage": "3.15%%"
+      "percentage": "3.57%%"
     }
   },
   {
     "ticker": "NAIL",
     "market_cap": "",
     "earning_date": "",
-    "current_price": "83.61",
+    "current_price": "83.77",
     "today": {
-      "percentage": "11.94%%"
+      "percentage": "12.16%%"
     }
   },
   {
     "ticker": "NBIS",
-    "market_cap": "16854.25",
+    "market_cap": "16706.49",
     "earning_date": "8/7/2025 8:30:00 AM",
-    "current_price": "70.72",
+    "current_price": "70.10",
     "today": {
-      "percentage": "-6.12%%"
+      "percentage": "-6.94%%"
     }
   },
   {
     "ticker": "NFLX",
-    "market_cap": "519068.78",
+    "market_cap": "520337.60",
     "earning_date": "7/17/2025 4:30:00 PM",
-    "current_price": "1221.55",
+    "current_price": "1224.54",
     "today": {
-      "percentage": "-0.30%%"
+      "percentage": "-0.06%%"
     }
   },
   {
     "ticker": "NFXL",
     "market_cap": "",
     "earning_date": "",
-    "current_price": "59.85",
+    "current_price": "59.95",
     "today": {
-      "percentage": "-0.22%%"
+      "percentage": "-0.05%%"
     }
   },
   {
     "ticker": "NNE",
-    "market_cap": "1484.41",
+    "market_cap": "1488.77",
     "earning_date": "8/14/2025 4:30:00 PM",
-    "current_price": "35.74",
+    "current_price": "35.84",
     "today": {
-      "percentage": "-2.95%%"
+      "percentage": "-2.66%%"
     }
   },
   {
     "ticker": "NVDA",
-    "market_cap": "4393952.05",
+    "market_cap": "4397977.88",
     "earning_date": "8/27/2025 4:30:00 PM",
-    "current_price": "180.08",
+    "current_price": "180.24",
     "today": {
-      "percentage": "-1.68%%"
+      "percentage": "-1.59%%"
     }
   },
   {
     "ticker": "NVDL",
     "market_cap": "",
     "earning_date": "",
-    "current_price": "89.58",
+    "current_price": "89.76",
     "today": {
-      "percentage": "-3.35%%"
+      "percentage": "-3.16%%"
     }
   },
   {
     "ticker": "NVO",
-    "market_cap": "171029.03",
+    "market_cap": "170696.45",
     "earning_date": "8/6/2025 8:30:00 AM",
-    "current_price": "50.81",
+    "current_price": "50.71",
     "today": {
-      "percentage": "2.07%%"
+      "percentage": "1.87%%"
     }
   },
   {
     "ticker": "NVOX",
     "market_cap": "",
     "earning_date": "",
-    "current_price": "3.03",
+    "current_price": "3.01",
     "today": {
-      "percentage": "4.48%%"
+      "percentage": "3.83%%"
     }
   },
   {
     "ticker": "NVTS",
-    "market_cap": "1522.65",
+    "market_cap": "1533.31",
     "earning_date": "8/4/2025 4:30:00 PM",
-    "current_price": "7.14",
+    "current_price": "7.20",
     "today": {
-      "percentage": "2.66%%"
+      "percentage": "3.38%%"
     }
   },
   {
     "ticker": "NXE",
-    "market_cap": "3825.33",
+    "market_cap": "3831.03",
     "earning_date": "8/6/2025 4:30:00 PM",
     "current_price": "6.72",
     "today": {
-      "percentage": "-2.96%%"
+      "percentage": "-2.82%%"
     }
   },
   {
     "ticker": "NXPI",
-    "market_cap": "57431.71",
+    "market_cap": "57409.02",
     "earning_date": "7/21/2025 4:30:00 PM",
-    "current_price": "227.80",
+    "current_price": "227.71",
     "today": {
-      "percentage": "3.52%%"
+      "percentage": "3.48%%"
     }
   },
   {
     "ticker": "OKLL",
     "market_cap": "",
     "earning_date": "",
-    "current_price": "34.66",
+    "current_price": "34.11",
     "today": {
-      "percentage": "-1.00%%"
+      "percentage": "-2.57%%"
     }
   },
   {
     "ticker": "OKLO",
-    "market_cap": "11552.78",
+    "market_cap": "11435.28",
     "earning_date": "8/11/2025 4:30:00 PM",
-    "current_price": "78.27",
+    "current_price": "77.47",
     "today": {
-      "percentage": "-0.26%%"
+      "percentage": "-1.27%%"
     }
   },
   {
     "ticker": "OKTA",
-    "market_cap": "15968.45",
+    "market_cap": "16016.87",
     "earning_date": "8/26/2025 4:30:00 PM",
-    "current_price": "91.21",
+    "current_price": "91.49",
     "today": {
-      "percentage": "2.10%%"
+      "percentage": "2.41%%"
     }
   },
   {
     "ticker": "OPEN",
-    "market_cap": "1769.97",
+    "market_cap": "1751.57",
     "earning_date": "8/5/2025 4:30:00 PM",
-    "current_price": "2.40",
+    "current_price": "2.38",
     "today": {
-      "percentage": "-2.63%%"
+      "percentage": "-3.64%%"
     }
   },
   {
     "ticker": "PANG",
     "market_cap": "",
     "earning_date": "",
-    "current_price": "12.37",
+    "current_price": "12.22",
     "today": {
-      "percentage": "2.80%%"
+      "percentage": "1.59%%"
     }
   },
   {
     "ticker": "PANW",
-    "market_cap": "118456.43",
+    "market_cap": "118207.47",
     "earning_date": "8/18/2025 4:30:00 PM",
-    "current_price": "177.47",
+    "current_price": "177.10",
     "today": {
-      "percentage": "1.18%%"
+      "percentage": "0.97%%"
     }
   },
   {
     "ticker": "PLTR",
-    "market_cap": "440591.82",
+    "market_cap": "438219.47",
     "earning_date": "8/4/2025 4:30:00 PM",
-    "current_price": "185.72",
+    "current_price": "184.72",
     "today": {
-      "percentage": "-0.67%%"
+      "percentage": "-1.20%%"
     }
   },
   {
     "ticker": "PLTU",
     "market_cap": "",
     "earning_date": "",
-    "current_price": "110.26",
+    "current_price": "109.04",
     "today": {
-      "percentage": "-1.22%%"
+      "percentage": "-2.31%%"
     }
   },
   {
     "ticker": "QBTS",
-    "market_cap": "6200.79",
+    "market_cap": "6296.56",
     "earning_date": "8/7/2025 8:30:00 AM",
-    "current_price": "18.13",
+    "current_price": "18.41",
     "today": {
-      "percentage": "-2.05%%"
+      "percentage": "-0.54%%"
     }
   },
   {
     "ticker": "QBTX",
     "market_cap": "",
     "earning_date": "",
-    "current_price": "94.75",
+    "current_price": "97.75",
     "today": {
-      "percentage": "-3.69%%"
+      "percentage": "-0.64%%"
     }
   },
   {
     "ticker": "QQQ",
     "market_cap": "",
     "earning_date": "",
-    "current_price": "580.06",
+    "current_price": "579.47",
     "today": {
-      "percentage": "0.00%%"
+      "percentage": "-0.10%%"
     }
   },
   {
     "ticker": "QUBT",
-    "market_cap": "2519.24",
+    "market_cap": "2520.04",
     "earning_date": "8/14/2025 4:30:00 PM",
-    "current_price": "15.76",
+    "current_price": "15.77",
     "today": {
-      "percentage": "-5.06%%"
+      "percentage": "-5.03%%"
     }
   },
   {
     "ticker": "QUBX",
     "market_cap": "",
     "earning_date": "",
-    "current_price": "18.00",
+    "current_price": "17.89",
     "today": {
-      "percentage": "-9.82%%"
+      "percentage": "-10.37%%"
     }
   },
   {
     "ticker": "RBLU",
     "market_cap": "",
     "earning_date": "",
-    "current_price": "82.71",
+    "current_price": "84.57",
     "today": {
-      "percentage": "-9.03%%"
+      "percentage": "-6.98%%"
     }
   },
   {
     "ticker": "RDTL",
     "market_cap": "",
     "earning_date": "",
-    "current_price": "63.99",
+    "current_price": "64.98",
     "today": {
-      "percentage": "8.07%%"
+      "percentage": "9.75%%"
     }
   },
   {
     "ticker": "RGTI",
-    "market_cap": "5247.95",
+    "market_cap": "5214.07",
     "earning_date": "8/12/2025 4:30:00 PM",
-    "current_price": "16.26",
+    "current_price": "16.16",
     "today": {
-      "percentage": "0.37%%"
+      "percentage": "-0.28%%"
     }
   },
   {
     "ticker": "RGTX",
     "market_cap": "",
     "earning_date": "",
-    "current_price": "51.50",
+    "current_price": "50.96",
     "today": {
-      "percentage": "0.82%%"
+      "percentage": "-0.23%%"
     }
   },
   {
     "ticker": "RIOT",
-    "market_cap": "4272.85",
+    "market_cap": "4287.63",
     "earning_date": "7/31/2025 4:30:00 PM",
-    "current_price": "11.56",
+    "current_price": "11.60",
     "today": {
-      "percentage": "1.05%%"
+      "percentage": "1.40%%"
     }
   },
   {
     "ticker": "RIOX",
     "market_cap": "",
     "earning_date": "",
-    "current_price": "13.90",
+    "current_price": "14.03",
     "today": {
-      "percentage": "2.21%%"
+      "percentage": "3.16%%"
     }
   },
   {
     "ticker": "RKT",
-    "market_cap": "4864.61",
+    "market_cap": "4899.12",
     "earning_date": "7/31/2025 4:30:00 PM",
-    "current_price": "19.03",
+    "current_price": "19.17",
     "today": {
-      "percentage": "4.16%%"
+      "percentage": "4.90%%"
     }
   },
   {
     "ticker": "ROBN",
     "market_cap": "",
     "earning_date": "",
-    "current_price": "66.62",
+    "current_price": "67.25",
     "today": {
-      "percentage": "-9.94%%"
+      "percentage": "-9.09%%"
     }
   },
   {
     "ticker": "SERV",
-    "market_cap": "618.28",
+    "market_cap": "615.59",
     "earning_date": "8/7/2025 4:30:00 PM",
-    "current_price": "10.32",
+    "current_price": "10.28",
     "today": {
-      "percentage": "-0.91%%"
+      "percentage": "-1.34%%"
     }
   },
   {
     "ticker": "SMCI",
-    "market_cap": "27513.29",
+    "market_cap": "27704.27",
     "earning_date": "8/5/2025 4:30:00 PM",
-    "current_price": "46.10",
+    "current_price": "46.42",
     "today": {
-      "percentage": "-0.71%%"
+      "percentage": "-0.02%%"
     }
   },
   {
     "ticker": "SMCX",
     "market_cap": "",
     "earning_date": "",
-    "current_price": "38.44",
+    "current_price": "38.95",
     "today": {
-      "percentage": "-1.31%%"
+      "percentage": "0.00%%"
     }
   },
   {
     "ticker": "SMR",
-    "market_cap": "10554.69",
+    "market_cap": "10577.48",
     "earning_date": "8/7/2025 4:30:00 PM",
-    "current_price": "37.05",
+    "current_price": "37.13",
     "today": {
-      "percentage": "-2.93%%"
+      "percentage": "-2.72%%"
     }
   },
   {
     "ticker": "SMTC",
-    "market_cap": "4551.83",
+    "market_cap": "4560.58",
     "earning_date": "8/25/2025 4:30:00 PM",
-    "current_price": "52.54",
+    "current_price": "52.64",
     "today": {
-      "percentage": "-0.32%%"
+      "percentage": "-0.13%%"
     }
   },
   {
     "ticker": "SMU",
     "market_cap": "",
     "earning_date": "",
-    "current_price": "23.80",
+    "current_price": "23.95",
     "today": {
-      "percentage": "-5.93%%"
+      "percentage": "-5.32%%"
     }
   },
   {
     "ticker": "SNOU",
     "market_cap": "",
     "earning_date": "",
-    "current_price": "40.57",
+    "current_price": "40.53",
     "today": {
-      "percentage": "2.35%%"
+      "percentage": "2.26%%"
     }
   },
   {
     "ticker": "SNOW",
-    "market_cap": "65373.61",
+    "market_cap": "65595.49",
     "earning_date": "8/27/2025 4:30:00 PM",
-    "current_price": "195.93",
+    "current_price": "196.60",
     "today": {
-      "percentage": "1.49%%"
+      "percentage": "1.83%%"
     }
   },
   {
     "ticker": "SNPS",
-    "market_cap": "114533.69",
+    "market_cap": "114477.32",
     "earning_date": "5/28/2025 4:30:00 PM",
-    "current_price": "618.96",
+    "current_price": "618.65",
     "today": {
-      "percentage": "-1.09%%"
+      "percentage": "-1.14%%"
     }
   },
   {
     "ticker": "SOFI",
-    "market_cap": "27649.12",
+    "market_cap": "27690.61",
     "earning_date": "7/29/2025 8:30:00 AM",
-    "current_price": "23.33",
+    "current_price": "23.36",
     "today": {
-      "percentage": "-1.37%%"
+      "percentage": "-1.23%%"
     }
   },
   {
     "ticker": "SOFX",
     "market_cap": "",
     "earning_date": "",
-    "current_price": "31.88",
+    "current_price": "31.98",
     "today": {
-      "percentage": "-2.92%%"
+      "percentage": "-2.62%%"
     }
   },
   {
     "ticker": "SOLT",
     "market_cap": "",
     "earning_date": "",
-    "current_price": "23.70",
+    "current_price": "23.65",
     "today": {
-      "percentage": "8.22%%"
+      "percentage": "7.99%%"
     }
   },
   {
     "ticker": "SOUN",
-    "market_cap": "6309.23",
+    "market_cap": "6301.20",
     "earning_date": "8/7/2025 4:30:00 PM",
-    "current_price": "15.70",
+    "current_price": "15.69",
     "today": {
-      "percentage": "-1.72%%"
+      "percentage": "-1.85%%"
     }
   },
   {
     "ticker": "SOUX",
     "market_cap": "",
     "earning_date": "",
-    "current_price": "46.60",
+    "current_price": "46.68",
     "today": {
-      "percentage": "-2.65%%"
+      "percentage": "-2.49%%"
     }
   },
   {
     "ticker": "SRFM",
-    "market_cap": "174.63",
+    "market_cap": "180.67",
     "earning_date": "8/12/2025 4:30:00 PM",
-    "current_price": "5.18",
+    "current_price": "5.36",
     "today": {
-      "percentage": "23.63%%"
+      "percentage": "27.90%%"
     }
   },
   {
     "ticker": "TEM",
-    "market_cap": "12176.57",
+    "market_cap": "12079.28",
     "earning_date": "8/8/2025 8:30:00 AM",
-    "current_price": "70.09",
+    "current_price": "69.53",
     "today": {
-      "percentage": "5.65%%"
+      "percentage": "4.81%%"
     }
   },
   {
     "ticker": "TEMT",
     "market_cap": "",
     "earning_date": "",
-    "current_price": "25.03",
+    "current_price": "24.60",
     "today": {
-      "percentage": "11.38%%"
+      "percentage": "9.49%%"
     }
   },
   {
     "ticker": "TQQQ",
     "market_cap": "",
     "earning_date": "",
-    "current_price": "94.73",
+    "current_price": "94.44",
     "today": {
-      "percentage": "0.02%%"
+      "percentage": "-0.30%%"
     }
   },
   {
     "ticker": "TSLA",
-    "market_cap": "1101619.87",
+    "market_cap": "1098910.51",
     "earning_date": "7/23/2025 4:30:00 PM",
-    "current_price": "341.54",
+    "current_price": "340.70",
     "today": {
-      "percentage": "0.21%%"
+      "percentage": "-0.04%%"
     }
   },
   {
     "ticker": "TSLL",
     "market_cap": "",
     "earning_date": "",
-    "current_price": "13.03",
+    "current_price": "12.97",
     "today": {
-      "percentage": "0.54%%"
+      "percentage": "0.04%%"
     }
   },
   {
     "ticker": "UBER",
-    "market_cap": "188396.71",
+    "market_cap": "189627.12",
     "earning_date": "8/6/2025 8:30:00 AM",
-    "current_price": "90.34",
+    "current_price": "90.93",
     "today": {
-      "percentage": "-1.52%%"
+      "percentage": "-0.87%%"
     }
   },
   {
     "ticker": "UBRL",
     "market_cap": "",
     "earning_date": "",
-    "current_price": "30.71",
+    "current_price": "31.11",
     "today": {
-      "percentage": "-3.17%%"
+      "percentage": "-1.88%%"
     }
   },
   {
     "ticker": "UPST",
-    "market_cap": "6332.57",
+    "market_cap": "6356.82",
     "earning_date": "8/5/2025 4:30:00 PM",
-    "current_price": "65.82",
+    "current_price": "66.07",
     "today": {
-      "percentage": "3.79%%"
+      "percentage": "4.19%%"
     }
   },
   {
     "ticker": "UPSX",
     "market_cap": "",
     "earning_date": "",
-    "current_price": "28.52",
+    "current_price": "28.72",
     "today": {
-      "percentage": "7.74%%"
+      "percentage": "8.50%%"
     }
   },
   {
     "ticker": "UUUU",
-    "market_cap": "2174.11",
+    "market_cap": "2175.26",
     "earning_date": "8/7/2025 8:30:00 AM",
     "current_price": "9.43",
     "today": {
-      "percentage": "-1.72%%"
+      "percentage": "-1.67%%"
     }
   },
   {
     "ticker": "VRTL",
     "market_cap": "",
     "earning_date": "",
-    "current_price": "41.29",
+    "current_price": "41.23",
     "today": {
-      "percentage": "-11.64%%"
+      "percentage": "-11.77%%"
     }
   },
   {
     "ticker": "ZS",
-    "market_cap": "43465.57",
+    "market_cap": "43366.93",
     "earning_date": "9/2/2025 4:30:00 PM",
-    "current_price": "279.17",
+    "current_price": "278.54",
     "today": {
-      "percentage": "1.36%%"
+      "percentage": "1.13%%"
     }
   }
 ]

@@ -16,7 +16,7 @@ from models import *
 from auth_operations import get_current_user, require_auth, require_admin, login_user, verify_token
 from stock_operations import get_stock_details, get_stock_with_filters, add_stock_to_file, update_stock_in_file, delete_stock_from_file
 
-from stock_summary_optimized import get_stock_summary
+from stock_summary_optimized import get_stock_summary, get_stock_summary_today
 from sector_operations import get_sectors_with_filters, add_sector_to_file, update_sector_in_file, delete_sector_from_file
 from user_operations import get_users_with_filters, add_user_to_file, update_user_in_file, delete_user_from_file
 from earning_summary_optimized import get_earning_summary
@@ -380,13 +380,19 @@ async def get_stock_summary_route(
     isleverage: Optional[bool] = None,
     date_from: str = "",
     date_to: str = "",
+    today: Optional[bool] = None,
     current_user: Dict[str, Any] = Depends(require_auth)
 ):
     sectors_param = sectors.strip()
     date_from_param = date_from.strip()
     date_to_param = date_to.strip()
     
-    results = get_stock_summary(sectors_param, isleverage, date_from_param, date_to_param)
+    # Check if this is a "today" request
+    if today:
+        logger.info("Today filter requested for stock summary - using Finviz API")
+        results = get_stock_summary_today(sectors_param, isleverage)
+    else:
+        results = get_stock_summary(sectors_param, isleverage, date_from_param, date_to_param)
     
     return {'groups': results}
 
