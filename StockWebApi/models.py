@@ -23,31 +23,18 @@ class TimeBasedData(BaseModel):
 class StockRequest(BaseModel):
     ticker: str
     sector: str
-    isxticker: Optional[bool] = False
+    isleverage: Optional[bool] = False
 
 class StockUpdateRequest(BaseModel):
     oldTicker: str
     ticker: Optional[str] = None
     sector: str
-    isxticker: Optional[bool] = False
+    isleverage: Optional[bool] = False
 
 class StockDeleteRequest(BaseModel):
     ticker: str
 
-class EnhancedStockData(BaseModel):
-    ticker: str
-    sector: str
-    isxticker: bool
-    market_cap: str
-    earning_date: str
-    current_price: str
-    today: TimeBasedData
-    previous_day: TimeBasedData
-    five_day: TimeBasedData
-    one_month: TimeBasedData
-    six_month: TimeBasedData
-    one_year: TimeBasedData
-    ah_percentage: str
+# Removed unused EnhancedStockData model
 
 class SectorRequest(BaseModel):
     sector: str

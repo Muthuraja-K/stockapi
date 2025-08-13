@@ -1,4 +1,4 @@
-from fastapi import FastAPI, HTTPException, Depends, Query, Header
+from fastapi import FastAPI, HTTPException, Depends, Query
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
@@ -7,25 +7,28 @@ import logging
 import os
 import json
 from typing import Optional, List, Dict, Any
-import asyncio
+# Removed unused asyncio import
 import time
 from datetime import datetime
 
 # Import models and operations
 from models import *
 from auth_operations import get_current_user, require_auth, require_admin, login_user, verify_token
-from stock_operations import get_stock_details, add_stock_to_file, update_stock_in_file, delete_stock_from_file, get_stock_with_filters
-from enhanced_stock_operations import get_enhanced_stock_details, get_realtime_price_updates, update_ticker_today_data, force_update_ticker_today_data, is_after_hours
-from history_cache import history_cache
-from stock_summary import get_stock_summary
+from stock_operations import get_stock_details, get_stock_with_filters, add_stock_to_file, update_stock_in_file, delete_stock_from_file
+
+from stock_summary_optimized import get_stock_summary
 from sector_operations import get_sectors_with_filters, add_sector_to_file, update_sector_in_file, delete_sector_from_file
 from user_operations import get_users_with_filters, add_user_to_file, update_user_in_file, delete_user_from_file
-from earning_summary import get_earning_summary, get_after_hours_data
+from earning_summary_optimized import get_earning_summary
 from sentiment_analysis import get_sentiment_analysis
 from api_rate_limiter import get_rate_limiter
+from cache_manager import get_cache_stats, clear_cache, invalidate_cache
+from yahoo_finance_proxy import initialize_yahoo_finance_proxy, clear_expired_cache
+from stock_history_operations import stock_history_ops
+from background_scheduler import start_background_scheduler, get_scheduler_status
 
 # Configure logging
-logging.basicConfig(level=logging.WARNING)
+logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 # Create FastAPI app with performance optimizations
@@ -38,12 +41,11 @@ app = FastAPI(
 )
 
 # Add CORS middleware with optimized settings
-# Get allowed origins from environment variable or use default
-allowed_origins = os.environ.get("ALLOWED_ORIGINS", "*").split(",") if os.environ.get("ALLOWED_ORIGINS") else ["*"]
+from config import config
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=allowed_origins,  # Configure appropriately for production
+    allow_origins=config.ALLOWED_ORIGINS,  # Configure appropriately for production
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -74,30 +76,27 @@ async def performance_middleware(request, call_next):
     
     return response
 
-# Optimize connection pooling for external APIs
-import requests
-from requests.adapters import HTTPAdapter
-from urllib3.util.retry import Retry
-
-# Configure session with connection pooling and retries
-session = requests.Session()
-retry_strategy = Retry(
-    total=3,
-    backoff_factor=0.1,
-    status_forcelist=[429, 500, 502, 503, 504],
-)
-adapter = HTTPAdapter(
-    max_retries=retry_strategy,
-    pool_connections=100,  # Increased connection pool
-    pool_maxsize=100,      # Increased max connections
-)
-session.mount("http://", adapter)
-session.mount("https://", adapter)
+# Note: Removed complex session management to avoid conflicts with yfinance
+# yfinance will handle its own connections internally
 
 # Application startup event
 @app.on_event("startup")
 async def startup_event():
-    pass
+    # Initialize Yahoo Finance proxy system
+    try:
+        initialize_yahoo_finance_proxy()
+        logger.info("Yahoo Finance proxy system initialized successfully")
+    except Exception as e:
+        logger.error(f"Failed to initialize Yahoo Finance proxy system: {e}")
+        # Continue startup even if proxy initialization fails
+    
+    # Start background scheduler for stock history data
+    try:
+        start_background_scheduler()
+        logger.info("Background scheduler started successfully")
+    except Exception as e:
+        logger.error(f"Failed to start background scheduler: {e}")
+        # Continue startup even if scheduler fails
 
 @app.get("/")
 async def serve_frontend():
@@ -107,11 +106,10 @@ async def serve_frontend():
 @app.get("/health")
 async def health_check():
     """Health check endpoint for Railway monitoring"""
-    import datetime
     return {
         "status": "healthy", 
         "message": "Stock Prediction API is running",
-        "timestamp": datetime.datetime.now().isoformat(),
+        "timestamp": datetime.now().isoformat(),
         "version": "1.0.0"
     }
 
@@ -144,7 +142,7 @@ async def verify_token_route(request: TokenRequest):
 async def get_stock_route(
     sector: str = "",
     ticker: str = "",
-    isxticker: Optional[bool] = None,
+    isleverage: Optional[bool] = None,
     page: int = 1,
     per_page: int = 10,
     current_user: Dict[str, Any] = Depends(require_auth)
@@ -152,12 +150,12 @@ async def get_stock_route(
     sector_param = sector.strip().lower()
     ticker_param = ticker.strip().lower()
     
-    result = get_stock_with_filters(sector_param, ticker_param, isxticker, page, per_page)
+    result = get_stock_with_filters(sector_param, ticker_param, isleverage, page, per_page)
     
-    # Always include isxticker in results
+    # Always include isleverage in results
     for s in result['results']:
-        if 'isxticker' not in s:
-            s['isxticker'] = False
+        if 'isleverage' not in s:
+            s['isleverage'] = False
     
     return result
 
@@ -165,7 +163,7 @@ async def get_stock_route(
 async def get_stockdetails_route(
     ticker: str = "",
     sector: str = "",
-    isxticker: Optional[bool] = None,
+    isleverage: Optional[bool] = None,
     sort_by: Optional[str] = None,
     sort_order: str = "asc",
     current_user: Dict[str, Any] = Depends(require_auth)
@@ -173,76 +171,19 @@ async def get_stockdetails_route(
     tickers_param = ticker.strip()
     sector_param = sector.strip().lower()
     
-    result = get_stock_details(tickers_param, sector_param, isxticker, sort_by, sort_order)
+    result = get_stock_details(tickers_param, sector_param, isleverage, sort_by, sort_order)
     
     return result
 
-@app.get('/api/getenhancedstockdetails')
-async def get_enhanced_stockdetails_route(
-    ticker: str = "",
-    sector: str = "",
-    leverage_filter: str = "Ticker Only",
-    sort_by: str = "today_percentage",
-    sort_order: str = "desc",
-    current_user: Dict[str, Any] = Depends(require_auth)
-):
-    tickers_param = ticker.strip()
-    sector_param = sector.strip().lower()
-    
-    result = get_enhanced_stock_details(tickers_param, sector_param, leverage_filter, sort_by, sort_order)
-    
-    return result
 
-@app.get('/api/realtime-prices')
-async def get_realtime_prices_route(
-    tickers: str = "",
-    current_user: Dict[str, Any] = Depends(require_auth)
-):
-    """Get real-time price and today's data updates for specified tickers"""
-    if not tickers:
-        return {}
-    
-    ticker_list = [t.strip().upper() for t in tickers.split(',') if t.strip()]
-    updates = get_realtime_price_updates(ticker_list)
-    
-    return updates
 
-@app.get('/api/is-after-hours')
-async def is_after_hours_route(
-    current_user: Dict[str, Any] = Depends(require_auth)
-):
-    """Check if current time is after regular market hours"""
-    return {'is_after_hours': is_after_hours()}
 
-@app.post('/api/update-ticker-data')
-async def update_ticker_data_route(
-    current_user: Dict[str, Any] = Depends(require_auth)
-):
-    """Manually trigger update of Ticker_Today.json"""
-    try:
-        result = update_ticker_today_data()
-        return {
-            'message': f'Successfully updated data for {len(result)} stocks',
-            'count': len(result)
-        }
-    except Exception as e:
-        logging.error(f"Error updating ticker data: {e}")
-        raise HTTPException(status_code=500, detail={'error': str(e)})
 
-@app.post('/api/force-update-ticker-data')
-async def force_update_ticker_data_route(
-    current_user: Dict[str, Any] = Depends(require_admin)
-):
-    """Force update Ticker_Today.json regardless of daily update check"""
-    try:
-        result = force_update_ticker_today_data()
-        return {
-            'message': f'Successfully force updated data for {len(result)} stocks',
-            'count': len(result)
-        }
-    except Exception as e:
-        logging.error(f"Error force updating ticker data: {e}")
-        raise HTTPException(status_code=500, detail={'error': str(e)})
+
+
+
+
+
 
 # Admin-only routes
 @app.post('/api/stocks')
@@ -250,7 +191,7 @@ async def add_stock_route(
     request: StockRequest,
     current_user: Dict[str, Any] = Depends(require_admin)
 ):
-    success, message = add_stock_to_file(request.ticker, request.sector, request.isxticker)
+    success, message = add_stock_to_file(request.ticker, request.sector, request.isleverage)
     
     if success:
         return {
@@ -258,7 +199,7 @@ async def add_stock_route(
             'stock': {
                 'ticker': request.ticker, 
                 'sector': request.sector, 
-                'isxticker': request.isxticker
+                'isleverage': request.isleverage
             }
         }
     else:
@@ -271,7 +212,7 @@ async def update_stock_route(
 ):
     new_ticker = request.ticker if request.ticker else request.oldTicker
     
-    success, message = update_stock_in_file(request.oldTicker, request.sector, request.isxticker, new_ticker)
+    success, message = update_stock_in_file(request.oldTicker, request.sector, request.isleverage, new_ticker)
     
     if success:
         return {
@@ -279,7 +220,7 @@ async def update_stock_route(
             'stock': {
                 'ticker': new_ticker, 
                 'sector': request.sector, 
-                'isxticker': request.isxticker
+                'isleverage': request.isleverage
             }
         }
     else:
@@ -304,6 +245,17 @@ async def get_sectors_route(
     per_page: int = 10,
     current_user: Dict[str, Any] = Depends(require_admin)
 ):
+    filter_param = filter.strip().lower()
+    result = get_sectors_with_filters(filter_param, page, per_page)
+    return result
+
+@app.get('/api/sectors/public')
+async def get_sectors_public_route(
+    filter: str = "",
+    page: int = 1,
+    per_page: int = 10
+):
+    """Get sectors with filtering and pagination (Public access - no authentication required)"""
     filter_param = filter.strip().lower()
     result = get_sectors_with_filters(filter_param, page, per_page)
     return result
@@ -425,7 +377,7 @@ async def delete_user_route(
 @app.get('/api/stock-summary')
 async def get_stock_summary_route(
     sectors: str = "",
-    isxticker: Optional[bool] = None,
+    isleverage: Optional[bool] = None,
     date_from: str = "",
     date_to: str = "",
     current_user: Dict[str, Any] = Depends(require_auth)
@@ -434,13 +386,14 @@ async def get_stock_summary_route(
     date_from_param = date_from.strip()
     date_to_param = date_to.strip()
     
-    results = get_stock_summary(sectors_param, isxticker, date_from_param, date_to_param)
+    results = get_stock_summary(sectors_param, isleverage, date_from_param, date_to_param)
     
     return {'groups': results}
 
 @app.get('/api/earning-summary')
 async def get_earning_summary_route(
     sectors: str = "",
+    period: str = "",
     date_from: str = "",
     date_to: str = "",
     page: int = 1,
@@ -448,16 +401,43 @@ async def get_earning_summary_route(
     current_user: Dict[str, Any] = Depends(require_auth)
 ):
     sectors_param = sectors.strip()
+    period_param = period.strip()
     date_from_param = date_from.strip()
     date_to_param = date_to.strip()
     
-    result = get_earning_summary(sectors_param, date_from_param, date_to_param, page, per_page)
+    result = get_earning_summary(sectors_param, period_param, date_from_param, date_to_param, page, per_page)
     return result
 
-@app.get('/api/historical-price/{ticker}/{date}')
+# Test endpoint for historical price data
+@app.get('/api/test-historical-price')
+async def test_historical_price_route(
+    ticker: str = Query(..., description="Stock ticker symbol"),
+    date: str = Query(..., description="Date in MM/DD/YYYY or YYYY-MM-DD format"),
+    interval: str = Query('1h', description="Data interval"),
+    current_user: Dict[str, Any] = Depends(require_auth)
+):
+    """Test endpoint for historical price data"""
+    try:
+        logger.info(f"Test endpoint called with ticker={ticker}, date={date}, interval={interval}")
+        
+        # Import and call the function directly
+        from earning_summary_optimized import get_historical_price_data
+        logger.info("Import successful")
+        
+        result = get_historical_price_data(ticker, date, interval)
+        logger.info(f"Function result: {result}")
+        
+        return result
+    except Exception as e:
+        logger.error(f"Test endpoint error: {str(e)}")
+        import traceback
+        logger.error(f"Traceback: {traceback.format_exc()}")
+        raise HTTPException(status_code=500, detail=f"Test endpoint error: {str(e)}")
+
+@app.get('/api/historical-price')
 async def get_historical_price_route(
-    ticker: str,
-    date: str,
+    ticker: str = Query(..., description="Stock ticker symbol"),
+    date: str = Query(..., description="Date in MM/DD/YYYY or YYYY-MM-DD format"),
     interval: str = Query('1m', description="Data interval: '1m' for intraday, '1h' for hourly, '1d' for daily"),
     current_user: Dict[str, Any] = Depends(require_auth)
 ):
@@ -466,134 +446,36 @@ async def get_historical_price_route(
     
     Args:
         ticker: Stock ticker symbol
-        date: Date in YYYY-MM-DD format
+        date: Date in MM/DD/YYYY or YYYY-MM-DD format
         interval: Data interval ('1m' for intraday, '1h' for hourly, '1d' for daily)
     
     Returns:
         Historical price data including intraday points and after-hours data
     """
     try:
-        from earning_summary import get_historical_price_data
+        logger.info(f"Attempting to import get_historical_price_data for {ticker} on {date}")
+        from earning_summary_optimized import get_historical_price_data
+        logger.info(f"Import successful, calling function with ticker={ticker}, date={date}, interval={interval}")
         result = get_historical_price_data(ticker, date, interval)
+        logger.info(f"Function call successful, result type: {type(result)}")
         
         if "error" in result:
+            logger.warning(f"Function returned error: {result['error']}")
             raise HTTPException(status_code=404, detail=result["error"])
         
+        logger.info(f"Returning successful result with {len(result.get('data', []))} data points")
         return result
     except Exception as e:
         logger.error(f"Error getting historical price data for {ticker} on {date}: {str(e)}")
+        logger.error(f"Exception type: {type(e)}")
+        import traceback
+        logger.error(f"Traceback: {traceback.format_exc()}")
         raise HTTPException(status_code=500, detail=f"Failed to get historical price data: {str(e)}")
 
 
-@app.get('/api/after-hours/{ticker}/{date}')
-async def get_after_hours_route(
-    ticker: str,
-    date: str,
-    current_user: Dict[str, Any] = Depends(require_auth)
-):
-    """
-    Get specifically after-hours and pre-market data for a ticker on a specific date.
-    
-    Args:
-        ticker: Stock ticker symbol
-        date: Date in YYYY-MM-DD format
-    
-    Returns:
-        After-hours and pre-market data including price points and changes
-    """
-    try:
-        # Validate ticker format
-        if not ticker or not ticker.strip():
-            raise HTTPException(status_code=400, detail="Ticker symbol is required")
-        
-        ticker = ticker.strip().upper()
-        
-        # Validate date format
-        try:
-            datetime.strptime(date, '%Y-%m-%d')
-        except ValueError:
-            raise HTTPException(status_code=400, detail="Invalid date format. Please use YYYY-MM-DD format.")
-        
-        # Check if date is in the future
-        current_date = datetime.now().date()
-        target_date = datetime.strptime(date, '%Y-%m-%d').date()
-        if target_date > current_date:
-            raise HTTPException(
-                status_code=400, 
-                detail=f"Date {date} is in the future. Yahoo Finance only provides data for past dates."
-            )
-        
-        # Check if date is too far in the past
-        days_ago = (current_date - target_date).days
-        if days_ago > 60:
-            raise HTTPException(
-                status_code=400,
-                detail=f"Date {date} is too far in the past. Yahoo Finance only provides detailed data for the last 60 days."
-            )
-        
-        result = get_after_hours_data(ticker, date)
-        
-        if "error" in result:
-            raise HTTPException(status_code=404, detail=result["error"])
-        
-        return result
-    except HTTPException:
-        # Re-raise HTTP exceptions as-is
-        raise
-    except Exception as e:
-        logger.error(f"Error getting after-hours data for {ticker} on {date}: {str(e)}")
-        raise HTTPException(status_code=500, detail=f"Failed to get after-hours data: {str(e)}")
 
-# Test endpoint for after-hours validation (no auth required)
-@app.get('/api/test-after-hours-validation/{ticker}/{date}')
-async def test_after_hours_validation_route(ticker: str, date: str):
-    """
-    Test endpoint for after-hours date validation (no authentication required)
-    """
-    try:
-        # Validate ticker format
-        if not ticker or not ticker.strip():
-            raise HTTPException(status_code=400, detail="Ticker symbol is required")
-        
-        ticker = ticker.strip().upper()
-        
-        # Validate date format
-        try:
-            datetime.strptime(date, '%Y-%m-%d')
-        except ValueError:
-            raise HTTPException(status_code=400, detail="Invalid date format. Please use YYYY-MM-DD format.")
-        
-        # Check if date is in the future
-        current_date = datetime.now().date()
-        target_date = datetime.strptime(date, '%Y-%m-%d').date()
-        if target_date > current_date:
-            raise HTTPException(
-                status_code=400, 
-                detail=f"Date {date} is in the future. Yahoo Finance only provides data for past dates."
-            )
-        
-        # Check if date is too far in the past
-        days_ago = (current_date - target_date).days
-        if days_ago > 60:
-            raise HTTPException(
-                status_code=400,
-                detail=f"Date {date} is too far in the past. Yahoo Finance only provides detailed data for the last 60 days."
-            )
-        
-        return {
-            "message": "Date validation passed",
-            "ticker": ticker,
-            "date": date,
-            "days_ago": days_ago,
-            "is_valid": True
-        }
-        
-    except HTTPException:
-        # Re-raise HTTP exceptions as-is
-        raise
-    except Exception as e:
-        logger.error(f"Error validating date for {ticker} on {date}: {str(e)}")
-        raise HTTPException(status_code=500, detail=f"Failed to validate date: {str(e)}")
+
+
 
 # Download endpoints
 @app.get('/api/download/{file_type}')
@@ -659,24 +541,7 @@ async def get_sentiment_route(
         raise HTTPException(status_code=500, detail={'error': 'Failed to get sentiment data'})
 
 # Test Earnings Data endpoint
-@app.get('/api/test-earnings/{ticker}')
-async def test_earnings_route(
-    ticker: str,
-    current_user: Dict[str, Any] = Depends(require_auth)
-):
-    """Test earnings data retrieval for debugging"""
-    try:
-        if not ticker or ticker.strip() == '':
-            raise HTTPException(status_code=400, detail={'error': 'Ticker is required'})
-        
-        ticker = ticker.strip().upper()
-        earnings_test = history_cache.test_earnings_data(ticker)
-        
-        return earnings_test
-        
-    except Exception as e:
-        logging.error(f"Error testing earnings for {ticker}: {str(e)}")
-        raise HTTPException(status_code=500, detail={'error': 'Failed to test earnings data'})
+# Test earnings endpoint removed during cleanup - was using removed history_cache module
 
 @app.get('/api/rate-limiter-status')
 async def get_rate_limiter_status():
@@ -714,9 +579,315 @@ async def reset_rate_limiter(current_user: Dict[str, Any] = Depends(require_admi
         logger.error(f"Error resetting rate limiter: {e}")
         raise HTTPException(status_code=500, detail=f"Error resetting rate limiter: {str(e)}")
 
+# Cache management endpoints (consolidated)
+
+@app.post('/api/clear-cache')
+async def clear_cache_route(current_user: Dict[str, Any] = Depends(require_admin)):
+    """Clear the entire cache"""
+    try:
+        clear_cache()
+        return {
+            "status": "success",
+            "message": "Cache cleared successfully",
+            "timestamp": datetime.now().isoformat()
+        }
+    except Exception as e:
+        logger.error(f"Error clearing cache: {e}")
+        raise HTTPException(status_code=500, detail=f"Error clearing cache: {str(e)}")
+
+@app.post('/api/invalidate-cache')
+async def invalidate_cache_route(current_user: Dict[str, Any] = Depends(require_admin)):
+    """Invalidate specific cache entries"""
+    try:
+        invalidate_cache()
+        return {
+            "status": "success",
+            "message": "Cache invalidated successfully",
+            "timestamp": datetime.now().isoformat()
+        }
+    except Exception as e:
+        logger.error(f"Error invalidating cache: {e}")
+        raise HTTPException(status_code=500, detail=f"Error invalidating cache: {str(e)}")
+
+@app.get("/api/cache/stats")
+async def get_cache_stats_route(current_user: Dict[str, Any] = Depends(require_auth)):
+    """Get smart cache statistics"""
+    try:
+        stats = get_cache_stats()
+        return {
+            "success": True,
+            "data": stats,
+            "message": "Cache statistics retrieved successfully"
+        }
+    except Exception as e:
+        logger.error(f"Error getting cache stats: {e}")
+        raise HTTPException(status_code=500, detail=f"Failed to get cache stats: {str(e)}")
+
+@app.post("/api/cache/clear-expired")
+async def clear_expired_cache_route(current_user: Dict[str, Any] = Depends(require_auth)):
+    """Clear expired cache entries"""
+    try:
+        clear_expired_cache()
+        return {
+            "success": True,
+            "message": "Expired cache entries cleared successfully"
+        }
+    except Exception as e:
+        logger.error(f"Error clearing expired cache: {e}")
+        raise HTTPException(status_code=500, detail=f"Failed to clear expired cache: {str(e)}")
+
+@app.get("/api/cache/status")
+async def get_cache_status_route(current_user: Dict[str, Any] = Depends(require_auth)):
+    """Get comprehensive cache status including both old and new cache systems"""
+    try:
+        # Get old cache stats
+        old_cache_stats = get_cache_stats()
+        
+        # Get new smart cache stats
+        smart_cache_stats = get_cache_stats()
+        
+        # Get rate limiter status
+        rate_limiter = get_rate_limiter()
+        rate_limiter_status = {
+            "current_delay": rate_limiter.current_delay,
+            "consecutive_failures": rate_limiter.consecutive_failures,
+            "consecutive_successes": rate_limiter.consecutive_successes
+        }
+        
+        return {
+            "success": True,
+            "data": {
+                "old_cache": old_cache_stats,
+                "smart_cache": smart_cache_stats,
+                "rate_limiter": rate_limiter_status
+            },
+            "message": "Cache status retrieved successfully"
+        }
+    except Exception as e:
+        logger.error(f"Error getting cache status: {e}")
+        raise HTTPException(status_code=500, detail=f"Failed to get cache status: {str(e)}")
+
+# Stock History endpoints
+@app.get("/api/stock-history")
+async def get_stock_history_route(
+    ticker: Optional[str] = Query(None, description="Filter by ticker"),
+    sector: Optional[str] = Query(None, description="Filter by sector"),
+    leverage_filter: Optional[str] = Query(None, description="Filter by leverage (true/false)"),
+    current_user: Dict[str, Any] = Depends(require_auth)
+):
+    """Get combined stock history data from both history and market data files"""
+    try:
+        
+        # Check if stock history data is empty and populate if needed
+        history_data = stock_history_ops.load_stock_history()
+        if not history_data or len(history_data) == 0:
+            logger.info("Stock history data is empty, populating now...")
+            if stock_history_ops.populate_stock_history():
+                logger.info("Stock history data populated successfully")
+            else:
+                logger.error("Failed to populate stock history data")
+        elif stock_history_ops.should_populate_history():
+            logger.info("Populating stock history data (cache-based update)...")
+            stock_history_ops.populate_stock_history()
+        
+        # Check if market data is empty and populate if needed
+        market_data = stock_history_ops.load_stock_market_data()
+        if not market_data or len(market_data) == 0:
+            logger.info("Market data is empty, populating now...")
+            if stock_history_ops.populate_stock_market_data():
+                logger.info("Market data populated successfully")
+            else:
+                logger.error("Failed to populate market data")
+        elif stock_history_ops.should_populate_market_data():
+            logger.info("Populating stock market data (cache-based update)...")
+            stock_history_ops.populate_stock_market_data()
+        
+        # Get combined data after ensuring both files are populated
+        data = stock_history_ops.get_combined_stock_data()
+        
+        # Apply filters if provided
+        if ticker or sector or leverage_filter:
+            filtered_results = []
+            for item in data["results"]:
+                # Ticker filter
+                if ticker and ticker.lower() not in item["ticker"].lower():
+                    continue
+                
+                # Sector filter
+                if sector and sector.lower() not in item["sector"].lower():
+                    continue
+                
+                # Leverage filter
+                if leverage_filter is not None:
+                    if leverage_filter.lower() == "true" and not item["isleverage"]:
+                        continue
+                    if leverage_filter.lower() == "false" and item["isleverage"]:
+                        continue
+                
+                filtered_results.append(item)
+            
+            data["results"] = filtered_results
+            data["total"] = len(filtered_results)
+        
+        return data
+        
+    except Exception as e:
+        logger.error(f"Error getting stock history: {e}")
+        # Return empty data structure on error instead of throwing exception
+        return {
+            "results": [],
+            "total": 0
+        }
+
+
+
+@app.get("/api/stock-history/status")
+async def get_stock_history_status_route(
+    current_user: Dict[str, Any] = Depends(require_auth)
+):
+    """Get the current status of stock history and market data files"""
+    try:
+        # Check current status of both files
+        history_data = stock_history_ops.load_stock_history()
+        market_data = stock_history_ops.load_stock_market_data()
+        
+        # Check if files need population
+        needs_history_population = not history_data or len(history_data) == 0
+        needs_market_population = not market_data or len(market_data) == 0
+        
+        # Check if cache-based updates are needed
+        should_update_history = stock_history_ops.should_populate_history()
+        should_update_market = stock_history_ops.should_populate_market_data()
+        
+        # Get cache status
+        cache_status = stock_history_ops.get_cache_status()
+        
+        return {
+            "success": True,
+            "message": "Stock history status retrieved successfully",
+            "data": {
+                "history": {
+                    "records": len(history_data),
+                    "needs_population": needs_history_population,
+                    "should_update": should_update_history,
+                    "file_exists": len(history_data) > 0
+                },
+                "market": {
+                    "records": len(market_data),
+                    "needs_population": needs_market_population,
+                    "should_update": should_update_market,
+                    "file_exists": len(market_data) > 0
+                },
+                "overall": {
+                    "total_records": len(history_data) + len(market_data),
+                    "needs_any_population": needs_history_population or needs_market_population,
+                    "needs_any_update": should_update_history or should_update_market
+                },
+                "cache_status": cache_status
+            }
+        }
+        
+    except Exception as e:
+        logger.error(f"Error getting stock history status: {e}")
+        return {
+            "success": False,
+            "message": f"Error retrieving status: {str(e)}",
+            "data": {}
+        }
+
+@app.get("/api/stock-history/cache-status")
+async def get_stock_history_cache_status_route(
+    current_user: Dict[str, Any] = Depends(require_auth)
+):
+    """Get detailed cache status for stock history and market data"""
+    try:
+        cache_status = stock_history_ops.get_cache_status()
+        
+        return {
+            "success": True,
+            "message": "Cache status retrieved successfully",
+            "data": cache_status
+        }
+        
+    except Exception as e:
+        logger.error(f"Error getting cache status: {e}")
+        return {
+            "success": False,
+            "message": f"Error retrieving cache status: {str(e)}",
+            "data": {}
+        }
+
+@app.post("/api/stock-history/populate")
+async def populate_stock_history_data_route(
+    current_user: Dict[str, Any] = Depends(require_auth)
+):
+    """Manually populate both stock history and market data files"""
+    try:
+        results = {}
+        
+        # Populate stock history data
+        logger.info("Manually populating stock history data...")
+        if stock_history_ops.populate_stock_history():
+            logger.info("Stock history data populated successfully")
+            results["history"] = {"success": True, "message": "Stock history data populated successfully"}
+        else:
+            logger.error("Failed to populate stock history data")
+            results["history"] = {"success": False, "message": "Failed to populate stock history data"}
+        
+        # Populate market data
+        logger.info("Manually populating market data...")
+        if stock_history_ops.populate_stock_market_data():
+            logger.info("Market data populated successfully")
+            results["market"] = {"success": True, "message": "Market data populated successfully"}
+        else:
+            logger.error("Failed to populate market data")
+            results["market"] = {"success": False, "message": "Failed to populate market data"}
+        
+        # Check final status
+        history_data = stock_history_ops.load_stock_history()
+        market_data = stock_history_ops.load_stock_market_data()
+        
+        return {
+            "success": True,
+            "message": "Population process completed",
+            "results": results,
+            "summary": {
+                "history_records": len(history_data),
+                "market_records": len(market_data),
+                "total_records": len(history_data) + len(market_data)
+            }
+        }
+        
+    except Exception as e:
+        logger.error(f"Error populating stock history data: {e}")
+        return {
+            "success": False,
+            "message": f"Error during population: {str(e)}",
+            "results": {},
+            "summary": {}
+        }
+
+@app.get("/api/scheduler/status")
+async def get_scheduler_status_route(current_user: Dict[str, Any] = Depends(require_auth)):
+    """Get background scheduler status"""
+    try:
+        status = get_scheduler_status()
+        return {
+            "success": True,
+            "data": status,
+            "message": "Scheduler status retrieved successfully"
+        }
+    except Exception as e:
+        logger.error(f"Error getting scheduler status: {e}")
+        raise HTTPException(status_code=500, detail=f"Failed to get scheduler status: {str(e)}")
+
 # Catch-all route for static files - must be at the end
 @app.get("/{path:path}")
 async def serve_static(path: str):
+    # Skip API routes - let them be handled by their specific endpoints
+    if path.startswith("api/"):
+        raise HTTPException(status_code=404, detail="API endpoint not found")
+    
     try:
         file_path = os.path.join("static", path)
         if os.path.exists(file_path) and os.path.isfile(file_path):
@@ -733,8 +904,8 @@ async def serve_static(path: str):
         raise HTTPException(status_code=404, detail="File not found")
 
 if __name__ == "__main__":
-    import uvicorn
-    import os
+    # uvicorn already imported at the top
+    # os already imported at the top
     
     # Get port from environment variable
     port = int(os.environ.get("PORT", 8000))

@@ -1,19 +1,38 @@
 import logging
 from datetime import datetime
+import math
 
 def fmt_currency(val):
     try:
+        # Handle None, NaN, and infinite values
+        if val is None:
+            return 'N/A'
+        
         f = float(val)
+        
+        # Check for NaN or infinite values
+        if math.isnan(f) or math.isinf(f):
+            return 'N/A'
+            
         return f"${f:,.2f}"
     except Exception:
-        return val
+        return 'N/A'
 
 def fmt_percent(val):
     try:
+        # Handle None, NaN, and infinite values
+        if val is None:
+            return 'N/A'
+            
         f = float(val)
+        
+        # Check for NaN or infinite values
+        if math.isnan(f) or math.isinf(f):
+            return 'N/A'
+            
         return f"{f:.2f}%"
     except Exception:
-        return val
+        return 'N/A'
 
 def fmt_market_cap(val):
     """

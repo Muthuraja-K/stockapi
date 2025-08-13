@@ -2,581 +2,573 @@
   {
     "ticker": "RGTI",
     "sector": "Quantum",
-    "isxticker": false
+    "isleverage": false
   },
   {
     "ticker": "QBTS",
     "sector": "Quantum",
-    "isxticker": false
+    "isleverage": false
   },
   {
     "ticker": "QUBT",
     "sector": "Quantum",
-    "isxticker": false
+    "isleverage": false
   },
   {
     "ticker": "IONX",
     "sector": "Quantum",
-    "isxticker": true
+    "isleverage": true
   },
   {
     "ticker": "RGTX",
     "sector": "Quantum",
-    "isxticker": true
+    "isleverage": true
   },
   {
     "ticker": "QBTX",
     "sector": "Quantum",
-    "isxticker": true
+    "isleverage": true
   },
   {
     "ticker": "QUBX",
     "sector": "Quantum",
-    "isxticker": true
+    "isleverage": true
   },
-  {
-    "ticker": "ARCH",
-    "sector": "Drone Delivery/FlyingTaxi",
-    "isxticker": false
-  },
+
   {
     "ticker": "UBER",
     "sector": "Drone Delivery/FlyingTaxi",
-    "isxticker": false
+    "isleverage": false
   },
   {
     "ticker": "JOBY",
     "sector": "Drone Delivery/FlyingTaxi",
-    "isxticker": false
+    "isleverage": false
   },
   {
     "ticker": "SRFM",
     "sector": "Drone Delivery/FlyingTaxi",
-    "isxticker": false
+    "isleverage": false
   },
   {
     "ticker": "ARCX",
     "sector": "Drone Delivery/FlyingTaxi",
-    "isxticker": true
+    "isleverage": true
   },
   {
     "ticker": "UBRL",
     "sector": "Drone Delivery/FlyingTaxi",
-    "isxticker": true
+    "isleverage": true
   },
   {
     "ticker": "SMCI",
     "sector": "SemiConductor",
-    "isxticker": false
+    "isleverage": false
   },
   {
     "ticker": "AMD",
     "sector": "SemiConductor",
-    "isxticker": false
+    "isleverage": false
   },
   {
     "ticker": "MRVL",
     "sector": "SemiConductor",
-    "isxticker": false
+    "isleverage": false
   },
   {
     "ticker": "ARM",
     "sector": "SemiConductor",
-    "isxticker": false
+    "isleverage": false
   },
   {
     "ticker": "SNPS",
     "sector": "SemiConductor",
-    "isxticker": false
+    "isleverage": false
   },
   {
     "ticker": "NXPI",
     "sector": "SemiConductor",
-    "isxticker": false
+    "isleverage": false
   },
   {
     "ticker": "CDNS",
     "sector": "SemiConductor",
-    "isxticker": false
+    "isleverage": false
   },
   {
     "ticker": "SMTC",
     "sector": "SemiConductor",
-    "isxticker": false
+    "isleverage": false
   },
   {
     "ticker": "NVTS",
     "sector": "SemiConductor",
-    "isxticker": false
+    "isleverage": false
   },
   {
     "ticker": "SMCX",
     "sector": "SemiConductor",
-    "isxticker": true
+    "isleverage": true
   },
   {
     "ticker": "AMDL",
     "sector": "SemiConductor",
-    "isxticker": true
+    "isleverage": true
   },
   {
     "ticker": "MVLL",
     "sector": "SemiConductor",
-    "isxticker": true
+    "isleverage": true
   },
   {
     "ticker": "ARMU",
     "sector": "SemiConductor",
-    "isxticker": true
+    "isleverage": true
   },
   {
     "ticker": "NAIL",
     "sector": "Real Estate",
-    "isxticker": false
+    "isleverage": false
   },
   {
     "ticker": "OPEN",
     "sector": "Real Estate",
-    "isxticker": false
+    "isleverage": false
   },
   {
     "ticker": "FNMA",
     "sector": "Real Estate",
-    "isxticker": false
+    "isleverage": false
   },
   {
     "ticker": "FMCC",
     "sector": "Real Estate",
-    "isxticker": false
+    "isleverage": false
   },
   {
     "ticker": "RKT",
     "sector": "Real Estate",
-    "isxticker": false
+    "isleverage": false
   },
   {
     "ticker": "COIN",
     "sector": "Crypto",
-    "isxticker": false
+    "isleverage": false
   },
   {
     "ticker": "MARA",
     "sector": "Crypto",
-    "isxticker": false
+    "isleverage": false
   },
   {
     "ticker": "RIOT",
     "sector": "Crypto",
-    "isxticker": false
+    "isleverage": false
   },
   {
     "ticker": "SOL-USD",
     "sector": "Crypto",
-    "isxticker": false
+    "isleverage": false
   },
   {
     "ticker": "BTC-USD",
     "sector": "Crypto",
-    "isxticker": false
+    "isleverage": false
   },
   {
     "ticker": "ETH-USD",
     "sector": "Crypto",
-    "isxticker": false
+    "isleverage": false
   },
   {
     "ticker": "CRCL",
     "sector": "Crypto",
-    "isxticker": false
+    "isleverage": false
   },
-  {
-    "ticker": "BMTR",
-    "sector": "Crypto",
-    "isxticker": false
-  },
+
   {
     "ticker": "CONL",
     "sector": "Crypto",
-    "isxticker": true
+    "isleverage": true
   },
   {
     "ticker": "COIG",
     "sector": "Crypto",
-    "isxticker": true
+    "isleverage": true
   },
   {
     "ticker": "MRAL",
     "sector": "Crypto",
-    "isxticker": true
+    "isleverage": true
   },
   {
     "ticker": "RIOX",
     "sector": "Crypto",
-    "isxticker": true
+    "isleverage": true
   },
   {
     "ticker": "MSTX",
     "sector": "Crypto",
-    "isxticker": true
+    "isleverage": true
   },
   {
     "ticker": "SOLT",
     "sector": "Crypto",
-    "isxticker": true
+    "isleverage": true
   },
   {
     "ticker": "BITU",
     "sector": "Crypto",
-    "isxticker": true
+    "isleverage": true
   },
   {
     "ticker": "ETHU",
     "sector": "Crypto",
-    "isxticker": true
+    "isleverage": true
   },
   {
     "ticker": "SNOW",
     "sector": "Security/Software Product",
-    "isxticker": false
+    "isleverage": false
   },
   {
     "ticker": "PANW",
     "sector": "Security/Software Product",
-    "isxticker": false
+    "isleverage": false
   },
   {
     "ticker": "CRWD",
     "sector": "Security/Software Product",
-    "isxticker": false
+    "isleverage": false
   },
   {
     "ticker": "CRM",
     "sector": "Security/Software Product",
-    "isxticker": false
+    "isleverage": false
   },
   {
     "ticker": "MDB",
     "sector": "Security/Software Product",
-    "isxticker": false
+    "isleverage": false
   },
   {
     "ticker": "FTNT",
     "sector": "Security/Software Product",
-    "isxticker": false
+    "isleverage": false
   },
   {
     "ticker": "ZS",
     "sector": "Security/Software Product",
-    "isxticker": false
+    "isleverage": false
   },
   {
     "ticker": "OKTA",
     "sector": "Security/Software Product",
-    "isxticker": false
+    "isleverage": false
   },
   {
     "ticker": "SNOU",
     "sector": "Security/Software Product",
-    "isxticker": true
+    "isleverage": true
   },
   {
     "ticker": "PANG",
     "sector": "Security/Software Product",
-    "isxticker": true
+    "isleverage": true
   },
   {
     "ticker": "CRWL",
     "sector": "Security/Software Product",
-    "isxticker": true
+    "isleverage": true
   },
   {
     "ticker": "CRMG",
     "sector": "Security/Software Product",
-    "isxticker": true
+    "isleverage": true
   },
   {
     "ticker": "HOOD",
     "sector": "Finance",
-    "isxticker": false
+    "isleverage": false
   },
   {
     "ticker": "UPST",
     "sector": "Finance",
-    "isxticker": false
+    "isleverage": false
   },
   {
     "ticker": "SOFX",
     "sector": "Finance",
-    "isxticker": true
+    "isleverage": true
   },
   {
     "ticker": "ROBN",
     "sector": "Finance",
-    "isxticker": true
+    "isleverage": true
   },
   {
     "ticker": "HOOX",
     "sector": "Finance",
-    "isxticker": true
+    "isleverage": true
   },
   {
     "ticker": "UPSX",
     "sector": "Finance",
-    "isxticker": true
+    "isleverage": true
   },
   {
     "ticker": "PLTR",
     "sector": "AI Service",
-    "isxticker": false
+    "isleverage": false
   },
   {
     "ticker": "SOUN",
     "sector": "AI Service",
-    "isxticker": false
+    "isleverage": false
   },
   {
     "ticker": "VRTL",
     "sector": "AI Service",
-    "isxticker": false
+    "isleverage": false
   },
   {
     "ticker": "BBAI",
     "sector": "AI Service",
-    "isxticker": false
+    "isleverage": false
   },
   {
     "ticker": "CRWV",
     "sector": "AI Service",
-    "isxticker": false
+    "isleverage": false
   },
   {
     "ticker": "GRRR",
     "sector": "AI Service",
-    "isxticker": false
+    "isleverage": false
   },
   {
     "ticker": "AI",
     "sector": "AI Service",
-    "isxticker": false
+    "isleverage": false
   },
   {
     "ticker": "NBIS",
     "sector": "AI Service",
-    "isxticker": false
+    "isleverage": false
   },
   {
     "ticker": "PLTU",
     "sector": "AI Service",
-    "isxticker": true
+    "isleverage": true
   },
   {
     "ticker": "SOUX",
     "sector": "AI Service",
-    "isxticker": true
+    "isleverage": true
   },
   {
     "ticker": "META",
     "sector": "Mega Stocks",
-    "isxticker": false
+    "isleverage": false
   },
   {
     "ticker": "AMZN",
     "sector": "Mega Stocks",
-    "isxticker": false
+    "isleverage": false
   },
   {
     "ticker": "TSLA",
     "sector": "Mega Stocks",
-    "isxticker": false
+    "isleverage": false
   },
   {
     "ticker": "METU",
     "sector": "Mega Stocks",
-    "isxticker": true
+    "isleverage": true
   },
   {
     "ticker": "AMZU",
     "sector": "Mega Stocks",
-    "isxticker": true
+    "isleverage": true
   },
   {
     "ticker": "TSLL",
     "sector": "Mega Stocks",
-    "isxticker": true
+    "isleverage": true
   },
   {
     "ticker": "NVDL",
     "sector": "Mega Stocks",
-    "isxticker": true
+    "isleverage": true
   },
   {
     "ticker": "NFXL",
     "sector": "Mega Stocks",
-    "isxticker": true
+    "isleverage": true
   },
   {
     "ticker": "AAPU",
     "sector": "Mega Stocks",
-    "isxticker": true
+    "isleverage": true
   },
   {
     "ticker": "GGLL",
     "sector": "Mega Stocks",
-    "isxticker": true
+    "isleverage": true
   },
   {
     "ticker": "MSFU",
     "sector": "Mega Stocks",
-    "isxticker": true
+    "isleverage": true
   },
   {
     "ticker": "TQQQ",
     "sector": "Mega Stocks",
-    "isxticker": true
+    "isleverage": true
   },
   {
     "ticker": "OKLO",
     "sector": "Energy",
-    "isxticker": false
+    "isleverage": false
   },
   {
     "ticker": "NNE",
     "sector": "Energy",
-    "isxticker": false
+    "isleverage": false
   },
   {
     "ticker": "SMR",
     "sector": "Energy",
-    "isxticker": false
+    "isleverage": false
   },
   {
     "ticker": "UUUU",
     "sector": "Energy",
-    "isxticker": false
+    "isleverage": false
   },
   {
     "ticker": "NXE",
     "sector": "Energy",
-    "isxticker": false
+    "isleverage": false
   },
   {
     "ticker": "OKLL",
     "sector": "Energy",
-    "isxticker": true
+    "isleverage": true
   },
   {
     "ticker": "HIMS",
     "sector": "Healthcare",
-    "isxticker": false
+    "isleverage": false
   },
   {
     "ticker": "TEM",
     "sector": "Healthcare",
-    "isxticker": false
+    "isleverage": false
   },
   {
     "ticker": "NVO",
     "sector": "Healthcare",
-    "isxticker": false
+    "isleverage": false
   },
   {
     "ticker": "HIMZ",
     "sector": "Healthcare",
-    "isxticker": true
+    "isleverage": true
   },
   {
     "ticker": "TEMT",
     "sector": "Healthcare",
-    "isxticker": true
+    "isleverage": true
   },
   {
     "ticker": "NVOX",
     "sector": "Healthcare",
-    "isxticker": true
+    "isleverage": true
   },
   {
     "ticker": "RDTL",
     "sector": "Others",
-    "isxticker": false
+    "isleverage": false
   },
   {
     "ticker": "APPS",
     "sector": "Others",
-    "isxticker": false
+    "isleverage": false
   },
   {
     "ticker": "RBLU",
     "sector": "Others",
-    "isxticker": false
+    "isleverage": false
   },
   {
     "ticker": "CVNX",
     "sector": "Others",
-    "isxticker": false
+    "isleverage": false
   },
   {
     "ticker": "SERV",
     "sector": "Others",
-    "isxticker": false
+    "isleverage": false
   },
   {
     "ticker": "ARQQ",
     "sector": "Quantum",
-    "isxticker": false
+    "isleverage": false
   },
   {
     "ticker": "IONQ",
     "sector": "Quantum",
-    "isxticker": false
+    "isleverage": false
   },
   {
     "ticker": "AIRE",
     "sector": "Real Estate",
-    "isxticker": false
+    "isleverage": false
   },
   {
     "ticker": "APLD",
     "sector": "AI Service",
-    "isxticker": false
+    "isleverage": false
   },
   {
     "ticker": "SOFI",
     "sector": "Finance",
-    "isxticker": false
+    "isleverage": false
   },
   {
     "ticker": "NFLX",
     "sector": "Mega Stocks",
-    "isxticker": false
+    "isleverage": false
   },
   {
     "ticker": "AAPL",
     "sector": "Mega Stocks",
-    "isxticker": false
+    "isleverage": false
   },
   {
     "ticker": "GOOG",
     "sector": "Mega Stocks",
-    "isxticker": false
+    "isleverage": false
   },
   {
     "ticker": "NVDA",
     "sector": "Mega Stocks",
-    "isxticker": false
+    "isleverage": false
   },
   {
     "ticker": "MSFT",
     "sector": "Mega Stocks",
-    "isxticker": false
+    "isleverage": false
   },
   {
     "ticker": "QQQ",
     "sector": "Mega Stocks",
-    "isxticker": false
+    "isleverage": false
   },
   {
     "ticker": "SMU",
     "sector": "Energy",
-    "isxticker": true
+    "isleverage": true
   }
 ]

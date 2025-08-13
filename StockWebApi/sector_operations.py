@@ -1,82 +1,123 @@
 import json
-import logging
-from utils import load_sectors, save_sectors
+import os
+from typing import List, Dict, Any, Optional, Tuple
 
-def get_sectors_with_filters(sector_param, page, per_page):
-    """
-    Get sectors with filtering and pagination
-    """
+def load_sectors() -> List[Dict[str, Any]]:
+    """Load sectors from the JSON file"""
+    try:
+        if os.path.exists('sector.json'):
+            with open('sector.json', 'r') as file:
+                return json.load(file)
+        else:
+            return []
+    except Exception as e:
+        print(f"Error loading sectors: {e}")
+        return []
+
+def save_sectors(sectors: List[Dict[str, Any]]) -> bool:
+    """Save sectors to the JSON file"""
+    try:
+        with open('sector.json', 'w') as file:
+            json.dump(sectors, file, indent=2)
+        return True
+    except Exception as e:
+        print(f"Error saving sectors: {e}")
+        return False
+
+def get_sectors_with_filters(filter_text: str = "", page: int = 1, per_page: int = 10) -> Dict[str, Any]:
+    """Get sectors with filtering and pagination"""
     sectors = load_sectors()
     
-    # Filter sectors if provided
+    # Apply filters
     filtered_sectors = sectors
-    if sector_param:
-        filtered_sectors = [s for s in sectors if sector_param.lower() in s.get('sector', '').lower()]
+    
+    if filter_text:
+        filtered_sectors = [s for s in sectors if filter_text.lower() in s.get('sector', '').lower()]
     
     # Apply pagination
     total = len(filtered_sectors)
-    start = (page - 1) * per_page
-    end = start + per_page
-    paged_sectors = filtered_sectors[start:end]
+    start_index = (page - 1) * per_page
+    end_index = start_index + per_page
+    paginated_sectors = filtered_sectors[start_index:end_index]
     
     return {
+        'results': paginated_sectors,
         'total': total,
         'page': page,
-        'per_page': per_page,
-        'results': paged_sectors
+        'per_page': per_page
     }
 
-def add_sector_to_file(sector_name):
-    """
-    Add a new sector to the sectors file
-    """
-    sectors = load_sectors()
-    
-    # Check if sector already exists
-    if any(s.get('sector', '').lower() == sector_name.lower() for s in sectors):
-        return False, "Sector already exists"
-    
-    sectors.append({'sector': sector_name})
-    save_sectors(sectors)
-    
-    return True, "Sector added successfully"
+def add_sector_to_file(sector: str) -> Tuple[bool, str]:
+    """Add a new sector to the file"""
+    try:
+        sectors = load_sectors()
+        
+        # Check if sector already exists
+        if any(s.get('sector', '').lower() == sector.lower() for s in sectors):
+            return False, f"Sector '{sector}' already exists"
+        
+        new_sector = {
+            'sector': sector
+        }
+        
+        sectors.append(new_sector)
+        
+        if save_sectors(sectors):
+            return True, f"Sector '{sector}' added successfully"
+        else:
+            return False, "Failed to save sectors"
+            
+    except Exception as e:
+        return False, f"Error adding sector: {str(e)}"
 
-def update_sector_in_file(old_sector, new_sector):
-    """
-    Update an existing sector in the sectors file
-    """
-    sectors = load_sectors()
-    
-    # Find and update the sector
-    found = False
-    for s in sectors:
-        if s.get('sector', '').lower() == old_sector.lower():
-            # Check if new sector name already exists
-            if any(existing.get('sector', '').lower() == new_sector.lower() and existing != s for existing in sectors):
-                return False, "New sector name already exists"
-            s['sector'] = new_sector
-            found = True
-            break
-    
-    if not found:
-        return False, "Sector not found"
-    
-    save_sectors(sectors)
-    
-    return True, "Sector updated successfully"
+def update_sector_in_file(old_sector: str, new_sector: str) -> Tuple[bool, str]:
+    """Update a sector in the file"""
+    try:
+        sectors = load_sectors()
+        
+        # Find the sector to update
+        sector_index = None
+        for i, s in enumerate(sectors):
+            if s.get('sector', '').lower() == old_sector.lower():
+                sector_index = i
+                break
+        
+        if sector_index is None:
+            return False, f"Sector '{old_sector}' not found"
+        
+        # Check if new sector name already exists
+        if any(s.get('sector', '').lower() == new_sector.lower() for s in sectors):
+            return False, f"Sector '{new_sector}' already exists"
+        
+        # Update the sector
+        sectors[sector_index] = {
+            'sector': new_sector
+        }
+        
+        if save_sectors(sectors):
+            return True, f"Sector '{old_sector}' updated successfully to '{new_sector}'"
+        else:
+            return False, "Failed to save sectors"
+            
+    except Exception as e:
+        return False, f"Error updating sector: {str(e)}"
 
-def delete_sector_from_file(sector_name):
-    """
-    Delete a sector from the sectors file
-    """
-    sectors = load_sectors()
-    
-    # Remove the sector
-    new_sectors = [s for s in sectors if s.get('sector', '').lower() != sector_name.lower()]
-    
-    if len(new_sectors) == len(sectors):
-        return False, "Sector not found"
-    
-    save_sectors(new_sectors)
-    
-    return True, "Sector deleted successfully"
+def delete_sector_from_file(sector: str) -> Tuple[bool, str]:
+    """Delete a sector from the file"""
+    try:
+        sectors = load_sectors()
+        
+        # Find and remove the sector
+        original_count = len(sectors)
+        sectors = [s for s in sectors if s.get('sector', '').lower() != sector.lower()]
+        
+        if len(sectors) == original_count:
+            return False, f"Sector '{sector}' not found"
+        
+        if save_sectors(sectors):
+            return True, f"Sector '{sector}' deleted successfully"
+        else:
+            return False, "Failed to save sectors"
+            
+    except Exception as e:
+        return False, f"Error deleting sector: {str(e)}"

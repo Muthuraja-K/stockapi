@@ -11,6 +11,14 @@ from functools import wraps
 from queue import Queue
 import asyncio
 
+# Import the proxy system
+try:
+    from yahoo_finance_proxy import initialize_yahoo_finance_proxy, get_proxy_status
+    PROXY_AVAILABLE = True
+except ImportError:
+    PROXY_AVAILABLE = False
+    logging.warning("Yahoo Finance proxy system not available")
+
 logger = logging.getLogger(__name__)
 
 class APIRateLimiter:
@@ -99,10 +107,9 @@ class APIRateLimiter:
             else:
                 adjusted_interval = self.min_interval
             
+            # Remove sleep to avoid delays - just log the rate limiting
             if time_since_last_call < adjusted_interval:
-                sleep_time = adjusted_interval - time_since_last_call
-                logger.info(f"Rate limiting: sleeping for {sleep_time:.2f}s")
-                time.sleep(sleep_time)
+                logger.info(f"Rate limiting: would sleep for {adjusted_interval - time_since_last_call:.2f}s (skipped)")
             
             self.last_call_time = time.time()
     
@@ -126,13 +133,23 @@ class APIRateLimiter:
     
     def get_status(self) -> Dict[str, Any]:
         """Get current status of the rate limiter"""
-        return {
+        status = {
             'consecutive_429_errors': self.consecutive_429_errors,
             'circuit_breaker_open': self.is_circuit_open(),
             'circuit_breaker_opened_at': self.circuit_breaker_opened_at,
             'calls_per_second': self.calls_per_second,
             'min_interval': self.min_interval
         }
+        
+        # Add proxy status if available
+        if PROXY_AVAILABLE:
+            try:
+                proxy_status = get_proxy_status()
+                status['proxy_status'] = proxy_status
+            except Exception as e:
+                status['proxy_status'] = {'error': str(e)}
+        
+        return status
     
     def rate_limited(self, func: Callable) -> Callable:
         """Decorator to apply rate limiting to a function"""
@@ -180,7 +197,7 @@ def get_rate_limiter() -> APIRateLimiter:
     return _rate_limiter
 
 def retry_on_429(max_retries: int = 3, base_delay: float = 2.0):
-    """Decorator to retry functions on 429 errors with exponential backoff"""
+    """Decorator to retry functions on various errors with exponential backoff"""
     def decorator(func: Callable) -> Callable:
         @wraps(func)
         def wrapper(*args, **kwargs):
@@ -191,20 +208,41 @@ def retry_on_429(max_retries: int = 3, base_delay: float = 2.0):
                     handle_successful_call()
                     return result
                 except Exception as e:
-                    if "429" in str(e) and attempt < max_retries:
-                        handle_429_error()
-                        delay = base_delay * (2 ** attempt)
-                        logger.warning(f"429 error on attempt {attempt + 1}, retrying in {delay:.1f}s...")
+                    error_msg = str(e)
+                    
+                    # Check if this is a retryable error
+                    is_retryable = any(keyword in error_msg for keyword in [
+                        "429", "Too Many Requests", "Connection Timeout", 
+                        "DNS Resolution", "Connection Failed", "timeout"
+                    ])
+                    
+                    if is_retryable and attempt < max_retries:
+                        # Determine delay based on error type
+                        if "Connection Timeout" in error_msg:
+                            # Longer delays for timeout errors
+                            delay = base_delay * (3 ** attempt)  # More aggressive backoff
+                            logger.warning(f"Connection timeout on attempt {attempt + 1}, retrying in {delay:.1f}s...")
+                        elif "429" in error_msg:
+                            # Standard backoff for rate limiting
+                            delay = base_delay * (2 ** attempt)
+                            logger.warning(f"429 error on attempt {attempt + 1}, retrying in {delay:.1f}s...")
+                            handle_429_error()
+                        else:
+                            # Standard backoff for other connection errors
+                            delay = base_delay * (2 ** attempt)
+                            logger.warning(f"Connection error on attempt {attempt + 1}, retrying in {delay:.1f}s...")
+                        
                         time.sleep(delay)
                         continue
                     else:
+                        # Either not retryable or max retries reached
                         raise
             return None
         return wrapper
     return decorator
 
 # Convenience functions for common operations
-@retry_on_429(max_retries=3, base_delay=3.0)
+@retry_on_429(max_retries=5, base_delay=5.0)
 def safe_yfinance_call(ticker_symbol: str, operation: str = "info"):
     """
     Safely make a yfinance call with rate limiting and retry logic
@@ -223,12 +261,52 @@ def safe_yfinance_call(ticker_symbol: str, operation: str = "info"):
         ticker = yf.Ticker(ticker_symbol)
         
         if operation == "info":
-            result = ticker.info
-            logger.info(f"Successfully got info for {ticker_symbol}")
-            return result
+            # Add timeout handling for info operations
+            try:
+                result = ticker.info
+                logger.info(f"Successfully got info for {ticker_symbol}")
+                return result
+            except Exception as e:
+                if "timeout" in str(e).lower() or "curl: (28)" in str(e):
+                    logger.warning(f"Timeout getting info for {ticker_symbol}, will retry with backoff")
+                    raise Exception(f"Connection Timeout Error for {ticker_symbol}")
+                else:
+                    raise
         elif operation == "history":
             result = ticker.history(period="1d", interval="1m", prepost=True)
             logger.info(f"Successfully got history for {ticker_symbol} with {len(result)} data points")
+            return result
+        elif operation == "history_1y":
+            # Get 1 year of daily data for calculating 1D, 5D, 1M, 6M, 1Y metrics
+            # OPTIMIZATION: Use 6mo instead of 1y to reduce data size and API load
+            # Add timeout handling for long-running operations
+            try:
+                result = ticker.history(period="6mo", interval="1d", prepost=False)
+                logger.info(f"Successfully got 6-month history for {ticker_symbol} with {len(result)} data points")
+                return result
+            except Exception as e:
+                if "timeout" in str(e).lower() or "curl: (28)" in str(e):
+                    logger.warning(f"Timeout getting 6-month history for {ticker_symbol}, trying shorter period")
+                    # Fallback to 1 month if 6 months times out
+                    result = ticker.history(period="1mo", interval="1d", prepost=False)
+                    logger.info(f"Successfully got 1-month history for {ticker_symbol} with {len(result)} data points")
+                    return result
+                else:
+                    raise
+        elif operation == "history_6m":
+            # Get 6 months of daily data
+            result = ticker.history(period="6mo", interval="1d", prepost=False)
+            logger.info(f"Successfully got 6-month history for {ticker_symbol} with {len(result)} data points")
+            return result
+        elif operation == "history_1m":
+            # Get 1 month of daily data
+            result = ticker.history(period="1mo", interval="1d", prepost=False)
+            logger.info(f"Successfully got 1-month history for {ticker_symbol} with {len(result)} data points")
+            return result
+        elif operation == "history_5d":
+            # Get 5 days of daily data
+            result = ticker.history(period="5d", interval="1d", prepost=False)
+            logger.info(f"Successfully got 5-day history for {ticker_symbol} with {len(result)} data points")
             return result
         elif operation == "earnings":
             result = ticker.earnings
@@ -237,6 +315,14 @@ def safe_yfinance_call(ticker_symbol: str, operation: str = "info"):
         elif operation == "financials":
             result = ticker.financials
             logger.info(f"Successfully got financials for {ticker_symbol}")
+            return result
+        elif operation == "income_stmt":
+            result = ticker.income_stmt
+            logger.info(f"Successfully got income statement for {ticker_symbol}")
+            return result
+        elif operation == "earnings_dates":
+            result = ticker.earnings_dates
+            logger.info(f"Successfully got earnings dates for {ticker_symbol}")
             return result
         else:
             result = ticker.info
@@ -247,55 +333,26 @@ def safe_yfinance_call(ticker_symbol: str, operation: str = "info"):
         error_msg = str(e)
         logger.error(f"Error in safe_yfinance_call for {ticker_symbol} operation {operation}: {error_msg}")
         
-        # Check if this is a 429 error
+        # Enhanced error handling for different types of errors
         if "429" in error_msg or "Too Many Requests" in error_msg:
             logger.warning(f"429 error detected for {ticker_symbol}, will trigger retry logic")
             # Re-raise to trigger retry decorator
             raise Exception(f"429 Client Error: Too Many Requests for {ticker_symbol}")
+        elif "curl: (28)" in error_msg or "Connection timed out" in error_msg or "timeout" in error_msg.lower():
+            logger.warning(f"Connection timeout detected for {ticker_symbol}, will trigger retry logic")
+            # Re-raise to trigger retry decorator with longer delays
+            raise Exception(f"Connection Timeout Error for {ticker_symbol}")
+        elif "curl: (6)" in error_msg or "Could not resolve host" in error_msg:
+            logger.warning(f"DNS resolution error for {ticker_symbol}, will trigger retry logic")
+            # Re-raise to trigger retry decorator
+            raise Exception(f"DNS Resolution Error for {ticker_symbol}")
+        elif "curl: (7)" in error_msg or "Failed to connect" in error_msg:
+            logger.warning(f"Connection failed for {ticker_symbol}, will trigger retry logic")
+            # Re-raise to trigger retry decorator
+            raise Exception(f"Connection Failed Error for {ticker_symbol}")
         else:
-            # For non-429 errors, just re-raise
+            # For other errors, log and re-raise
+            logger.error(f"Unhandled error type for {ticker_symbol}: {error_msg}")
             raise
 
-@retry_on_429(max_retries=3, base_delay=3.0)
-def safe_finviz_call(ticker_symbol: str):
-    """
-    Safely make a Finviz call with rate limiting and retry logic
-    
-    Args:
-        ticker_symbol: Stock ticker symbol
-    
-    Returns:
-        Rate-limited Finviz call result
-    """
-    try:
-        import requests
-        from bs4 import BeautifulSoup
-        
-        url = f"https://finviz.com/quote.ashx?t={ticker_symbol}"
-        headers = {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
-        }
-        
-        response = requests.get(url, headers=headers, timeout=10)
-        response.raise_for_status()
-        
-        soup = BeautifulSoup(response.content, 'html.parser')
-        
-        # Extract data (simplified version)
-        data = {}
-        
-        # Extract current price
-        price_element = soup.select_one('span.fvz-price, span[class*="price"], td[class*="price"]')
-        if price_element:
-            data['current_price'] = price_element.text.strip()
-        
-        # Extract today's change
-        change_element = soup.select_one('span.fvz-change, span[class*="change"], td[class*="change"]')
-        if change_element:
-            data['today_change'] = change_element.text.strip()
-        
-        return data
-        
-    except Exception as e:
-        logger.error(f"Error in safe_finviz_call for {ticker_symbol}: {e}")
-        raise
+# Finviz function removed - no longer needed

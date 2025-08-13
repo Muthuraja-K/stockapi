@@ -1,0 +1,3422 @@
+[
+  {
+    "ticker": "RGTI",
+    "sector": "Quantum",
+    "isleverage": false,
+    "previous_day": {
+      "low": "N/A",
+      "high": "N/A",
+      "percentage": "N/A"
+    },
+    "five_day": {
+      "low": "N/A",
+      "high": "N/A",
+      "percentage": "N/A"
+    },
+    "one_month": {
+      "low": "N/A",
+      "high": "N/A",
+      "percentage": "N/A"
+    },
+    "six_month": {
+      "low": "N/A",
+      "high": "N/A",
+      "percentage": "N/A"
+    },
+    "one_year": {
+      "low": "N/A",
+      "high": "N/A",
+      "percentage": "N/A"
+    }
+  },
+  {
+    "ticker": "QBTS",
+    "sector": "Quantum",
+    "isleverage": false,
+    "previous_day": {
+      "low": "$16.35",
+      "high": "$19.17",
+      "percentage": "6.56%"
+    },
+    "five_day": {
+      "low": "$16.81",
+      "high": "$18.59",
+      "percentage": "6.56%"
+    },
+    "one_month": {
+      "low": "$15.51",
+      "high": "$20.56",
+      "percentage": "14.61%"
+    },
+    "six_month": {
+      "low": "$4.45",
+      "high": "$20.56",
+      "percentage": "206.46%"
+    },
+    "one_year": {
+      "low": "$0.80",
+      "high": "$20.56",
+      "percentage": "1852.53%"
+    }
+  },
+  {
+    "ticker": "QUBT",
+    "sector": "Quantum",
+    "isleverage": false,
+    "previous_day": {
+      "low": "$14.71",
+      "high": "$17.24",
+      "percentage": "0.85%"
+    },
+    "five_day": {
+      "low": "$15.85",
+      "high": "$16.79",
+      "percentage": "0.85%"
+    },
+    "one_month": {
+      "low": "$13.97",
+      "high": "$20.10",
+      "percentage": "-6.06%"
+    },
+    "six_month": {
+      "low": "$4.37",
+      "high": "$21.88",
+      "percentage": "124.93%"
+    },
+    "one_year": {
+      "low": "$0.57",
+      "high": "$27.15",
+      "percentage": "2599.19%"
+    }
+  },
+  {
+    "ticker": "IONX",
+    "sector": "Quantum",
+    "isleverage": true,
+    "previous_day": {
+      "low": "$52.36",
+      "high": "$75.62",
+      "percentage": "-8.51%"
+    },
+    "five_day": {
+      "low": "$60.24",
+      "high": "$75.62",
+      "percentage": "-8.51%"
+    },
+    "one_month": {
+      "low": "$48.93",
+      "high": "$82.11",
+      "percentage": "2.60%"
+    },
+    "six_month": {
+      "low": "$17.41",
+      "high": "$96.53",
+      "percentage": "141.56%"
+    },
+    "one_year": {
+      "low": "$17.41",
+      "high": "$96.53",
+      "percentage": "141.56%"
+    }
+  },
+  {
+    "ticker": "RGTX",
+    "sector": "Quantum",
+    "isleverage": true,
+    "previous_day": {
+      "low": "$40.78",
+      "high": "$55.55",
+      "percentage": "2.74%"
+    },
+    "five_day": {
+      "low": "$45.20",
+      "high": "$52.12",
+      "percentage": "2.74%"
+    },
+    "one_month": {
+      "low": "$33.85",
+      "high": "$61.81",
+      "percentage": "45.73%"
+    },
+    "six_month": {
+      "low": "$14.93",
+      "high": "$61.81",
+      "percentage": "164.62%"
+    },
+    "one_year": {
+      "low": "$14.93",
+      "high": "$61.81",
+      "percentage": "164.62%"
+    }
+  },
+  {
+    "ticker": "QBTX",
+    "sector": "Quantum",
+    "isleverage": true,
+    "previous_day": {
+      "low": "$79.41",
+      "high": "$106.41",
+      "percentage": "12.25%"
+    },
+    "five_day": {
+      "low": "$82.14",
+      "high": "$99.56",
+      "percentage": "12.25%"
+    },
+    "one_month": {
+      "low": "$75.01",
+      "high": "$128.20",
+      "percentage": "20.37%"
+    },
+    "six_month": {
+      "low": "$19.67",
+      "high": "$135.94",
+      "percentage": "275.22%"
+    },
+    "one_year": {
+      "low": "$19.67",
+      "high": "$135.94",
+      "percentage": "275.22%"
+    }
+  },
+  {
+    "ticker": "QUBX",
+    "sector": "Quantum",
+    "isleverage": true,
+    "previous_day": {
+      "low": "$15.94",
+      "high": "$21.53",
+      "percentage": "1.42%"
+    },
+    "five_day": {
+      "low": "$18.20",
+      "high": "$20.36",
+      "percentage": "1.42%"
+    },
+    "one_month": {
+      "low": "$14.39",
+      "high": "$30.60",
+      "percentage": "-16.80%"
+    },
+    "six_month": {
+      "low": "$14.39",
+      "high": "$37.24",
+      "percentage": "-20.34%"
+    },
+    "one_year": {
+      "low": "$14.39",
+      "high": "$37.24",
+      "percentage": "-20.34%"
+    }
+  },
+  {
+    "ticker": "UBER",
+    "sector": "Drone Delivery/FlyingTaxi",
+    "isleverage": false,
+    "previous_day": {
+      "low": "$86.30",
+      "high": "$94.31",
+      "percentage": "1.27%"
+    },
+    "five_day": {
+      "low": "$88.92",
+      "high": "$92.56",
+      "percentage": "1.27%"
+    },
+    "one_month": {
+      "low": "$85.42",
+      "high": "$95.16",
+      "percentage": "-0.52%"
+    },
+    "six_month": {
+      "low": "$60.63",
+      "high": "$97.71",
+      "percentage": "12.57%"
+    },
+    "one_year": {
+      "low": "$59.33",
+      "high": "$97.71",
+      "percentage": "29.09%"
+    }
+  },
+  {
+    "ticker": "JOBY",
+    "sector": "Drone Delivery/FlyingTaxi",
+    "isleverage": false,
+    "previous_day": {
+      "low": "$16.30",
+      "high": "$20.95",
+      "percentage": "5.51%"
+    },
+    "five_day": {
+      "low": "$16.52",
+      "high": "$18.25",
+      "percentage": "5.51%"
+    },
+    "one_month": {
+      "low": "$12.91",
+      "high": "$20.95",
+      "percentage": "29.10%"
+    },
+    "six_month": {
+      "low": "$4.96",
+      "high": "$20.95",
+      "percentage": "126.83%"
+    },
+    "one_year": {
+      "low": "$4.70",
+      "high": "$20.95",
+      "percentage": "255.23%"
+    }
+  },
+  {
+    "ticker": "SRFM",
+    "sector": "Drone Delivery/FlyingTaxi",
+    "isleverage": false,
+    "previous_day": {
+      "low": "$3.93",
+      "high": "$4.54",
+      "percentage": "1.70%"
+    },
+    "five_day": {
+      "low": "$3.94",
+      "high": "$4.50",
+      "percentage": "1.70%"
+    },
+    "one_month": {
+      "low": "$3.87",
+      "high": "$7.09",
+      "percentage": "-29.58%"
+    },
+    "six_month": {
+      "low": "$1.77",
+      "high": "$9.91",
+      "percentage": "-20.04%"
+    },
+    "one_year": {
+      "low": "$0.90",
+      "high": "$9.91",
+      "percentage": "71.51%"
+    }
+  },
+  {
+    "ticker": "ARCX",
+    "sector": "Drone Delivery/FlyingTaxi",
+    "isleverage": true,
+    "previous_day": {
+      "low": "$14.06",
+      "high": "$18.83",
+      "percentage": "14.07%"
+    },
+    "five_day": {
+      "low": "$14.06",
+      "high": "$17.72",
+      "percentage": "14.07%"
+    },
+    "one_month": {
+      "low": "$14.06",
+      "high": "$33.07",
+      "percentage": "-22.96%"
+    },
+    "six_month": {
+      "low": "$14.06",
+      "high": "$33.07",
+      "percentage": "-31.56%"
+    },
+    "one_year": {
+      "low": "$14.06",
+      "high": "$33.07",
+      "percentage": "-31.56%"
+    }
+  },
+  {
+    "ticker": "UBRL",
+    "sector": "Drone Delivery/FlyingTaxi",
+    "isleverage": true,
+    "previous_day": {
+      "low": "$28.19",
+      "high": "$33.51",
+      "percentage": "2.75%"
+    },
+    "five_day": {
+      "low": "$29.82",
+      "high": "$32.20",
+      "percentage": "2.75%"
+    },
+    "one_month": {
+      "low": "$27.58",
+      "high": "$34.54",
+      "percentage": "-1.80%"
+    },
+    "six_month": {
+      "low": "$15.00",
+      "high": "$36.47",
+      "percentage": "12.81%"
+    },
+    "one_year": {
+      "low": "$15.00",
+      "high": "$36.47",
+      "percentage": "28.00%"
+    }
+  },
+  {
+    "ticker": "SMCI",
+    "sector": "SemiConductor",
+    "isleverage": false,
+    "previous_day": {
+      "low": "$44.53",
+      "high": "$59.40",
+      "percentage": "2.72%"
+    },
+    "five_day": {
+      "low": "$44.80",
+      "high": "$46.60",
+      "percentage": "2.72%"
+    },
+    "one_month": {
+      "low": "$44.53",
+      "high": "$62.36",
+      "percentage": "-12.68%"
+    },
+    "six_month": {
+      "low": "$27.60",
+      "high": "$66.44",
+      "percentage": "-16.79%"
+    },
+    "one_year": {
+      "low": "$17.25",
+      "high": "$66.44",
+      "percentage": "-18.17%"
+    }
+  },
+  {
+    "ticker": "AMD",
+    "sector": "SemiConductor",
+    "isleverage": false,
+    "previous_day": {
+      "low": "$157.80",
+      "high": "$178.82",
+      "percentage": "1.55%"
+    },
+    "five_day": {
+      "low": "$168.50",
+      "high": "$178.82",
+      "percentage": "1.55%"
+    },
+    "one_month": {
+      "low": "$149.34",
+      "high": "$182.50",
+      "percentage": "12.43%"
+    },
+    "six_month": {
+      "low": "$76.48",
+      "high": "$182.50",
+      "percentage": "53.09%"
+    },
+    "one_year": {
+      "low": "$76.48",
+      "high": "$182.50",
+      "percentage": "23.96%"
+    }
+  },
+  {
+    "ticker": "MRVL",
+    "sector": "SemiConductor",
+    "isleverage": false,
+    "previous_day": {
+      "low": "$73.98",
+      "high": "$80.01",
+      "percentage": "0.69%"
+    },
+    "five_day": {
+      "low": "$74.84",
+      "high": "$80.01",
+      "percentage": "0.69%"
+    },
+    "one_month": {
+      "low": "$68.00",
+      "high": "$85.27",
+      "percentage": "7.46%"
+    },
+    "six_month": {
+      "low": "$47.00",
+      "high": "$112.28",
+      "percentage": "-27.34%"
+    },
+    "one_year": {
+      "low": "$47.00",
+      "high": "$127.23",
+      "percentage": "21.88%"
+    }
+  },
+  {
+    "ticker": "ARM",
+    "sector": "SemiConductor",
+    "isleverage": false,
+    "previous_day": {
+      "low": "$134.61",
+      "high": "$146.43",
+      "percentage": "0.95%"
+    },
+    "five_day": {
+      "low": "$139.25",
+      "high": "$146.43",
+      "percentage": "0.95%"
+    },
+    "one_month": {
+      "low": "$134.61",
+      "high": "$166.88",
+      "percentage": "-3.21%"
+    },
+    "six_month": {
+      "low": "$80.00",
+      "high": "$168.31",
+      "percentage": "-11.18%"
+    },
+    "one_year": {
+      "low": "$80.00",
+      "high": "$182.88",
+      "percentage": "15.03%"
+    }
+  },
+  {
+    "ticker": "SNPS",
+    "sector": "SemiConductor",
+    "isleverage": false,
+    "previous_day": {
+      "low": "$608.19",
+      "high": "$636.61",
+      "percentage": "1.57%"
+    },
+    "five_day": {
+      "low": "$609.16",
+      "high": "$627.12",
+      "percentage": "1.57%"
+    },
+    "one_month": {
+      "low": "$549.00",
+      "high": "$651.73",
+      "percentage": "9.96%"
+    },
+    "six_month": {
+      "low": "$365.74",
+      "high": "$651.73",
+      "percentage": "19.20%"
+    },
+    "one_year": {
+      "low": "$365.74",
+      "high": "$651.73",
+      "percentage": "18.38%"
+    }
+  },
+  {
+    "ticker": "NXPI",
+    "sector": "SemiConductor",
+    "isleverage": false,
+    "previous_day": {
+      "low": "$203.24",
+      "high": "$220.78",
+      "percentage": "7.26%"
+    },
+    "five_day": {
+      "low": "$204.73",
+      "high": "$220.78",
+      "percentage": "7.26%"
+    },
+    "one_month": {
+      "low": "$203.24",
+      "high": "$233.11",
+      "percentage": "-0.46%"
+    },
+    "six_month": {
+      "low": "$147.40",
+      "high": "$253.02",
+      "percentage": "-2.93%"
+    },
+    "one_year": {
+      "low": "$147.40",
+      "high": "$254.98",
+      "percentage": "-9.62%"
+    }
+  },
+  {
+    "ticker": "CDNS",
+    "sector": "SemiConductor",
+    "isleverage": false,
+    "previous_day": {
+      "low": "$345.48",
+      "high": "$369.14",
+      "percentage": "1.29%"
+    },
+    "five_day": {
+      "low": "$345.48",
+      "high": "$354.16",
+      "percentage": "1.29%"
+    },
+    "one_month": {
+      "low": "$311.08",
+      "high": "$376.45",
+      "percentage": "11.18%"
+    },
+    "six_month": {
+      "low": "$221.56",
+      "high": "$376.45",
+      "percentage": "17.70%"
+    },
+    "one_year": {
+      "low": "$221.56",
+      "high": "$376.45",
+      "percentage": "30.29%"
+    }
+  },
+  {
+    "ticker": "SMTC",
+    "sector": "SemiConductor",
+    "isleverage": false,
+    "previous_day": {
+      "low": "$47.86",
+      "high": "$53.35",
+      "percentage": "8.55%"
+    },
+    "five_day": {
+      "low": "$47.86",
+      "high": "$53.35",
+      "percentage": "8.55%"
+    },
+    "one_month": {
+      "low": "$46.57",
+      "high": "$55.80",
+      "percentage": "9.61%"
+    },
+    "six_month": {
+      "low": "$24.05",
+      "high": "$55.80",
+      "percentage": "42.27%"
+    },
+    "one_year": {
+      "low": "$24.05",
+      "high": "$79.52",
+      "percentage": "58.10%"
+    }
+  },
+  {
+    "ticker": "NVTS",
+    "sector": "SemiConductor",
+    "isleverage": false,
+    "previous_day": {
+      "low": "$6.24",
+      "high": "$8.28",
+      "percentage": "5.45%"
+    },
+    "five_day": {
+      "low": "$6.51",
+      "high": "$7.05",
+      "percentage": "5.45%"
+    },
+    "one_month": {
+      "low": "$5.92",
+      "high": "$9.48",
+      "percentage": "11.72%"
+    },
+    "six_month": {
+      "low": "$1.52",
+      "high": "$9.48",
+      "percentage": "109.01%"
+    },
+    "one_year": {
+      "low": "$1.52",
+      "high": "$9.48",
+      "percentage": "125.97%"
+    }
+  },
+  {
+    "ticker": "SMCX",
+    "sector": "SemiConductor",
+    "isleverage": true,
+    "previous_day": {
+      "low": "$35.75",
+      "high": "$68.00",
+      "percentage": "5.24%"
+    },
+    "five_day": {
+      "low": "$36.37",
+      "high": "$39.27",
+      "percentage": "5.24%"
+    },
+    "one_month": {
+      "low": "$35.75",
+      "high": "$75.61",
+      "percentage": "-31.24%"
+    },
+    "six_month": {
+      "low": "$19.12",
+      "high": "$149.16",
+      "percentage": "-64.10%"
+    },
+    "one_year": {
+      "low": "$16.80",
+      "high": "$412.20",
+      "percentage": "-82.61%"
+    }
+  },
+  {
+    "ticker": "AMDL",
+    "sector": "SemiConductor",
+    "isleverage": true,
+    "previous_day": {
+      "low": "$10.14",
+      "high": "$13.06",
+      "percentage": "2.97%"
+    },
+    "five_day": {
+      "low": "$11.58",
+      "high": "$13.03",
+      "percentage": "2.97%"
+    },
+    "one_month": {
+      "low": "$9.26",
+      "high": "$13.76",
+      "percentage": "23.32%"
+    },
+    "six_month": {
+      "low": "$2.77",
+      "high": "$13.76",
+      "percentage": "89.09%"
+    },
+    "one_year": {
+      "low": "$2.77",
+      "high": "$17.00",
+      "percentage": "6.58%"
+    }
+  },
+  {
+    "ticker": "MVLL",
+    "sector": "SemiConductor",
+    "isleverage": true,
+    "previous_day": {
+      "low": "$20.30",
+      "high": "$23.65",
+      "percentage": "1.50%"
+    },
+    "five_day": {
+      "low": "$20.75",
+      "high": "$23.65",
+      "percentage": "1.50%"
+    },
+    "one_month": {
+      "low": "$17.51",
+      "high": "$27.02",
+      "percentage": "12.22%"
+    },
+    "six_month": {
+      "low": "$9.66",
+      "high": "$27.02",
+      "percentage": "-6.51%"
+    },
+    "one_year": {
+      "low": "$9.66",
+      "high": "$27.02",
+      "percentage": "-6.51%"
+    }
+  },
+  {
+    "ticker": "ARMU",
+    "sector": "SemiConductor",
+    "isleverage": true,
+    "previous_day": {
+      "low": "$24.58",
+      "high": "$28.50",
+      "percentage": "1.88%"
+    },
+    "five_day": {
+      "low": "$26.60",
+      "high": "$28.50",
+      "percentage": "1.88%"
+    },
+    "one_month": {
+      "low": "$24.58",
+      "high": "$38.42",
+      "percentage": "-10.56%"
+    },
+    "six_month": {
+      "low": "$10.37",
+      "high": "$39.51",
+      "percentage": "6.50%"
+    },
+    "one_year": {
+      "low": "$10.37",
+      "high": "$39.51",
+      "percentage": "6.50%"
+    }
+  },
+  {
+    "ticker": "NAIL",
+    "sector": "Real Estate",
+    "isleverage": false,
+    "previous_day": {
+      "low": "$62.59",
+      "high": "$75.11",
+      "percentage": "8.94%"
+    },
+    "five_day": {
+      "low": "$65.50",
+      "high": "$75.11",
+      "percentage": "8.94%"
+    },
+    "one_month": {
+      "low": "$52.17",
+      "high": "$75.11",
+      "percentage": "38.88%"
+    },
+    "six_month": {
+      "low": "$39.71",
+      "high": "$79.64",
+      "percentage": "-3.71%"
+    },
+    "one_year": {
+      "low": "$39.71",
+      "high": "$176.08",
+      "percentage": "-38.69%"
+    }
+  },
+  {
+    "ticker": "OPEN",
+    "sector": "Real Estate",
+    "isleverage": false,
+    "previous_day": {
+      "low": "$1.70",
+      "high": "$2.67",
+      "percentage": "6.93%"
+    },
+    "five_day": {
+      "low": "$1.92",
+      "high": "$2.67",
+      "percentage": "6.93%"
+    },
+    "one_month": {
+      "low": "$0.95",
+      "high": "$4.97",
+      "percentage": "137.50%"
+    },
+    "six_month": {
+      "low": "$0.51",
+      "high": "$4.97",
+      "percentage": "56.33%"
+    },
+    "one_year": {
+      "low": "$0.51",
+      "high": "$4.97",
+      "percentage": "40.34%"
+    }
+  },
+  {
+    "ticker": "FNMA",
+    "sector": "Real Estate",
+    "isleverage": false,
+    "previous_day": {
+      "low": "$7.97",
+      "high": "$11.66",
+      "percentage": "-3.74%"
+    },
+    "five_day": {
+      "low": "$8.88",
+      "high": "$11.66",
+      "percentage": "-3.74%"
+    },
+    "one_month": {
+      "low": "$7.30",
+      "high": "$11.66",
+      "percentage": "24.13%"
+    },
+    "six_month": {
+      "low": "$4.83",
+      "high": "$11.91",
+      "percentage": "52.34%"
+    },
+    "one_year": {
+      "low": "$1.08",
+      "high": "$11.91",
+      "percentage": "905.45%"
+    }
+  },
+  {
+    "ticker": "FMCC",
+    "sector": "Real Estate",
+    "isleverage": false,
+    "previous_day": {
+      "low": "$6.49",
+      "high": "$9.29",
+      "percentage": "-1.66%"
+    },
+    "five_day": {
+      "low": "$8.56",
+      "high": "$9.29",
+      "percentage": "-1.66%"
+    },
+    "one_month": {
+      "low": "$5.65",
+      "high": "$9.29",
+      "percentage": "19.19%"
+    },
+    "six_month": {
+      "low": "$4.05",
+      "high": "$9.29",
+      "percentage": "36.41%"
+    },
+    "one_year": {
+      "low": "$1.04",
+      "high": "$9.29",
+      "percentage": "745.71%"
+    }
+  },
+  {
+    "ticker": "RKT",
+    "sector": "Real Estate",
+    "isleverage": false,
+    "previous_day": {
+      "low": "$16.48",
+      "high": "$18.48",
+      "percentage": "6.78%"
+    },
+    "five_day": {
+      "low": "$16.93",
+      "high": "$18.48",
+      "percentage": "6.78%"
+    },
+    "one_month": {
+      "low": "$13.18",
+      "high": "$18.48",
+      "percentage": "37.27%"
+    },
+    "six_month": {
+      "low": "$10.94",
+      "high": "$18.48",
+      "percentage": "46.71%"
+    },
+    "one_year": {
+      "low": "$9.52",
+      "high": "$20.23",
+      "percentage": "3.63%"
+    }
+  },
+  {
+    "ticker": "COIN",
+    "sector": "Crypto",
+    "isleverage": false,
+    "previous_day": {
+      "low": "N/A",
+      "high": "N/A",
+      "percentage": "N/A"
+    },
+    "five_day": {
+      "low": "N/A",
+      "high": "N/A",
+      "percentage": "N/A"
+    },
+    "one_month": {
+      "low": "N/A",
+      "high": "N/A",
+      "percentage": "N/A"
+    },
+    "six_month": {
+      "low": "N/A",
+      "high": "N/A",
+      "percentage": "N/A"
+    },
+    "one_year": {
+      "low": "N/A",
+      "high": "N/A",
+      "percentage": "N/A"
+    }
+  },
+  {
+    "ticker": "MARA",
+    "sector": "Crypto",
+    "isleverage": false,
+    "previous_day": {
+      "low": "N/A",
+      "high": "N/A",
+      "percentage": "N/A"
+    },
+    "five_day": {
+      "low": "N/A",
+      "high": "N/A",
+      "percentage": "N/A"
+    },
+    "one_month": {
+      "low": "N/A",
+      "high": "N/A",
+      "percentage": "N/A"
+    },
+    "six_month": {
+      "low": "N/A",
+      "high": "N/A",
+      "percentage": "N/A"
+    },
+    "one_year": {
+      "low": "N/A",
+      "high": "N/A",
+      "percentage": "N/A"
+    }
+  },
+  {
+    "ticker": "RIOT",
+    "sector": "Crypto",
+    "isleverage": false,
+    "previous_day": {
+      "low": "$10.59",
+      "high": "$12.32",
+      "percentage": "2.97%"
+    },
+    "five_day": {
+      "low": "$11.04",
+      "high": "$11.66",
+      "percentage": "2.97%"
+    },
+    "one_month": {
+      "low": "$10.59",
+      "high": "$15.34",
+      "percentage": "-5.45%"
+    },
+    "six_month": {
+      "low": "$6.19",
+      "high": "$15.34",
+      "percentage": "-1.04%"
+    },
+    "one_year": {
+      "low": "$6.19",
+      "high": "$15.87",
+      "percentage": "45.92%"
+    }
+  },
+  {
+    "ticker": "SOL-USD",
+    "sector": "Crypto",
+    "isleverage": false,
+    "previous_day": {
+      "low": "$161.40",
+      "high": "$199.46",
+      "percentage": "7.88%"
+    },
+    "five_day": {
+      "low": "$176.76",
+      "high": "$199.46",
+      "percentage": "9.51%"
+    },
+    "one_month": {
+      "low": "$156.08",
+      "high": "$205.87",
+      "percentage": "20.35%"
+    },
+    "six_month": {
+      "low": "$96.59",
+      "high": "$205.87",
+      "percentage": "1.46%"
+    },
+    "one_year": {
+      "low": "$96.59",
+      "high": "$294.33",
+      "percentage": "34.49%"
+    }
+  },
+  {
+    "ticker": "BTC-USD",
+    "sector": "Crypto",
+    "isleverage": false,
+    "previous_day": {
+      "low": "N/A",
+      "high": "N/A",
+      "percentage": "N/A"
+    },
+    "five_day": {
+      "low": "N/A",
+      "high": "N/A",
+      "percentage": "N/A"
+    },
+    "one_month": {
+      "low": "N/A",
+      "high": "N/A",
+      "percentage": "N/A"
+    },
+    "six_month": {
+      "low": "N/A",
+      "high": "N/A",
+      "percentage": "N/A"
+    },
+    "one_year": {
+      "low": "N/A",
+      "high": "N/A",
+      "percentage": "N/A"
+    }
+  },
+  {
+    "ticker": "ETH-USD",
+    "sector": "Crypto",
+    "isleverage": false,
+    "previous_day": {
+      "low": "N/A",
+      "high": "N/A",
+      "percentage": "N/A"
+    },
+    "five_day": {
+      "low": "N/A",
+      "high": "N/A",
+      "percentage": "N/A"
+    },
+    "one_month": {
+      "low": "N/A",
+      "high": "N/A",
+      "percentage": "N/A"
+    },
+    "six_month": {
+      "low": "N/A",
+      "high": "N/A",
+      "percentage": "N/A"
+    },
+    "one_year": {
+      "low": "N/A",
+      "high": "N/A",
+      "percentage": "N/A"
+    }
+  },
+  {
+    "ticker": "CRCL",
+    "sector": "Crypto",
+    "isleverage": false,
+    "previous_day": {
+      "low": "$149.00",
+      "high": "$189.92",
+      "percentage": "1.27%"
+    },
+    "five_day": {
+      "low": "$155.53",
+      "high": "$189.92",
+      "percentage": "1.27%"
+    },
+    "one_month": {
+      "low": "$149.00",
+      "high": "$262.97",
+      "percentage": "-16.44%"
+    },
+    "six_month": {
+      "low": "$64.00",
+      "high": "$298.99",
+      "percentage": "96.10%"
+    },
+    "one_year": {
+      "low": "$64.00",
+      "high": "$298.99",
+      "percentage": "96.10%"
+    }
+  },
+  {
+    "ticker": "CONL",
+    "sector": "Crypto",
+    "isleverage": true,
+    "previous_day": {
+      "low": "$30.00",
+      "high": "$38.44",
+      "percentage": "1.92%"
+    },
+    "five_day": {
+      "low": "$34.21",
+      "high": "$38.44",
+      "percentage": "1.92%"
+    },
+    "one_month": {
+      "low": "$30.00",
+      "high": "$72.35",
+      "percentage": "-35.06%"
+    },
+    "six_month": {
+      "low": "$9.21",
+      "high": "$72.35",
+      "percentage": "-2.62%"
+    },
+    "one_year": {
+      "low": "$9.21",
+      "high": "$73.88",
+      "percentage": "9.67%"
+    }
+  },
+  {
+    "ticker": "COIG",
+    "sector": "Crypto",
+    "isleverage": true,
+    "previous_day": {
+      "low": "$29.80",
+      "high": "$38.15",
+      "percentage": "1.79%"
+    },
+    "five_day": {
+      "low": "$34.13",
+      "high": "$38.15",
+      "percentage": "1.79%"
+    },
+    "one_month": {
+      "low": "$29.80",
+      "high": "$71.99",
+      "percentage": "-35.24%"
+    },
+    "six_month": {
+      "low": "$9.35",
+      "high": "$71.99",
+      "percentage": "111.32%"
+    },
+    "one_year": {
+      "low": "$9.35",
+      "high": "$71.99",
+      "percentage": "111.32%"
+    }
+  },
+  {
+    "ticker": "MRAL",
+    "sector": "Crypto",
+    "isleverage": true,
+    "previous_day": {
+      "low": "$17.46",
+      "high": "$20.37",
+      "percentage": "0.65%"
+    },
+    "five_day": {
+      "low": "$18.14",
+      "high": "$19.57",
+      "percentage": "0.65%"
+    },
+    "one_month": {
+      "low": "$16.95",
+      "high": "$34.20",
+      "percentage": "-32.84%"
+    },
+    "six_month": {
+      "low": "$9.21",
+      "high": "$35.57",
+      "percentage": "-34.62%"
+    },
+    "one_year": {
+      "low": "$9.21",
+      "high": "$35.57",
+      "percentage": "-34.62%"
+    }
+  },
+  {
+    "ticker": "RIOX",
+    "sector": "Crypto",
+    "isleverage": true,
+    "previous_day": {
+      "low": "$11.80",
+      "high": "$15.82",
+      "percentage": "5.02%"
+    },
+    "five_day": {
+      "low": "$12.75",
+      "high": "$14.17",
+      "percentage": "5.02%"
+    },
+    "one_month": {
+      "low": "$11.80",
+      "high": "$26.28",
+      "percentage": "-18.56%"
+    },
+    "six_month": {
+      "low": "$5.15",
+      "high": "$26.28",
+      "percentage": "-36.92%"
+    },
+    "one_year": {
+      "low": "$5.15",
+      "high": "$36.00",
+      "percentage": "-50.03%"
+    }
+  },
+  {
+    "ticker": "MSTX",
+    "sector": "Crypto",
+    "isleverage": true,
+    "previous_day": {
+      "low": "$30.75",
+      "high": "$38.65",
+      "percentage": "-3.18%"
+    },
+    "five_day": {
+      "low": "$34.30",
+      "high": "$38.65",
+      "percentage": "-3.18%"
+    },
+    "one_month": {
+      "low": "$30.75",
+      "high": "$49.76",
+      "percentage": "-24.89%"
+    },
+    "six_month": {
+      "low": "$16.45",
+      "high": "$49.76",
+      "percentage": "-17.10%"
+    },
+    "one_year": {
+      "low": "$11.05",
+      "high": "$160.85",
+      "percentage": "136.16%"
+    }
+  },
+  {
+    "ticker": "SOLT",
+    "sector": "Crypto",
+    "isleverage": true,
+    "previous_day": {
+      "low": "$15.94",
+      "high": "$21.99",
+      "percentage": "16.37%"
+    },
+    "five_day": {
+      "low": "$18.57",
+      "high": "$21.99",
+      "percentage": "16.37%"
+    },
+    "one_month": {
+      "low": "$15.92",
+      "high": "$26.84",
+      "percentage": "32.04%"
+    },
+    "six_month": {
+      "low": "$7.73",
+      "high": "$26.84",
+      "percentage": "58.06%"
+    },
+    "one_year": {
+      "low": "$7.73",
+      "high": "$26.84",
+      "percentage": "58.06%"
+    }
+  },
+  {
+    "ticker": "BITU",
+    "sector": "Crypto",
+    "isleverage": true,
+    "previous_day": {
+      "low": "$54.24",
+      "high": "$62.27",
+      "percentage": "1.08%"
+    },
+    "five_day": {
+      "low": "$60.00",
+      "high": "$62.27",
+      "percentage": "1.08%"
+    },
+    "one_month": {
+      "low": "$54.24",
+      "high": "$62.47",
+      "percentage": "3.91%"
+    },
+    "six_month": {
+      "low": "$26.68",
+      "high": "$64.70",
+      "percentage": "37.10%"
+    },
+    "one_year": {
+      "low": "$17.23",
+      "high": "$64.70",
+      "percentage": "162.93%"
+    }
+  },
+  {
+    "ticker": "ETHU",
+    "sector": "Crypto",
+    "isleverage": true,
+    "previous_day": {
+      "low": "$105.46",
+      "high": "$169.48",
+      "percentage": "12.28%"
+    },
+    "five_day": {
+      "low": "$145.16",
+      "high": "$169.48",
+      "percentage": "12.28%"
+    },
+    "one_month": {
+      "low": "$76.96",
+      "high": "$169.48",
+      "percentage": "109.27%"
+    },
+    "six_month": {
+      "low": "$22.05",
+      "high": "$169.48",
+      "percentage": "103.10%"
+    },
+    "one_year": {
+      "low": "$22.05",
+      "high": "$250.32",
+      "percentage": "27.88%"
+    }
+  },
+  {
+    "ticker": "SNOW",
+    "sector": "Security/Software Product",
+    "isleverage": false,
+    "previous_day": {
+      "low": "$188.00",
+      "high": "$215.39",
+      "percentage": "0.66%"
+    },
+    "five_day": {
+      "low": "$188.00",
+      "high": "$196.73",
+      "percentage": "0.66%"
+    },
+    "one_month": {
+      "low": "$188.00",
+      "high": "$229.27",
+      "percentage": "-9.27%"
+    },
+    "six_month": {
+      "low": "$120.10",
+      "high": "$229.27",
+      "percentage": "0.15%"
+    },
+    "one_year": {
+      "low": "$107.13",
+      "high": "$229.27",
+      "percentage": "51.94%"
+    }
+  },
+  {
+    "ticker": "PANW",
+    "sector": "Security/Software Product",
+    "isleverage": false,
+    "previous_day": {
+      "low": "$165.21",
+      "high": "$175.58",
+      "percentage": "4.30%"
+    },
+    "five_day": {
+      "low": "$166.21",
+      "high": "$175.58",
+      "percentage": "4.30%"
+    },
+    "one_month": {
+      "low": "$165.21",
+      "high": "$210.39",
+      "percentage": "-8.76%"
+    },
+    "six_month": {
+      "low": "$144.15",
+      "high": "$210.39",
+      "percentage": "-15.79%"
+    },
+    "one_year": {
+      "low": "$144.15",
+      "high": "$210.39",
+      "percentage": "5.27%"
+    }
+  },
+  {
+    "ticker": "CRWD",
+    "sector": "Security/Software Product",
+    "isleverage": false,
+    "previous_day": {
+      "low": "$419.74",
+      "high": "$457.80",
+      "percentage": "2.20%"
+    },
+    "five_day": {
+      "low": "$419.74",
+      "high": "$438.30",
+      "percentage": "2.20%"
+    },
+    "one_month": {
+      "low": "$419.74",
+      "high": "$490.04",
+      "percentage": "-7.92%"
+    },
+    "six_month": {
+      "low": "$298.00",
+      "high": "$517.98",
+      "percentage": "-4.30%"
+    },
+    "one_year": {
+      "low": "$240.01",
+      "high": "$517.98",
+      "percentage": "75.65%"
+    }
+  },
+  {
+    "ticker": "CRM",
+    "sector": "Security/Software Product",
+    "isleverage": false,
+    "previous_day": {
+      "low": "$226.48",
+      "high": "$253.50",
+      "percentage": "-0.44%"
+    },
+    "five_day": {
+      "low": "$226.48",
+      "high": "$241.87",
+      "percentage": "-0.44%"
+    },
+    "one_month": {
+      "low": "$226.48",
+      "high": "$274.00",
+      "percentage": "-10.06%"
+    },
+    "six_month": {
+      "low": "$226.48",
+      "high": "$328.70",
+      "percentage": "-29.36%"
+    },
+    "one_year": {
+      "low": "$226.48",
+      "high": "$367.42",
+      "percentage": "-8.48%"
+    }
+  },
+  {
+    "ticker": "MDB",
+    "sector": "Security/Software Product",
+    "isleverage": false,
+    "previous_day": {
+      "low": "$198.47",
+      "high": "$242.77",
+      "percentage": "3.39%"
+    },
+    "five_day": {
+      "low": "$198.47",
+      "high": "$211.47",
+      "percentage": "3.39%"
+    },
+    "one_month": {
+      "low": "$198.47",
+      "high": "$251.24",
+      "percentage": "-0.40%"
+    },
+    "six_month": {
+      "low": "$140.78",
+      "high": "$298.92",
+      "percentage": "-30.38%"
+    },
+    "one_year": {
+      "low": "$140.78",
+      "high": "$370.00",
+      "percentage": "-14.48%"
+    }
+  },
+  {
+    "ticker": "FTNT",
+    "sector": "Security/Software Product",
+    "isleverage": false,
+    "previous_day": {
+      "low": "$70.12",
+      "high": "$99.40",
+      "percentage": "5.23%"
+    },
+    "five_day": {
+      "low": "$73.81",
+      "high": "$78.99",
+      "percentage": "5.23%"
+    },
+    "one_month": {
+      "low": "$70.12",
+      "high": "$107.52",
+      "percentage": "-25.22%"
+    },
+    "six_month": {
+      "low": "$70.12",
+      "high": "$114.82",
+      "percentage": "-31.32%"
+    },
+    "one_year": {
+      "low": "$69.65",
+      "high": "$114.82",
+      "percentage": "9.75%"
+    }
+  },
+  {
+    "ticker": "ZS",
+    "sector": "Security/Software Product",
+    "isleverage": false,
+    "previous_day": {
+      "low": "$265.88",
+      "high": "$291.07",
+      "percentage": "1.57%"
+    },
+    "five_day": {
+      "low": "$267.11",
+      "high": "$276.23",
+      "percentage": "1.57%"
+    },
+    "one_month": {
+      "low": "$265.88",
+      "high": "$293.65",
+      "percentage": "-4.66%"
+    },
+    "six_month": {
+      "low": "$164.78",
+      "high": "$318.46",
+      "percentage": "27.00%"
+    },
+    "one_year": {
+      "low": "$153.45",
+      "high": "$318.46",
+      "percentage": "54.31%"
+    }
+  },
+  {
+    "ticker": "OKTA",
+    "sector": "Security/Software Product",
+    "isleverage": false,
+    "previous_day": {
+      "low": "$87.24",
+      "high": "$98.35",
+      "percentage": "0.93%"
+    },
+    "five_day": {
+      "low": "$87.24",
+      "high": "$92.43",
+      "percentage": "0.93%"
+    },
+    "one_month": {
+      "low": "$87.24",
+      "high": "$104.98",
+      "percentage": "-1.94%"
+    },
+    "six_month": {
+      "low": "$86.88",
+      "high": "$127.57",
+      "percentage": "-7.95%"
+    },
+    "one_year": {
+      "low": "$70.56",
+      "high": "$127.57",
+      "percentage": "-3.76%"
+    }
+  },
+  {
+    "ticker": "SNOU",
+    "sector": "Security/Software Product",
+    "isleverage": true,
+    "previous_day": {
+      "low": "$37.70",
+      "high": "$49.19",
+      "percentage": "2.34%"
+    },
+    "five_day": {
+      "low": "$37.70",
+      "high": "$40.75",
+      "percentage": "2.34%"
+    },
+    "one_month": {
+      "low": "$37.70",
+      "high": "$56.19",
+      "percentage": "-19.24%"
+    },
+    "six_month": {
+      "low": "$27.02",
+      "high": "$56.19",
+      "percentage": "37.32%"
+    },
+    "one_year": {
+      "low": "$27.02",
+      "high": "$56.19",
+      "percentage": "37.32%"
+    }
+  },
+  {
+    "ticker": "PANG",
+    "sector": "Security/Software Product",
+    "isleverage": true,
+    "previous_day": {
+      "low": "$10.70",
+      "high": "$12.04",
+      "percentage": "8.99%"
+    },
+    "five_day": {
+      "low": "$10.87",
+      "high": "$12.04",
+      "percentage": "8.99%"
+    },
+    "one_month": {
+      "low": "$10.70",
+      "high": "$17.53",
+      "percentage": "-18.81%"
+    },
+    "six_month": {
+      "low": "$9.18",
+      "high": "$17.53",
+      "percentage": "-18.17%"
+    },
+    "one_year": {
+      "low": "$9.18",
+      "high": "$17.53",
+      "percentage": "-18.17%"
+    }
+  },
+  {
+    "ticker": "CRWL",
+    "sector": "Security/Software Product",
+    "isleverage": true,
+    "previous_day": {
+      "low": "$27.80",
+      "high": "$33.27",
+      "percentage": "4.60%"
+    },
+    "five_day": {
+      "low": "$27.80",
+      "high": "$30.30",
+      "percentage": "4.60%"
+    },
+    "one_month": {
+      "low": "$27.80",
+      "high": "$38.50",
+      "percentage": "-16.73%"
+    },
+    "six_month": {
+      "low": "$15.77",
+      "high": "$43.49",
+      "percentage": "-25.36%"
+    },
+    "one_year": {
+      "low": "$15.77",
+      "high": "$43.49",
+      "percentage": "19.63%"
+    }
+  },
+  {
+    "ticker": "CRMG",
+    "sector": "Security/Software Product",
+    "isleverage": true,
+    "previous_day": {
+      "low": "$10.88",
+      "high": "$13.72",
+      "percentage": "-0.48%"
+    },
+    "five_day": {
+      "low": "$10.88",
+      "high": "$12.43",
+      "percentage": "-0.48%"
+    },
+    "one_month": {
+      "low": "$10.88",
+      "high": "$16.04",
+      "percentage": "-21.07%"
+    },
+    "six_month": {
+      "low": "$10.88",
+      "high": "$19.41",
+      "percentage": "-13.92%"
+    },
+    "one_year": {
+      "low": "$10.88",
+      "high": "$19.41",
+      "percentage": "-13.92%"
+    }
+  },
+  {
+    "ticker": "HOOD",
+    "sector": "Finance",
+    "isleverage": false,
+    "previous_day": {
+      "low": "$97.15",
+      "high": "$117.70",
+      "percentage": "0.41%"
+    },
+    "five_day": {
+      "low": "$113.18",
+      "high": "$117.70",
+      "percentage": "0.41%"
+    },
+    "one_month": {
+      "low": "$93.36",
+      "high": "$117.70",
+      "percentage": "14.62%"
+    },
+    "six_month": {
+      "low": "$29.66",
+      "high": "$117.70",
+      "percentage": "88.77%"
+    },
+    "one_year": {
+      "low": "$18.36",
+      "high": "$117.70",
+      "percentage": "519.72%"
+    }
+  },
+  {
+    "ticker": "UPST",
+    "sector": "Finance",
+    "isleverage": false,
+    "previous_day": {
+      "low": "$61.86",
+      "high": "$85.31",
+      "percentage": "-0.08%"
+    },
+    "five_day": {
+      "low": "$61.86",
+      "high": "$67.85",
+      "percentage": "-0.08%"
+    },
+    "one_month": {
+      "low": "$61.86",
+      "high": "$87.30",
+      "percentage": "-14.46%"
+    },
+    "six_month": {
+      "low": "$31.40",
+      "high": "$89.64",
+      "percentage": "-27.02%"
+    },
+    "one_year": {
+      "low": "$31.40",
+      "high": "$96.43",
+      "percentage": "67.62%"
+    }
+  },
+  {
+    "ticker": "SOFX",
+    "sector": "Finance",
+    "isleverage": true,
+    "previous_day": {
+      "low": "$25.33",
+      "high": "$33.00",
+      "percentage": "10.87%"
+    },
+    "five_day": {
+      "low": "$27.82",
+      "high": "$33.00",
+      "percentage": "10.87%"
+    },
+    "one_month": {
+      "low": "$23.55",
+      "high": "$36.62",
+      "percentage": "23.32%"
+    },
+    "six_month": {
+      "low": "$5.14",
+      "high": "$36.62",
+      "percentage": "46.74%"
+    },
+    "one_year": {
+      "low": "$5.14",
+      "high": "$36.62",
+      "percentage": "49.02%"
+    }
+  },
+  {
+    "ticker": "ROBN",
+    "sector": "Finance",
+    "isleverage": true,
+    "previous_day": {
+      "low": "$54.17",
+      "high": "$78.50",
+      "percentage": "0.79%"
+    },
+    "five_day": {
+      "low": "$72.76",
+      "high": "$78.50",
+      "percentage": "0.79%"
+    },
+    "one_month": {
+      "low": "$49.57",
+      "high": "$78.50",
+      "percentage": "27.21%"
+    },
+    "six_month": {
+      "low": "$6.05",
+      "high": "$78.50",
+      "percentage": "137.31%"
+    },
+    "one_year": {
+      "low": "$6.05",
+      "high": "$78.50",
+      "percentage": "208.00%"
+    }
+  },
+  {
+    "ticker": "HOOX",
+    "sector": "Finance",
+    "isleverage": true,
+    "previous_day": {
+      "low": "$91.70",
+      "high": "$131.07",
+      "percentage": "0.21%"
+    },
+    "five_day": {
+      "low": "$122.36",
+      "high": "$131.07",
+      "percentage": "0.21%"
+    },
+    "one_month": {
+      "low": "$83.14",
+      "high": "$131.07",
+      "percentage": "26.57%"
+    },
+    "six_month": {
+      "low": "$10.22",
+      "high": "$131.07",
+      "percentage": "444.29%"
+    },
+    "one_year": {
+      "low": "$10.22",
+      "high": "$131.07",
+      "percentage": "444.29%"
+    }
+  },
+  {
+    "ticker": "UPSX",
+    "sector": "Finance",
+    "isleverage": true,
+    "previous_day": {
+      "low": "N/A",
+      "high": "N/A",
+      "percentage": "N/A"
+    },
+    "five_day": {
+      "low": "N/A",
+      "high": "N/A",
+      "percentage": "N/A"
+    },
+    "one_month": {
+      "low": "N/A",
+      "high": "N/A",
+      "percentage": "N/A"
+    },
+    "six_month": {
+      "low": "N/A",
+      "high": "N/A",
+      "percentage": "N/A"
+    },
+    "one_year": {
+      "low": "N/A",
+      "high": "N/A",
+      "percentage": "N/A"
+    }
+  },
+  {
+    "ticker": "PLTR",
+    "sector": "AI Service",
+    "isleverage": false,
+    "previous_day": {
+      "low": "$157.93",
+      "high": "$190.00",
+      "percentage": "2.35%"
+    },
+    "five_day": {
+      "low": "$181.92",
+      "high": "$190.00",
+      "percentage": "2.35%"
+    },
+    "one_month": {
+      "low": "$145.06",
+      "high": "$190.00",
+      "percentage": "25.84%"
+    },
+    "six_month": {
+      "low": "$66.12",
+      "high": "$190.00",
+      "percentage": "50.03%"
+    },
+    "one_year": {
+      "low": "$29.31",
+      "high": "$190.00",
+      "percentage": "515.24%"
+    }
+  },
+  {
+    "ticker": "SOUN",
+    "sector": "AI Service",
+    "isleverage": false,
+    "previous_day": {
+      "low": "$10.19",
+      "high": "$16.49",
+      "percentage": "0.50%"
+    },
+    "five_day": {
+      "low": "$13.62",
+      "high": "$16.49",
+      "percentage": "0.50%"
+    },
+    "one_month": {
+      "low": "$9.71",
+      "high": "$16.49",
+      "percentage": "41.42%"
+    },
+    "six_month": {
+      "low": "$6.52",
+      "high": "$16.49",
+      "percentage": "39.69%"
+    },
+    "one_year": {
+      "low": "$4.32",
+      "high": "$24.98",
+      "percentage": "220.24%"
+    }
+  },
+  {
+    "ticker": "VRTL",
+    "sector": "AI Service",
+    "isleverage": false,
+    "previous_day": {
+      "low": "$41.52",
+      "high": "$47.67",
+      "percentage": "5.96%"
+    },
+    "five_day": {
+      "low": "$43.39",
+      "high": "$47.67",
+      "percentage": "5.96%"
+    },
+    "one_month": {
+      "low": "$32.82",
+      "high": "$53.08",
+      "percentage": "25.08%"
+    },
+    "six_month": {
+      "low": "$7.57",
+      "high": "$53.08",
+      "percentage": "95.98%"
+    },
+    "one_year": {
+      "low": "$7.57",
+      "high": "$53.08",
+      "percentage": "95.98%"
+    }
+  },
+  {
+    "ticker": "BBAI",
+    "sector": "AI Service",
+    "isleverage": false,
+    "previous_day": {
+      "low": "$4.75",
+      "high": "$7.39",
+      "percentage": "-15.80%"
+    },
+    "five_day": {
+      "low": "$4.75",
+      "high": "$7.39",
+      "percentage": "-15.80%"
+    },
+    "one_month": {
+      "low": "$4.75",
+      "high": "$8.59",
+      "percentage": "-15.92%"
+    },
+    "six_month": {
+      "low": "$2.36",
+      "high": "$9.45",
+      "percentage": "-29.10%"
+    },
+    "one_year": {
+      "low": "$1.21",
+      "high": "$10.36",
+      "percentage": "366.41%"
+    }
+  },
+  {
+    "ticker": "CRWV",
+    "sector": "AI Service",
+    "isleverage": false,
+    "previous_day": {
+      "low": "$101.60",
+      "high": "$148.80",
+      "percentage": "6.42%"
+    },
+    "five_day": {
+      "low": "$130.18",
+      "high": "$148.80",
+      "percentage": "6.42%"
+    },
+    "one_month": {
+      "low": "$100.80",
+      "high": "$148.80",
+      "percentage": "5.80%"
+    },
+    "six_month": {
+      "low": "$33.51",
+      "high": "$187.00",
+      "percentage": "271.88%"
+    },
+    "one_year": {
+      "low": "$33.51",
+      "high": "$187.00",
+      "percentage": "271.88%"
+    }
+  },
+  {
+    "ticker": "GRRR",
+    "sector": "AI Service",
+    "isleverage": false,
+    "previous_day": {
+      "low": "$15.41",
+      "high": "$17.66",
+      "percentage": "2.97%"
+    },
+    "five_day": {
+      "low": "$16.32",
+      "high": "$17.66",
+      "percentage": "2.97%"
+    },
+    "one_month": {
+      "low": "$15.41",
+      "high": "$21.40",
+      "percentage": "-16.48%"
+    },
+    "six_month": {
+      "low": "$14.32",
+      "high": "$44.15",
+      "percentage": "-34.58%"
+    },
+    "one_year": {
+      "low": "$2.31",
+      "high": "$44.15",
+      "percentage": "610.25%"
+    }
+  },
+  {
+    "ticker": "AI",
+    "sector": "AI Service",
+    "isleverage": false,
+    "previous_day": {
+      "low": "$14.70",
+      "high": "$23.76",
+      "percentage": "2.67%"
+    },
+    "five_day": {
+      "low": "$14.70",
+      "high": "$17.29",
+      "percentage": "2.67%"
+    },
+    "one_month": {
+      "low": "$14.70",
+      "high": "$30.11",
+      "percentage": "-37.44%"
+    },
+    "six_month": {
+      "low": "$14.70",
+      "high": "$32.18",
+      "percentage": "-46.79%"
+    },
+    "one_year": {
+      "low": "$14.70",
+      "high": "$45.08",
+      "percentage": "-32.33%"
+    }
+  },
+  {
+    "ticker": "NBIS",
+    "sector": "AI Service",
+    "isleverage": false,
+    "previous_day": {
+      "low": "$52.88",
+      "high": "$75.96",
+      "percentage": "7.25%"
+    },
+    "five_day": {
+      "low": "$69.16",
+      "high": "$75.96",
+      "percentage": "7.25%"
+    },
+    "one_month": {
+      "low": "$49.00",
+      "high": "$75.96",
+      "percentage": "40.72%"
+    },
+    "six_month": {
+      "low": "$18.31",
+      "high": "$75.96",
+      "percentage": "56.71%"
+    },
+    "one_year": {
+      "low": "$14.09",
+      "high": "$75.96",
+      "percentage": "276.65%"
+    }
+  },
+  {
+    "ticker": "PLTU",
+    "sector": "AI Service",
+    "isleverage": true,
+    "previous_day": {
+      "low": "$80.70",
+      "high": "$113.05",
+      "percentage": "4.55%"
+    },
+    "five_day": {
+      "low": "$105.88",
+      "high": "$113.05",
+      "percentage": "4.55%"
+    },
+    "one_month": {
+      "low": "$68.43",
+      "high": "$113.05",
+      "percentage": "54.94%"
+    },
+    "six_month": {
+      "low": "$16.53",
+      "high": "$113.05",
+      "percentage": "64.21%"
+    },
+    "one_year": {
+      "low": "$16.53",
+      "high": "$113.05",
+      "percentage": "329.66%"
+    }
+  },
+  {
+    "ticker": "SOUX",
+    "sector": "AI Service",
+    "isleverage": true,
+    "previous_day": {
+      "low": "$21.14",
+      "high": "$51.19",
+      "percentage": "-0.02%"
+    },
+    "five_day": {
+      "low": "$36.48",
+      "high": "$51.19",
+      "percentage": "-0.02%"
+    },
+    "one_month": {
+      "low": "$19.16",
+      "high": "$51.19",
+      "percentage": "76.64%"
+    },
+    "six_month": {
+      "low": "$19.16",
+      "high": "$51.19",
+      "percentage": "122.90%"
+    },
+    "one_year": {
+      "low": "$19.16",
+      "high": "$51.19",
+      "percentage": "122.90%"
+    }
+  },
+  {
+    "ticker": "META",
+    "sector": "Mega Stocks",
+    "isleverage": false,
+    "previous_day": {
+      "low": "$758.41",
+      "high": "$793.67",
+      "percentage": "3.15%"
+    },
+    "five_day": {
+      "low": "$764.67",
+      "high": "$793.67",
+      "percentage": "3.15%"
+    },
+    "one_month": {
+      "low": "$691.20",
+      "high": "$793.67",
+      "percentage": "11.21%"
+    },
+    "six_month": {
+      "low": "$479.43",
+      "high": "$793.67",
+      "percentage": "10.46%"
+    },
+    "one_year": {
+      "low": "$479.43",
+      "high": "$793.67",
+      "percentage": "49.98%"
+    }
+  },
+  {
+    "ticker": "AMZN",
+    "sector": "Mega Stocks",
+    "isleverage": false,
+    "previous_day": {
+      "low": "$211.42",
+      "high": "$226.22",
+      "percentage": "0.08%"
+    },
+    "five_day": {
+      "low": "$219.05",
+      "high": "$223.50",
+      "percentage": "0.08%"
+    },
+    "one_month": {
+      "low": "$211.42",
+      "high": "$236.53",
+      "percentage": "-2.16%"
+    },
+    "six_month": {
+      "low": "$161.38",
+      "high": "$236.53",
+      "percentage": "-2.29%"
+    },
+    "one_year": {
+      "low": "$161.38",
+      "high": "$242.52",
+      "percentage": "30.10%"
+    }
+  },
+  {
+    "ticker": "TSLA",
+    "sector": "Mega Stocks",
+    "isleverage": false,
+    "previous_day": {
+      "low": "$303.00",
+      "high": "$346.64",
+      "percentage": "0.53%"
+    },
+    "five_day": {
+      "low": "$332.94",
+      "high": "$346.64",
+      "percentage": "0.53%"
+    },
+    "one_month": {
+      "low": "$297.82",
+      "high": "$346.64",
+      "percentage": "9.67%"
+    },
+    "six_month": {
+      "low": "$214.25",
+      "high": "$367.71",
+      "percentage": "-3.75%"
+    },
+    "one_year": {
+      "low": "$197.06",
+      "high": "$488.54",
+      "percentage": "64.00%"
+    }
+  },
+  {
+    "ticker": "METU",
+    "sector": "Mega Stocks",
+    "isleverage": true,
+    "previous_day": {
+      "low": "$46.68",
+      "high": "$50.98",
+      "percentage": "6.47%"
+    },
+    "five_day": {
+      "low": "$47.40",
+      "high": "$50.98",
+      "percentage": "6.47%"
+    },
+    "one_month": {
+      "low": "$39.40",
+      "high": "$50.98",
+      "percentage": "20.88%"
+    },
+    "six_month": {
+      "low": "$19.99",
+      "high": "$50.98",
+      "percentage": "4.97%"
+    },
+    "one_year": {
+      "low": "$19.99",
+      "high": "$51.55",
+      "percentage": "77.37%"
+    }
+  },
+  {
+    "ticker": "AMZU",
+    "sector": "Mega Stocks",
+    "isleverage": true,
+    "previous_day": {
+      "low": "$33.37",
+      "high": "$38.06",
+      "percentage": "0.11%"
+    },
+    "five_day": {
+      "low": "$35.68",
+      "high": "$37.11",
+      "percentage": "0.11%"
+    },
+    "one_month": {
+      "low": "$33.37",
+      "high": "$42.14",
+      "percentage": "-6.08%"
+    },
+    "six_month": {
+      "low": "$21.11",
+      "high": "$44.21",
+      "percentage": "-15.76%"
+    },
+    "one_year": {
+      "low": "$21.11",
+      "high": "$49.92",
+      "percentage": "35.38%"
+    }
+  },
+  {
+    "ticker": "TSLL",
+    "sector": "Mega Stocks",
+    "isleverage": true,
+    "previous_day": {
+      "low": "$10.33",
+      "high": "$13.40",
+      "percentage": "0.93%"
+    },
+    "five_day": {
+      "low": "$12.38",
+      "high": "$13.40",
+      "percentage": "0.93%"
+    },
+    "one_month": {
+      "low": "$9.97",
+      "high": "$13.40",
+      "percentage": "17.07%"
+    },
+    "six_month": {
+      "low": "$6.25",
+      "high": "$21.20",
+      "percentage": "-34.33%"
+    },
+    "one_year": {
+      "low": "$6.25",
+      "high": "$40.74",
+      "percentage": "44.35%"
+    }
+  },
+  {
+    "ticker": "NVDL",
+    "sector": "Mega Stocks",
+    "isleverage": true,
+    "previous_day": {
+      "low": "$84.55",
+      "high": "$93.56",
+      "percentage": "1.02%"
+    },
+    "five_day": {
+      "low": "$89.05",
+      "high": "$93.45",
+      "percentage": "1.02%"
+    },
+    "one_month": {
+      "low": "$75.58",
+      "high": "$93.56",
+      "percentage": "13.63%"
+    },
+    "six_month": {
+      "low": "$23.12",
+      "high": "$93.56",
+      "percentage": "42.23%"
+    },
+    "one_year": {
+      "low": "$23.12",
+      "high": "$93.56",
+      "percentage": "63.59%"
+    }
+  },
+  {
+    "ticker": "NFXL",
+    "sector": "Mega Stocks",
+    "isleverage": true,
+    "previous_day": {
+      "low": "$52.60",
+      "high": "$60.84",
+      "percentage": "0.96%"
+    },
+    "five_day": {
+      "low": "$57.93",
+      "high": "$60.84",
+      "percentage": "0.96%"
+    },
+    "one_month": {
+      "low": "$52.60",
+      "high": "$66.55",
+      "percentage": "-7.07%"
+    },
+    "six_month": {
+      "low": "$28.96",
+      "high": "$73.71",
+      "percentage": "24.62%"
+    },
+    "one_year": {
+      "low": "$22.50",
+      "high": "$73.71",
+      "percentage": "146.95%"
+    }
+  },
+  {
+    "ticker": "AAPU",
+    "sector": "Mega Stocks",
+    "isleverage": true,
+    "previous_day": {
+      "low": "$20.96",
+      "high": "$27.30",
+      "percentage": "2.12%"
+    },
+    "five_day": {
+      "low": "$25.90",
+      "high": "$27.30",
+      "percentage": "2.12%"
+    },
+    "one_month": {
+      "low": "$20.93",
+      "high": "$27.30",
+      "percentage": "19.29%"
+    },
+    "six_month": {
+      "low": "$15.83",
+      "high": "$36.13",
+      "percentage": "-21.93%"
+    },
+    "one_year": {
+      "low": "$15.83",
+      "high": "$40.21",
+      "percentage": "-11.21%"
+    }
+  },
+  {
+    "ticker": "GGLL",
+    "sector": "Mega Stocks",
+    "isleverage": true,
+    "previous_day": {
+      "low": "$39.91",
+      "high": "$45.94",
+      "percentage": "2.32%"
+    },
+    "five_day": {
+      "low": "$43.58",
+      "high": "$45.94",
+      "percentage": "2.32%"
+    },
+    "one_month": {
+      "low": "$36.22",
+      "high": "$45.94",
+      "percentage": "23.32%"
+    },
+    "six_month": {
+      "low": "$23.40",
+      "high": "$45.94",
+      "percentage": "10.28%"
+    },
+    "one_year": {
+      "low": "$23.40",
+      "high": "$52.93",
+      "percentage": "25.73%"
+    }
+  },
+  {
+    "ticker": "MSFU",
+    "sector": "Mega Stocks",
+    "isleverage": true,
+    "previous_day": {
+      "low": "$53.14",
+      "high": "$57.53",
+      "percentage": "2.83%"
+    },
+    "five_day": {
+      "low": "$53.50",
+      "high": "$55.81",
+      "percentage": "2.83%"
+    },
+    "one_month": {
+      "low": "$50.07",
+      "high": "$61.16",
+      "percentage": "8.44%"
+    },
+    "six_month": {
+      "low": "$24.86",
+      "high": "$61.16",
+      "percentage": "54.91%"
+    },
+    "one_year": {
+      "low": "$24.86",
+      "high": "$61.16",
+      "percentage": "41.28%"
+    }
+  },
+  {
+    "ticker": "TQQQ",
+    "sector": "Mega Stocks",
+    "isleverage": true,
+    "previous_day": {
+      "low": "$85.16",
+      "high": "$94.89",
+      "percentage": "3.69%"
+    },
+    "five_day": {
+      "low": "$90.72",
+      "high": "$94.89",
+      "percentage": "3.69%"
+    },
+    "one_month": {
+      "low": "$81.86",
+      "high": "$94.89",
+      "percentage": "11.66%"
+    },
+    "six_month": {
+      "low": "$34.90",
+      "high": "$94.89",
+      "percentage": "5.39%"
+    },
+    "one_year": {
+      "low": "$34.90",
+      "high": "$94.89",
+      "percentage": "50.86%"
+    }
+  },
+  {
+    "ticker": "OKLO",
+    "sector": "Energy",
+    "isleverage": false,
+    "previous_day": {
+      "low": "$69.65",
+      "high": "$85.35",
+      "percentage": "9.20%"
+    },
+    "five_day": {
+      "low": "$69.65",
+      "high": "$79.01",
+      "percentage": "9.20%"
+    },
+    "one_month": {
+      "low": "$58.88",
+      "high": "$85.35",
+      "percentage": "28.74%"
+    },
+    "six_month": {
+      "low": "$17.42",
+      "high": "$85.35",
+      "percentage": "56.35%"
+    },
+    "one_year": {
+      "low": "$5.35",
+      "high": "$85.35",
+      "percentage": "957.55%"
+    }
+  },
+  {
+    "ticker": "NNE",
+    "sector": "Energy",
+    "isleverage": false,
+    "previous_day": {
+      "low": "$34.28",
+      "high": "$39.30",
+      "percentage": "4.81%"
+    },
+    "five_day": {
+      "low": "$34.28",
+      "high": "$37.36",
+      "percentage": "4.81%"
+    },
+    "one_month": {
+      "low": "$32.60",
+      "high": "$43.75",
+      "percentage": "4.96%"
+    },
+    "six_month": {
+      "low": "$17.26",
+      "high": "$43.75",
+      "percentage": "16.89%"
+    },
+    "one_year": {
+      "low": "$6.30",
+      "high": "$48.05",
+      "percentage": "453.68%"
+    }
+  },
+  {
+    "ticker": "SMR",
+    "sector": "Energy",
+    "isleverage": false,
+    "previous_day": {
+      "low": "$38.02",
+      "high": "$48.56",
+      "percentage": "-0.21%"
+    },
+    "five_day": {
+      "low": "$38.02",
+      "high": "$40.74",
+      "percentage": "-0.21%"
+    },
+    "one_month": {
+      "low": "$38.02",
+      "high": "$53.50",
+      "percentage": "-11.19%"
+    },
+    "six_month": {
+      "low": "$11.08",
+      "high": "$53.50",
+      "percentage": "73.19%"
+    },
+    "one_year": {
+      "low": "$6.88",
+      "high": "$53.50",
+      "percentage": "282.46%"
+    }
+  },
+  {
+    "ticker": "UUUU",
+    "sector": "Energy",
+    "isleverage": false,
+    "previous_day": {
+      "low": "$8.80",
+      "high": "$10.74",
+      "percentage": "-0.21%"
+    },
+    "five_day": {
+      "low": "$9.18",
+      "high": "$10.05",
+      "percentage": "-0.21%"
+    },
+    "one_month": {
+      "low": "$6.87",
+      "high": "$10.74",
+      "percentage": "23.58%"
+    },
+    "six_month": {
+      "low": "$3.20",
+      "high": "$10.74",
+      "percentage": "94.13%"
+    },
+    "one_year": {
+      "low": "$3.20",
+      "high": "$10.74",
+      "percentage": "111.23%"
+    }
+  },
+  {
+    "ticker": "NXE",
+    "sector": "Energy",
+    "isleverage": false,
+    "previous_day": {
+      "low": "$6.55",
+      "high": "$7.28",
+      "percentage": "1.17%"
+    },
+    "five_day": {
+      "low": "$6.68",
+      "high": "$7.01",
+      "percentage": "1.17%"
+    },
+    "one_month": {
+      "low": "$6.30",
+      "high": "$7.45",
+      "percentage": "2.22%"
+    },
+    "six_month": {
+      "low": "$3.91",
+      "high": "$7.45",
+      "percentage": "12.52%"
+    },
+    "one_year": {
+      "low": "$3.91",
+      "high": "$8.96",
+      "percentage": "20.14%"
+    }
+  },
+  {
+    "ticker": "OKLL",
+    "sector": "Energy",
+    "isleverage": true,
+    "previous_day": {
+      "low": "$28.00",
+      "high": "$42.11",
+      "percentage": "17.80%"
+    },
+    "five_day": {
+      "low": "$28.00",
+      "high": "$35.40",
+      "percentage": "17.80%"
+    },
+    "one_month": {
+      "low": "$21.12",
+      "high": "$42.11",
+      "percentage": "51.69%"
+    },
+    "six_month": {
+      "low": "$16.09",
+      "high": "$42.11",
+      "percentage": "45.43%"
+    },
+    "one_year": {
+      "low": "$16.09",
+      "high": "$42.11",
+      "percentage": "45.43%"
+    }
+  },
+  {
+    "ticker": "HIMS",
+    "sector": "Healthcare",
+    "isleverage": false,
+    "previous_day": {
+      "low": "$47.25",
+      "high": "$65.59",
+      "percentage": "-4.04%"
+    },
+    "five_day": {
+      "low": "$47.25",
+      "high": "$52.10",
+      "percentage": "-4.04%"
+    },
+    "one_month": {
+      "low": "$46.93",
+      "high": "$70.43",
+      "percentage": "-4.95%"
+    },
+    "six_month": {
+      "low": "$23.97",
+      "high": "$72.98",
+      "percentage": "-18.02%"
+    },
+    "one_year": {
+      "low": "$13.47",
+      "high": "$72.98",
+      "percentage": "200.13%"
+    }
+  },
+  {
+    "ticker": "TEM",
+    "sector": "Healthcare",
+    "isleverage": false,
+    "previous_day": {
+      "low": "$54.50",
+      "high": "$66.40",
+      "percentage": "9.08%"
+    },
+    "five_day": {
+      "low": "$59.82",
+      "high": "$66.40",
+      "percentage": "9.08%"
+    },
+    "one_month": {
+      "low": "$53.39",
+      "high": "$66.40",
+      "percentage": "18.70%"
+    },
+    "six_month": {
+      "low": "$36.22",
+      "high": "$91.28",
+      "percentage": "-19.05%"
+    },
+    "one_year": {
+      "low": "$31.36",
+      "high": "$91.45",
+      "percentage": "55.55%"
+    }
+  },
+  {
+    "ticker": "NVO",
+    "sector": "Healthcare",
+    "isleverage": false,
+    "previous_day": {
+      "low": "$45.05",
+      "high": "$51.30",
+      "percentage": "-0.18%"
+    },
+    "five_day": {
+      "low": "$49.38",
+      "high": "$50.70",
+      "percentage": "-0.18%"
+    },
+    "one_month": {
+      "low": "$45.05",
+      "high": "$71.80",
+      "percentage": "-25.94%"
+    },
+    "six_month": {
+      "low": "$45.05",
+      "high": "$92.31",
+      "percentage": "-38.56%"
+    },
+    "one_year": {
+      "low": "$45.05",
+      "high": "$137.52",
+      "percentage": "-61.99%"
+    }
+  },
+  {
+    "ticker": "HIMZ",
+    "sector": "Healthcare",
+    "isleverage": true,
+    "previous_day": {
+      "low": "$17.25",
+      "high": "$34.38",
+      "percentage": "-8.32%"
+    },
+    "five_day": {
+      "low": "$17.25",
+      "high": "$21.07",
+      "percentage": "-8.32%"
+    },
+    "one_month": {
+      "low": "$17.25",
+      "high": "$39.82",
+      "percentage": "-17.53%"
+    },
+    "six_month": {
+      "low": "$9.00",
+      "high": "$57.00",
+      "percentage": "4.29%"
+    },
+    "one_year": {
+      "low": "$9.00",
+      "high": "$57.00",
+      "percentage": "4.29%"
+    }
+  },
+  {
+    "ticker": "TEMT",
+    "sector": "Healthcare",
+    "isleverage": true,
+    "previous_day": {
+      "low": "$15.52",
+      "high": "$22.51",
+      "percentage": "17.95%"
+    },
+    "five_day": {
+      "low": "$18.45",
+      "high": "$22.51",
+      "percentage": "17.95%"
+    },
+    "one_month": {
+      "low": "$14.82",
+      "high": "$22.71",
+      "percentage": "33.67%"
+    },
+    "six_month": {
+      "low": "$14.82",
+      "high": "$33.19",
+      "percentage": "-25.37%"
+    },
+    "one_year": {
+      "low": "$14.82",
+      "high": "$33.19",
+      "percentage": "-25.37%"
+    }
+  },
+  {
+    "ticker": "NVOX",
+    "sector": "Healthcare",
+    "isleverage": true,
+    "previous_day": {
+      "low": "$2.40",
+      "high": "$3.09",
+      "percentage": "-0.34%"
+    },
+    "five_day": {
+      "low": "$2.86",
+      "high": "$3.02",
+      "percentage": "-0.34%"
+    },
+    "one_month": {
+      "low": "$2.40",
+      "high": "$6.76",
+      "percentage": "-51.75%"
+    },
+    "six_month": {
+      "low": "$2.40",
+      "high": "$13.20",
+      "percentage": "-71.76%"
+    },
+    "one_year": {
+      "low": "$2.40",
+      "high": "$21.09",
+      "percentage": "-85.63%"
+    }
+  },
+  {
+    "ticker": "RDTL",
+    "sector": "Others",
+    "isleverage": false,
+    "previous_day": {
+      "low": "$42.84",
+      "high": "$62.11",
+      "percentage": "2.67%"
+    },
+    "five_day": {
+      "low": "$53.04",
+      "high": "$62.11",
+      "percentage": "2.67%"
+    },
+    "one_month": {
+      "low": "$23.71",
+      "high": "$62.11",
+      "percentage": "126.08%"
+    },
+    "six_month": {
+      "low": "$9.72",
+      "high": "$62.11",
+      "percentage": "133.69%"
+    },
+    "one_year": {
+      "low": "$9.72",
+      "high": "$62.11",
+      "percentage": "133.69%"
+    }
+  },
+  {
+    "ticker": "APPS",
+    "sector": "Others",
+    "isleverage": false,
+    "previous_day": {
+      "low": "$4.10",
+      "high": "$5.77",
+      "percentage": "-0.23%"
+    },
+    "five_day": {
+      "low": "$4.10",
+      "high": "$4.41",
+      "percentage": "-0.23%"
+    },
+    "one_month": {
+      "low": "$4.10",
+      "high": "$5.86",
+      "percentage": "-17.53%"
+    },
+    "six_month": {
+      "low": "$2.11",
+      "high": "$7.77",
+      "percentage": "-16.89%"
+    },
+    "one_year": {
+      "low": "$1.18",
+      "high": "$7.77",
+      "percentage": "31.69%"
+    }
+  },
+  {
+    "ticker": "RBLU",
+    "sector": "Others",
+    "isleverage": false,
+    "previous_day": {
+      "low": "$86.36",
+      "high": "$99.24",
+      "percentage": "-2.50%"
+    },
+    "five_day": {
+      "low": "$87.90",
+      "high": "$96.34",
+      "percentage": "-2.50%"
+    },
+    "one_month": {
+      "low": "$69.54",
+      "high": "$123.05",
+      "percentage": "26.52%"
+    },
+    "six_month": {
+      "low": "$15.78",
+      "high": "$123.05",
+      "percentage": "257.95%"
+    },
+    "one_year": {
+      "low": "$15.78",
+      "high": "$123.05",
+      "percentage": "257.95%"
+    }
+  },
+  {
+    "ticker": "CVNX",
+    "sector": "Others",
+    "isleverage": false,
+    "previous_day": {
+      "low": "$20.20",
+      "high": "$24.54",
+      "percentage": "-0.24%"
+    },
+    "five_day": {
+      "low": "$20.20",
+      "high": "$22.30",
+      "percentage": "-0.24%"
+    },
+    "one_month": {
+      "low": "$19.50",
+      "high": "$30.30",
+      "percentage": "-7.79%"
+    },
+    "six_month": {
+      "low": "$15.43",
+      "high": "$30.30",
+      "percentage": "6.35%"
+    },
+    "one_year": {
+      "low": "$15.43",
+      "high": "$30.30",
+      "percentage": "6.35%"
+    }
+  },
+  {
+    "ticker": "SERV",
+    "sector": "Others",
+    "isleverage": false,
+    "previous_day": {
+      "low": "$9.76",
+      "high": "$11.06",
+      "percentage": "0.39%"
+    },
+    "five_day": {
+      "low": "$9.76",
+      "high": "$10.95",
+      "percentage": "0.39%"
+    },
+    "one_month": {
+      "low": "$9.50",
+      "high": "$12.40",
+      "percentage": "-2.07%"
+    },
+    "six_month": {
+      "low": "$4.66",
+      "high": "$14.30",
+      "percentage": "-11.84%"
+    },
+    "one_year": {
+      "low": "$4.66",
+      "high": "$24.35",
+      "percentage": "0.48%"
+    }
+  },
+  {
+    "ticker": "ARQQ",
+    "sector": "Quantum",
+    "isleverage": false,
+    "previous_day": {
+      "low": "$31.51",
+      "high": "$37.82",
+      "percentage": "3.77%"
+    },
+    "five_day": {
+      "low": "$31.51",
+      "high": "$34.39",
+      "percentage": "3.77%"
+    },
+    "one_month": {
+      "low": "$30.89",
+      "high": "$50.21",
+      "percentage": "-10.04%"
+    },
+    "six_month": {
+      "low": "$11.00",
+      "high": "$50.21",
+      "percentage": "114.79%"
+    },
+    "one_year": {
+      "low": "$3.72",
+      "high": "$52.79",
+      "percentage": "343.25%"
+    }
+  },
+  {
+    "ticker": "IONQ",
+    "sector": "Quantum",
+    "isleverage": false,
+    "previous_day": {
+      "low": "$38.42",
+      "high": "$46.82",
+      "percentage": "-4.32%"
+    },
+    "five_day": {
+      "low": "$41.41",
+      "high": "$46.82",
+      "percentage": "-4.32%"
+    },
+    "one_month": {
+      "low": "$37.25",
+      "high": "$47.72",
+      "percentage": "3.69%"
+    },
+    "six_month": {
+      "low": "$17.88",
+      "high": "$48.94",
+      "percentage": "26.69%"
+    },
+    "one_year": {
+      "low": "$6.54",
+      "high": "$54.74",
+      "percentage": "490.66%"
+    }
+  },
+  {
+    "ticker": "AIRE",
+    "sector": "Real Estate",
+    "isleverage": false,
+    "previous_day": {
+      "low": "$0.32",
+      "high": "$0.41",
+      "percentage": "-2.65%"
+    },
+    "five_day": {
+      "low": "$0.32",
+      "high": "$0.36",
+      "percentage": "-2.65%"
+    },
+    "one_month": {
+      "low": "$0.14",
+      "high": "$0.98",
+      "percentage": "51.83%"
+    },
+    "six_month": {
+      "low": "$0.14",
+      "high": "$2.08",
+      "percentage": "-82.11%"
+    },
+    "one_year": {
+      "low": "$0.14",
+      "high": "$4.49",
+      "percentage": "-72.18%"
+    }
+  },
+  {
+    "ticker": "APLD",
+    "sector": "AI Service",
+    "isleverage": false,
+    "previous_day": {
+      "low": "$12.35",
+      "high": "$15.36",
+      "percentage": "6.70%"
+    },
+    "five_day": {
+      "low": "$13.83",
+      "high": "$15.13",
+      "percentage": "6.70%"
+    },
+    "one_month": {
+      "low": "$9.60",
+      "high": "$15.36",
+      "percentage": "50.15%"
+    },
+    "six_month": {
+      "low": "$3.31",
+      "high": "$15.42",
+      "percentage": "55.45%"
+    },
+    "one_year": {
+      "low": "$3.01",
+      "high": "$15.42",
+      "percentage": "278.99%"
+    }
+  },
+  {
+    "ticker": "SOFI",
+    "sector": "Finance",
+    "isleverage": false,
+    "previous_day": {
+      "low": "$20.70",
+      "high": "$23.73",
+      "percentage": "5.49%"
+    },
+    "five_day": {
+      "low": "$21.72",
+      "high": "$23.73",
+      "percentage": "5.49%"
+    },
+    "one_month": {
+      "low": "$19.82",
+      "high": "$25.11",
+      "percentage": "12.83%"
+    },
+    "six_month": {
+      "low": "$8.60",
+      "high": "$25.11",
+      "percentage": "40.52%"
+    },
+    "one_year": {
+      "low": "$6.49",
+      "high": "$25.11",
+      "percentage": "256.17%"
+    }
+  },
+  {
+    "ticker": "NFLX",
+    "sector": "Mega Stocks",
+    "isleverage": false,
+    "previous_day": {
+      "low": "$1144.71",
+      "high": "$1231.99",
+      "percentage": "0.57%"
+    },
+    "five_day": {
+      "low": "$1201.93",
+      "high": "$1231.99",
+      "percentage": "0.57%"
+    },
+    "one_month": {
+      "low": "$1144.71",
+      "high": "$1277.50",
+      "percentage": "-2.78%"
+    },
+    "six_month": {
+      "low": "$821.10",
+      "high": "$1341.15",
+      "percentage": "18.29%"
+    },
+    "one_year": {
+      "low": "$635.50",
+      "high": "$1341.15",
+      "percentage": "89.08%"
+    }
+  },
+  {
+    "ticker": "AAPL",
+    "sector": "Mega Stocks",
+    "isleverage": false,
+    "previous_day": {
+      "low": "$201.45",
+      "high": "$230.80",
+      "percentage": "1.09%"
+    },
+    "five_day": {
+      "low": "$224.76",
+      "high": "$230.80",
+      "percentage": "1.09%"
+    },
+    "one_month": {
+      "low": "$201.27",
+      "high": "$230.80",
+      "percentage": "9.95%"
+    },
+    "six_month": {
+      "low": "$168.80",
+      "high": "$249.39",
+      "percentage": "-5.83%"
+    },
+    "one_year": {
+      "low": "$168.80",
+      "high": "$259.18",
+      "percentage": "4.27%"
+    }
+  },
+  {
+    "ticker": "GOOG",
+    "sector": "Mega Stocks",
+    "isleverage": false,
+    "previous_day": {
+      "low": "$190.92",
+      "high": "$205.13",
+      "percentage": "1.25%"
+    },
+    "five_day": {
+      "low": "$199.80",
+      "high": "$205.13",
+      "percentage": "1.25%"
+    },
+    "one_month": {
+      "low": "$181.50",
+      "high": "$205.13",
+      "percentage": "11.50%"
+    },
+    "six_month": {
+      "low": "$142.49",
+      "high": "$205.13",
+      "percentage": "10.14%"
+    },
+    "one_year": {
+      "low": "$142.49",
+      "high": "$208.21",
+      "percentage": "23.63%"
+    }
+  },
+  {
+    "ticker": "NVDA",
+    "sector": "Mega Stocks",
+    "isleverage": false,
+    "previous_day": {
+      "low": "$174.52",
+      "high": "$184.48",
+      "percentage": "0.60%"
+    },
+    "five_day": {
+      "low": "$179.46",
+      "high": "$184.48",
+      "percentage": "0.60%"
+    },
+    "one_month": {
+      "low": "$164.58",
+      "high": "$184.48",
+      "percentage": "7.30%"
+    },
+    "six_month": {
+      "low": "$86.61",
+      "high": "$184.48",
+      "percentage": "31.41%"
+    },
+    "one_year": {
+      "low": "$86.61",
+      "high": "$184.48",
+      "percentage": "57.76%"
+    }
+  },
+  {
+    "ticker": "MSFT",
+    "sector": "Mega Stocks",
+    "isleverage": false,
+    "previous_day": {
+      "low": "$517.55",
+      "high": "$538.25",
+      "percentage": "1.43%"
+    },
+    "five_day": {
+      "low": "$519.72",
+      "high": "$530.98",
+      "percentage": "1.43%"
+    },
+    "one_month": {
+      "low": "$500.70",
+      "high": "$555.45",
+      "percentage": "4.63%"
+    },
+    "six_month": {
+      "low": "$344.16",
+      "high": "$555.45",
+      "percentage": "29.69%"
+    },
+    "one_year": {
+      "low": "$344.16",
+      "high": "$555.45",
+      "percentage": "28.81%"
+    }
+  },
+  {
+    "ticker": "QQQ",
+    "sector": "Mega Stocks",
+    "isleverage": false,
+    "previous_day": {
+      "low": "$558.95",
+      "high": "$580.35",
+      "percentage": "1.26%"
+    },
+    "five_day": {
+      "low": "$571.57",
+      "high": "$580.35",
+      "percentage": "1.26%"
+    },
+    "one_month": {
+      "low": "$551.56",
+      "high": "$580.35",
+      "percentage": "4.19%"
+    },
+    "six_month": {
+      "low": "$401.94",
+      "high": "$580.35",
+      "percentage": "7.82%"
+    },
+    "one_year": {
+      "low": "$401.94",
+      "high": "$580.35",
+      "percentage": "26.10%"
+    }
+  },
+  {
+    "ticker": "SMU",
+    "sector": "Energy",
+    "isleverage": true,
+    "previous_day": {
+      "low": "$25.20",
+      "high": "$41.64",
+      "percentage": "0.00%"
+    },
+    "five_day": {
+      "low": "$25.20",
+      "high": "$28.80",
+      "percentage": "0.00%"
+    },
+    "one_month": {
+      "low": "$25.20",
+      "high": "$52.00",
+      "percentage": "-27.83%"
+    },
+    "six_month": {
+      "low": "$24.52",
+      "high": "$52.00",
+      "percentage": "-6.49%"
+    },
+    "one_year": {
+      "low": "$24.52",
+      "high": "$52.00",
+      "percentage": "-6.49%"
+    }
+  }
+]

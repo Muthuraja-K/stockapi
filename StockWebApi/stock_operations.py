@@ -1,59 +1,50 @@
 import json
-import logging
-import threading
-from typing import List, Dict, Any
+import os
+from typing import List, Dict, Any, Optional, Tuple
 
-def load_stocks():
-    """Load stocks from stock.json file"""
+def load_stocks() -> List[Dict[str, Any]]:
+    """Load stocks from the JSON file"""
     try:
-        with open('stock.json', 'r') as file:
-            return json.load(file)
-    except FileNotFoundError:
+        if os.path.exists('stock.json'):
+            with open('stock.json', 'r') as file:
+                return json.load(file)
+        else:
+            return []
+    except Exception as e:
+        print(f"Error loading stocks: {e}")
         return []
 
-def save_stocks(stocks):
-    """Save stocks to stock.json file"""
-    with open('stock.json', 'w') as file:
-        json.dump(stocks, file, indent=2)
-
-def update_ticker_today_background():
-    """Update Ticker_Today.json in the background thread"""
+def save_stocks(stocks: List[Dict[str, Any]]) -> bool:
+    """Save stocks to the JSON file"""
     try:
-        from enhanced_stock_operations import force_update_ticker_today_data
-        force_update_ticker_today_data()
-        logging.info("Ticker_Today.json updated successfully in background")
+        with open('stock.json', 'w') as file:
+            json.dump(stocks, file, indent=2)
+        return True
     except Exception as e:
-        logging.error(f"Failed to update Ticker_Today.json in background: {e}")
+        print(f"Error saving stocks: {e}")
+        return False
 
-def start_background_update():
-    """Start Ticker_Today.json update in background thread"""
-    thread = threading.Thread(target=update_ticker_today_background, daemon=True)
-    thread.start()
-    logging.info("Started background Ticker_Today.json update")
-
-def get_stock_with_filters(sector_param, ticker_param, isxticker_param, page, per_page):
-    """
-    Get stocks with filtering and pagination
-    """
+def get_stock_with_filters(sector: str = "", ticker: str = "", isleverage: Optional[bool] = None, page: int = 1, per_page: int = 10) -> Dict[str, Any]:
+    """Get stocks with filtering and pagination"""
     stocks = load_stocks()
     
-    # Filter by sector
-    if sector_param:
-        stocks = [stock for stock in stocks if stock.get('sector', '').lower() == sector_param.lower()]
+    # Apply filters
+    filtered_stocks = stocks
     
-    # Filter by ticker
-    if ticker_param:
-        stocks = [stock for stock in stocks if ticker_param.lower() in stock.get('ticker', '').lower()]
+    if sector:
+        filtered_stocks = [s for s in filtered_stocks if s.get('sector', '').lower() == sector.lower()]
     
-    # Filter by isxticker
-    if isxticker_param is not None:
-        stocks = [stock for stock in stocks if stock.get('isxticker', False) == isxticker_param]
+    if ticker:
+        filtered_stocks = [s for s in filtered_stocks if s.get('ticker', '').lower().startswith(ticker.lower())]
     
-    # Calculate pagination
-    total = len(stocks)
+    if isleverage is not None:
+        filtered_stocks = [s for s in filtered_stocks if s.get('isleverage', False) == isleverage]
+    
+    # Apply pagination
+    total = len(filtered_stocks)
     start_index = (page - 1) * per_page
     end_index = start_index + per_page
-    paginated_stocks = stocks[start_index:end_index]
+    paginated_stocks = filtered_stocks[start_index:end_index]
     
     return {
         'results': paginated_stocks,
@@ -62,123 +53,110 @@ def get_stock_with_filters(sector_param, ticker_param, isxticker_param, page, pe
         'per_page': per_page
     }
 
-def get_stock_details(tickers_param, sector_param, isxticker_param, sort_by=None, sort_order='asc'):
-    """
-    Get detailed stock information with filtering and sorting
-    """
+def get_stock_details(tickers: str = "", sector: str = "", isleverage: Optional[bool] = None, sort_by: Optional[str] = None, sort_order: str = "asc") -> List[Dict[str, Any]]:
+    """Get stock details with filtering and sorting"""
     stocks = load_stocks()
     
-    # Filter by tickers
-    if tickers_param:
-        requested_tickers = [t.strip().upper() for t in tickers_param.split(',') if t.strip()]
-        stocks = [stock for stock in stocks if stock['ticker'].upper() in requested_tickers]
+    # Apply filters
+    filtered_stocks = stocks
     
-    # Filter by sector
-    if sector_param:
-        stocks = [stock for stock in stocks if stock['sector'].lower() == sector_param.lower()]
+    if tickers:
+        ticker_list = [t.strip().upper() for t in tickers.split(',') if t.strip()]
+        filtered_stocks = [s for s in filtered_stocks if s.get('ticker', '').upper() in ticker_list]
     
-    # Filter by isxticker
-    if isxticker_param is not None:
-        stocks = [stock for stock in stocks if stock['isxticker'] == isxticker_param]
+    if sector:
+        filtered_stocks = [s for s in filtered_stocks if s.get('sector', '').lower() == sector.lower()]
     
-    # Sort results
-    if sort_by and stocks:
+    if isleverage is not None:
+        filtered_stocks = [s for s in filtered_stocks if s.get('isleverage', False) == isleverage]
+    
+    # Apply sorting
+    if sort_by:
+        reverse = sort_order.lower() == "desc"
         try:
-            reverse = sort_order.lower() == 'desc'
-            stocks.sort(key=lambda x: x.get(sort_by, ''), reverse=reverse)
-        except Exception as e:
-            logging.error(f"Error sorting results: {e}")
+            filtered_stocks.sort(key=lambda x: x.get(sort_by, ''), reverse=reverse)
+        except:
+            # If sorting fails, keep original order
+            pass
     
-    return {
-        'results': stocks,
-        'total': len(stocks)
-    }
+    return filtered_stocks
 
-def add_stock_to_file(ticker, sector, isxticker):
-    """Add a new stock to the stock.json file"""
+def add_stock_to_file(ticker: str, sector: str, isleverage: bool = False) -> Tuple[bool, str]:
+    """Add a new stock to the file"""
     try:
         stocks = load_stocks()
         
         # Check if ticker already exists
-        if any(stock['ticker'].upper() == ticker.upper() for stock in stocks):
-            return False, f"Ticker {ticker} already exists"
+        if any(s.get('ticker', '').upper() == ticker.upper() for s in stocks):
+            return False, f"Stock with ticker {ticker} already exists"
         
-        # Add new stock
         new_stock = {
             'ticker': ticker.upper(),
             'sector': sector,
-            'isxticker': isxticker
+            'isleverage': isleverage
         }
+        
         stocks.append(new_stock)
-        save_stocks(stocks)
         
-        # Update Ticker_Today.json with the new stock in background
-        start_background_update()
-        
-        logging.info(f"Added stock: {ticker}")
-        return True, f"Stock {ticker} added successfully"
+        if save_stocks(stocks):
+            return True, f"Stock {ticker} added successfully"
+        else:
+            return False, "Failed to save stocks"
+            
     except Exception as e:
-        logging.error(f"Error adding stock {ticker}: {e}")
         return False, f"Error adding stock: {str(e)}"
 
-def update_stock_in_file(old_ticker, sector, isxticker, new_ticker=None):
-    """Update an existing stock in the stock.json file"""
+def update_stock_in_file(old_ticker: str, sector: str, isleverage: bool, new_ticker: str) -> Tuple[bool, str]:
+    """Update a stock in the file"""
     try:
         stocks = load_stocks()
         
         # Find the stock to update
         stock_index = None
-        for i, stock in enumerate(stocks):
-            if stock['ticker'].upper() == old_ticker.upper():
+        for i, s in enumerate(stocks):
+            if s.get('ticker', '').upper() == old_ticker.upper():
                 stock_index = i
                 break
         
         if stock_index is None:
-            return False, f"Ticker {old_ticker} not found"
+            return False, f"Stock with ticker {old_ticker} not found"
         
         # Check if new ticker already exists (if changing ticker)
-        if new_ticker and new_ticker.upper() != old_ticker.upper():
-            if any(stock['ticker'].upper() == new_ticker.upper() for stock in stocks):
-                return False, f"Ticker {new_ticker} already exists"
+        if new_ticker.upper() != old_ticker.upper():
+            if any(s.get('ticker', '').upper() == new_ticker.upper() for s in stocks):
+                return False, f"Stock with ticker {new_ticker} already exists"
         
         # Update the stock
-        updated_ticker = new_ticker.upper() if new_ticker else old_ticker.upper()
         stocks[stock_index] = {
-            'ticker': updated_ticker,
+            'ticker': new_ticker.upper(),
             'sector': sector,
-            'isxticker': isxticker
+            'isleverage': isleverage
         }
         
-        save_stocks(stocks)
-        
-        # Update Ticker_Today.json with the updated stock in background
-        start_background_update()
-        
-        logging.info(f"Updated stock: {old_ticker} -> {updated_ticker}")
-        return True, f"Stock {old_ticker} updated successfully"
+        if save_stocks(stocks):
+            return True, f"Stock {old_ticker} updated successfully to {new_ticker}"
+        else:
+            return False, "Failed to save stocks"
+            
     except Exception as e:
-        logging.error(f"Error updating stock {old_ticker}: {e}")
         return False, f"Error updating stock: {str(e)}"
 
-def delete_stock_from_file(ticker):
-    """Delete a stock from the stock.json file"""
+def delete_stock_from_file(ticker: str) -> Tuple[bool, str]:
+    """Delete a stock from the file"""
     try:
         stocks = load_stocks()
         
         # Find and remove the stock
         original_count = len(stocks)
-        stocks = [stock for stock in stocks if stock['ticker'].upper() != ticker.upper()]
+        stocks = [s for s in stocks if s.get('ticker', '').upper() != ticker.upper()]
         
         if len(stocks) == original_count:
-            return False, f"Ticker {ticker} not found"
+            return False, f"Stock with ticker {ticker} not found"
         
-        save_stocks(stocks)
-        
-        # Update Ticker_Today.json after deleting the stock in background
-        start_background_update()
-        
-        logging.info(f"Deleted stock: {ticker}")
-        return True, f"Stock {ticker} deleted successfully"
+        if save_stocks(stocks):
+            return True, f"Stock {ticker} deleted successfully"
+        else:
+            return False, "Failed to save stocks"
+            
     except Exception as e:
-        logging.error(f"Error deleting stock {ticker}: {e}")
         return False, f"Error deleting stock: {str(e)}"

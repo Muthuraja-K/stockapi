@@ -46,13 +46,19 @@ StockWebApi/
 ```
 StockUI/src/app/
 ├── stock-info/
-│   ├── stock-details.component.ts   # Enhanced stock details component
 │   ├── stocks.component.ts          # Stock management component
-│   ├── sector.component.ts          # Sector management component
 │   ├── stock-info.service.ts        # Stock data service
-│   ├── sector.service.ts            # Sector service
 │   ├── sentiment.service.ts         # Sentiment service
 │   └── models.ts                    # TypeScript interfaces
+├── stockhistory/
+│   ├── stock-history.component.ts   # Enhanced stock history component
+│   ├── stock-history.component.html # Stock history template
+│   └── stock-history.component.scss # Stock history styles
+├── sector/
+│   ├── sector.component.ts          # Sector management component
+│   ├── sector.component.html        # Sector template
+│   ├── sector.component.scss        # Sector styles
+│   └── sector.service.ts            # Sector service
 ├── auth/                            # Authentication components
 ├── stock-summary/                   # Stock summary components
 ├── earning-summary/                 # Earnings summary components
