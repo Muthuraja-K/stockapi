@@ -547,6 +547,56 @@ async def refresh_earning_cache_route(
         logger.error(f"Error refreshing earning cache: {str(e)}")
         raise HTTPException(status_code=500, detail=f"Failed to refresh earning cache: {str(e)}")
 
+# Today filter cache management endpoints
+@app.get('/api/today-cache/status')
+async def get_today_cache_status_route(
+    current_user: Dict[str, Any] = Depends(require_auth)
+):
+    """Get the current status of the Today filter cache."""
+    try:
+        from stock_summary_optimized import get_today_cache_status
+        return get_today_cache_status()
+    except Exception as e:
+        logger.error(f"Error getting today cache status: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Failed to get today cache status: {str(e)}")
+
+@app.post('/api/today-cache/clear')
+async def clear_today_cache_route(
+    current_user: Dict[str, Any] = Depends(require_auth)
+):
+    """Clear Today filter cache - Admin only."""
+    try:
+        # Only admin can clear cache
+        if current_user.get('role') != 'admin':
+            raise HTTPException(status_code=403, detail={'error': 'Admin access required'})
+        
+        from stock_summary_optimized import clear_today_cache
+        result = clear_today_cache()
+        return result
+    except Exception as e:
+        logger.error(f"Error clearing today cache: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Failed to clear today cache: {str(e)}")
+
+@app.post('/api/today-cache/refresh')
+async def refresh_today_cache_route(
+    sectors: str = Query("", description="Sectors to refresh (optional)"),
+    isleverage: Optional[bool] = Query(None, description="Leverage filter (optional)"),
+    current_user: Dict[str, Any] = Depends(require_auth)
+):
+    """Refresh Today filter cache - Admin only."""
+    try:
+        # Only admin can refresh cache
+        if current_user.get('role') != 'admin':
+            raise HTTPException(status_code=403, detail={'error': 'Admin access required'})
+        
+        from stock_summary_optimized import refresh_today_cache
+        result = refresh_today_cache(sectors, isleverage)
+        return result
+        
+    except Exception as e:
+        logger.error(f"Error refreshing today cache: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Failed to refresh today cache: {str(e)}")
+
 # Test endpoint for historical price data
 @app.get('/api/test-historical-price')
 async def test_historical_price_route(

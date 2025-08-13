@@ -5,7 +5,7 @@
         "sector": "SemiConductor",
         "isleverage": false
       },
-      "timestamp": 1755104982.380758,
+      "timestamp": 1755107028.39533,
       "data_type": "sector"
     },
     "sector_ARM": {
@@ -13,7 +13,7 @@
         "sector": "SemiConductor",
         "isleverage": false
       },
-      "timestamp": 1755104982.3827095,
+      "timestamp": 1755107028.3985708,
       "data_type": "sector"
     },
     "sector_SNPS": {
@@ -21,7 +21,7 @@
         "sector": "SemiConductor",
         "isleverage": false
       },
-      "timestamp": 1755104982.3845932,
+      "timestamp": 1755107028.4017673,
       "data_type": "sector"
     },
     "sector_NXPI": {
@@ -29,7 +29,7 @@
         "sector": "SemiConductor",
         "isleverage": false
       },
-      "timestamp": 1755104982.3864028,
+      "timestamp": 1755107028.4050817,
       "data_type": "sector"
     },
     "sector_CDNS": {
@@ -37,7 +37,7 @@
         "sector": "SemiConductor",
         "isleverage": false
       },
-      "timestamp": 1755104982.3892632,
+      "timestamp": 1755107028.4085958,
       "data_type": "sector"
     },
     "sector_SMTC": {
@@ -45,7 +45,7 @@
         "sector": "SemiConductor",
         "isleverage": false
       },
-      "timestamp": 1755104982.3917491,
+      "timestamp": 1755107028.4120133,
       "data_type": "sector"
     },
     "sector_NVTS": {
@@ -53,7 +53,7 @@
         "sector": "SemiConductor",
         "isleverage": false
       },
-      "timestamp": 1755104982.3950202,
+      "timestamp": 1755107028.4161582,
       "data_type": "sector"
     },
     "sector_SMCX": {
@@ -61,7 +61,7 @@
         "sector": "SemiConductor",
         "isleverage": true
       },
-      "timestamp": 1755104982.3972943,
+      "timestamp": 1755107028.4204109,
       "data_type": "sector"
     },
     "sector_AMDL": {
@@ -69,7 +69,7 @@
         "sector": "SemiConductor",
         "isleverage": true
       },
-      "timestamp": 1755104982.3997214,
+      "timestamp": 1755107028.4246335,
       "data_type": "sector"
     },
     "sector_MVLL": {
@@ -77,7 +77,7 @@
         "sector": "SemiConductor",
         "isleverage": true
       },
-      "timestamp": 1755104982.4021363,
+      "timestamp": 1755107028.4286668,
       "data_type": "sector"
     },
     "sector_ARMU": {
@@ -85,7 +85,7 @@
         "sector": "SemiConductor",
         "isleverage": true
       },
-      "timestamp": 1755104982.4044116,
+      "timestamp": 1755107028.432519,
       "data_type": "sector"
     },
     "sector_NAIL": {
@@ -93,7 +93,7 @@
         "sector": "Real Estate",
         "isleverage": false
       },
-      "timestamp": 1755104982.4083722,
+      "timestamp": 1755107028.436307,
       "data_type": "sector"
     },
     "sector_OPEN": {
@@ -101,7 +101,7 @@
         "sector": "Real Estate",
         "isleverage": false
       },
-      "timestamp": 1755104982.4111354,
+      "timestamp": 1755107028.440652,
       "data_type": "sector"
     },
     "sector_FNMA": {
@@ -109,7 +109,7 @@
         "sector": "Real Estate",
         "isleverage": false
       },
-      "timestamp": 1755104982.4133482,
+      "timestamp": 1755107028.4448817,
       "data_type": "sector"
     },
     "sector_FMCC": {
@@ -117,7 +117,7 @@
         "sector": "Real Estate",
         "isleverage": false
       },
-      "timestamp": 1755104982.4153087,
+      "timestamp": 1755107028.448868,
       "data_type": "sector"
     },
     "sector_RKT": {
@@ -125,7 +125,7 @@
         "sector": "Real Estate",
         "isleverage": false
       },
-      "timestamp": 1755104982.4173477,
+      "timestamp": 1755107028.452623,
       "data_type": "sector"
     },
     "sector_COIN": {
@@ -133,7 +133,7 @@
         "sector": "Crypto",
         "isleverage": false
       },
-      "timestamp": 1755104982.419343,
+      "timestamp": 1755107028.4562304,
       "data_type": "sector"
     },
     "sector_MARA": {
@@ -141,7 +141,7 @@
         "sector": "Crypto",
         "isleverage": false
       },
-      "timestamp": 1755104982.4212599,
+      "timestamp": 1755107028.4595423,
       "data_type": "sector"
     },
     "sector_RIOT": {
@@ -149,7 +149,7 @@
         "sector": "Crypto",
         "isleverage": false
       },
-      "timestamp": 1755104982.4243224,
+      "timestamp": 1755107028.4629269,
       "data_type": "sector"
     },
     "sector_SOL-USD": {
@@ -157,7 +157,7 @@
         "sector": "Crypto",
         "isleverage": false
       },
-      "timestamp": 1755104982.4264665,
+      "timestamp": 1755107028.4660792,
       "data_type": "sector"
     },
     "sector_BTC-USD": {
@@ -165,7 +165,7 @@
         "sector": "Crypto",
         "isleverage": false
       },
-      "timestamp": 1755104982.4284694,
+      "timestamp": 1755107028.469353,
       "data_type": "sector"
     },
     "sector_ETH-USD": {
@@ -173,7 +173,7 @@
         "sector": "Crypto",
         "isleverage": false
       },
-      "timestamp": 1755104982.4304054,
+      "timestamp": 1755107028.4731898,
       "data_type": "sector"
     },
     "sector_CRCL": {
@@ -181,7 +181,7 @@
         "sector": "Crypto",
         "isleverage": false
       },
-      "timestamp": 1755104982.4323125,
+      "timestamp": 1755107028.477011,
       "data_type": "sector"
     },
     "sector_CONL": {
@@ -189,7 +189,7 @@
         "sector": "Crypto",
         "isleverage": true
       },
-      "timestamp": 1755104982.4341953,
+      "timestamp": 1755107028.4802406,
       "data_type": "sector"
     },
     "sector_COIG": {
@@ -197,7 +197,7 @@
         "sector": "Crypto",
         "isleverage": true
       },
-      "timestamp": 1755104982.4360394,
+      "timestamp": 1755107028.483424,
       "data_type": "sector"
     },
     "sector_MRAL": {
@@ -205,7 +205,7 @@
         "sector": "Crypto",
         "isleverage": true
       },
-      "timestamp": 1755104982.4380765,
+      "timestamp": 1755107028.4865768,
       "data_type": "sector"
     },
     "sector_RIOX": {
@@ -213,7 +213,7 @@
         "sector": "Crypto",
         "isleverage": true
       },
-      "timestamp": 1755104982.4408052,
+      "timestamp": 1755107028.4899623,
       "data_type": "sector"
     },
     "sector_MSTX": {
@@ -221,7 +221,7 @@
         "sector": "Crypto",
         "isleverage": true
       },
-      "timestamp": 1755104982.442773,
+      "timestamp": 1755107028.494061,
       "data_type": "sector"
     },
     "sector_SOLT": {
@@ -229,7 +229,7 @@
         "sector": "Crypto",
         "isleverage": true
       },
-      "timestamp": 1755104982.4447176,
+      "timestamp": 1755107028.4975471,
       "data_type": "sector"
     },
     "sector_BITU": {
@@ -237,7 +237,7 @@
         "sector": "Crypto",
         "isleverage": true
       },
-      "timestamp": 1755104982.4466372,
+      "timestamp": 1755107028.500681,
       "data_type": "sector"
     },
     "sector_ETHU": {
@@ -245,7 +245,7 @@
         "sector": "Crypto",
         "isleverage": true
       },
-      "timestamp": 1755104982.4485354,
+      "timestamp": 1755107028.5038192,
       "data_type": "sector"
     },
     "sector_SNOW": {
@@ -253,7 +253,7 @@
         "sector": "Security/Software Product",
         "isleverage": false
       },
-      "timestamp": 1755104982.4504435,
+      "timestamp": 1755107028.508579,
       "data_type": "sector"
     },
     "sector_PANW": {
@@ -261,7 +261,7 @@
         "sector": "Security/Software Product",
         "isleverage": false
       },
-      "timestamp": 1755104982.4522667,
+      "timestamp": 1755107028.5127912,
       "data_type": "sector"
     },
     "sector_CRWD": {
@@ -269,7 +269,7 @@
         "sector": "Security/Software Product",
         "isleverage": false
       },
-      "timestamp": 1755104982.4541745,
+      "timestamp": 1755107028.5160198,
       "data_type": "sector"
     },
     "sector_CRM": {
@@ -277,7 +277,7 @@
         "sector": "Security/Software Product",
         "isleverage": false
       },
-      "timestamp": 1755104982.4567995,
+      "timestamp": 1755107028.5195472,
       "data_type": "sector"
     },
     "sector_MDB": {
@@ -285,7 +285,7 @@
         "sector": "Security/Software Product",
         "isleverage": false
       },
-      "timestamp": 1755104982.4587657,
+      "timestamp": 1755107028.5244136,
       "data_type": "sector"
     },
     "sector_FTNT": {
@@ -293,7 +293,7 @@
         "sector": "Security/Software Product",
         "isleverage": false
       },
-      "timestamp": 1755104982.460692,
+      "timestamp": 1755107028.5289938,
       "data_type": "sector"
     },
     "sector_ZS": {
@@ -301,7 +301,7 @@
         "sector": "Security/Software Product",
         "isleverage": false
       },
-      "timestamp": 1755104982.4626043,
+      "timestamp": 1755107028.5328348,
       "data_type": "sector"
     },
     "sector_OKTA": {
@@ -309,7 +309,7 @@
         "sector": "Security/Software Product",
         "isleverage": false
       },
-      "timestamp": 1755104982.4644976,
+      "timestamp": 1755107028.5360184,
       "data_type": "sector"
     },
     "sector_SNOU": {
@@ -317,7 +317,7 @@
         "sector": "Security/Software Product",
         "isleverage": true
       },
-      "timestamp": 1755104982.4663565,
+      "timestamp": 1755107028.5392416,
       "data_type": "sector"
     },
     "sector_PANG": {
@@ -325,7 +325,7 @@
         "sector": "Security/Software Product",
         "isleverage": true
       },
-      "timestamp": 1755104982.4682176,
+      "timestamp": 1755107028.542448,
       "data_type": "sector"
     },
     "sector_CRWL": {
@@ -333,7 +333,7 @@
         "sector": "Security/Software Product",
         "isleverage": true
       },
-      "timestamp": 1755104982.4701042,
+      "timestamp": 1755107028.5456595,
       "data_type": "sector"
     },
     "sector_CRMG": {
@@ -341,7 +341,7 @@
         "sector": "Security/Software Product",
         "isleverage": true
       },
-      "timestamp": 1755104982.4728987,
+      "timestamp": 1755107028.5505497,
       "data_type": "sector"
     },
     "sector_HOOD": {
@@ -349,7 +349,7 @@
         "sector": "Finance",
         "isleverage": false
       },
-      "timestamp": 1755104982.475605,
+      "timestamp": 1755107028.5553763,
       "data_type": "sector"
     },
     "sector_UPST": {
@@ -357,7 +357,7 @@
         "sector": "Finance",
         "isleverage": false
       },
-      "timestamp": 1755104982.47758,
+      "timestamp": 1755107028.559481,
       "data_type": "sector"
     },
     "sector_SOFX": {
@@ -365,7 +365,7 @@
         "sector": "Finance",
         "isleverage": true
       },
-      "timestamp": 1755104982.4794483,
+      "timestamp": 1755107028.563151,
       "data_type": "sector"
     },
     "sector_ROBN": {
@@ -373,7 +373,7 @@
         "sector": "Finance",
         "isleverage": true
       },
-      "timestamp": 1755104982.4812772,
+      "timestamp": 1755107028.566637,
       "data_type": "sector"
     },
     "sector_HOOX": {
@@ -381,7 +381,7 @@
         "sector": "Finance",
         "isleverage": true
       },
-      "timestamp": 1755104982.4832242,
+      "timestamp": 1755107028.569841,
       "data_type": "sector"
     },
     "sector_UPSX": {
@@ -389,7 +389,7 @@
         "sector": "Finance",
         "isleverage": true
       },
-      "timestamp": 1755104982.4851475,
+      "timestamp": 1755107028.574018,
       "data_type": "sector"
     },
     "sector_PLTR": {
@@ -397,7 +397,7 @@
         "sector": "AI Service",
         "isleverage": false
       },
-      "timestamp": 1755104982.487037,
+      "timestamp": 1755107028.5773273,
       "data_type": "sector"
     },
     "sector_SOUN": {
@@ -405,7 +405,7 @@
         "sector": "AI Service",
         "isleverage": false
       },
-      "timestamp": 1755104982.489693,
+      "timestamp": 1755107028.58139,
       "data_type": "sector"
     },
     "sector_VRTL": {
@@ -413,7 +413,7 @@
         "sector": "AI Service",
         "isleverage": false
       },
-      "timestamp": 1755104982.4918303,
+      "timestamp": 1755107028.5848117,
       "data_type": "sector"
     },
     "sector_BBAI": {
@@ -421,7 +421,7 @@
         "sector": "AI Service",
         "isleverage": false
       },
-      "timestamp": 1755104982.4937227,
+      "timestamp": 1755107028.5886667,
       "data_type": "sector"
     },
     "sector_CRWV": {
@@ -429,7 +429,7 @@
         "sector": "AI Service",
         "isleverage": false
       },
-      "timestamp": 1755104982.49558,
+      "timestamp": 1755107028.591979,
       "data_type": "sector"
     },
     "sector_GRRR": {
@@ -437,7 +437,7 @@
         "sector": "AI Service",
         "isleverage": false
       },
-      "timestamp": 1755104982.4974434,
+      "timestamp": 1755107028.5956812,
       "data_type": "sector"
     },
     "sector_AI": {
@@ -445,7 +445,7 @@
         "sector": "AI Service",
         "isleverage": false
       },
-      "timestamp": 1755104982.4993405,
+      "timestamp": 1755107028.598849,
       "data_type": "sector"
     },
     "sector_NBIS": {
@@ -453,7 +453,7 @@
         "sector": "AI Service",
         "isleverage": false
       },
-      "timestamp": 1755104982.501208,
+      "timestamp": 1755107028.6020117,
       "data_type": "sector"
     },
     "sector_PLTU": {
@@ -461,7 +461,7 @@
         "sector": "AI Service",
         "isleverage": true
       },
-      "timestamp": 1755104982.503136,
+      "timestamp": 1755107028.6053457,
       "data_type": "sector"
     },
     "sector_SOUX": {
@@ -469,7 +469,7 @@
         "sector": "AI Service",
         "isleverage": true
       },
-      "timestamp": 1755104982.5059378,
+      "timestamp": 1755107028.6084828,
       "data_type": "sector"
     },
     "sector_META": {
@@ -477,7 +477,7 @@
         "sector": "Mega Stocks",
         "isleverage": false
       },
-      "timestamp": 1755104982.5083456,
+      "timestamp": 1755107028.611674,
       "data_type": "sector"
     },
     "sector_AMZN": {
@@ -485,7 +485,7 @@
         "sector": "Mega Stocks",
         "isleverage": false
       },
-      "timestamp": 1755104982.5105183,
+      "timestamp": 1755107028.614809,
       "data_type": "sector"
     },
     "sector_TSLA": {
@@ -493,7 +493,7 @@
         "sector": "Mega Stocks",
         "isleverage": false
       },
-      "timestamp": 1755104982.512501,
+      "timestamp": 1755107028.61797,
       "data_type": "sector"
     },
     "sector_METU": {
@@ -501,7 +501,7 @@
         "sector": "Mega Stocks",
         "isleverage": true
       },
-      "timestamp": 1755104982.514484,
+      "timestamp": 1755107028.6219518,
       "data_type": "sector"
     },
     "sector_AMZU": {
@@ -509,7 +509,7 @@
         "sector": "Mega Stocks",
         "isleverage": true
       },
-      "timestamp": 1755104982.51651,
+      "timestamp": 1755107028.6259475,
       "data_type": "sector"
     },
     "sector_TSLL": {
@@ -517,7 +517,7 @@
         "sector": "Mega Stocks",
         "isleverage": true
       },
-      "timestamp": 1755104982.5184112,
+      "timestamp": 1755107028.6298728,
       "data_type": "sector"
     },
     "sector_NVDL": {
@@ -525,7 +525,7 @@
         "sector": "Mega Stocks",
         "isleverage": true
       },
-      "timestamp": 1755104982.5211728,
+      "timestamp": 1755107028.6337762,
       "data_type": "sector"
     },
     "sector_NFXL": {
@@ -533,7 +533,7 @@
         "sector": "Mega Stocks",
         "isleverage": true
       },
-      "timestamp": 1755104982.5236793,
+      "timestamp": 1755107028.63731,
       "data_type": "sector"
     },
     "sector_AAPU": {
@@ -541,7 +541,7 @@
         "sector": "Mega Stocks",
         "isleverage": true
       },
-      "timestamp": 1755104982.5260985,
+      "timestamp": 1755107028.640476,
       "data_type": "sector"
     },
     "sector_GGLL": {
@@ -549,7 +549,7 @@
         "sector": "Mega Stocks",
         "isleverage": true
       },
-      "timestamp": 1755104982.5282404,
+      "timestamp": 1755107028.6436176,
       "data_type": "sector"
     },
     "sector_MSFU": {
@@ -557,7 +557,7 @@
         "sector": "Mega Stocks",
         "isleverage": true
       },
-      "timestamp": 1755104982.5303564,
+      "timestamp": 1755107028.6467295,
       "data_type": "sector"
     },
     "sector_TQQQ": {
@@ -565,7 +565,7 @@
         "sector": "Mega Stocks",
         "isleverage": true
       },
-      "timestamp": 1755104982.532268,
+      "timestamp": 1755107028.6498318,
       "data_type": "sector"
     },
     "sector_OKLO": {
@@ -573,7 +573,7 @@
         "sector": "Energy",
         "isleverage": false
       },
-      "timestamp": 1755104982.534241,
+      "timestamp": 1755107028.654448,
       "data_type": "sector"
     },
     "sector_NNE": {
@@ -581,7 +581,7 @@
         "sector": "Energy",
         "isleverage": false
       },
-      "timestamp": 1755104982.5363805,
+      "timestamp": 1755107028.6586628,
       "data_type": "sector"
     },
     "sector_SMR": {
@@ -589,7 +589,7 @@
         "sector": "Energy",
         "isleverage": false
       },
-      "timestamp": 1755104982.538313,
+      "timestamp": 1755107028.662955,
       "data_type": "sector"
     },
     "sector_UUUU": {
@@ -597,7 +597,7 @@
         "sector": "Energy",
         "isleverage": false
       },
-      "timestamp": 1755104982.5407782,
+      "timestamp": 1755107028.6672556,
       "data_type": "sector"
     },
     "sector_NXE": {
@@ -605,7 +605,7 @@
         "sector": "Energy",
         "isleverage": false
       },
-      "timestamp": 1755104982.542656,
+      "timestamp": 1755107028.671092,
       "data_type": "sector"
     },
     "sector_OKLL": {
@@ -613,7 +613,7 @@
         "sector": "Energy",
         "isleverage": true
       },
-      "timestamp": 1755104982.5445626,
+      "timestamp": 1755107028.6754847,
       "data_type": "sector"
     },
     "sector_HIMS": {
@@ -621,7 +621,7 @@
         "sector": "Healthcare",
         "isleverage": false
       },
-      "timestamp": 1755104982.5465326,
+      "timestamp": 1755107028.6794622,
       "data_type": "sector"
     },
     "sector_TEM": {
@@ -629,7 +629,7 @@
         "sector": "Healthcare",
         "isleverage": false
       },
-      "timestamp": 1755104982.5484602,
+      "timestamp": 1755107028.6839418,
       "data_type": "sector"
     },
     "sector_NVO": {
@@ -637,7 +637,7 @@
         "sector": "Healthcare",
         "isleverage": false
       },
-      "timestamp": 1755104982.550439,
+      "timestamp": 1755107028.6881251,
       "data_type": "sector"
     },
     "sector_HIMZ": {
@@ -645,7 +645,7 @@
         "sector": "Healthcare",
         "isleverage": true
       },
-      "timestamp": 1755104982.5524397,
+      "timestamp": 1755107028.6926887,
       "data_type": "sector"
     },
     "sector_TEMT": {
@@ -653,7 +653,7 @@
         "sector": "Healthcare",
         "isleverage": true
       },
-      "timestamp": 1755104982.554721,
+      "timestamp": 1755107028.6967142,
       "data_type": "sector"
     },
     "sector_NVOX": {
@@ -661,7 +661,7 @@
         "sector": "Healthcare",
         "isleverage": true
       },
-      "timestamp": 1755104982.55712,
+      "timestamp": 1755107028.7012205,
       "data_type": "sector"
     },
     "sector_RDTL": {
@@ -669,7 +669,7 @@
         "sector": "Others",
         "isleverage": false
       },
-      "timestamp": 1755104982.5591805,
+      "timestamp": 1755107028.7063613,
       "data_type": "sector"
     },
     "sector_APPS": {
@@ -677,7 +677,7 @@
         "sector": "Others",
         "isleverage": false
       },
-      "timestamp": 1755104982.5611823,
+      "timestamp": 1755107028.7095325,
       "data_type": "sector"
     },
     "sector_RBLU": {
@@ -685,7 +685,7 @@
         "sector": "Others",
         "isleverage": false
       },
-      "timestamp": 1755104982.5631886,
+      "timestamp": 1755107028.7127075,
       "data_type": "sector"
     },
     "sector_CVNX": {
@@ -693,7 +693,7 @@
         "sector": "Others",
         "isleverage": false
       },
-      "timestamp": 1755104982.5651233,
+      "timestamp": 1755107028.7168717,
       "data_type": "sector"
     },
     "sector_SERV": {
@@ -701,7 +701,7 @@
         "sector": "Others",
         "isleverage": false
       },
-      "timestamp": 1755104982.5669801,
+      "timestamp": 1755107028.7216887,
       "data_type": "sector"
     },
     "sector_ARQQ": {
@@ -709,7 +709,7 @@
         "sector": "Quantum",
         "isleverage": false
       },
-      "timestamp": 1755104982.5690336,
+      "timestamp": 1755107028.7258446,
       "data_type": "sector"
     },
     "sector_IONQ": {
@@ -717,7 +717,7 @@
         "sector": "Quantum",
         "isleverage": false
       },
-      "timestamp": 1755104982.5709515,
+      "timestamp": 1755107028.729734,
       "data_type": "sector"
     },
     "sector_AIRE": {
@@ -725,7 +725,7 @@
         "sector": "Real Estate",
         "isleverage": false
       },
-      "timestamp": 1755104982.573216,
+      "timestamp": 1755107028.734224,
       "data_type": "sector"
     },
     "sector_APLD": {
@@ -733,7 +733,7 @@
         "sector": "AI Service",
         "isleverage": false
       },
-      "timestamp": 1755104982.5752337,
+      "timestamp": 1755107028.738971,
       "data_type": "sector"
     },
     "sector_SOFI": {
@@ -741,7 +741,7 @@
         "sector": "Finance",
         "isleverage": false
       },
-      "timestamp": 1755104982.5772526,
+      "timestamp": 1755107028.7436056,
       "data_type": "sector"
     },
     "sector_NFLX": {
@@ -749,7 +749,7 @@
         "sector": "Mega Stocks",
         "isleverage": false
       },
-      "timestamp": 1755104982.5793839,
+      "timestamp": 1755107028.7474573,
       "data_type": "sector"
     },
     "sector_AAPL": {
@@ -757,7 +757,7 @@
         "sector": "Mega Stocks",
         "isleverage": false
       },
-      "timestamp": 1755104982.581418,
+      "timestamp": 1755107028.7514467,
       "data_type": "sector"
     },
     "sector_GOOG": {
@@ -765,7 +765,7 @@
         "sector": "Mega Stocks",
         "isleverage": false
       },
-      "timestamp": 1755104982.5833712,
+      "timestamp": 1755107028.7562118,
       "data_type": "sector"
     },
     "sector_NVDA": {
@@ -773,7 +773,7 @@
         "sector": "Mega Stocks",
         "isleverage": false
       },
-      "timestamp": 1755104982.5858107,
+      "timestamp": 1755107028.7600734,
       "data_type": "sector"
     },
     "sector_MSFT": {
@@ -781,7 +781,7 @@
         "sector": "Mega Stocks",
         "isleverage": false
       },
-      "timestamp": 1755104982.5878954,
+      "timestamp": 1755107028.7632987,
       "data_type": "sector"
     },
     "sector_QQQ": {
@@ -789,7 +789,7 @@
         "sector": "Mega Stocks",
         "isleverage": false
       },
-      "timestamp": 1755104982.5902476,
+      "timestamp": 1755107028.7664256,
       "data_type": "sector"
     },
     "sector_SMU": {
@@ -797,511 +797,511 @@
         "sector": "Energy",
         "isleverage": true
       },
-      "timestamp": 1755104982.5921752,
+      "timestamp": 1755107028.7695255,
       "data_type": "sector"
     }
   },
   "metadata": {
     "sector_MRVL": {
-      "created_at": 1755104982.3807592,
+      "created_at": 1755107028.3953311,
       "data_type": "sector",
       "size": 48
     },
     "sector_ARM": {
-      "created_at": 1755104982.38271,
+      "created_at": 1755107028.3985717,
       "data_type": "sector",
       "size": 48
     },
     "sector_SNPS": {
-      "created_at": 1755104982.3845937,
+      "created_at": 1755107028.401768,
       "data_type": "sector",
       "size": 48
     },
     "sector_NXPI": {
-      "created_at": 1755104982.3864033,
+      "created_at": 1755107028.4050827,
       "data_type": "sector",
       "size": 48
     },
     "sector_CDNS": {
-      "created_at": 1755104982.3892643,
+      "created_at": 1755107028.4085968,
       "data_type": "sector",
       "size": 48
     },
     "sector_SMTC": {
-      "created_at": 1755104982.39175,
+      "created_at": 1755107028.4120142,
       "data_type": "sector",
       "size": 48
     },
     "sector_NVTS": {
-      "created_at": 1755104982.3950207,
+      "created_at": 1755107028.4161596,
       "data_type": "sector",
       "size": 48
     },
     "sector_SMCX": {
-      "created_at": 1755104982.397295,
+      "created_at": 1755107028.420413,
       "data_type": "sector",
       "size": 47
     },
     "sector_AMDL": {
-      "created_at": 1755104982.3997226,
+      "created_at": 1755107028.4246352,
       "data_type": "sector",
       "size": 47
     },
     "sector_MVLL": {
-      "created_at": 1755104982.402137,
+      "created_at": 1755107028.4286685,
       "data_type": "sector",
       "size": 47
     },
     "sector_ARMU": {
-      "created_at": 1755104982.4044125,
+      "created_at": 1755107028.4325197,
       "data_type": "sector",
       "size": 47
     },
     "sector_NAIL": {
-      "created_at": 1755104982.4083729,
+      "created_at": 1755107028.4363081,
       "data_type": "sector",
       "size": 46
     },
     "sector_OPEN": {
-      "created_at": 1755104982.4111362,
+      "created_at": 1755107028.4406536,
       "data_type": "sector",
       "size": 46
     },
     "sector_FNMA": {
-      "created_at": 1755104982.4133487,
+      "created_at": 1755107028.4448826,
       "data_type": "sector",
       "size": 46
     },
     "sector_FMCC": {
-      "created_at": 1755104982.4153097,
+      "created_at": 1755107028.4488695,
       "data_type": "sector",
       "size": 46
     },
     "sector_RKT": {
-      "created_at": 1755104982.4173486,
+      "created_at": 1755107028.4526238,
       "data_type": "sector",
       "size": 46
     },
     "sector_COIN": {
-      "created_at": 1755104982.4193437,
+      "created_at": 1755107028.4562314,
       "data_type": "sector",
       "size": 41
     },
     "sector_MARA": {
-      "created_at": 1755104982.4212604,
+      "created_at": 1755107028.4595432,
       "data_type": "sector",
       "size": 41
     },
     "sector_RIOT": {
-      "created_at": 1755104982.4243228,
+      "created_at": 1755107028.4629278,
       "data_type": "sector",
       "size": 41
     },
     "sector_SOL-USD": {
-      "created_at": 1755104982.4264674,
+      "created_at": 1755107028.4660802,
       "data_type": "sector",
       "size": 41
     },
     "sector_BTC-USD": {
-      "created_at": 1755104982.4284701,
+      "created_at": 1755107028.469354,
       "data_type": "sector",
       "size": 41
     },
     "sector_ETH-USD": {
-      "created_at": 1755104982.430406,
+      "created_at": 1755107028.473191,
       "data_type": "sector",
       "size": 41
     },
     "sector_CRCL": {
-      "created_at": 1755104982.4323132,
+      "created_at": 1755107028.4770124,
       "data_type": "sector",
       "size": 41
     },
     "sector_CONL": {
-      "created_at": 1755104982.4341955,
+      "created_at": 1755107028.4802418,
       "data_type": "sector",
       "size": 40
     },
     "sector_COIG": {
-      "created_at": 1755104982.43604,
+      "created_at": 1755107028.4834251,
       "data_type": "sector",
       "size": 40
     },
     "sector_MRAL": {
-      "created_at": 1755104982.438077,
+      "created_at": 1755107028.486578,
       "data_type": "sector",
       "size": 40
     },
     "sector_RIOX": {
-      "created_at": 1755104982.440806,
+      "created_at": 1755107028.4899633,
       "data_type": "sector",
       "size": 40
     },
     "sector_MSTX": {
-      "created_at": 1755104982.4427738,
+      "created_at": 1755107028.4940627,
       "data_type": "sector",
       "size": 40
     },
     "sector_SOLT": {
-      "created_at": 1755104982.4447181,
+      "created_at": 1755107028.4975483,
       "data_type": "sector",
       "size": 40
     },
     "sector_BITU": {
-      "created_at": 1755104982.4466379,
+      "created_at": 1755107028.5006819,
       "data_type": "sector",
       "size": 40
     },
     "sector_ETHU": {
-      "created_at": 1755104982.4485364,
+      "created_at": 1755107028.5038202,
       "data_type": "sector",
       "size": 40
     },
     "sector_SNOW": {
-      "created_at": 1755104982.4504437,
+      "created_at": 1755107028.5085807,
       "data_type": "sector",
       "size": 60
     },
     "sector_PANW": {
-      "created_at": 1755104982.4522672,
+      "created_at": 1755107028.512792,
       "data_type": "sector",
       "size": 60
     },
     "sector_CRWD": {
-      "created_at": 1755104982.454175,
+      "created_at": 1755107028.5160208,
       "data_type": "sector",
       "size": 60
     },
     "sector_CRM": {
-      "created_at": 1755104982.4568002,
+      "created_at": 1755107028.519548,
       "data_type": "sector",
       "size": 60
     },
     "sector_MDB": {
-      "created_at": 1755104982.4587662,
+      "created_at": 1755107028.524415,
       "data_type": "sector",
       "size": 60
     },
     "sector_FTNT": {
-      "created_at": 1755104982.4606924,
+      "created_at": 1755107028.528995,
       "data_type": "sector",
       "size": 60
     },
     "sector_ZS": {
-      "created_at": 1755104982.4626048,
+      "created_at": 1755107028.5328357,
       "data_type": "sector",
       "size": 60
     },
     "sector_OKTA": {
-      "created_at": 1755104982.4644983,
+      "created_at": 1755107028.5360196,
       "data_type": "sector",
       "size": 60
     },
     "sector_SNOU": {
-      "created_at": 1755104982.466357,
+      "created_at": 1755107028.5392425,
       "data_type": "sector",
       "size": 59
     },
     "sector_PANG": {
-      "created_at": 1755104982.468218,
+      "created_at": 1755107028.5424495,
       "data_type": "sector",
       "size": 59
     },
     "sector_CRWL": {
-      "created_at": 1755104982.4701047,
+      "created_at": 1755107028.5456607,
       "data_type": "sector",
       "size": 59
     },
     "sector_CRMG": {
-      "created_at": 1755104982.4728997,
+      "created_at": 1755107028.5505514,
       "data_type": "sector",
       "size": 59
     },
     "sector_HOOD": {
-      "created_at": 1755104982.475606,
+      "created_at": 1755107028.5553777,
       "data_type": "sector",
       "size": 42
     },
     "sector_UPST": {
-      "created_at": 1755104982.4775805,
+      "created_at": 1755107028.559482,
       "data_type": "sector",
       "size": 42
     },
     "sector_SOFX": {
-      "created_at": 1755104982.4794488,
+      "created_at": 1755107028.563152,
       "data_type": "sector",
       "size": 41
     },
     "sector_ROBN": {
-      "created_at": 1755104982.4812777,
+      "created_at": 1755107028.5666378,
       "data_type": "sector",
       "size": 41
     },
     "sector_HOOX": {
-      "created_at": 1755104982.4832246,
+      "created_at": 1755107028.5698419,
       "data_type": "sector",
       "size": 41
     },
     "sector_UPSX": {
-      "created_at": 1755104982.485148,
+      "created_at": 1755107028.5740194,
       "data_type": "sector",
       "size": 41
     },
     "sector_PLTR": {
-      "created_at": 1755104982.4870374,
+      "created_at": 1755107028.5773284,
       "data_type": "sector",
       "size": 45
     },
     "sector_SOUN": {
-      "created_at": 1755104982.4896936,
+      "created_at": 1755107028.5813909,
       "data_type": "sector",
       "size": 45
     },
     "sector_VRTL": {
-      "created_at": 1755104982.4918308,
+      "created_at": 1755107028.5848126,
       "data_type": "sector",
       "size": 45
     },
     "sector_BBAI": {
-      "created_at": 1755104982.4937232,
+      "created_at": 1755107028.5886679,
       "data_type": "sector",
       "size": 45
     },
     "sector_CRWV": {
-      "created_at": 1755104982.4955804,
+      "created_at": 1755107028.59198,
       "data_type": "sector",
       "size": 45
     },
     "sector_GRRR": {
-      "created_at": 1755104982.497444,
+      "created_at": 1755107028.5956821,
       "data_type": "sector",
       "size": 45
     },
     "sector_AI": {
-      "created_at": 1755104982.499341,
+      "created_at": 1755107028.5988498,
       "data_type": "sector",
       "size": 45
     },
     "sector_NBIS": {
-      "created_at": 1755104982.5012085,
+      "created_at": 1755107028.6020126,
       "data_type": "sector",
       "size": 45
     },
     "sector_PLTU": {
-      "created_at": 1755104982.5031364,
+      "created_at": 1755107028.605347,
       "data_type": "sector",
       "size": 44
     },
     "sector_SOUX": {
-      "created_at": 1755104982.5059385,
+      "created_at": 1755107028.6084838,
       "data_type": "sector",
       "size": 44
     },
     "sector_META": {
-      "created_at": 1755104982.5083463,
+      "created_at": 1755107028.6116748,
       "data_type": "sector",
       "size": 46
     },
     "sector_AMZN": {
-      "created_at": 1755104982.5105188,
+      "created_at": 1755107028.6148105,
       "data_type": "sector",
       "size": 46
     },
     "sector_TSLA": {
-      "created_at": 1755104982.5125017,
+      "created_at": 1755107028.6179712,
       "data_type": "sector",
       "size": 46
     },
     "sector_METU": {
-      "created_at": 1755104982.5144844,
+      "created_at": 1755107028.621953,
       "data_type": "sector",
       "size": 45
     },
     "sector_AMZU": {
-      "created_at": 1755104982.5165107,
+      "created_at": 1755107028.6259487,
       "data_type": "sector",
       "size": 45
     },
     "sector_TSLL": {
-      "created_at": 1755104982.5184119,
+      "created_at": 1755107028.6298742,
       "data_type": "sector",
       "size": 45
     },
     "sector_NVDL": {
-      "created_at": 1755104982.5211735,
+      "created_at": 1755107028.6337771,
       "data_type": "sector",
       "size": 45
     },
     "sector_NFXL": {
-      "created_at": 1755104982.52368,
+      "created_at": 1755107028.637311,
       "data_type": "sector",
       "size": 45
     },
     "sector_AAPU": {
-      "created_at": 1755104982.5260992,
+      "created_at": 1755107028.6404767,
       "data_type": "sector",
       "size": 45
     },
     "sector_GGLL": {
-      "created_at": 1755104982.528241,
+      "created_at": 1755107028.6436186,
       "data_type": "sector",
       "size": 45
     },
     "sector_MSFU": {
-      "created_at": 1755104982.5303576,
+      "created_at": 1755107028.6467302,
       "data_type": "sector",
       "size": 45
     },
     "sector_TQQQ": {
-      "created_at": 1755104982.5322688,
+      "created_at": 1755107028.6498327,
       "data_type": "sector",
       "size": 45
     },
     "sector_OKLO": {
-      "created_at": 1755104982.5342414,
+      "created_at": 1755107028.6544495,
       "data_type": "sector",
       "size": 41
     },
     "sector_NNE": {
-      "created_at": 1755104982.536381,
+      "created_at": 1755107028.6586642,
       "data_type": "sector",
       "size": 41
     },
     "sector_SMR": {
-      "created_at": 1755104982.5383134,
+      "created_at": 1755107028.6629562,
       "data_type": "sector",
       "size": 41
     },
     "sector_UUUU": {
-      "created_at": 1755104982.540779,
+      "created_at": 1755107028.667257,
       "data_type": "sector",
       "size": 41
     },
     "sector_NXE": {
-      "created_at": 1755104982.5426567,
+      "created_at": 1755107028.671093,
       "data_type": "sector",
       "size": 41
     },
     "sector_OKLL": {
-      "created_at": 1755104982.5445633,
+      "created_at": 1755107028.6754863,
       "data_type": "sector",
       "size": 40
     },
     "sector_HIMS": {
-      "created_at": 1755104982.546533,
+      "created_at": 1755107028.6794634,
       "data_type": "sector",
       "size": 45
     },
     "sector_TEM": {
-      "created_at": 1755104982.5484607,
+      "created_at": 1755107028.6839435,
       "data_type": "sector",
       "size": 45
     },
     "sector_NVO": {
-      "created_at": 1755104982.5504396,
+      "created_at": 1755107028.6881263,
       "data_type": "sector",
       "size": 45
     },
     "sector_HIMZ": {
-      "created_at": 1755104982.5524404,
+      "created_at": 1755107028.69269,
       "data_type": "sector",
       "size": 44
     },
     "sector_TEMT": {
-      "created_at": 1755104982.5547216,
+      "created_at": 1755107028.6967156,
       "data_type": "sector",
       "size": 44
     },
     "sector_NVOX": {
-      "created_at": 1755104982.5571208,
+      "created_at": 1755107028.7012222,
       "data_type": "sector",
       "size": 44
     },
     "sector_RDTL": {
-      "created_at": 1755104982.5591812,
+      "created_at": 1755107028.7063625,
       "data_type": "sector",
       "size": 41
     },
     "sector_APPS": {
-      "created_at": 1755104982.5611827,
+      "created_at": 1755107028.7095335,
       "data_type": "sector",
       "size": 41
     },
     "sector_RBLU": {
-      "created_at": 1755104982.5631893,
+      "created_at": 1755107028.712709,
       "data_type": "sector",
       "size": 41
     },
     "sector_CVNX": {
-      "created_at": 1755104982.5651238,
+      "created_at": 1755107028.7168758,
       "data_type": "sector",
       "size": 41
     },
     "sector_SERV": {
-      "created_at": 1755104982.5669806,
+      "created_at": 1755107028.7216904,
       "data_type": "sector",
       "size": 41
     },
     "sector_ARQQ": {
-      "created_at": 1755104982.5690343,
+      "created_at": 1755107028.725846,
       "data_type": "sector",
       "size": 42
     },
     "sector_IONQ": {
-      "created_at": 1755104982.5709522,
+      "created_at": 1755107028.729735,
       "data_type": "sector",
       "size": 42
     },
     "sector_AIRE": {
-      "created_at": 1755104982.5732167,
+      "created_at": 1755107028.7342257,
       "data_type": "sector",
       "size": 46
     },
     "sector_APLD": {
-      "created_at": 1755104982.5752344,
+      "created_at": 1755107028.7389722,
       "data_type": "sector",
       "size": 45
     },
     "sector_SOFI": {
-      "created_at": 1755104982.577253,
+      "created_at": 1755107028.743607,
       "data_type": "sector",
       "size": 42
     },
     "sector_NFLX": {
-      "created_at": 1755104982.5793843,
+      "created_at": 1755107028.747459,
       "data_type": "sector",
       "size": 46
     },
     "sector_AAPL": {
-      "created_at": 1755104982.5814188,
+      "created_at": 1755107028.7514484,
       "data_type": "sector",
       "size": 46
     },
     "sector_GOOG": {
-      "created_at": 1755104982.5833719,
+      "created_at": 1755107028.756213,
       "data_type": "sector",
       "size": 46
     },
     "sector_NVDA": {
-      "created_at": 1755104982.5858111,
+      "created_at": 1755107028.7600749,
       "data_type": "sector",
       "size": 46
     },
     "sector_MSFT": {
-      "created_at": 1755104982.587896,
+      "created_at": 1755107028.7632995,
       "data_type": "sector",
       "size": 46
     },
     "sector_QQQ": {
-      "created_at": 1755104982.590248,
+      "created_at": 1755107028.7664263,
       "data_type": "sector",
       "size": 46
     },
     "sector_SMU": {
-      "created_at": 1755104982.5921762,
+      "created_at": 1755107028.7695265,
       "data_type": "sector",
       "size": 40
     }
   },
-  "last_updated": "2025-08-13T10:09:42.592179"
+  "last_updated": "2025-08-13T10:43:48.769531"
 }

@@ -13,6 +13,8 @@ from utils import load_stocks, fmt_currency, fmt_percent, convert_ui_date_to_iso
 # import concurrent.futures  # Not needed - using batch processing
 from typing import List, Dict, Any, Tuple
 import time
+import json
+import os
 # from api_rate_limiter import safe_yfinance_call  # Not needed - using proxy system
 from yahoo_finance_proxy import get_batch_ticker_info
 import math
@@ -21,6 +23,11 @@ import math
 _summary_cache = {}
 _summary_cache_ttl = 300  # 5 minutes cache TTL
 _max_summary_cache_size = 500  # Maximum number of cached items
+
+# Today filter cache - 1 minute TTL
+_today_cache = {}
+_today_cache_ttl = 60  # 1 minute cache TTL
+_today_cache_file = "today_filter_cache.json"
 
 def cleanup_summary_cache():
     """Clean up expired cache entries and limit cache size"""
@@ -41,9 +48,57 @@ def cleanup_summary_cache():
         sorted_items = sorted(_summary_cache.items(), key=lambda x: x[1][1])
         items_to_remove = len(_summary_cache) - _max_summary_cache_size
         for i in range(items_to_remove):
-            del _summary_cache[sorted_items[i][0]]
+            del _summary_cache[sorted_items[i]]
     
     logging.info(f"Summary cache cleanup: {len(expired_keys)} expired entries removed, cache size: {len(_summary_cache)}")
+
+def cleanup_today_cache():
+    """Clean up expired today filter cache entries"""
+    global _today_cache
+    current_time = time.time()
+    
+    # Remove expired entries
+    expired_keys = [
+        key for key, (_, timestamp) in _today_cache.items() 
+        if current_time - timestamp > _today_cache_ttl
+    ]
+    for key in expired_keys:
+        del _today_cache[key]
+    
+    logging.info(f"Today filter cache cleanup: {len(expired_keys)} expired entries removed, cache size: {len(_today_cache)}")
+
+def get_today_cache_key(sectors_param: str, isleverage_param: bool) -> str:
+    """Generate cache key for today filter data"""
+    sectors_str = sectors_param if sectors_param else "all_sectors"
+    leverage_str = str(isleverage_param) if isleverage_param is not None else "all_leverage"
+    return f"today_{sectors_str}_{leverage_str}"
+
+def is_today_cache_valid(cache_key: str) -> bool:
+    """Check if today filter cache is still valid (within 1 minute)"""
+    global _today_cache
+    cleanup_today_cache()  # Clean up expired entries first
+    
+    if cache_key not in _today_cache:
+        return False
+    
+    _, timestamp = _today_cache[cache_key]
+    current_time = time.time()
+    return (current_time - timestamp) <= _today_cache_ttl
+
+def get_today_cached_data(cache_key: str) -> List[Dict]:
+    """Get cached today filter data if available and valid"""
+    if is_today_cache_valid(cache_key):
+        data, _ = _today_cache[cache_key]
+        logging.info(f"Returning cached today filter data for key: {cache_key}")
+        return data
+    return None
+
+def cache_today_data(cache_key: str, data: List[Dict]):
+    """Cache today filter data with current timestamp"""
+    global _today_cache
+    current_time = time.time()
+    _today_cache[cache_key] = (data, current_time)
+    logging.info(f"Cached today filter data for key: {cache_key}")
 
 def get_batch_stock_data_based_on_dates(stocks: List[Dict], date_from_iso: str, date_to_iso: str) -> Dict[str, Dict]:
     """
@@ -396,20 +451,31 @@ def get_stock_summary_optimized(sectors_param, isleverage_param, date_from_param
 def get_stock_summary_today(sectors_param, isleverage_param):
     """
     Get today's stock summary using Finviz API for real-time data.
+    Implements 1-minute caching to minimize API calls.
     
     Args:
         sectors_param: Comma-separated string of sectors to filter by
         isleverage_param: Boolean to filter leveraged stocks
     
     Returns:
-        Dictionary with stock summary data grouped by sectors
+        List of sector groups with stock summary data
     """
     try:
         from stock_history_operations import stock_history_ops
         import logging
         
         logger = logging.getLogger(__name__)
-        logger.info("Fetching today's stock summary using Finviz API")
+        
+        # Generate cache key for this request
+        cache_key = get_today_cache_key(sectors_param, isleverage_param)
+        
+        # Check if we have valid cached data
+        cached_data = get_today_cached_data(cache_key)
+        if cached_data is not None:
+            logger.info(f"Returning cached today filter data for key: {cache_key}")
+            return cached_data
+        
+        logger.info("Cache expired or missing, fetching fresh today's stock summary using Finviz API")
         
         # Get all stocks from stocks.json
         stocks_data = load_stocks()
@@ -470,6 +536,7 @@ def get_stock_summary_today(sectors_param, isleverage_param):
             
             # Create stock summary entry with proper structure for frontend (matching 1D,1W,1M format)
             # Use specific Finviz columns: 1=Ticker, 81=Prev Close, 86=Open, 65=Price, 66=Change
+            # For Today filter: startDateClosePrice = Prev Close, endDateClosePrice = Open
             current_price = finviz_stock_data.get('Price', 'N/A')  # Column 65
             prev_close = finviz_stock_data.get('Prev Close', 'N/A')  # Column 81
             open_price = finviz_stock_data.get('Open', 'N/A')  # Column 86
@@ -508,8 +575,8 @@ def get_stock_summary_today(sectors_param, isleverage_param):
                 'companyName': stock.get('company_name', 'N/A'),  # Use company_name from stock.json
                 'sector': sector,
                 'currentPrice': format_price(current_price),  # Current price (Price column)
-                'startDateClosePrice': format_price(open_price),  # Start price (Open column)
-                'endDateClosePrice': format_price(current_price),  # End price (Price column)
+                'startDateClosePrice': format_price(prev_close),  # Prev Close Price (Prev Close column 81)
+                'endDateClosePrice': format_price(open_price),  # Open Price (Open column 86)
                 'percentageChange': format_percentage(change_percent),  # Percentage change (Change column)
                 'volume': 'N/A',  # Not available in selected columns
                 'marketCap': 'N/A',  # Not available in selected columns
@@ -582,11 +649,102 @@ def get_stock_summary_today(sectors_param, isleverage_param):
         # Backend was returning: {'Energy': {'sector': 'Energy', 'averagePercentage': '-2.81%', 'stocks': [...]}}
         formatted_list = list(formatted_sector_groups.values())
         
+        # Cache the fresh data for 1 minute
+        cache_today_data(cache_key, formatted_list)
+        logger.info(f"Cached fresh today filter data for key: {cache_key}")
+        
         return formatted_list
         
     except Exception as e:
         logger.error(f"Error in get_stock_summary_today: {str(e)}")
         return {}
+
+def get_today_cache_status():
+    """
+    Get the current status of the Today filter cache
+    
+    Returns:
+        Dictionary with cache status information
+    """
+    global _today_cache
+    cleanup_today_cache()  # Clean up expired entries first
+    
+    current_time = time.time()
+    cache_info = {
+        'cache_size': len(_today_cache),
+        'cache_ttl_seconds': _today_cache_ttl,
+        'cache_ttl_minutes': _today_cache_ttl / 60,
+        'entries': []
+    }
+    
+    for cache_key, (data, timestamp) in _today_cache.items():
+        age_seconds = current_time - timestamp
+        age_minutes = age_seconds / 60
+        remaining_seconds = _today_cache_ttl - age_seconds
+        remaining_minutes = remaining_seconds / 60
+        
+        entry_info = {
+            'key': cache_key,
+            'age_seconds': round(age_seconds, 2),
+            'age_minutes': round(age_minutes, 2),
+            'remaining_seconds': round(remaining_seconds, 2),
+            'remaining_minutes': round(remaining_minutes, 2),
+            'is_valid': remaining_seconds > 0,
+            'data_count': len(data) if data else 0
+        }
+        cache_info['entries'].append(entry_info)
+    
+    return cache_info
+
+def clear_today_cache():
+    """
+    Clear all Today filter cache entries
+    
+    Returns:
+        Dictionary with operation result
+    """
+    global _today_cache
+    cache_size = len(_today_cache)
+    _today_cache.clear()
+    
+    logging.info(f"Cleared Today filter cache with {cache_size} entries")
+    return {
+        'message': f'Today filter cache cleared successfully',
+        'cleared_entries': cache_size,
+        'current_cache_size': 0
+    }
+
+def refresh_today_cache(sectors_param: str = "", isleverage_param: bool = None):
+    """
+    Force refresh of Today filter cache by clearing existing cache and fetching fresh data
+    
+    Args:
+        sectors_param: Comma-separated string of sectors to filter by
+        isleverage_param: Boolean to filter leveraged stocks
+    
+    Returns:
+        Dictionary with operation result
+    """
+    try:
+        # Clear existing cache
+        clear_result = clear_today_cache()
+        
+        # Fetch fresh data (this will automatically cache it)
+        fresh_data = get_stock_summary_today(sectors_param, isleverage_param)
+        
+        return {
+            'message': 'Today filter cache refreshed successfully',
+            'cleared_entries': clear_result['cleared_entries'],
+            'fresh_data_count': len(fresh_data) if fresh_data else 0,
+            'cache_status': get_today_cache_status()
+        }
+        
+    except Exception as e:
+        logging.error(f"Error refreshing Today filter cache: {str(e)}")
+        return {
+            'error': f'Failed to refresh Today filter cache: {str(e)}',
+            'cache_status': get_today_cache_status()
+        }
 
 # Legacy function for backward compatibility
 def get_stock_summary(sectors_param, isleverage_param, date_from_param, date_to_param):
