@@ -62,6 +62,29 @@ class BackgroundScheduler:
                 if current_time.hour == 0 and current_time.minute == 0:
                     self.history_populated_today = False
                 
+                # Refresh earning summary cache at 6 AM (market open preparation)
+                if current_time.hour == 6 and current_time.minute == 0:
+                    try:
+                        logger.info("Refreshing earning summary cache...")
+                        from earning_summary_cache import earning_cache, pre_warm_cache
+                        
+                        # Refresh 1M period (1D and 1W will filter from this)
+                        try:
+                            earning_cache.get_or_fetch_summary('1M')
+                            logger.info("Refreshed earning summary cache for period 1M (1D and 1W will filter from this)")
+                        except Exception as e:
+                            logger.error(f"Error refreshing cache for period 1M: {e}")
+                        
+                        # Pre-warm cache with common sector combinations (1M only, 1D/1W filter from it)
+                        try:
+                            pre_warm_cache()
+                        except Exception as e:
+                            logger.error(f"Error pre-warming cache: {e}")
+                        
+                        logger.info("Earning summary cache refresh and pre-warming completed (1M only, 1D/1W filter from it)")
+                    except Exception as e:
+                        logger.error(f"Error in earning summary cache refresh: {e}")
+                
                 # Wait for 1 minute before next check
                 time.sleep(60)
                 

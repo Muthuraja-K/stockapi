@@ -1,7 +1,18 @@
 """
-Optimized Earnings Summary with Batch Processing
+Optimized Earnings Summary with Batch Processing and Working Day Logic
+
 This module fetches earnings data for all stocks in a single batch operation
 instead of making individual API calls per stock.
+
+Working Day Logic for Period Filters:
+- 1D (1 Day): Shows earnings for today if it's a working day (Mon-Fri), 
+              otherwise shows earnings for the next working day
+- 1W (1 Week): Shows earnings from today (or next working day if weekend) 
+              to 7 days later, ensuring both start and end dates are working days
+- 1M (1 Month): Shows earnings from today (or next working day if weekend) 
+              to 30 days later, ensuring both start and end dates are working days
+
+This ensures that users always see relevant earnings data for actual trading days.
 """
 
 import logging
@@ -14,13 +25,211 @@ import pandas as pd
 
 logger = logging.getLogger(__name__)
 
+def is_working_day(date: datetime) -> bool:
+    """
+    Check if a given date is a working day (Monday to Friday).
+    
+    Args:
+        date: Date to check
+        
+    Returns:
+        True if it's a working day, False otherwise
+    """
+    # Monday = 0, Sunday = 6
+    # Note: This is a simplified version. In production, you might want to also check for market holidays
+    return date.weekday() < 5
+
+def get_next_working_day(date: datetime) -> datetime:
+    """
+    Get the next working day from a given date.
+    
+    Args:
+        date: Starting date
+        
+    Returns:
+        Next working day
+    """
+    current_date = date
+    while not is_working_day(current_date):
+        current_date += timedelta(days=1)
+    return current_date
+
+def get_previous_working_day(date: datetime) -> datetime:
+    """
+    Get the previous working day from a given date.
+    
+    Args:
+        date: Starting date
+        
+    Returns:
+        Previous working day
+    """
+    current_date = date
+    while not is_working_day(current_date):
+        current_date -= timedelta(days=1)
+    return current_date
+
+def calculate_period_dates(period: str, base_date: datetime = None) -> tuple[datetime, datetime]:
+    """
+    Calculate start and end dates for a given period based on working days.
+    
+    Args:
+        period: Time period ('1D', '1W', '1M')
+        base_date: Base date to calculate from (defaults to today)
+        
+    Returns:
+        Tuple of (start_date, end_date)
+    """
+    if base_date is None:
+        base_date = datetime.now()
+    
+    # Ensure base_date is set to start of day
+    base_date = base_date.replace(hour=0, minute=0, second=0, microsecond=0)
+    
+    if period == '1D':
+        # For 1D: if today is working day, use today; otherwise use next working day
+        if is_working_day(base_date):
+            start_date = base_date
+            end_date = base_date
+        else:
+            next_working = get_next_working_day(base_date)
+            start_date = next_working
+            end_date = next_working
+            
+    elif period == '1W':
+        # For 1W: start from today (or next working day if today is weekend) to a week later
+        if is_working_day(base_date):
+            start_date = base_date
+        else:
+            start_date = get_next_working_day(base_date)
+        
+        # Calculate end date (7 days from start)
+        end_date = start_date + timedelta(days=6)
+        # Ensure end date is also a working day
+        while not is_working_day(end_date):
+            end_date += timedelta(days=1)
+            
+    elif period == '1M':
+        # For 1M: start from today (or next working day if today is weekend) to a month later
+        if is_working_day(base_date):
+            start_date = base_date
+        else:
+            start_date = base_date
+        
+        # Calculate end date (approximately 30 days from start)
+        end_date = start_date + timedelta(days=30)
+        # Ensure end date is also a working day
+        while not is_working_day(end_date):
+            end_date += timedelta(days=1)
+            
+    else:
+        # Default: use today
+        start_date = base_date
+        end_date = base_date
+    
+    return start_date, end_date
+
+def get_period_description(period: str, start_date: datetime, end_date: datetime) -> str:
+    """
+    Get a human-readable description of the period and its working day logic.
+    
+    Args:
+        period: Time period ('1D', '1W', '1M')
+        start_date: Start date of the period
+        end_date: End date of the period
+        
+    Returns:
+        Human-readable description of the period
+    """
+    today = datetime.now()
+    is_today_working = is_working_day(today)
+    
+    if period == '1D':
+        if start_date.date() == today.date():
+            return f"Today ({start_date.strftime('%A, %B %d, %Y')}) - Working day"
+        else:
+            return f"Next working day: {start_date.strftime('%A, %B %d, %Y')} (today is weekend)"
+    elif period == '1W':
+        if start_date.date() == today.date():
+            return f"This week: {start_date.strftime('%A, %B %d')} to {end_date.strftime('%A, %B %d, %Y')}"
+        else:
+            return f"Next week: {start_date.strftime('%A, %B %d')} to {end_date.strftime('%A, %B %d, %Y')} (starting from next working day)"
+    elif period == '1M':
+        if start_date.date() == today.date():
+            return f"This month: {start_date.strftime('%A, %B %d')} to {end_date.strftime('%A, %B %d, %Y')}"
+        else:
+            return f"Next month: {start_date.strftime('%A, %B %d')} to {end_date.strftime('%A, %B %d, %Y')} (starting from next working day)"
+    else:
+        return f"Custom period: {start_date.strftime('%Y-%m-%d')} to {end_date.strftime('%Y-%m-%d')}"
+
+def get_next_working_days(base_date: datetime, count: int = 5) -> List[datetime]:
+    """
+    Get the next N working days from a given date.
+    
+    Args:
+        base_date: Starting date
+        count: Number of working days to get
+        
+    Returns:
+        List of working days
+    """
+    working_days = []
+    current_date = base_date
+    
+    while len(working_days) < count:
+        if is_working_day(current_date):
+            working_days.append(current_date)
+        current_date += timedelta(days=1)
+    
+    return working_days
+
+def get_market_status_info() -> Dict[str, Any]:
+    """
+    Get current market status information including working day status and next working days.
+    
+    Returns:
+        Dictionary with market status information
+    """
+    today = datetime.now()
+    is_working = is_working_day(today)
+    
+    # Get next 5 working days
+    next_working_days = get_next_working_days(today, 5)
+    
+    # Calculate period dates for reference
+    period_info = {}
+    for period in ['1D', '1W', '1M']:
+        start_date, end_date = calculate_period_dates(period, today)
+        period_info[period] = {
+            'start_date': start_date.strftime('%Y-%m-%d'),
+            'end_date': end_date.strftime('%Y-%m-%d'),
+            'start_day': start_date.strftime('%A'),
+            'end_day': end_date.strftime('%A'),
+            'duration_days': (end_date - start_date).days + 1,
+            'description': get_period_description(period, start_date, end_date)
+        }
+    
+    return {
+        'current_date': today.strftime('%Y-%m-%d'),
+        'current_day': today.strftime('%A'),
+        'is_working_day': is_working,
+        'next_working_days': [d.strftime('%Y-%m-%d (%A)') for d in next_working_days],
+        'period_info': period_info
+    }
+
 def get_earning_summary_optimized(sectors_param=None, period_param=None, date_from_param=None, date_to_param=None, page=1, per_page=10):
     """
     Get earning summary data with filtering and pagination using stockhistorymarketdata.json.
     
+    Period filtering logic:
+    - 1D: Shows earnings scheduled for today if it's a working day, otherwise shows earnings for the next working day
+    - 1W: Shows earnings scheduled from today (or next working day if today is weekend) to 7 days later
+    - 1M: Shows earnings scheduled from today (or next working day if today is weekend) to 30 days later
+    - custom: Uses the provided date_from and date_to parameters
+    
     Args:
         sectors_param: Comma-separated string of sectors to filter by
-        period_param: Time period filter ('1D', '1W', '1M')
+        period_param: Time period filter ('1D', '1W', '1M', 'custom')
         date_from_param: Start date for earning date filter (YYYY-MM-DD) - used when period is 'custom'
         date_to_param: End date for earning date filter (YYYY-MM-DD) - used when period is 'custom'
         page: Page number for pagination
@@ -60,18 +269,21 @@ def get_earning_summary_optimized(sectors_param=None, period_param=None, date_fr
         
         logger.info(f"Loaded {len(market_data)} stocks from stockhistorymarketdata.json")
         
-        # Calculate date range based on period
+        # Calculate date range based on period using working day logic
         today = datetime.now()
         start_date = None
         end_date = today
         
         if period_param:
-            if period_param == '1D':
-                start_date = today - timedelta(days=1)
-            elif period_param == '1W':
-                start_date = today - timedelta(weeks=1)
-            elif period_param == '1M':
-                start_date = today - timedelta(days=30)
+            if period_param in ['1D', '1W', '1M']:
+                # Use the new working day logic for these periods
+                start_date, end_date = calculate_period_dates(period_param, today)
+                logger.info(f"Period {period_param}: start_date={start_date.strftime('%Y-%m-%d')} ({start_date.strftime('%A')}), end_date={end_date.strftime('%Y-%m-%d')} ({end_date.strftime('%A')})")
+                logger.info(f"Today is {today.strftime('%A')} - Working day: {is_working_day(today)}")
+                
+                # Show next few working days for debugging
+                next_working = get_next_working_days(today, 5)
+                logger.info(f"Next 5 working days: {[d.strftime('%Y-%m-%d (%A)') for d in next_working]}")
             elif period_param == 'custom':
                 if date_from_param:
                     try:
@@ -98,30 +310,64 @@ def get_earning_summary_optimized(sectors_param=None, period_param=None, date_fr
         
         # Filter stocks by earning date within the period
         filtered_stocks = []
+        valid_earning_dates_found = False
+        
         for stock in market_data:
             ticker = stock.get('ticker', '')
             earning_date_str = stock.get('earning_date', '')
             
-            if not ticker or not earning_date_str:
+            if not ticker:
                 continue
             
-            # Parse earning date (format: "7/31/2025 4:30:00 PM")
-            try:
-                earning_date = datetime.strptime(earning_date_str, '%m/%d/%Y %I:%M:%S %p')
-                
-                # Check if earning date falls within the period
-                if start_date and earning_date < start_date:
+            # Try to parse earning date (format: "7/31/2025 4:30:00 PM")
+            if earning_date_str and earning_date_str != 'N/A' and earning_date_str.strip():
+                try:
+                    earning_date = datetime.strptime(earning_date_str, '%m/%d/%Y %I:%M:%S %p')
+                    valid_earning_dates_found = True
+                    
+                    # For 1D, 1W, 1M periods, we want earnings scheduled for those specific working days
+                    if period_param in ['1D', '1W', '1M'] and start_date and end_date:
+                        # Check if earning date falls within the working day period
+                        if period_param == '1D':
+                            # For 1D: exact match with the working day (same date)
+                            if earning_date.date() != start_date.date():
+                                continue
+                        elif period_param == '1W':
+                            # For 1W: within the 7-day working day range
+                            if earning_date < start_date or earning_date > end_date:
+                                continue
+                        elif period_param == '1M':
+                            # For 1M: within the 30-day working day range
+                            if earning_date < start_date or earning_date > end_date:
+                                continue
+                    else:
+                        # For custom periods or no period, use the original logic
+                        if start_date and earning_date < start_date:
+                            continue
+                        if end_date and earning_date > end_date:
+                            continue
+                    
+                    filtered_stocks.append(stock)
+                    
+                except ValueError:
+                    logger.warning(f"Invalid earning date format for {ticker}: {earning_date_str}")
                     continue
-                if end_date and earning_date > end_date:
-                    continue
-                
+            else:
+                # No earning date available, include in results for now
                 filtered_stocks.append(stock)
-                
-            except ValueError:
-                logger.warning(f"Invalid earning date format for {ticker}: {earning_date_str}")
-                continue
+        
+        # If no valid earning dates were found, return all stocks (fallback behavior)
+        if not valid_earning_dates_found:
+            logger.info("No valid earning dates found in data, returning all stocks as fallback")
+            filtered_stocks = [stock for stock in market_data if stock.get('ticker')]
+            logger.info(f"Fallback: returning {len(filtered_stocks)} stocks without earning date filtering")
         
         logger.info(f"Found {len(filtered_stocks)} stocks with earnings in the specified period")
+        
+        # Log some examples of filtered stocks for debugging
+        if filtered_stocks and len(filtered_stocks) > 0:
+            sample_stocks = filtered_stocks[:3]  # Show first 3 stocks
+            logger.info(f"Sample filtered stocks: {[(s.get('ticker', ''), s.get('earning_date', '')) for s in sample_stocks]}")
         
         # Filter by sectors if provided
         if sectors_param:
@@ -185,7 +431,7 @@ def get_earning_summary_optimized(sectors_param=None, period_param=None, date_fr
                 
                 # Get earning date from market data
                 earning_date = company_info['earning_date']
-                if earning_date == 'N/A':
+                if earning_date == 'N/A' or not earning_date or earning_date.strip() == '':
                     continue
                 
                 # Create earnings data structure with real data
@@ -296,14 +542,27 @@ def get_enhanced_earnings_data(ticker: str, earning_date_str: str) -> List[Dict[
                 expected_revenue = "N/A"
                 
                 try:
-                    # Try to get revenue estimates
+                    # Try to get revenue estimates - check if it's not 0 or NaN
                     revenue_estimates = ticker_obj.revenue_estimate
                     if revenue_estimates is not None and not revenue_estimates.empty:
                         # Get the most recent quarter estimate (0q)
                         if '0q' in revenue_estimates.index:
                             expected_revenue = revenue_estimates.loc['0q', 'avg']
-                            if pd.notna(expected_revenue):
+                            # Only use if it's a valid positive number
+                            if pd.notna(expected_revenue) and expected_revenue > 0:
                                 expected_revenue = expected_revenue
+                            else:
+                                expected_revenue = "N/A"
+                        else:
+                            # Try to find any valid revenue estimate
+                            for col in revenue_estimates.index:
+                                if col in revenue_estimates.columns and 'avg' in revenue_estimates.columns:
+                                    val = revenue_estimates.loc[col, 'avg']
+                                    if pd.notna(val) and val > 0:
+                                        expected_revenue = val
+                                        break
+                            if expected_revenue == "N/A":
+                                expected_revenue = "N/A"
                     
                     # Try to get historical revenue from financials
                     financials = ticker_obj.financials
@@ -314,7 +573,7 @@ def get_enhanced_earnings_data(ticker: str, earning_date_str: str) -> List[Dict[
                             if not revenue_row.empty:
                                 # Find the most recent non-NaN value
                                 for col in revenue_row.index:
-                                    if pd.notna(revenue_row[col]):
+                                    if pd.notna(revenue_row[col]) and revenue_row[col] > 0:
                                         actual_revenue = revenue_row[col]
                                         break
                 except Exception as e:
@@ -353,6 +612,20 @@ def get_enhanced_earnings_data(ticker: str, earning_date_str: str) -> List[Dict[
                     else:
                         beat_expectation = "Met"
                 
+                # Helper function to format revenue in appropriate units
+                def format_revenue(revenue_value):
+                    if revenue_value == "N/A" or not pd.notna(revenue_value):
+                        return "N/A"
+                    
+                    if revenue_value >= 1e9:  # 1 billion or more
+                        return f"${revenue_value/1e9:.1f}B"
+                    elif revenue_value >= 1e6:  # 1 million or more
+                        return f"${revenue_value/1e6:.1f}M"
+                    elif revenue_value >= 1e3:  # 1 thousand or more
+                        return f"${revenue_value/1e3:.1f}K"
+                    else:
+                        return f"${revenue_value:.0f}"
+                
                 earnings_entry = {
                     "earningDate": date.strftime('%m/%d/%Y'),
                     "previousDayPrice": previous_day_price,
@@ -361,8 +634,8 @@ def get_enhanced_earnings_data(ticker: str, earning_date_str: str) -> List[Dict[
                     "beatExpectation": beat_expectation,
                     "actualValue": f"${actual_eps:.2f}" if pd.notna(actual_eps) else "N/A",
                     "expectedValue": f"${expected_eps:.2f}" if pd.notna(expected_eps) else "N/A",
-                    "actualRevenue": f"${actual_revenue/1e9:.1f}B" if actual_revenue != 'N/A' and pd.notna(actual_revenue) else "N/A",
-                    "expectedRevenue": f"${expected_revenue/1e9:.1f}B" if expected_revenue != 'N/A' and pd.notna(expected_revenue) else "N/A",
+                    "actualRevenue": format_revenue(actual_revenue),
+                    "expectedRevenue": format_revenue(expected_revenue),
                     "percentageDifference": percentage_diff
                 }
                 

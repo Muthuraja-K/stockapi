@@ -405,8 +405,141 @@ async def get_earning_summary_route(
     date_from_param = date_from.strip()
     date_to_param = date_to.strip()
     
-    result = get_earning_summary(sectors_param, period_param, date_from_param, date_to_param, page, per_page)
-    return result
+    # Cache validation and automatic caching for 1D, 1W, and 1M periods (all share 1M cache)
+    if period_param in ['1D', '1W', '1M']:
+        try:
+            from earning_summary_cache import earning_cache, get_cache_status
+            from datetime import date
+            
+            # Check if cache is available and valid for current date
+            cache_status = get_cache_status()
+            today = date.today()
+            is_cache_valid = cache_status.get('is_valid', False)
+            
+            logger.info(f"Cache validation for period {period_param}: valid={is_cache_valid}, date={today}")
+            
+            if is_cache_valid:
+                # Cache is valid, try to get from cache
+                try:
+                    cached_result = earning_cache.get_cached_summary(period_param, sectors_param, page, per_page)
+                    if cached_result:
+                        logger.info(f"Returning cached earning summary for period {period_param}, sectors: {sectors_param}")
+                        return cached_result
+                except Exception as e:
+                    logger.warning(f"Error getting cached data: {e}, will fetch fresh data")
+            
+            # Cache is invalid or missing, fetch fresh data and cache it
+            logger.info(f"Cache invalid or missing for period {period_param}, fetching fresh data and caching")
+            
+            # Fetch fresh data
+            fresh_result = get_earning_summary(sectors_param, period_param, date_from_param, date_to_param, page, per_page)
+            
+            # Cache the full dataset for future use (always cache as 1M since all periods share it)
+            try:
+                # Get all data for caching (not just the current page)
+                # Always cache as 1M since 1D and 1W will filter from it
+                full_data = get_earning_summary(sectors_param, '1M', date_from_param, date_to_param, page=1, per_page=1000)
+                earning_cache.cache_summary('1M', full_data, sectors_param)
+                logger.info(f"Successfully cached fresh data for period 1M (used by {period_param}), sectors: {sectors_param}")
+            except Exception as e:
+                logger.error(f"Error caching data for period 1M: {e}")
+            
+            return fresh_result
+            
+        except Exception as e:
+            logger.error(f"Error in cache validation for period {period_param}: {e}, falling back to direct call")
+            # Fall back to direct call if cache operations fail
+            result = get_earning_summary(sectors_param, period_param, date_from_param, date_to_param, page, per_page)
+            return result
+    
+    else:
+        # For custom periods or other cases, use direct call without caching
+        logger.info(f"Direct call for period {period_param} (not cached)")
+        result = get_earning_summary(sectors_param, period_param, date_from_param, date_to_param, page, per_page)
+        return result
+
+@app.get('/api/market-status')
+async def get_market_status_route(
+    current_user: Dict[str, Any] = Depends(require_auth)
+):
+    """Get current market status information including working day status and period calculations."""
+    try:
+        from earning_summary_optimized import get_market_status_info
+        return get_market_status_info()
+    except Exception as e:
+        logger.error(f"Error getting market status: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Failed to get market status: {str(e)}")
+
+@app.get('/api/earning-cache/status')
+async def get_earning_cache_status_route(
+    current_user: Dict[str, Any] = Depends(require_auth)
+):
+    """Get earning summary cache status information."""
+    try:
+        from earning_summary_cache import get_earning_cache_status
+        return get_earning_cache_status()
+    except Exception as e:
+        logger.error(f"Error getting earning cache status: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Failed to get earning cache status: {str(e)}")
+
+@app.get('/api/earning-cache/metrics')
+async def get_earning_cache_metrics_route(
+    current_user: Dict[str, Any] = Depends(require_auth)
+):
+    """Get earning summary cache performance metrics."""
+    try:
+        from earning_summary_cache import get_cache_performance_metrics
+        return get_cache_performance_metrics()
+    except Exception as e:
+        logger.error(f"Error getting earning cache metrics: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Failed to get earning cache metrics: {str(e)}")
+
+@app.post('/api/earning-cache/clear')
+async def clear_earning_cache_route(
+    current_user: Dict[str, Any] = Depends(require_auth)
+):
+    """Clear earning summary cache - Admin only."""
+    try:
+        # Only admin can clear cache
+        if current_user.get('role') != 'admin':
+            raise HTTPException(status_code=403, detail={'error': 'Admin access required'})
+        
+        from earning_summary_cache import clear_earning_cache
+        clear_earning_cache()
+        return {"message": "Earning summary cache cleared successfully"}
+    except Exception as e:
+        logger.error(f"Error clearing earning cache: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Failed to clear earning cache: {str(e)}")
+
+@app.post('/api/earning-cache/refresh')
+async def refresh_earning_cache_route(
+    period: str = Query(..., description="Period to refresh ('1D', '1W', '1M', or 'all')"),
+    sectors: str = Query("", description="Sectors to refresh (optional)"),
+    current_user: Dict[str, Any] = Depends(require_auth)
+):
+    """Refresh earning summary cache for specific period - Admin only."""
+    try:
+        # Only admin can refresh cache
+        if current_user.get('role') != 'admin':
+            raise HTTPException(status_code=403, detail={'error': 'Admin access required'})
+        
+        from earning_summary_cache import earning_cache
+        
+        if period == 'all':
+            # Refresh all periods
+            for p in ['1D', '1W', '1M']:
+                earning_cache.get_or_fetch_summary(p, sectors if sectors else None)
+            return {"message": f"All earning summary cache refreshed for sectors: {sectors if sectors else 'all'}"}
+        elif period in ['1D', '1W', '1M']:
+            # Refresh specific period
+            earning_cache.get_or_fetch_summary(period, sectors if sectors else None)
+            return {"message": f"Earning summary cache refreshed for period {period}, sectors: {sectors if sectors else 'all'}"}
+        else:
+            raise HTTPException(status_code=400, detail="Invalid period. Must be '1D', '1W', '1M', or 'all'")
+            
+    except Exception as e:
+        logger.error(f"Error refreshing earning cache: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Failed to refresh earning cache: {str(e)}")
 
 # Test endpoint for historical price data
 @app.get('/api/test-historical-price')
