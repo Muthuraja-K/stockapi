@@ -13,3 +13,4 @@ aiofiles==23.2.1
 python-dotenv==1.0.0
 setuptools>=65.5.1
 wheel>=0.38.4
+tiingo>=0.14.0

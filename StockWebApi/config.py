@@ -11,7 +11,11 @@ class Config:
     """Application configuration class"""
     
     # Finviz API Configuration
-    FINVIZ_AUTH_ID = os.getenv('FINVIZ_AUTH_ID', '22a5d2df-8313-42f4-b2ab-cab5e0f26758')
+    FINVIZ_AUTH_ID = os.getenv('FINVIZ_AUTH_ID', '')
+    
+    # Tiingo API Configuration
+    TIINGO_API_KEY = os.getenv('TIINGO_API_KEY', '')
+    TIINGO_BASE_URL = 'https://api.tiingo.com'
     
     # API Configuration
     ALLOWED_ORIGINS = os.getenv('ALLOWED_ORIGINS', '*').split(',') if os.getenv('ALLOWED_ORIGINS') else ['*']

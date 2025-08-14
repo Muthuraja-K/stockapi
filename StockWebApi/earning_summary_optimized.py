@@ -16,6 +16,7 @@ This ensures that users always see relevant earnings data for actual trading day
 """
 
 import logging
+import math
 from datetime import datetime, timedelta
 from typing import Dict, Any, List, Optional
 from utils import load_stocks
@@ -103,9 +104,8 @@ def calculate_period_dates(period: str, base_date: datetime = None) -> tuple[dat
         else:
             start_date = get_next_working_day(base_date)
         
-        # Calculate end date (7 days from start)
-        end_date = start_date + timedelta(days=6)
-        # Ensure end date is also a working day
+        # Calculate end date ensuring it's also a working day
+        end_date = start_date + timedelta(days=7)
         while not is_working_day(end_date):
             end_date += timedelta(days=1)
             
@@ -114,18 +114,14 @@ def calculate_period_dates(period: str, base_date: datetime = None) -> tuple[dat
         if is_working_day(base_date):
             start_date = base_date
         else:
-            start_date = base_date
+            start_date = get_next_working_day(base_date)
         
-        # Calculate end date (approximately 30 days from start)
+        # Calculate end date ensuring it's also a working day
         end_date = start_date + timedelta(days=30)
-        # Ensure end date is also a working day
         while not is_working_day(end_date):
             end_date += timedelta(days=1)
-            
     else:
-        # Default: use today
-        start_date = base_date
-        end_date = base_date
+        raise ValueError(f"Invalid period: {period}. Must be '1D', '1W', or '1M'")
     
     return start_date, end_date
 
@@ -483,21 +479,41 @@ def get_earning_summary_optimized(sectors_param=None, period_param=None, date_fr
             "results": []
         }
 
+def format_revenue(revenue_value):
+    """
+    Helper function to format revenue in appropriate units.
+    
+    Args:
+        revenue_value: Revenue value to format
+        
+    Returns:
+        Formatted revenue string with appropriate unit (B for billions, M for millions, K for thousands)
+    """
+    if revenue_value == "N/A" or not pd.notna(revenue_value):
+        return "N/A"
+    
+    if revenue_value >= 1e9:  # 1 billion or more
+        return f"${revenue_value/1e9:.1f}B"
+    elif revenue_value >= 1e6:  # 1 million or more
+        return f"${revenue_value/1e6:.1f}M"
+    elif revenue_value >= 1e3:  # 1 thousand or more
+        return f"${revenue_value/1e3:.1f}K"
+    else:
+        return f"${revenue_value:.0f}"
+
 def get_enhanced_earnings_data(ticker: str, earning_date_str: str) -> List[Dict[str, Any]]:
     """
     Get enhanced earnings data for a specific ticker including historical earnings.
+    Now includes Close B4 Earning and After Earning data with proper pre/post market logic.
     
     Args:
         ticker: Stock ticker symbol
         earning_date_str: Earning date string in format "7/31/2025 4:30:00 PM"
     
     Returns:
-        List of earnings data dictionaries
+        List of earnings data dictionaries for the previous 2 earnings
     """
     try:
-        # Parse the earning date
-        earning_date = datetime.strptime(earning_date_str, '%m/%d/%Y %I:%M:%S %p')
-        
         # Get the ticker object
         ticker_obj = yf.Ticker(ticker)
         
@@ -510,163 +526,630 @@ def get_enhanced_earnings_data(ticker: str, earning_date_str: str) -> List[Dict[
         # Sort earnings by date (most recent first)
         earnings_dates = earnings_dates.sort_index(ascending=False)
         
-        # Get the last 2 earnings (filter only actual earnings, not meetings)
-        earnings_only = earnings_dates[earnings_dates['Event Type'] == 'Earnings']
-        
-        if earnings_only.empty:
-            logger.warning(f"No earnings data available for {ticker}")
-            return []
-        
-        # Get the last 2 earnings
+        # Get the previous 2 earnings (excluding the most recent one)
+        # This gives us the 2nd and 3rd most recent earnings
         last_two_earnings = []
         
-        for i, (date, row) in enumerate(earnings_only.head(2).iterrows()):
-            try:
-                # Get the date before earnings
-                day_before = date - timedelta(days=1)
-                
-                # Get historical data for the day before earnings
-                hist_data = ticker_obj.history(start=day_before, end=date, interval='1d')
-                
-                previous_day_price = "N/A"
-                if not hist_data.empty:
-                    previous_day_price = f"${hist_data['Close'].iloc[-1]:.2f}"
-                
-                # Get earnings data from the row
-                actual_eps = row.get('Reported EPS', 'N/A')
-                expected_eps = row.get('EPS Estimate', 'N/A')
-                surprise_percent = row.get('Surprise(%)', 'N/A')
-                
-                # Get revenue data from multiple sources
-                actual_revenue = "N/A"
-                expected_revenue = "N/A"
-                
+        # Skip the most recent earning and get the next 2
+        for i, (date, row) in enumerate(earnings_dates.head(3).iterrows()):
+            # Skip the first (most recent) earning
+            if i == 0:
+                continue
+            # Get the previous 2 earnings
+            if i <= 2:
                 try:
-                    # Try to get revenue estimates - check if it's not 0 or NaN
-                    revenue_estimates = ticker_obj.revenue_estimate
-                    if revenue_estimates is not None and not revenue_estimates.empty:
-                        # Get the most recent quarter estimate (0q)
-                        if '0q' in revenue_estimates.index:
-                            expected_revenue = revenue_estimates.loc['0q', 'avg']
-                            # Only use if it's a valid positive number
-                            if pd.notna(expected_revenue) and expected_revenue > 0:
-                                expected_revenue = expected_revenue
-                            else:
-                                expected_revenue = "N/A"
-                        else:
-                            # Try to find any valid revenue estimate
-                            for col in revenue_estimates.index:
-                                if col in revenue_estimates.columns and 'avg' in revenue_estimates.columns:
-                                    val = revenue_estimates.loc[col, 'avg']
-                                    if pd.notna(val) and val > 0:
-                                        expected_revenue = val
-                                        break
-                            if expected_revenue == "N/A":
-                                expected_revenue = "N/A"
+                    # Get earnings data from the row
+                    actual_eps_raw = row.get('Reported EPS', 'N/A')
+                    expected_eps_raw = row.get('EPS Estimate', 'N/A')
+                    surprise_percent_raw = row.get('Surprise(%)', 'N/A')
                     
-                    # Try to get historical revenue from financials
-                    financials = ticker_obj.financials
-                    if financials is not None and not financials.empty:
-                        if 'Total Revenue' in financials.index:
-                            # Get the most recent revenue data
-                            revenue_row = financials.loc['Total Revenue']
-                            if not revenue_row.empty:
-                                # Find the most recent non-NaN value
-                                for col in revenue_row.index:
-                                    if pd.notna(revenue_row[col]) and revenue_row[col] > 0:
-                                        actual_revenue = revenue_row[col]
-                                        break
-                except Exception as e:
-                    logger.warning(f"Error fetching revenue data for {ticker}: {str(e)}")
-                
-                # Calculate percentage difference if we have both values
-                percentage_diff = "N/A"
-                if actual_eps != 'N/A' and expected_eps != 'N/A' and expected_eps != 0:
+                    # Handle NaN values properly
+                    actual_eps = 'N/A' if pd.isna(actual_eps_raw) else actual_eps_raw
+                    expected_eps = 'N/A' if pd.isna(expected_eps_raw) else expected_eps_raw
+                    surprise_percent = 'N/A' if pd.isna(surprise_percent_raw) else surprise_percent_raw
+                    
+                    # Get revenue data from multiple sources
+                    actual_revenue = "N/A"
+                    expected_revenue = "N/A"
+                    
                     try:
-                        diff = ((actual_eps - expected_eps) / abs(expected_eps)) * 100
-                        percentage_diff = f"{diff:+.2f}%"
-                    except:
-                        percentage_diff = "N/A"
-                
-                # Get price data around earnings
-                # For simplicity, we'll use the day before and day after
-                day_after = date + timedelta(days=1)
-                price_data = ticker_obj.history(start=date, end=day_after + timedelta(days=1), interval='1d')
-                
-                price_before_call = "N/A"
-                end_of_earning_price = "N/A"
-                
-                if not price_data.empty:
-                    if len(price_data) >= 1:
-                        price_before_call = f"${price_data['Open'].iloc[0]:.2f}"
-                    if len(price_data) >= 2:
-                        end_of_earning_price = f"${price_data['Close'].iloc[1]:.2f}"
-                
-                # Determine beat expectation
-                beat_expectation = "N/A"
-                if actual_eps != 'N/A' and expected_eps != 'N/A':
-                    if actual_eps > expected_eps:
-                        beat_expectation = "Beat"
-                    elif actual_eps < expected_eps:
-                        beat_expectation = "Miss"
-                    else:
-                        beat_expectation = "Met"
-                
-                # Helper function to format revenue in appropriate units
-                def format_revenue(revenue_value):
-                    if revenue_value == "N/A" or not pd.notna(revenue_value):
-                        return "N/A"
+                        # Try to get revenue estimates - check if it's not 0 or NaN
+                        revenue_estimates = ticker_obj.revenue_estimate
+                        if revenue_estimates is not None and not revenue_estimates.empty:
+                            # Get the most recent quarter estimate (0q)
+                            if '0q' in revenue_estimates.index:
+                                expected_revenue = revenue_estimates.loc['0q', 'avg']
+                                # Only use if it's a valid positive number
+                                if pd.notna(expected_revenue) and expected_revenue > 0:
+                                    expected_revenue = expected_revenue
+                                else:
+                                    expected_revenue = "N/A"
+                            else:
+                                # Try to find any valid revenue estimate
+                                for col in revenue_estimates.index:
+                                    if col in revenue_estimates.columns and 'avg' in revenue_estimates.columns:
+                                        val = revenue_estimates.loc[col, 'avg']
+                                        if pd.notna(val) and val > 0:
+                                            expected_revenue = val
+                                            break
+                                if expected_revenue == "N/A":
+                                    expected_revenue = "N/A"
+                        
+                        # Try to get historical revenue from financials
+                        financials = ticker_obj.financials
+                        if financials is not None and not financials.empty:
+                            if 'Total Revenue' in financials.index:
+                                # Get the most recent revenue data
+                                revenue_row = financials.loc['Total Revenue']
+                                if not revenue_row.empty:
+                                    # Find the most recent non-NaN value
+                                    for col in revenue_row.index:
+                                        if pd.notna(revenue_row[col]) and revenue_row[col] > 0:
+                                            actual_revenue = revenue_row[col]
+                                            break
+                    except Exception as e:
+                        logger.warning(f"Error fetching revenue data for {ticker}: {str(e)}")
                     
-                    if revenue_value >= 1e9:  # 1 billion or more
-                        return f"${revenue_value/1e9:.1f}B"
-                    elif revenue_value >= 1e6:  # 1 million or more
-                        return f"${revenue_value/1e6:.1f}M"
-                    elif revenue_value >= 1e3:  # 1 thousand or more
-                        return f"${revenue_value/1e3:.1f}K"
+                    # Calculate percentage difference if we have both values
+                    percentage_diff = "N/A"
+                    if actual_eps != 'N/A' and expected_eps != 'N/A' and expected_eps != 0:
+                        try:
+                            diff = ((actual_eps - expected_eps) / abs(expected_eps)) * 100
+                            percentage_diff = f"{diff:+.2f}%"
+                        except:
+                            percentage_diff = "N/A"
+                    
+                    # Determine beat expectation
+                    beat_expectation = "N/A"
+                    if actual_eps != 'N/A' and expected_eps != 'N/A':
+                        if actual_eps > expected_eps:
+                            beat_expectation = "Beat"
+                        elif actual_eps < expected_eps:
+                            beat_expectation = "Miss"
+                        else:
+                            beat_expectation = "Met"
+                    
+                    # Now calculate the Close B4 Earning and After Earning data for this specific earning date
+                    # Determine if earning started before or after market open
+                    # Market open is typically 9:30 AM ET
+                    earning_hour = date.hour
+                    earning_minute = date.minute
+                    is_before_market_open = (earning_hour < 9) or (earning_hour == 9 and earning_minute < 30)
+                    
+                    # Initialize new fields
+                    close_b4_earning_price = "N/A"
+                    close_b4_earning_change = "N/A"
+                    after_earning_price = "N/A"
+                    after_earning_change = "N/A"
+                    
+                    # Try Tiingo first for historical intraday data (much better than Yahoo Finance)
+                    price_data = None
+                    data_source = "None"
+                    
+                    try:
+                        from tiingo_service import tiingo_service
+                        
+                        if tiingo_service.is_available():
+                            # Try to get 1-minute data from Tiingo first
+                            price_data = tiingo_service.get_1min_data_for_date(ticker, date, prepost=True)
+                            if price_data is not None and not price_data.empty:
+                                data_source = "Tiingo 1min"
+                                logger.info(f"Using Tiingo 1-minute data for {ticker} at {date}")
+                            else:
+                                # Fallback to 5-minute data from Tiingo
+                                price_data = tiingo_service.get_5min_data_for_date(ticker, date, prepost=True)
+                                if price_data is not None and not price_data.empty:
+                                    data_source = "Tiingo 5min"
+                                    logger.info(f"Using Tiingo 5-minute data for {ticker} at {date}")
+                                else:
+                                    # Final fallback to daily data from Tiingo
+                                    price_data = tiingo_service.get_daily_data_for_date(ticker, date, prepost=True)
+                                    if price_data is not None and not price_data.empty:
+                                        data_source = "Tiingo daily"
+                                        logger.info(f"Using Tiingo daily data for {ticker} at {date}")
+                    
+                    except ImportError:
+                        logger.info("Tiingo service not available, using Yahoo Finance fallback")
+                    except Exception as e:
+                        logger.warning(f"Tiingo service error for {ticker}: {str(e)}")
+                    
+                    # If Tiingo failed or not available, fallback to Yahoo Finance
+                    if price_data is None or price_data.empty:
+                        # Calculate days since earning for Yahoo Finance interval selection
+                        # Convert both dates to naive datetime for arithmetic
+                        current_time = datetime.now()
+                        if current_time.tzinfo is not None:
+                            current_time = current_time.replace(tzinfo=None)
+                        
+                        date_naive = date
+                        if date_naive.tzinfo is not None:
+                            date_naive = date_naive.replace(tzinfo=None)
+                        
+                        days_since_earning = (current_time - date_naive).days
+                        
+                        # Smart interval selection based on earning age for Yahoo Finance
+                        if days_since_earning <= 30:
+                            # Recent earning: try 1-minute data first
+                            interval = '1m'
+                            logger.info(f"Using Yahoo Finance 1-minute data for recent earning ({days_since_earning} days old)")
+                        elif days_since_earning <= 60:
+                            # Moderately old earning: try 5-minute data
+                            interval = '5m'
+                            logger.info(f"Using Yahoo Finance 5-minute data for moderately old earning ({days_since_earning} days old)")
+                        else:
+                            # Old earning: use daily data
+                            interval = '1d'
+                            logger.info(f"Using Yahoo Finance daily data for old earning ({days_since_earning} days old)")
+                        
+                        # Use yf.download() method to get data for the earning date AND previous day
+                        try:
+                            # Get data for the earning date AND previous day to calculate Close B4 Earning
+                            start_date = (date - timedelta(days=1)).replace(hour=0, minute=0, second=0, microsecond=0)
+                            end_date = date.replace(hour=23, minute=59, second=59, microsecond=999999)
+                            
+                            # Ensure start_date and end_date are timezone-aware
+                            start_date_aware = start_date.replace(tzinfo=None) if start_date.tzinfo is None else start_date
+                            end_date_aware = (end_date + timedelta(days=1)).replace(tzinfo=None) if (end_date + timedelta(days=1)).tzinfo is None else (end_date + timedelta(days=1))
+                            
+                            price_data = yf.download(
+                                ticker, 
+                                start=start_date_aware, 
+                                end=end_date_aware, 
+                                interval=interval, 
+                                prepost=True,
+                                progress=False
+                            )
+                            data_source = f"Yahoo Finance {interval} (with previous day)"
+                            
+                        except Exception as e:
+                            logger.warning(f"Yahoo Finance data not available for {ticker} at {date}: {str(e)}")
+                            price_data = None
+                    
+                    # Initialize default values
+                    close_b4_earning_price = "N/A"
+                    close_b4_earning_change = "N/A"
+                    after_earning_price = "N/A"
+                    after_earning_change = "N/A"
+                    
+                    # Process the price data if we have any
+                    if price_data is not None and not price_data.empty:
+                        # Filter data for the specific earning date
+                        earning_date_data = price_data[price_data.index.date == date.date()]
+                        
+                        if not earning_date_data.empty:
+                            # Calculate Close B4 Earning based on the exact rules specified
+                            if is_before_market_open:
+                                # Earning started before market open
+                                # Rule: Previous day closing price at 3:59 PM vs earning date open price
+                                
+                                # Get previous day data
+                                prev_day = date - timedelta(days=1)
+                                prev_day_data = price_data[price_data.index.date == prev_day.date()]
+                                
+                                if not prev_day_data.empty:
+                                    # Find previous day closing price at 3:59 PM
+                                    prev_day_close = None
+                                    for timestamp, row in prev_day_data.iterrows():
+                                        if timestamp.hour == 15 and timestamp.minute >= 59:
+                                            prev_day_close = row['Close']
+                                            break
+                                    
+                                    if prev_day_close is None:
+                                        # Fallback to last available price before 4 PM
+                                        for timestamp, row in prev_day_data.iterrows():
+                                            if timestamp.hour < 16:
+                                                prev_day_close = row['Close']
+                                            else:
+                                                break
+                                    
+                                    # Get earning date open price at 9:30 AM
+                                    earning_open = None
+                                    for timestamp, row in earning_date_data.iterrows():
+                                        if timestamp.hour == 9 and timestamp.minute >= 30:
+                                            earning_open = row['Open']
+                                            break
+                                    
+                                    if earning_open is None:
+                                        # Fallback to first available price
+                                        earning_open = earning_date_data['Open'].iloc[0]
+                                    
+                                    if earning_open is not None and prev_day_close is not None:
+                                        # Convert to float if they're pandas Series
+                                        prev_day_close_val = float(prev_day_close) if hasattr(prev_day_close, '__iter__') else prev_day_close
+                                        earning_open_val = float(earning_open) if hasattr(earning_open, '__iter__') else earning_open
+                                        
+                                        # Validate that values are valid numbers and not zero
+                                        if (isinstance(prev_day_close_val, (int, float)) and 
+                                            isinstance(earning_open_val, (int, float)) and
+                                            prev_day_close_val != 0 and 
+                                            not math.isnan(prev_day_close_val) and 
+                                            not math.isnan(earning_open_val)):
+                                            
+                                            close_b4_earning_price = f"${prev_day_close_val:.2f}"
+                                            change_pct = ((earning_open_val - prev_day_close_val) / prev_day_close_val) * 100
+                                            close_b4_earning_change = f"{change_pct:+.2f}%"
+                                        else:
+                                            logger.warning(f"Invalid price values for Close B4 Earning: prev_day_close={prev_day_close_val}, earning_open={earning_open_val}")
+                                            close_b4_earning_price = "N/A"
+                                            close_b4_earning_change = "N/A"
+                                    
+                                    # If we still don't have Close B4 Earning data, try daily data fallback
+                                    if close_b4_earning_price == "N/A":
+                                        logger.info(f"Attempting daily data fallback for Close B4 Earning for {ticker} at {date}")
+                                        try:
+                                            # Get daily data as fallback for Close B4 Earning calculation
+                                            daily_data = ticker_obj.history(
+                                                start=prev_day - timedelta(days=1), 
+                                                end=date + timedelta(days=1), 
+                                                interval='1d', 
+                                                prepost=True
+                                            )
+                                            
+                                            if not daily_data.empty and len(daily_data) >= 2:
+                                                # Get previous day close and current day open from daily data
+                                                prev_day_close_daily = daily_data.iloc[-2]['Close']  # Second to last row
+                                                current_day_open_daily = daily_data.iloc[-1]['Open']  # Last row
+                                                
+                                                if (isinstance(prev_day_close_daily, (int, float)) and 
+                                                    isinstance(current_day_open_daily, (int, float)) and
+                                                    prev_day_close_daily != 0 and 
+                                                    not math.isnan(prev_day_close_daily) and 
+                                                    not math.isnan(current_day_open_daily)):
+                                                    
+                                                    close_b4_earning_price = f"${prev_day_close_daily:.2f}"
+                                                    change_pct = ((current_day_open_daily - prev_day_close_daily) / prev_day_close_daily) * 100
+                                                    close_b4_earning_change = f"{change_pct:+.2f}%"
+                                                    logger.info(f"Set Close B4 Earning using daily data fallback: {close_b4_earning_price} ({close_b4_earning_change})")
+                                                else:
+                                                    logger.warning(f"Invalid daily data values for Close B4 Earning fallback: prev_close={prev_day_close_daily}, open={current_day_open_daily}")
+                                                    
+                                        except Exception as e:
+                                            logger.warning(f"Daily data fallback for Close B4 Earning failed: {str(e)}")
+                            else:
+                                # Earning started after market
+                                # Rule: Earning date closing price at 3:59 PM vs earning date open price
+                                
+                                # Get earning date closing price at 3:59 PM
+                                earning_close = None
+                                for timestamp, row in earning_date_data.iterrows():
+                                    if timestamp.hour == 15 and timestamp.minute >= 59:
+                                        earning_close = row['Close']
+                                        break
+                                
+                                if earning_close is None:
+                                    # Fallback to last available price before 4 PM
+                                    for timestamp, row in earning_date_data.iterrows():
+                                        if timestamp.hour < 16:
+                                            earning_close = row['Close']
+                                        else:
+                                            break
+                                
+                                # Get earning date open price at 9:30 AM
+                                earning_open = None
+                                for timestamp, row in earning_date_data.iterrows():
+                                    if timestamp.hour == 9 and timestamp.minute >= 30:
+                                        earning_open = row['Open']
+                                        break
+                                
+                                if earning_open is None:
+                                    # Fallback to first available price
+                                    earning_open = earning_date_data['Open'].iloc[0]
+                                
+                                if earning_open is not None and earning_close is not None:
+                                    # Convert to float if they're pandas Series
+                                    earning_close_val = float(earning_close.iloc[0]) if hasattr(earning_close, 'iloc') else earning_close
+                                    earning_open_val = float(earning_open.iloc[0]) if hasattr(earning_open, 'iloc') else earning_open
+                                    
+                                    # Validate that values are valid numbers and not zero
+                                    if (isinstance(earning_close_val, (int, float)) and 
+                                        isinstance(earning_open_val, (int, float)) and
+                                        earning_close_val != 0 and 
+                                        not math.isnan(earning_close_val) and 
+                                        not math.isnan(earning_open_val)):
+                                        
+                                        close_b4_earning_price = f"${earning_close_val:.2f}"
+                                        change_pct = ((earning_open_val - earning_close_val) / earning_close_val) * 100
+                                        close_b4_earning_change = f"{change_pct:+.2f}%"
+                                    else:
+                                        logger.warning(f"Invalid price values for Close B4 Earning (after market): earning_close={earning_close_val}, earning_open={earning_open_val}")
+                                        close_b4_earning_price = "N/A"
+                                        close_b4_earning_change = "N/A"
+                                
+                                # If we still don't have Close B4 Earning data, try daily data fallback
+                                if close_b4_earning_price == "N/A":
+                                    logger.info(f"Attempting daily data fallback for Close B4 Earning (after market) for {ticker} at {date}")
+                                    try:
+                                        # Get daily data as fallback for Close B4 Earning calculation
+                                        daily_data = ticker_obj.history(
+                                            start=date - timedelta(days=1), 
+                                            end=date + timedelta(days=1), 
+                                            interval='1d', 
+                                            prepost=True
+                                        )
+                                        
+                                        if not daily_data.empty and len(daily_data) >= 2:
+                                            # Get previous day close and current day open from daily data
+                                            prev_day_close_daily = daily_data.iloc[-2]['Close']  # Second to last row
+                                            current_day_open_daily = daily_data.iloc[-1]['Open']  # Last row
+                                            
+                                            if (isinstance(prev_day_close_daily, (int, float)) and 
+                                                isinstance(current_day_open_daily, (int, float)) and
+                                                prev_day_close_daily != 0 and 
+                                                not math.isnan(prev_day_close_daily) and 
+                                                not math.isnan(current_day_open_daily)):
+                                                
+                                                close_b4_earning_price = f"${prev_day_close_daily:.2f}"
+                                                change_pct = ((current_day_open_daily - prev_day_close_daily) / prev_day_close_daily) * 100
+                                                close_b4_earning_change = f"{change_pct:+.2f}%"
+                                                logger.info(f"Set Close B4 Earning (after market) using daily data fallback: {close_b4_earning_price} ({close_b4_earning_change})")
+                                            else:
+                                                logger.warning(f"Invalid daily data values for Close B4 Earning fallback (after market): prev_close={prev_day_close_daily}, open={current_day_open_daily}")
+                                                
+                                    except Exception as e:
+                                        logger.warning(f"Daily data fallback for Close B4 Earning (after market) failed: {str(e)}")
+                            
+                            # Calculate After Earning based on the exact rules specified
+                            if is_before_market_open:
+                                # Earning started before market open
+                                # Rule: 9:25 AM vs 4:05 PM (both on earning date)
+                                
+                                price_925am = None
+                                price_405pm = None
+                                
+                                for timestamp, row in earning_date_data.iterrows():
+                                    if timestamp.hour == 9 and timestamp.minute == 25:
+                                        price_925am = row['Close']
+                                    elif timestamp.hour == 16 and timestamp.minute == 5:
+                                        price_405pm = row['Close']
+                                
+                                if price_925am is None:
+                                    # Fallback to closest time around 9:25 AM
+                                    for timestamp, row in earning_date_data.iterrows():
+                                        if timestamp.hour == 9 and timestamp.minute >= 20 and timestamp.minute <= 30:
+                                            price_925am = row['Close']
+                                            break
+                                
+                                if price_405pm is None:
+                                    # Fallback to closest time around 4:05 PM
+                                    for timestamp, row in earning_date_data.iterrows():
+                                        if timestamp.hour == 16 and timestamp.minute >= 0 and timestamp.minute <= 10:
+                                            price_405pm = row['Close']
+                                            break
+                                
+                                if price_925am is not None and price_405pm is not None:
+                                    # Convert to float if they're pandas Series
+                                    price_925am_val = float(price_925am.iloc[0]) if hasattr(price_925am, 'iloc') else price_925am
+                                    price_405pm_val = float(price_405pm.iloc[0]) if hasattr(price_405pm, 'iloc') else price_405pm
+                                    
+                                    # Validate that values are valid numbers and not zero
+                                    if (isinstance(price_925am_val, (int, float)) and 
+                                        isinstance(price_405pm_val, (int, float)) and
+                                        price_925am_val != 0 and 
+                                        not math.isnan(price_925am_val) and 
+                                        not math.isnan(price_405pm_val)):
+                                        
+                                        after_earning_price = f"${price_405pm_val:.2f}"
+                                        change_pct = ((price_405pm_val - price_925am_val) / price_925am_val) * 100
+                                        after_earning_change = f"{change_pct:+.2f}%"
+                                    else:
+                                        logger.warning(f"Invalid price values for After Earning (before market): price_925am={price_925am_val}, price_405pm={price_405pm_val}")
+                                        after_earning_price = "N/A"
+                                        after_earning_change = "N/A"
+                                    
+                                else:
+                                    logger.warning(f"Missing price data for After Earning calculation (before market open): price_925am={price_925am}, price_405pm={price_405pm}")
+                                    
+                                    # Try to get daily data as fallback for After Earning calculation
+                                    try:
+                                        daily_data = ticker_obj.history(
+                                            start=date - timedelta(days=1), 
+                                            end=date + timedelta(days=1), 
+                                            interval='1d', 
+                                            prepost=True
+                                        )
+                                        
+                                        if not daily_data.empty and len(daily_data) >= 1:
+                                            current_day_close = daily_data.iloc[-1]['Close']
+                                            current_day_open = daily_data.iloc[-1]['Open']
+                                            
+                                            if current_day_open is not None and current_day_close is not None:
+                                                current_day_open_val = float(current_day_open.iloc[0]) if hasattr(current_day_open, 'iloc') else current_day_open
+                                                current_day_close_val = float(current_day_close.iloc[0]) if hasattr(current_day_close, 'iloc') else current_day_close
+                                                
+                                                # Validate that values are valid numbers and not zero
+                                                if (isinstance(current_day_open_val, (int, float)) and 
+                                                    isinstance(current_day_close_val, (int, float)) and
+                                                    current_day_open_val != 0 and 
+                                                    not math.isnan(current_day_open_val) and 
+                                                    not math.isnan(current_day_close_val)):
+                                                    
+                                                    after_earning_price = f"${current_day_close_val:.2f}"
+                                                    change_pct = ((current_day_close_val - current_day_open_val) / current_day_open_val) * 100
+                                                    after_earning_change = f"{change_pct:+.2f}%"
+                                                else:
+                                                    logger.warning(f"Invalid daily data values for After Earning fallback (before market): open={current_day_open_val}, close={current_day_close_val}")
+                                                    after_earning_price = "N/A"
+                                                    after_earning_change = "N/A"
+                                                
+                                    except Exception as e2:
+                                        logger.warning(f"Daily data fallback for After Earning failed: {str(e2)}")
+                            else:
+                                # Earning started after market
+                                # Rule: 4:00 PM vs 7:55 PM (both on earning date)
+                                
+                                price_400pm = None
+                                price_755pm = None
+                                
+                                for timestamp, row in earning_date_data.iterrows():
+                                    if timestamp.hour == 16 and timestamp.minute == 0:
+                                        price_400pm = row['Close']
+                                    elif timestamp.hour == 19 and timestamp.minute == 55:
+                                        price_755pm = row['Close']
+                                
+                                if price_400pm is None:
+                                    # Fallback to closest time around 4:00 PM
+                                    for timestamp, row in earning_date_data.iterrows():
+                                        if timestamp.hour == 16 and timestamp.minute >= 0 and timestamp.minute <= 10:
+                                            price_400pm = row['Close']
+                                            break
+                                
+                                if price_755pm is None:
+                                    # Fallback to closest time around 7:55 PM
+                                    for timestamp, row in earning_date_data.iterrows():
+                                        if timestamp.hour == 19 and timestamp.minute >= 50:
+                                            price_755pm = row['Close']
+                                            break
+                                
+                                if price_400pm is not None and price_755pm is not None:
+                                    # Validate that values are valid numbers and not zero
+                                    if (isinstance(price_400pm, (int, float)) and 
+                                        isinstance(price_755pm, (int, float)) and
+                                        price_400pm != 0 and 
+                                        not math.isnan(price_400pm) and 
+                                        not math.isnan(price_755pm)):
+                                        
+                                        after_earning_price = f"${price_755pm:.2f}"
+                                        change_pct = ((price_755pm - price_400pm) / price_400pm) * 100
+                                        after_earning_change = f"{change_pct:+.2f}%"
+                                        
+                                        logger.info(f"Set After Earning for after market: {after_earning_price} ({after_earning_change})")
+                                    else:
+                                        logger.warning(f"Invalid price values for After Earning (after market): price_400pm={price_400pm}, price_755pm={price_755pm}")
+                                        after_earning_price = "N/A"
+                                        after_earning_change = "N/A"
+                                else:
+                                    logger.warning(f"Missing price data for After Earning calculation (after market): price_400pm={price_400pm}, price_755pm={price_755pm}")
+                                    
+                                    # Try to get daily data as fallback for After Earning calculation
+                                    try:
+                                        daily_data = ticker_obj.history(
+                                            start=date - timedelta(days=1), 
+                                            end=date + timedelta(days=1), 
+                                            interval='1d', 
+                                            prepost=True
+                                        )
+                                        
+                                        if not daily_data.empty and len(daily_data) >= 1:
+                                            current_day_close = daily_data.iloc[-1]['Close']
+                                            current_day_open = daily_data.iloc[-1]['Open']
+                                            
+                                            if current_day_open is not None and current_day_close is not None:
+                                                current_day_open_val = float(current_day_open.iloc[0]) if hasattr(current_day_open, 'iloc') else current_day_open
+                                                current_day_close_val = float(current_day_close.iloc[0]) if hasattr(current_day_close, 'iloc') else current_day_close
+                                                
+                                                # Validate that values are valid numbers and not zero
+                                                if (isinstance(current_day_open_val, (int, float)) and 
+                                                    isinstance(current_day_close_val, (int, float)) and
+                                                    current_day_open_val != 0 and 
+                                                    not math.isnan(current_day_open_val) and 
+                                                    not math.isnan(current_day_close_val)):
+                                                    
+                                                    after_earning_price = f"${current_day_close_val:.2f}"
+                                                    change_pct = ((current_day_close_val - current_day_open_val) / current_day_open_val) * 100
+                                                    after_earning_change = f"{change_pct:+.2f}%"
+                                                else:
+                                                    logger.warning(f"Invalid daily data values for After Earning fallback (after market): open={current_day_open_val}, close={current_day_close_val}")
+                                                    after_earning_price = "N/A"
+                                                    after_earning_change = "N/A"
+                                                
+                                    except Exception as e2:
+                                        logger.warning(f"Daily data fallback for After Earning failed: {str(e2)}")
                     else:
-                        return f"${revenue_value:.0f}"
-                
-                earnings_entry = {
-                    "earningDate": date.strftime('%m/%d/%Y'),
-                    "previousDayPrice": previous_day_price,
-                    "priceBeforeEarningCall": price_before_call,
-                    "endOfEarningPrice": end_of_earning_price,
-                    "beatExpectation": beat_expectation,
-                    "actualValue": f"${actual_eps:.2f}" if pd.notna(actual_eps) else "N/A",
-                    "expectedValue": f"${expected_eps:.2f}" if pd.notna(expected_eps) else "N/A",
-                    "actualRevenue": format_revenue(actual_revenue),
-                    "expectedRevenue": format_revenue(expected_revenue),
-                    "percentageDifference": percentage_diff
-                }
-                
-                last_two_earnings.append(earnings_entry)
-                
-            except Exception as e:
-                logger.warning(f"Error processing earnings entry for {ticker}: {str(e)}")
-                # Add a fallback entry
-                last_two_earnings.append({
-                    "earningDate": date.strftime('%m/%d/%Y'),
-                    "previousDayPrice": "N/A",
-                    "priceBeforeEarningCall": "N/A",
-                    "endOfEarningPrice": "N/A",
-                    "beatExpectation": "N/A",
-                    "actualValue": "N/A",
-                    "expectedValue": "N/A",
-                    "actualRevenue": "N/A",
-                    "expectedRevenue": "N/A",
-                    "percentageDifference": "N/A"
-                })
+                        logger.warning(f"No price data available for {ticker} at {date}")
+                        
+                        # Estimate Close B4 Earning
+                        close_b4_earning_price = "N/A"
+                        close_b4_earning_change = "N/A"
+                        
+                        # Estimate After Earning
+                        after_earning_price = "N/A"
+                        after_earning_change = "N/A"
+                        
+                        # Try to get daily data as fallback
+                        try:
+                            daily_data = ticker_obj.history(
+                                start=date - timedelta(days=2), 
+                                end=date + timedelta(days=2), 
+                                interval='1d', 
+                                prepost=True
+                            )
+                            
+                            if not daily_data.empty and len(daily_data) >= 1:
+                                current_day_close = daily_data.iloc[-1]['Close']
+                                current_day_open = daily_data.iloc[-1]['Open']
+                                
+                                if current_day_open is not None and current_day_close is not None:
+                                    current_day_open_val = float(current_day_open.iloc[0]) if hasattr(current_day_open, 'iloc') else current_day_open
+                                    current_day_close_val = float(current_day_close.iloc[0]) if hasattr(current_day_close, 'iloc') else current_day_close
+                                    
+                                    after_earning_price = f"${current_day_close_val:.2f}"
+                                    change_pct = ((current_day_close_val - current_day_open_val) / current_day_open_val) * 100
+                                    after_earning_change = f"{change_pct:+.2f}%"
+                                    
+                                    logger.info(f"Set After Earning from daily data fallback: {after_earning_price} ({after_earning_change})")
+                                else:
+                                    logger.warning(f"Missing daily data for After Earning fallback: current_day_open={current_day_open}, current_day_close={current_day_close}")
+                        except Exception as e:
+                            logger.warning(f"Daily data fallback failed: {str(e)}")
+                    
+                    # Convert EPS values to strings
+                    actual_eps_str = str(actual_eps) if actual_eps != 'N/A' else 'N/A'
+                    expected_eps_str = str(expected_eps) if expected_eps != 'N/A' else 'N/A'
+                    
+                    # Convert revenue values to strings
+                    if actual_revenue != 'N/A':
+                        actual_revenue_str = f"${actual_revenue:,.0f}" if isinstance(actual_revenue, (int, float)) else str(actual_revenue)
+                    else:
+                        actual_revenue_str = "N/A"
+                    
+                    if expected_revenue != 'N/A':
+                        expected_revenue_str = f"${expected_revenue:,.0f}" if isinstance(expected_revenue, (int, float)) else str(expected_revenue)
+                    else:
+                        expected_revenue_str = "N/A"
+                    
+                    # Add to last two earnings with calculated price data
+                    last_two_earnings.append({
+                        "earningDate": date.strftime('%m/%d/%Y'),
+                        "closeB4EarningPrice": close_b4_earning_price,
+                        "closeB4EarningChange": close_b4_earning_change,
+                        "afterEarningPrice": after_earning_price,
+                        "afterEarningChange": after_earning_change,
+                        "beatExpectation": beat_expectation,
+                        "actualValue": actual_eps_str,
+                        "expectedValue": expected_eps_str,
+                        "actualRevenue": actual_revenue_str,
+                        "expectedRevenue": expected_revenue_str,
+                        "percentageDifference": percentage_diff
+                    })
+                    
+                except Exception as e:
+                    logger.error(f"Error processing earnings data for {ticker} at {date}: {str(e)}")
+                    # Add a fallback entry with basic data
+                    last_two_earnings.append({
+                        "earningDate": date.strftime('%m/%d/%Y'),
+                        "closeB4EarningPrice": "N/A",
+                        "closeB4EarningChange": "N/A",
+                        "afterEarningPrice": "N/A",
+                        "afterEarningChange": "N/A",
+                        "beatExpectation": "N/A",
+                        "actualValue": "N/A",
+                        "expectedValue": "N/A",
+                        "actualRevenue": "N/A",
+                        "expectedRevenue": "N/A",
+                        "percentageDifference": "N/A"
+                    })
+                    continue
         
         return last_two_earnings
         
     except Exception as e:
         logger.error(f"Error getting enhanced earnings data for {ticker}: {str(e)}")
-        # Return fallback data
         return [{
-            "earningDate": earning_date_str,
-            "previousDayPrice": "N/A",
-            "priceBeforeEarningCall": "N/A",
-            "endOfEarningPrice": "N/A",
+            "earningDate": "N/A",
+            "closeB4EarningPrice": "N/A",
+            "closeB4EarningChange": "N/A",
+            "afterEarningPrice": "N/A",
+            "afterEarningChange": "N/A",
             "beatExpectation": "N/A",
             "actualValue": "N/A",
             "expectedValue": "N/A",
@@ -723,17 +1206,17 @@ def get_historical_price_data(ticker: str, date: str, interval: str = '1m'):
             # For intraday data, get the specific date
             start_date = target_date
             end_date = target_date + timedelta(days=1)
-            data = ticker_obj.history(start=start_date, end=end_date, interval='1m')
+            data = ticker_obj.history(start=start_date, end=end_date, interval='1m', prepost=True)
         elif interval == '1h':
             # For hourly data, get the specific date
             start_date = target_date
             end_date = target_date + timedelta(days=1)
-            data = ticker_obj.history(start=start_date, end=end_date, interval='1h')
+            data = ticker_obj.history(start=start_date, end=end_date, interval='1h', prepost=True)
         elif interval == '1d':
             # For daily data, get a few days around the target date
             start_date = target_date - timedelta(days=2)
             end_date = target_date + timedelta(days=2)
-            data = ticker_obj.history(start=start_date, end=end_date, interval='1d')
+            data = ticker_obj.history(start=start_date, end=end_date, interval='1d', prepost=True)
         else:
             return {
                 "error": f"Invalid interval: {interval}. Must be '1m', '1h', or '1d'",

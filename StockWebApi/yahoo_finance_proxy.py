@@ -263,7 +263,7 @@ def process_single_ticker_fallback(ticker: str, cache_manager) -> Dict[str, Any]
         ticker_obj = yf.Ticker(ticker)
         
         # Get historical data
-        hist_data = ticker_obj.history(period="1y")
+        hist_data = ticker_obj.history(period="1y", prepost=True)
         
         if hist_data.empty:
             return None

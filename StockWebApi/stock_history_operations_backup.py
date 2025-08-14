@@ -376,8 +376,22 @@ class StockHistoryOperations:
                     today_change = row_data.get('Change', 'N/A')
                     
                     # Format today's data (removed low and high, keeping only percentage)
+                    # Clean up the percentage value - remove any existing % symbols and format properly
+                    if today_change != 'N/A':
+                        # Remove any existing % symbols and clean the value
+                        clean_change = str(today_change).replace('%', '').strip()
+                        try:
+                            # Convert to float and format properly
+                            change_val = float(clean_change)
+                            formatted_percentage = f"{change_val:+.2f}%" if change_val != 0 else "0.00%"
+                        except (ValueError, TypeError):
+                            # If conversion fails, use the original value
+                            formatted_percentage = f"{clean_change}%" if clean_change else "N/A"
+                    else:
+                        formatted_percentage = "N/A"
+                    
                     today_data = {
-                        "percentage": f"{today_change}%" if today_change != 'N/A' else "N/A"
+                        "percentage": formatted_percentage
                     }
                     
                     # Create market data entry

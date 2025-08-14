@@ -70,7 +70,13 @@ def cleanup_today_cache():
 def get_today_cache_key(sectors_param: str, isleverage_param: bool) -> str:
     """Generate cache key for today filter data"""
     sectors_str = sectors_param if sectors_param else "all_sectors"
-    leverage_str = str(isleverage_param) if isleverage_param is not None else "all_leverage"
+    
+    # Handle leverage filter - None defaults to False (Ticker Only)
+    if isleverage_param is None:
+        leverage_str = "false"  # Default to "Ticker Only"
+    else:
+        leverage_str = str(isleverage_param).lower()
+    
     return f"today_{sectors_str}_{leverage_str}"
 
 def is_today_cache_valid(cache_key: str) -> bool:
@@ -373,10 +379,20 @@ def get_stock_summary_optimized(sectors_param, isleverage_param, date_from_param
         requested_sectors = [s.strip().lower() for s in sectors_param.split(',') if s.strip()]
         filtered_stocks = [stock for stock in stocks if stock.get('sector', '').lower() in requested_sectors]
 
-    # Filter stocks by isleverage if provided
-    if isleverage_param is not None:
-        isleverage_bool = str(isleverage_param).lower() == 'true'
-        filtered_stocks = [stock for stock in filtered_stocks if stock.get('isleverage', False) == isleverage_bool]
+    # Filter stocks by leverage - mutually exclusive options:
+    # - isleverage_param = False: "Ticker Only" (regular stocks only)
+    # - isleverage_param = True: "Leverage Only" (leveraged stocks only)
+    # - isleverage_param = None: Default to "Ticker Only" (regular stocks only)
+    if isleverage_param is None:
+        # Default to "Ticker Only" - show regular stocks only
+        isleverage_bool = False
+        logging.info("No leverage filter specified, defaulting to 'Ticker Only' (regular stocks)")
+    else:
+        isleverage_bool = bool(isleverage_param)
+        logging.info(f"Leverage filter applied: {'Leverage Only' if isleverage_bool else 'Ticker Only'}")
+    
+    # Apply the leverage filter
+    filtered_stocks = [stock for stock in filtered_stocks if stock.get('isleverage', False) == isleverage_bool]
 
     logging.info(f"Processing {len(filtered_stocks)} filtered stocks")
 
@@ -493,13 +509,24 @@ def get_stock_summary_today(sectors_param, isleverage_param):
             ]
             logger.info(f"Filtered to {len(stocks_data)} stocks in sectors: {sectors_list}")
         
-        # Filter by leverage if provided
-        if isleverage_param is not None:
-            stocks_data = [
-                stock for stock in stocks_data 
-                if stock.get('isleverage', False) == isleverage_param
-            ]
-            logger.info(f"Filtered to {len(stocks_data)} stocks with leverage={isleverage_param}")
+        # Filter by leverage - mutually exclusive options:
+        # - isleverage_param = False: "Ticker Only" (regular stocks only)
+        # - isleverage_param = True: "Leverage Only" (leveraged stocks only)
+        # - isleverage_param = None: Default to "Ticker Only" (regular stocks only)
+        if isleverage_param is None:
+            # Default to "Ticker Only" - show regular stocks only
+            isleverage_bool = False
+            logger.info("No leverage filter specified, defaulting to 'Ticker Only' (regular stocks)")
+        else:
+            isleverage_bool = bool(isleverage_param)
+            logger.info(f"Leverage filter applied: {'Leverage Only' if isleverage_bool else 'Ticker Only'}")
+        
+        # Apply the leverage filter
+        stocks_data = [
+            stock for stock in stocks_data 
+            if stock.get('isleverage', False) == isleverage_bool
+        ]
+        logger.info(f"Filtered to {len(stocks_data)} stocks with leverage filter: {'Leverage Only' if isleverage_bool else 'Ticker Only'}")
         
         if not stocks_data:
             logger.warning("No stocks found after filtering")

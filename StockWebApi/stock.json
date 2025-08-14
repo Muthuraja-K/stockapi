@@ -34,7 +34,6 @@
     "sector": "Quantum",
     "isleverage": true
   },
-
   {
     "ticker": "UBER",
     "sector": "Drone Delivery/FlyingTaxi",
@@ -185,7 +184,6 @@
     "sector": "Crypto",
     "isleverage": false
   },
-
   {
     "ticker": "CONL",
     "sector": "Crypto",
@@ -329,7 +327,7 @@
   {
     "ticker": "VRTL",
     "sector": "AI Service",
-    "isleverage": false
+    "isleverage": true
   },
   {
     "ticker": "BBAI",

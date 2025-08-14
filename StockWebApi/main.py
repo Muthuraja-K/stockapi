@@ -377,7 +377,7 @@ async def delete_user_route(
 @app.get('/api/stock-summary')
 async def get_stock_summary_route(
     sectors: str = "",
-    isleverage: Optional[bool] = None,
+    isleverage: Optional[bool] = None,  # True=Leverage Only, False=Ticker Only, None=defaults to Ticker Only
     date_from: str = "",
     date_to: str = "",
     today: Optional[bool] = None,
@@ -580,7 +580,7 @@ async def clear_today_cache_route(
 @app.post('/api/today-cache/refresh')
 async def refresh_today_cache_route(
     sectors: str = Query("", description="Sectors to refresh (optional)"),
-    isleverage: Optional[bool] = Query(None, description="Leverage filter (optional)"),
+    isleverage: Optional[bool] = Query(None, description="Leverage filter: True=Leverage Only, False=Ticker Only, None=defaults to Ticker Only"),
     current_user: Dict[str, Any] = Depends(require_auth)
 ):
     """Refresh Today filter cache - Admin only."""
@@ -1069,6 +1069,184 @@ async def get_scheduler_status_route(current_user: Dict[str, Any] = Depends(requ
     except Exception as e:
         logger.error(f"Error getting scheduler status: {e}")
         raise HTTPException(status_code=500, detail=f"Failed to get scheduler status: {str(e)}")
+
+# Admin cache refresh endpoints
+@app.post('/api/admin/refresh-stock-history')
+async def refresh_stock_history_route(current_user: Dict[str, Any] = Depends(require_admin)):
+    """Refresh stock history data - Admin only"""
+    try:
+        from stock_history_operations import stock_history_ops
+        
+        logger.info("Admin requested stock history refresh")
+        
+        # Refresh stock history data
+        history_success = stock_history_ops.populate_stock_history()
+        
+        # Refresh market data
+        market_success = stock_history_ops.populate_stock_market_data()
+        
+        # Get cache status after refresh
+        cache_status = stock_history_ops.get_cache_status()
+        
+        return {
+            "status": "success",
+            "message": "Stock history refresh completed",
+            "history_refresh": history_success,
+            "market_refresh": market_success,
+            "cache_status": cache_status,
+            "timestamp": datetime.now().isoformat()
+        }
+        
+    except Exception as e:
+        logger.error(f"Error refreshing stock history: {e}")
+        raise HTTPException(status_code=500, detail=f"Error refreshing stock history: {str(e)}")
+
+@app.post('/api/admin/refresh-all-caches')
+async def refresh_all_caches_route(current_user: Dict[str, Any] = Depends(require_admin)):
+    """Refresh all caches - Admin only"""
+    try:
+        logger.info("Admin requested complete cache refresh")
+        
+        results = {}
+        
+        # Clear and refresh earning summary cache
+        try:
+            from earning_summary_cache import earning_cache
+            earning_cache.clear_cache()
+            results['earning_cache'] = "Cleared"
+        except Exception as e:
+            results['earning_cache'] = f"Error: {str(e)}"
+        
+        # Clear and refresh today filter cache
+        try:
+            from stock_summary_optimized import clear_today_cache
+            clear_today_cache()
+            results['today_cache'] = "Cleared"
+        except Exception as e:
+            results['today_cache'] = f"Error: {str(e)}"
+        
+        # Clear general cache
+        try:
+            clear_cache()
+            results['general_cache'] = "Cleared"
+        except Exception as e:
+            results['general_cache'] = f"Error: {str(e)}"
+        
+        # Refresh stock history data
+        try:
+            from stock_history_operations import stock_history_ops
+            history_success = stock_history_ops.populate_stock_history()
+            market_success = stock_history_ops.populate_stock_market_data()
+            results['stock_history'] = f"History: {'Success' if history_success else 'Failed'}, Market: {'Success' if market_success else 'Failed'}"
+        except Exception as e:
+            results['stock_history'] = f"Error: {str(e)}"
+        
+        return {
+            "status": "success",
+            "message": "All caches refreshed successfully",
+            "results": results,
+            "timestamp": datetime.now().isoformat()
+        }
+        
+    except Exception as e:
+        logger.error(f"Error refreshing all caches: {e}")
+        raise HTTPException(status_code=500, detail=f"Error refreshing all caches: {str(e)}")
+
+@app.get('/api/admin/cache-overview')
+async def get_cache_overview_route(current_user: Dict[str, Any] = Depends(require_admin)):
+    """Get comprehensive cache overview - Admin only"""
+    try:
+        overview = {}
+        
+        # Get earning cache status
+        try:
+            from earning_summary_cache import earning_cache, get_cache_status
+            earning_status = get_cache_status()
+            overview['earning_cache'] = earning_status
+        except Exception as e:
+            overview['earning_cache'] = {"error": str(e)}
+        
+        # Get today filter cache status
+        try:
+            from stock_summary_optimized import get_today_cache_status
+            today_status = get_today_cache_status()
+            overview['today_cache'] = today_status
+        except Exception as e:
+            overview['today_cache'] = {"error": str(e)}
+        
+        # Get stock history cache status
+        try:
+            from stock_history_operations import stock_history_ops
+            history_status = stock_history_ops.get_cache_status()
+            overview['stock_history'] = history_status
+        except Exception as e:
+            overview['stock_history'] = {"error": str(e)}
+        
+        # Get general cache stats
+        try:
+            general_stats = get_cache_stats()
+            overview['general_cache'] = general_stats
+        except Exception as e:
+            overview['general_cache'] = {"error": str(e)}
+        
+        # Get rate limiter status
+        try:
+            rate_limiter = get_rate_limiter()
+            overview['rate_limiter'] = {
+                "current_delay": rate_limiter.current_delay,
+                "consecutive_failures": rate_limiter.consecutive_failures,
+                "consecutive_successes": rate_limiter.consecutive_successes
+            }
+        except Exception as e:
+            overview['rate_limiter'] = {"error": str(e)}
+        
+        return {
+            "status": "success",
+            "data": overview,
+            "timestamp": datetime.now().isoformat()
+        }
+        
+    except Exception as e:
+        logger.error(f"Error getting cache overview: {e}")
+        raise HTTPException(status_code=500, detail=f"Error getting cache overview: {str(e)}")
+
+@app.post('/api/admin/force-populate-history')
+async def force_populate_history_route(current_user: Dict[str, Any] = Depends(require_admin)):
+    """Force populate stock history data regardless of cache status - Admin only"""
+    try:
+        from stock_history_operations import stock_history_ops
+        
+        logger.info("Admin forced stock history population")
+        
+        # Force populate both history and market data
+        history_success = stock_history_ops.populate_stock_history()
+        market_success = stock_history_ops.populate_stock_market_data()
+        
+        return {
+            "status": "success",
+            "message": "Stock history population completed",
+            "history_population": history_success,
+            "market_population": market_success,
+            "timestamp": datetime.now().isoformat()
+        }
+        
+    except Exception as e:
+        logger.error(f"Error forcing stock history population: {e}")
+        raise HTTPException(status_code=500, detail=f"Error forcing stock history population: {str(e)}")
+
+# Admin page route
+@app.get("/admin/cache")
+async def admin_cache_page(current_user: Dict[str, Any] = Depends(require_admin)):
+    """Serve admin cache management page - Admin only"""
+    try:
+        admin_file_path = "static/admin-cache.html"
+        if os.path.exists(admin_file_path):
+            return FileResponse(admin_file_path)
+        else:
+            raise HTTPException(status_code=404, detail="Admin page not found")
+    except Exception as e:
+        logger.error(f"Error serving admin page: {e}")
+        raise HTTPException(status_code=404, detail="Admin page not found")
 
 # Catch-all route for static files - must be at the end
 @app.get("/{path:path}")
