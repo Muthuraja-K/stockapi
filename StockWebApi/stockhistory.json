@@ -6,27 +6,27 @@
     "previous_day": {
       "low": "$15.18",
       "high": "$18.16",
-      "percentage": "-3.36%"
+      "percentage": "-3.05%"
     },
     "five_day": {
       "low": "$15.22",
       "high": "$18.16",
-      "percentage": "4.26%"
+      "percentage": "4.60%"
     },
     "one_month": {
       "low": "$13.61",
       "high": "$18.16",
-      "percentage": "0.60%"
+      "percentage": "0.94%"
     },
     "six_month": {
       "low": "$6.86",
       "high": "$18.16",
-      "percentage": "58.37%"
+      "percentage": "58.89%"
     },
     "one_year": {
       "low": "$0.66",
       "high": "$21.42",
-      "percentage": "1880.97%"
+      "percentage": "1887.51%"
     }
   },
   {
@@ -36,27 +36,27 @@
     "previous_day": {
       "low": "$16.56",
       "high": "$19.17",
-      "percentage": "-5.01%"
+      "percentage": "-5.74%"
     },
     "five_day": {
       "low": "$16.81",
       "high": "$19.09",
-      "percentage": "1.99%"
+      "percentage": "1.21%"
     },
     "one_month": {
       "low": "$15.72",
       "high": "$20.56",
-      "percentage": "4.76%"
+      "percentage": "3.96%"
     },
     "six_month": {
       "low": "$4.45",
       "high": "$20.56",
-      "percentage": "193.29%"
+      "percentage": "191.06%"
     },
     "one_year": {
       "low": "$0.80",
       "high": "$20.56",
-      "percentage": "1870.52%"
+      "percentage": "1855.51%"
     }
   },
   {
@@ -66,27 +66,27 @@
     "previous_day": {
       "low": "$14.97",
       "high": "$17.24",
-      "percentage": "-5.84%"
+      "percentage": "-5.78%"
     },
     "five_day": {
       "low": "$14.97",
       "high": "$16.89",
-      "percentage": "-8.41%"
+      "percentage": "-8.35%"
     },
     "one_month": {
       "low": "$13.97",
       "high": "$20.10",
-      "percentage": "-18.07%"
+      "percentage": "-18.01%"
     },
     "six_month": {
       "low": "$4.37",
       "high": "$21.88",
-      "percentage": "104.27%"
+      "percentage": "104.41%"
     },
     "one_year": {
       "low": "$0.57",
       "high": "$27.15",
-      "percentage": "2455.08%"
+      "percentage": "2456.83%"
     }
   },
   {
@@ -96,27 +96,27 @@
     "previous_day": {
       "low": "$52.53",
       "high": "$75.62",
-      "percentage": "-8.33%"
+      "percentage": "-8.34%"
     },
     "five_day": {
       "low": "$53.40",
       "high": "$75.62",
-      "percentage": "-22.96%"
+      "percentage": "-22.97%"
     },
     "one_month": {
       "low": "$48.93",
       "high": "$82.11",
-      "percentage": "-21.03%"
+      "percentage": "-21.04%"
     },
     "six_month": {
       "low": "$17.41",
       "high": "$96.53",
-      "percentage": "103.40%"
+      "percentage": "103.37%"
     },
     "one_year": {
       "low": "$17.41",
       "high": "$96.53",
-      "percentage": "103.40%"
+      "percentage": "103.37%"
     }
   },
   {
@@ -126,27 +126,27 @@
     "previous_day": {
       "low": "$44.98",
       "high": "$63.26",
-      "percentage": "-6.36%"
+      "percentage": "-5.91%"
     },
     "five_day": {
       "low": "$45.20",
       "high": "$63.26",
-      "percentage": "8.11%"
+      "percentage": "8.63%"
     },
     "one_month": {
       "low": "$36.72",
       "high": "$63.26",
-      "percentage": "-4.56%"
+      "percentage": "-4.10%"
     },
     "six_month": {
       "low": "$14.93",
       "high": "$63.26",
-      "percentage": "178.45%"
+      "percentage": "179.80%"
     },
     "one_year": {
       "low": "$14.93",
       "high": "$63.26",
-      "percentage": "178.45%"
+      "percentage": "179.80%"
     }
   },
   {
@@ -156,27 +156,27 @@
     "previous_day": {
       "low": "$79.63",
       "high": "$106.41",
-      "percentage": "-9.85%"
+      "percentage": "-11.42%"
     },
     "five_day": {
       "low": "$82.14",
       "high": "$104.53",
-      "percentage": "2.99%"
+      "percentage": "1.20%"
     },
     "one_month": {
       "low": "$76.16",
       "high": "$128.20",
-      "percentage": "1.43%"
+      "percentage": "-0.34%"
     },
     "six_month": {
       "low": "$19.67",
       "high": "$135.94",
-      "percentage": "244.25%"
+      "percentage": "238.27%"
     },
     "one_year": {
       "low": "$19.67",
       "high": "$135.94",
-      "percentage": "244.25%"
+      "percentage": "238.27%"
     }
   },
   {
@@ -216,27 +216,27 @@
     "previous_day": {
       "low": "$86.30",
       "high": "$94.31",
-      "percentage": "0.67%"
+      "percentage": "0.56%"
     },
     "five_day": {
       "low": "$88.92",
       "high": "$92.56",
-      "percentage": "0.95%"
+      "percentage": "0.84%"
     },
     "one_month": {
       "low": "$85.42",
       "high": "$94.31",
-      "percentage": "0.76%"
+      "percentage": "0.65%"
     },
     "six_month": {
       "low": "$60.63",
       "high": "$97.71",
-      "percentage": "12.21%"
+      "percentage": "12.09%"
     },
     "one_year": {
       "low": "$59.33",
       "high": "$97.71",
-      "percentage": "27.12%"
+      "percentage": "26.98%"
     }
   },
   {
@@ -246,27 +246,27 @@
     "previous_day": {
       "low": "$16.30",
       "high": "$20.80",
-      "percentage": "-3.06%"
+      "percentage": "-3.18%"
     },
     "five_day": {
       "low": "$16.52",
       "high": "$18.45",
-      "percentage": "1.03%"
+      "percentage": "0.91%"
     },
     "one_month": {
       "low": "$14.43",
       "high": "$20.95",
-      "percentage": "5.60%"
+      "percentage": "5.48%"
     },
     "six_month": {
       "low": "$4.96",
       "high": "$20.95",
-      "percentage": "117.19%"
+      "percentage": "116.94%"
     },
     "one_year": {
       "low": "$4.70",
       "high": "$20.95",
-      "percentage": "247.68%"
+      "percentage": "247.28%"
     }
   },
   {
@@ -306,27 +306,27 @@
     "previous_day": {
       "low": "$14.06",
       "high": "$18.83",
-      "percentage": "-6.65%"
+      "percentage": "-5.87%"
     },
     "five_day": {
       "low": "$14.06",
       "high": "$18.54",
-      "percentage": "5.21%"
+      "percentage": "6.09%"
     },
     "one_month": {
       "low": "$14.06",
       "high": "$33.07",
-      "percentage": "-38.09%"
+      "percentage": "-37.57%"
     },
     "six_month": {
       "low": "$14.06",
       "high": "$33.07",
-      "percentage": "-36.88%"
+      "percentage": "-36.35%"
     },
     "one_year": {
       "low": "$14.06",
       "high": "$33.07",
-      "percentage": "-36.88%"
+      "percentage": "-36.35%"
     }
   },
   {
@@ -366,27 +366,27 @@
     "previous_day": {
       "low": "$44.53",
       "high": "$59.40",
-      "percentage": "-2.04%"
+      "percentage": "-2.06%"
     },
     "five_day": {
       "low": "$44.67",
       "high": "$46.64",
-      "percentage": "-0.15%"
+      "percentage": "-0.18%"
     },
     "one_month": {
       "low": "$44.53",
       "high": "$62.36",
-      "percentage": "-15.20%"
+      "percentage": "-15.22%"
     },
     "six_month": {
       "low": "$27.60",
       "high": "$66.44",
-      "percentage": "-19.12%"
+      "percentage": "-19.14%"
     },
     "one_year": {
       "low": "$17.25",
       "high": "$66.44",
-      "percentage": "-21.80%"
+      "percentage": "-21.81%"
     }
   },
   {
@@ -396,27 +396,27 @@
     "previous_day": {
       "low": "$157.80",
       "high": "$186.65",
-      "percentage": "-1.60%"
+      "percentage": "-2.02%"
     },
     "five_day": {
       "low": "$168.50",
       "high": "$186.65",
-      "percentage": "5.33%"
+      "percentage": "4.88%"
     },
     "one_month": {
       "low": "$149.34",
       "high": "$186.65",
-      "percentage": "13.36%"
+      "percentage": "12.88%"
     },
     "six_month": {
       "low": "$76.48",
       "high": "$186.65",
-      "percentage": "58.79%"
+      "percentage": "58.12%"
     },
     "one_year": {
       "low": "$76.48",
       "high": "$186.65",
-      "percentage": "28.93%"
+      "percentage": "28.38%"
     }
   },
   {
@@ -426,27 +426,27 @@
     "previous_day": {
       "low": "$73.98",
       "high": "$80.06",
-      "percentage": "-1.15%"
+      "percentage": "-1.03%"
     },
     "five_day": {
       "low": "$74.84",
       "high": "$80.06",
-      "percentage": "1.46%"
+      "percentage": "1.58%"
     },
     "one_month": {
       "low": "$68.00",
       "high": "$85.27",
-      "percentage": "10.67%"
+      "percentage": "10.80%"
     },
     "six_month": {
       "low": "$47.00",
       "high": "$112.28",
-      "percentage": "-26.77%"
+      "percentage": "-26.69%"
     },
     "one_year": {
       "low": "$47.00",
       "high": "$127.23",
-      "percentage": "23.32%"
+      "percentage": "23.47%"
     }
   },
   {
@@ -456,27 +456,27 @@
     "previous_day": {
       "low": "$134.61",
       "high": "$146.43",
-      "percentage": "-1.17%"
+      "percentage": "-1.33%"
     },
     "five_day": {
       "low": "$138.30",
       "high": "$146.43",
-      "percentage": "-0.79%"
+      "percentage": "-0.94%"
     },
     "one_month": {
       "low": "$134.61",
       "high": "$166.88",
-      "percentage": "-9.07%"
+      "percentage": "-9.21%"
     },
     "six_month": {
       "low": "$80.00",
       "high": "$168.31",
-      "percentage": "-12.71%"
+      "percentage": "-12.85%"
     },
     "one_year": {
       "low": "$80.00",
       "high": "$182.88",
-      "percentage": "11.13%"
+      "percentage": "10.96%"
     }
   },
   {
@@ -486,27 +486,27 @@
     "previous_day": {
       "low": "$608.19",
       "high": "$636.25",
-      "percentage": "-0.46%"
+      "percentage": "-0.51%"
     },
     "five_day": {
       "low": "$609.16",
       "high": "$628.89",
-      "percentage": "-0.06%"
+      "percentage": "-0.11%"
     },
     "one_month": {
       "low": "$550.62",
       "high": "$651.73",
-      "percentage": "7.80%"
+      "percentage": "7.74%"
     },
     "six_month": {
       "low": "$365.74",
       "high": "$651.73",
-      "percentage": "17.29%"
+      "percentage": "17.22%"
     },
     "one_year": {
       "low": "$365.74",
       "high": "$651.73",
-      "percentage": "16.00%"
+      "percentage": "15.94%"
     }
   },
   {
@@ -516,27 +516,27 @@
     "previous_day": {
       "low": "$203.24",
       "high": "$231.01",
-      "percentage": "-0.85%"
+      "percentage": "-0.74%"
     },
     "five_day": {
       "low": "$204.73",
       "high": "$231.01",
-      "percentage": "11.40%"
+      "percentage": "11.53%"
     },
     "one_month": {
       "low": "$203.24",
       "high": "$233.11",
-      "percentage": "3.61%"
+      "percentage": "3.74%"
     },
     "six_month": {
       "low": "$147.40",
       "high": "$253.02",
-      "percentage": "0.82%"
+      "percentage": "0.95%"
     },
     "one_year": {
       "low": "$147.40",
       "high": "$254.98",
-      "percentage": "-4.44%"
+      "percentage": "-4.33%"
     }
   },
   {
@@ -546,27 +546,27 @@
     "previous_day": {
       "low": "$345.48",
       "high": "$369.14",
-      "percentage": "-0.11%"
+      "percentage": "-0.22%"
     },
     "five_day": {
       "low": "$345.48",
       "high": "$356.40",
-      "percentage": "-0.10%"
+      "percentage": "-0.21%"
     },
     "one_month": {
       "low": "$311.08",
       "high": "$376.45",
-      "percentage": "10.86%"
+      "percentage": "10.74%"
     },
     "six_month": {
       "low": "$221.56",
       "high": "$376.45",
-      "percentage": "16.08%"
+      "percentage": "15.95%"
     },
     "one_year": {
       "low": "$221.56",
       "high": "$376.45",
-      "percentage": "28.32%"
+      "percentage": "28.18%"
     }
   },
   {
@@ -576,27 +576,27 @@
     "previous_day": {
       "low": "$47.86",
       "high": "$53.52",
-      "percentage": "-7.75%"
+      "percentage": "-7.39%"
     },
     "five_day": {
       "low": "$47.86",
       "high": "$53.52",
-      "percentage": "1.14%"
+      "percentage": "1.53%"
     },
     "one_month": {
       "low": "$46.57",
       "high": "$55.80",
-      "percentage": "0.94%"
+      "percentage": "1.33%"
     },
     "six_month": {
       "low": "$24.05",
       "high": "$55.80",
-      "percentage": "32.56%"
+      "percentage": "33.08%"
     },
     "one_year": {
       "low": "$24.05",
       "high": "$79.52",
-      "percentage": "46.96%"
+      "percentage": "47.53%"
     }
   },
   {
@@ -606,27 +606,27 @@
     "previous_day": {
       "low": "$6.24",
       "high": "$7.55",
-      "percentage": "-4.69%"
+      "percentage": "-4.42%"
     },
     "five_day": {
       "low": "$6.51",
       "high": "$7.55",
-      "percentage": "6.29%"
+      "percentage": "6.59%"
     },
     "one_month": {
       "low": "$5.92",
       "high": "$9.48",
-      "percentage": "14.07%"
+      "percentage": "14.39%"
     },
     "six_month": {
       "low": "$1.52",
       "high": "$9.48",
-      "percentage": "110.66%"
+      "percentage": "111.26%"
     },
     "one_year": {
       "low": "$1.52",
       "high": "$9.48",
-      "percentage": "139.42%"
+      "percentage": "140.10%"
     }
   },
   {
@@ -636,27 +636,27 @@
     "previous_day": {
       "low": "$35.75",
       "high": "$68.00",
-      "percentage": "-4.07%"
+      "percentage": "-4.15%"
     },
     "five_day": {
       "low": "$36.01",
       "high": "$39.30",
-      "percentage": "-0.59%"
+      "percentage": "-0.68%"
     },
     "one_month": {
       "low": "$35.75",
       "high": "$75.61",
-      "percentage": "-35.09%"
+      "percentage": "-35.14%"
     },
     "six_month": {
       "low": "$19.12",
       "high": "$149.16",
-      "percentage": "-66.09%"
+      "percentage": "-66.12%"
     },
     "one_year": {
       "low": "$16.80",
       "high": "$412.20",
-      "percentage": "-83.58%"
+      "percentage": "-83.59%"
     }
   },
   {
@@ -666,27 +666,27 @@
     "previous_day": {
       "low": "$10.14",
       "high": "$14.14",
-      "percentage": "-3.18%"
+      "percentage": "-4.05%"
     },
     "five_day": {
       "low": "$11.58",
       "high": "$14.14",
-      "percentage": "10.48%"
+      "percentage": "9.49%"
     },
     "one_month": {
       "low": "$9.26",
       "high": "$14.14",
-      "percentage": "25.14%"
+      "percentage": "24.02%"
     },
     "six_month": {
       "low": "$2.77",
       "high": "$14.14",
-      "percentage": "102.88%"
+      "percentage": "101.06%"
     },
     "one_year": {
       "low": "$2.77",
       "high": "$17.00",
-      "percentage": "15.03%"
+      "percentage": "14.00%"
     }
   },
   {
@@ -696,27 +696,27 @@
     "previous_day": {
       "low": "$20.30",
       "high": "$23.67",
-      "percentage": "-2.36%"
+      "percentage": "-2.11%"
     },
     "five_day": {
       "low": "$20.75",
       "high": "$23.67",
-      "percentage": "2.86%"
+      "percentage": "3.13%"
     },
     "one_month": {
       "low": "$17.51",
       "high": "$27.02",
-      "percentage": "18.65%"
+      "percentage": "18.97%"
     },
     "six_month": {
       "low": "$9.66",
       "high": "$27.02",
-      "percentage": "-5.26%"
+      "percentage": "-5.01%"
     },
     "one_year": {
       "low": "$9.66",
       "high": "$27.02",
-      "percentage": "-5.26%"
+      "percentage": "-5.01%"
     }
   },
   {
@@ -756,27 +756,27 @@
     "previous_day": {
       "low": "$65.50",
       "high": "$86.26",
-      "percentage": "-7.19%"
+      "percentage": "-6.38%"
     },
     "five_day": {
       "low": "$65.50",
       "high": "$86.26",
-      "percentage": "14.80%"
+      "percentage": "15.81%"
     },
     "one_month": {
       "low": "$52.17",
       "high": "$86.26",
-      "percentage": "42.95%"
+      "percentage": "44.21%"
     },
     "six_month": {
       "low": "$39.71",
       "high": "$86.26",
-      "percentage": "1.48%"
+      "percentage": "2.36%"
     },
     "one_year": {
       "low": "$39.71",
       "high": "$176.08",
-      "percentage": "-34.34%"
+      "percentage": "-33.77%"
     }
   },
   {
@@ -785,28 +785,28 @@
     "isleverage": false,
     "previous_day": {
       "low": "$1.70",
-      "high": "$2.95",
-      "percentage": "21.28%"
+      "high": "$3.03",
+      "percentage": "22.38%"
     },
     "five_day": {
       "low": "$1.92",
-      "high": "$2.95",
-      "percentage": "27.06%"
+      "high": "$3.03",
+      "percentage": "28.20%"
     },
     "one_month": {
       "low": "$1.13",
       "high": "$4.97",
-      "percentage": "96.98%"
+      "percentage": "98.76%"
     },
     "six_month": {
       "low": "$0.51",
       "high": "$4.97",
-      "percentage": "85.76%"
+      "percentage": "87.44%"
     },
     "one_year": {
       "low": "$0.51",
       "high": "$4.97",
-      "percentage": "66.76%"
+      "percentage": "68.27%"
     }
   },
   {
@@ -816,27 +816,27 @@
     "previous_day": {
       "low": "$7.97",
       "high": "$11.66",
-      "percentage": "-2.75%"
+      "percentage": "-3.19%"
     },
     "five_day": {
       "low": "$8.88",
       "high": "$11.66",
-      "percentage": "-4.61%"
+      "percentage": "-5.05%"
     },
     "one_month": {
       "low": "$7.30",
       "high": "$11.66",
-      "percentage": "20.44%"
+      "percentage": "19.89%"
     },
     "six_month": {
       "low": "$4.83",
       "high": "$11.91",
-      "percentage": "50.96%"
+      "percentage": "50.28%"
     },
     "one_year": {
       "low": "$1.08",
       "high": "$11.91",
-      "percentage": "896.36%"
+      "percentage": "891.82%"
     }
   },
   {
@@ -846,27 +846,27 @@
     "previous_day": {
       "low": "$6.49",
       "high": "$9.29",
-      "percentage": "-0.89%"
+      "percentage": "-1.55%"
     },
     "five_day": {
       "low": "$8.56",
       "high": "$9.29",
-      "percentage": "-0.89%"
+      "percentage": "-1.55%"
     },
     "one_month": {
       "low": "$5.65",
       "high": "$9.29",
-      "percentage": "19.33%"
+      "percentage": "18.53%"
     },
     "six_month": {
       "low": "$4.05",
       "high": "$9.29",
-      "percentage": "37.48%"
+      "percentage": "36.56%"
     },
     "one_year": {
       "low": "$1.04",
       "high": "$9.29",
-      "percentage": "744.34%"
+      "percentage": "738.68%"
     }
   },
   {
@@ -876,27 +876,27 @@
     "previous_day": {
       "low": "$16.65",
       "high": "$19.67",
-      "percentage": "-4.66%"
+      "percentage": "-3.90%"
     },
     "five_day": {
       "low": "$16.93",
       "high": "$19.67",
-      "percentage": "9.32%"
+      "percentage": "10.20%"
     },
     "one_month": {
       "low": "$13.18",
       "high": "$19.67",
-      "percentage": "37.54%"
+      "percentage": "38.64%"
     },
     "six_month": {
       "low": "$10.94",
       "high": "$19.67",
-      "percentage": "50.20%"
+      "percentage": "51.40%"
     },
     "one_year": {
       "low": "$9.52",
       "high": "$20.23",
-      "percentage": "3.71%"
+      "percentage": "4.54%"
     }
   },
   {
@@ -906,27 +906,27 @@
     "previous_day": {
       "low": "$293.31",
       "high": "$345.39",
-      "percentage": "-2.40%"
+      "percentage": "-2.06%"
     },
     "five_day": {
       "low": "$314.16",
       "high": "$345.39",
-      "percentage": "-0.15%"
+      "percentage": "0.21%"
     },
     "one_month": {
       "low": "$293.31",
       "high": "$444.65",
-      "percentage": "-19.85%"
+      "percentage": "-19.57%"
     },
     "six_month": {
       "low": "$142.58",
       "high": "$444.65",
-      "percentage": "20.60%"
+      "percentage": "21.03%"
     },
     "one_year": {
       "low": "$142.58",
       "high": "$444.65",
-      "percentage": "62.86%"
+      "percentage": "63.44%"
     }
   },
   {
@@ -936,27 +936,27 @@
     "previous_day": {
       "low": "$14.87",
       "high": "$16.50",
-      "percentage": "-4.57%"
+      "percentage": "-4.79%"
     },
     "five_day": {
       "low": "$14.87",
       "high": "$16.32",
-      "percentage": "-3.35%"
+      "percentage": "-3.58%"
     },
     "one_month": {
       "low": "$14.87",
       "high": "$20.99",
-      "percentage": "-22.15%"
+      "percentage": "-22.33%"
     },
     "six_month": {
       "low": "$9.81",
       "high": "$21.50",
-      "percentage": "-5.70%"
+      "percentage": "-5.92%"
     },
     "one_year": {
       "low": "$9.81",
       "high": "$30.28",
-      "percentage": "-0.03%"
+      "percentage": "-0.26%"
     }
   },
   {
@@ -966,27 +966,27 @@
     "previous_day": {
       "low": "$10.59",
       "high": "$12.32",
-      "percentage": "0.99%"
+      "percentage": "-0.22%"
     },
     "five_day": {
       "low": "$11.04",
       "high": "$11.80",
-      "percentage": "5.35%"
+      "percentage": "4.10%"
     },
     "one_month": {
       "low": "$10.59",
       "high": "$15.34",
-      "percentage": "-6.89%"
+      "percentage": "-8.00%"
     },
     "six_month": {
       "low": "$6.19",
       "high": "$15.34",
-      "percentage": "1.25%"
+      "percentage": "0.04%"
     },
     "one_year": {
       "low": "$6.19",
       "high": "$15.87",
-      "percentage": "53.00%"
+      "percentage": "51.18%"
     }
   },
   {
@@ -996,27 +996,27 @@
     "previous_day": {
       "low": "$161.40",
       "high": "$209.48",
-      "percentage": "-4.24%"
+      "percentage": "-4.04%"
     },
     "five_day": {
       "low": "$173.69",
       "high": "$209.48",
-      "percentage": "5.55%"
+      "percentage": "5.76%"
     },
     "one_month": {
       "low": "$156.08",
       "high": "$209.48",
-      "percentage": "11.13%"
+      "percentage": "11.36%"
     },
     "six_month": {
       "low": "$96.59",
       "high": "$209.48",
-      "percentage": "2.42%"
+      "percentage": "2.63%"
     },
     "one_year": {
       "low": "$96.59",
       "high": "$294.33",
-      "percentage": "34.13%"
+      "percentage": "34.40%"
     }
   },
   {
@@ -1026,27 +1026,27 @@
     "previous_day": {
       "low": "$112701.11",
       "high": "$124210.62",
-      "percentage": "-4.61%"
+      "percentage": "-4.43%"
     },
     "five_day": {
       "low": "$116485.16",
       "high": "$124210.62",
-      "percentage": "-1.38%"
+      "percentage": "-1.20%"
     },
     "one_month": {
       "low": "$111943.80",
       "high": "$124210.62",
-      "percentage": "-0.91%"
+      "percentage": "-0.73%"
     },
     "six_month": {
       "low": "$74436.68",
       "high": "$124210.62",
-      "percentage": "22.34%"
+      "percentage": "22.56%"
     },
     "one_year": {
       "low": "$52598.70",
       "high": "$124210.62",
-      "percentage": "100.32%"
+      "percentage": "100.68%"
     }
   },
   {
@@ -1056,27 +1056,27 @@
     "previous_day": {
       "low": "$3547.62",
       "high": "$4784.87",
-      "percentage": "-4.79%"
+      "percentage": "-4.38%"
     },
     "five_day": {
       "low": "$4163.94",
       "high": "$4784.87",
-      "percentage": "6.44%"
+      "percentage": "6.91%"
     },
     "one_month": {
       "low": "$3102.48",
       "high": "$4784.87",
-      "percentage": "34.31%"
+      "percentage": "34.90%"
     },
     "six_month": {
       "low": "$1386.80",
       "high": "$4784.87",
-      "percentage": "70.02%"
+      "percentage": "70.77%"
     },
     "one_year": {
       "low": "$1386.80",
       "high": "$4784.87",
-      "percentage": "70.05%"
+      "percentage": "70.80%"
     }
   },
   {
@@ -1086,27 +1086,27 @@
     "previous_day": {
       "low": "$142.01",
       "high": "$189.92",
-      "percentage": "-6.18%"
+      "percentage": "-5.94%"
     },
     "five_day": {
       "low": "$142.01",
       "high": "$189.92",
-      "percentage": "-10.84%"
+      "percentage": "-10.61%"
     },
     "one_month": {
       "low": "$142.01",
       "high": "$262.97",
-      "percentage": "-38.38%"
+      "percentage": "-38.22%"
     },
     "six_month": {
       "low": "$64.00",
       "high": "$298.99",
-      "percentage": "72.65%"
+      "percentage": "73.10%"
     },
     "one_year": {
       "low": "$64.00",
       "high": "$298.99",
-      "percentage": "72.65%"
+      "percentage": "73.10%"
     }
   },
   {
@@ -1116,27 +1116,27 @@
     "previous_day": {
       "low": "$30.00",
       "high": "$41.10",
-      "percentage": "-4.78%"
+      "percentage": "-4.21%"
     },
     "five_day": {
       "low": "$34.21",
       "high": "$41.10",
-      "percentage": "-0.23%"
+      "percentage": "0.36%"
     },
     "one_month": {
       "low": "$30.00",
       "high": "$72.35",
-      "percentage": "-39.62%"
+      "percentage": "-39.27%"
     },
     "six_month": {
       "low": "$9.21",
       "high": "$72.35",
-      "percentage": "-4.67%"
+      "percentage": "-4.11%"
     },
     "one_year": {
       "low": "$9.21",
       "high": "$73.88",
-      "percentage": "9.56%"
+      "percentage": "10.21%"
     }
   },
   {
@@ -1146,27 +1146,27 @@
     "previous_day": {
       "low": "$29.80",
       "high": "$40.70",
-      "percentage": "-4.87%"
+      "percentage": "-4.17%"
     },
     "five_day": {
       "low": "$34.13",
       "high": "$40.70",
-      "percentage": "-0.50%"
+      "percentage": "0.22%"
     },
     "one_month": {
       "low": "$29.80",
       "high": "$71.99",
-      "percentage": "-39.89%"
+      "percentage": "-39.45%"
     },
     "six_month": {
       "low": "$9.35",
       "high": "$71.99",
-      "percentage": "106.56%"
+      "percentage": "108.06%"
     },
     "one_year": {
       "low": "$9.35",
       "high": "$71.99",
-      "percentage": "106.56%"
+      "percentage": "108.06%"
     }
   },
   {
@@ -1176,27 +1176,27 @@
     "previous_day": {
       "low": "$16.47",
       "high": "$20.37",
-      "percentage": "-9.54%"
+      "percentage": "-10.23%"
     },
     "five_day": {
       "low": "$16.47",
       "high": "$19.86",
-      "percentage": "-7.02%"
+      "percentage": "-7.74%"
     },
     "one_month": {
       "low": "$16.47",
       "high": "$34.20",
-      "percentage": "-42.22%"
+      "percentage": "-42.67%"
     },
     "six_month": {
       "low": "$9.21",
       "high": "$35.57",
-      "percentage": "-39.60%"
+      "percentage": "-40.07%"
     },
     "one_year": {
       "low": "$9.21",
       "high": "$35.57",
-      "percentage": "-39.60%"
+      "percentage": "-40.07%"
     }
   },
   {
@@ -1206,27 +1206,27 @@
     "previous_day": {
       "low": "$11.80",
       "high": "$15.82",
-      "percentage": "1.57%"
+      "percentage": "0.00%"
     },
     "five_day": {
       "low": "$12.75",
       "high": "$14.45",
-      "percentage": "9.81%"
+      "percentage": "8.11%"
     },
     "one_month": {
       "low": "$11.80",
       "high": "$26.28",
-      "percentage": "-20.60%"
+      "percentage": "-21.83%"
     },
     "six_month": {
       "low": "$5.15",
       "high": "$26.28",
-      "percentage": "-34.04%"
+      "percentage": "-35.06%"
     },
     "one_year": {
       "low": "$5.15",
       "high": "$36.00",
-      "percentage": "-47.75%"
+      "percentage": "-48.56%"
     }
   },
   {
@@ -1236,27 +1236,27 @@
     "previous_day": {
       "low": "$29.84",
       "high": "$38.65",
-      "percentage": "-10.63%"
+      "percentage": "-10.28%"
     },
     "five_day": {
       "low": "$29.84",
       "high": "$38.65",
-      "percentage": "-15.30%"
+      "percentage": "-14.97%"
     },
     "one_month": {
       "low": "$29.84",
       "high": "$49.74",
-      "percentage": "-38.06%"
+      "percentage": "-37.81%"
     },
     "six_month": {
       "low": "$16.45",
       "high": "$49.76",
-      "percentage": "-27.48%"
+      "percentage": "-27.19%"
     },
     "one_year": {
       "low": "$11.05",
       "high": "$160.85",
-      "percentage": "106.60%"
+      "percentage": "107.41%"
     }
   },
   {
@@ -1266,27 +1266,27 @@
     "previous_day": {
       "low": "$15.94",
       "high": "$25.19",
-      "percentage": "-10.27%"
+      "percentage": "-8.08%"
     },
     "five_day": {
       "low": "$18.57",
       "high": "$25.19",
-      "percentage": "16.95%"
+      "percentage": "19.81%"
     },
     "one_month": {
       "low": "$15.94",
       "high": "$26.84",
-      "percentage": "12.85%"
+      "percentage": "15.61%"
     },
     "six_month": {
       "low": "$7.73",
       "high": "$26.84",
-      "percentage": "58.85%"
+      "percentage": "62.74%"
     },
     "one_year": {
       "low": "$7.73",
       "high": "$26.84",
-      "percentage": "58.85%"
+      "percentage": "62.74%"
     }
   },
   {
@@ -1296,27 +1296,27 @@
     "previous_day": {
       "low": "$54.24",
       "high": "$64.53",
-      "percentage": "-8.54%"
+      "percentage": "-8.21%"
     },
     "five_day": {
       "low": "$58.59",
       "high": "$64.53",
-      "percentage": "-2.56%"
+      "percentage": "-2.22%"
     },
     "one_month": {
       "low": "$54.24",
       "high": "$64.53",
-      "percentage": "-4.45%"
+      "percentage": "-4.11%"
     },
     "six_month": {
       "low": "$26.68",
       "high": "$64.70",
-      "percentage": "32.16%"
+      "percentage": "32.64%"
     },
     "one_year": {
       "low": "$17.23",
       "high": "$64.70",
-      "percentage": "171.00%"
+      "percentage": "171.97%"
     }
   },
   {
@@ -1326,27 +1326,27 @@
     "previous_day": {
       "low": "$105.46",
       "high": "$186.68",
-      "percentage": "-8.98%"
+      "percentage": "-8.16%"
     },
     "five_day": {
       "low": "$145.16",
       "high": "$186.68",
-      "percentage": "11.95%"
+      "percentage": "12.95%"
     },
     "one_month": {
       "low": "$87.56",
       "high": "$186.68",
-      "percentage": "70.42%"
+      "percentage": "71.94%"
     },
     "six_month": {
       "low": "$22.05",
       "high": "$186.68",
-      "percentage": "102.47%"
+      "percentage": "104.28%"
     },
     "one_year": {
       "low": "$22.05",
       "high": "$250.40",
-      "percentage": "31.23%"
+      "percentage": "32.40%"
     }
   },
   {
@@ -1356,27 +1356,27 @@
     "previous_day": {
       "low": "$188.00",
       "high": "$215.39",
-      "percentage": "-1.07%"
+      "percentage": "-0.90%"
     },
     "five_day": {
       "low": "$188.00",
       "high": "$198.24",
-      "percentage": "1.54%"
+      "percentage": "1.72%"
     },
     "one_month": {
       "low": "$188.00",
       "high": "$229.27",
-      "percentage": "-8.11%"
+      "percentage": "-7.94%"
     },
     "six_month": {
       "low": "$120.10",
       "high": "$229.27",
-      "percentage": "1.02%"
+      "percentage": "1.21%"
     },
     "one_year": {
       "low": "$107.13",
       "high": "$229.27",
-      "percentage": "52.99%"
+      "percentage": "53.26%"
     }
   },
   {
@@ -1386,27 +1386,27 @@
     "previous_day": {
       "low": "$165.21",
       "high": "$180.39",
-      "percentage": "-0.77%"
+      "percentage": "-0.69%"
     },
     "five_day": {
       "low": "$166.21",
       "high": "$180.39",
-      "percentage": "4.36%"
+      "percentage": "4.44%"
     },
     "one_month": {
       "low": "$165.21",
       "high": "$210.39",
-      "percentage": "-8.88%"
+      "percentage": "-8.80%"
     },
     "six_month": {
       "low": "$144.15",
       "high": "$210.39",
-      "percentage": "-15.74%"
+      "percentage": "-15.67%"
     },
     "one_year": {
       "low": "$144.15",
       "high": "$210.39",
-      "percentage": "3.26%"
+      "percentage": "3.35%"
     }
   },
   {
@@ -1416,27 +1416,27 @@
     "previous_day": {
       "low": "$419.74",
       "high": "$457.80",
-      "percentage": "-1.74%"
+      "percentage": "-1.61%"
     },
     "five_day": {
       "low": "$419.74",
       "high": "$442.42",
-      "percentage": "-0.43%"
+      "percentage": "-0.29%"
     },
     "one_month": {
       "low": "$419.74",
       "high": "$490.04",
-      "percentage": "-9.74%"
+      "percentage": "-9.62%"
     },
     "six_month": {
       "low": "$298.00",
       "high": "$517.98",
-      "percentage": "-6.75%"
+      "percentage": "-6.63%"
     },
     "one_year": {
       "low": "$242.25",
       "high": "$517.98",
-      "percentage": "65.72%"
+      "percentage": "65.94%"
     }
   },
   {
@@ -1446,27 +1446,27 @@
     "previous_day": {
       "low": "$226.48",
       "high": "$253.29",
-      "percentage": "-1.11%"
+      "percentage": "-1.00%"
     },
     "five_day": {
       "low": "$226.48",
       "high": "$241.87",
-      "percentage": "0.74%"
+      "percentage": "0.86%"
     },
     "one_month": {
       "low": "$226.48",
       "high": "$274.00",
-      "percentage": "-9.13%"
+      "percentage": "-9.03%"
     },
     "six_month": {
       "low": "$226.48",
       "high": "$328.70",
-      "percentage": "-28.52%"
+      "percentage": "-28.44%"
     },
     "one_year": {
       "low": "$226.48",
       "high": "$367.42",
-      "percentage": "-7.65%"
+      "percentage": "-7.55%"
     }
   },
   {
@@ -1476,27 +1476,27 @@
     "previous_day": {
       "low": "$198.47",
       "high": "$242.77",
-      "percentage": "-1.74%"
+      "percentage": "-1.38%"
     },
     "five_day": {
       "low": "$198.47",
       "high": "$211.47",
-      "percentage": "1.40%"
+      "percentage": "1.77%"
     },
     "one_month": {
       "low": "$198.47",
       "high": "$251.24",
-      "percentage": "-2.77%"
+      "percentage": "-2.42%"
     },
     "six_month": {
       "low": "$140.78",
       "high": "$298.92",
-      "percentage": "-31.72%"
+      "percentage": "-31.47%"
     },
     "one_year": {
       "low": "$140.78",
       "high": "$370.00",
-      "percentage": "-16.27%"
+      "percentage": "-15.97%"
     }
   },
   {
@@ -1506,27 +1506,27 @@
     "previous_day": {
       "low": "$70.12",
       "high": "$99.40",
-      "percentage": "-1.79%"
+      "percentage": "-1.88%"
     },
     "five_day": {
       "low": "$73.81",
       "high": "$80.10",
-      "percentage": "4.48%"
+      "percentage": "4.39%"
     },
     "one_month": {
       "low": "$70.12",
       "high": "$107.52",
-      "percentage": "-24.68%"
+      "percentage": "-24.75%"
     },
     "six_month": {
       "low": "$70.12",
       "high": "$114.82",
-      "percentage": "-31.81%"
+      "percentage": "-31.87%"
     },
     "one_year": {
       "low": "$70.12",
       "high": "$114.82",
-      "percentage": "7.03%"
+      "percentage": "6.94%"
     }
   },
   {
@@ -1536,27 +1536,27 @@
     "previous_day": {
       "low": "$265.88",
       "high": "$291.07",
-      "percentage": "-1.96%"
+      "percentage": "-1.91%"
     },
     "five_day": {
       "low": "$267.11",
       "high": "$280.00",
-      "percentage": "0.42%"
+      "percentage": "0.47%"
     },
     "one_month": {
       "low": "$265.88",
       "high": "$293.65",
-      "percentage": "-5.37%"
+      "percentage": "-5.32%"
     },
     "six_month": {
       "low": "$164.78",
       "high": "$318.46",
-      "percentage": "25.57%"
+      "percentage": "25.64%"
     },
     "one_year": {
       "low": "$153.45",
       "high": "$318.46",
-      "percentage": "48.02%"
+      "percentage": "48.09%"
     }
   },
   {
@@ -1566,27 +1566,27 @@
     "previous_day": {
       "low": "$87.24",
       "high": "$98.35",
-      "percentage": "-2.40%"
+      "percentage": "-2.35%"
     },
     "five_day": {
       "low": "$87.24",
       "high": "$92.43",
-      "percentage": "0.33%"
+      "percentage": "0.37%"
     },
     "one_month": {
       "low": "$87.24",
       "high": "$104.98",
-      "percentage": "-2.49%"
+      "percentage": "-2.45%"
     },
     "six_month": {
       "low": "$86.88",
       "high": "$127.57",
-      "percentage": "-8.49%"
+      "percentage": "-8.45%"
     },
     "one_year": {
       "low": "$70.56",
       "high": "$127.57",
-      "percentage": "-6.60%"
+      "percentage": "-6.56%"
     }
   },
   {
@@ -1626,27 +1626,27 @@
     "previous_day": {
       "low": "$10.70",
       "high": "$12.63",
-      "percentage": "-1.77%"
+      "percentage": "-1.68%"
     },
     "five_day": {
       "low": "$10.87",
       "high": "$12.63",
-      "percentage": "8.88%"
+      "percentage": "8.97%"
     },
     "one_month": {
       "low": "$10.70",
       "high": "$17.53",
-      "percentage": "-19.09%"
+      "percentage": "-19.02%"
     },
     "six_month": {
       "low": "$9.18",
       "high": "$17.53",
-      "percentage": "-18.26%"
+      "percentage": "-18.19%"
     },
     "one_year": {
       "low": "$9.18",
       "high": "$17.53",
-      "percentage": "-18.26%"
+      "percentage": "-18.19%"
     }
   },
   {
@@ -1656,27 +1656,27 @@
     "previous_day": {
       "low": "$27.77",
       "high": "$33.27",
-      "percentage": "-4.10%"
+      "percentage": "-3.47%"
     },
     "five_day": {
       "low": "$27.77",
       "high": "$30.71",
-      "percentage": "-1.29%"
+      "percentage": "-0.64%"
     },
     "one_month": {
       "low": "$27.77",
       "high": "$38.50",
-      "percentage": "-20.44%"
+      "percentage": "-19.92%"
     },
     "six_month": {
       "low": "$15.77",
       "high": "$43.49",
-      "percentage": "-29.56%"
+      "percentage": "-29.10%"
     },
     "one_year": {
       "low": "$15.77",
       "high": "$43.49",
-      "percentage": "12.89%"
+      "percentage": "13.63%"
     }
   },
   {
@@ -1686,27 +1686,27 @@
     "previous_day": {
       "low": "$10.88",
       "high": "$13.64",
-      "percentage": "-1.77%"
+      "percentage": "-2.18%"
     },
     "five_day": {
       "low": "$10.88",
       "high": "$12.43",
-      "percentage": "2.39%"
+      "percentage": "1.96%"
     },
     "one_month": {
       "low": "$10.88",
       "high": "$16.04",
-      "percentage": "-18.24%"
+      "percentage": "-18.58%"
     },
     "six_month": {
       "low": "$10.88",
       "high": "$19.41",
-      "percentage": "-11.44%"
+      "percentage": "-11.81%"
     },
     "one_year": {
       "low": "$10.88",
       "high": "$19.41",
-      "percentage": "-11.44%"
+      "percentage": "-11.81%"
     }
   },
   {
@@ -1716,27 +1716,27 @@
     "previous_day": {
       "low": "$101.18",
       "high": "$117.70",
-      "percentage": "0.42%"
+      "percentage": "0.53%"
     },
     "five_day": {
       "low": "$106.35",
       "high": "$117.70",
-      "percentage": "-4.00%"
+      "percentage": "-3.90%"
     },
     "one_month": {
       "low": "$93.36",
       "high": "$117.70",
-      "percentage": "5.65%"
+      "percentage": "5.75%"
     },
     "six_month": {
       "low": "$29.66",
       "high": "$117.70",
-      "percentage": "80.48%"
+      "percentage": "80.66%"
     },
     "one_year": {
       "low": "$18.57",
       "high": "$117.70",
-      "percentage": "484.88%"
+      "percentage": "485.47%"
     }
   },
   {
@@ -1746,27 +1746,27 @@
     "previous_day": {
       "low": "$61.86",
       "high": "$85.31",
-      "percentage": "-6.61%"
+      "percentage": "-6.46%"
     },
     "five_day": {
       "low": "$61.86",
       "high": "$67.85",
-      "percentage": "-1.65%"
+      "percentage": "-1.49%"
     },
     "one_month": {
       "low": "$61.86",
       "high": "$87.30",
-      "percentage": "-18.91%"
+      "percentage": "-18.77%"
     },
     "six_month": {
       "low": "$31.40",
       "high": "$89.64",
-      "percentage": "-28.17%"
+      "percentage": "-28.05%"
     },
     "one_year": {
       "low": "$31.40",
       "high": "$96.43",
-      "percentage": "72.98%"
+      "percentage": "73.27%"
     }
   },
   {
@@ -1776,27 +1776,27 @@
     "previous_day": {
       "low": "$26.08",
       "high": "$35.13",
-      "percentage": "-6.92%"
+      "percentage": "-7.07%"
     },
     "five_day": {
       "low": "$27.82",
       "high": "$35.13",
-      "percentage": "4.46%"
+      "percentage": "4.29%"
     },
     "one_month": {
       "low": "$23.55",
       "high": "$36.62",
-      "percentage": "11.90%"
+      "percentage": "11.72%"
     },
     "six_month": {
       "low": "$5.14",
       "high": "$36.62",
-      "percentage": "38.25%"
+      "percentage": "38.03%"
     },
     "one_year": {
       "low": "$5.14",
       "high": "$36.62",
-      "percentage": "40.40%"
+      "percentage": "40.18%"
     }
   },
   {
@@ -1806,27 +1806,27 @@
     "previous_day": {
       "low": "$58.45",
       "high": "$78.50",
-      "percentage": "0.09%"
+      "percentage": "0.15%"
     },
     "five_day": {
       "low": "$64.25",
       "high": "$78.50",
-      "percentage": "-8.32%"
+      "percentage": "-8.27%"
     },
     "one_month": {
       "low": "$49.57",
       "high": "$78.50",
-      "percentage": "7.46%"
+      "percentage": "7.52%"
     },
     "six_month": {
       "low": "$6.05",
       "high": "$78.50",
-      "percentage": "115.85%"
+      "percentage": "115.98%"
     },
     "one_year": {
       "low": "$6.05",
       "high": "$78.50",
-      "percentage": "180.15%"
+      "percentage": "180.31%"
     }
   },
   {
@@ -1836,27 +1836,27 @@
     "previous_day": {
       "low": "$97.85",
       "high": "$131.07",
-      "percentage": "0.45%"
+      "percentage": "0.96%"
     },
     "five_day": {
       "low": "$108.15",
       "high": "$131.07",
-      "percentage": "-8.50%"
+      "percentage": "-8.03%"
     },
     "one_month": {
       "low": "$83.14",
       "high": "$131.07",
-      "percentage": "7.63%"
+      "percentage": "8.19%"
     },
     "six_month": {
       "low": "$10.22",
       "high": "$131.07",
-      "percentage": "396.96%"
+      "percentage": "399.51%"
     },
     "one_year": {
       "low": "$10.22",
       "high": "$131.07",
-      "percentage": "396.96%"
+      "percentage": "399.51%"
     }
   },
   {
@@ -1866,27 +1866,27 @@
     "previous_day": {
       "low": "$25.00",
       "high": "$50.68",
-      "percentage": "-13.20%"
+      "percentage": "-13.10%"
     },
     "five_day": {
       "low": "$25.00",
       "high": "$30.44",
-      "percentage": "-4.79%"
+      "percentage": "-4.68%"
     },
     "one_month": {
       "low": "$25.00",
       "high": "$53.38",
-      "percentage": "-39.91%"
+      "percentage": "-39.83%"
     },
     "six_month": {
       "low": "$20.18",
       "high": "$53.38",
-      "percentage": "0.87%"
+      "percentage": "0.99%"
     },
     "one_year": {
       "low": "$20.18",
       "high": "$53.38",
-      "percentage": "0.87%"
+      "percentage": "0.99%"
     }
   },
   {
@@ -1896,27 +1896,27 @@
     "previous_day": {
       "low": "$169.22",
       "high": "$190.00",
-      "percentage": "-1.70%"
+      "percentage": "-1.74%"
     },
     "five_day": {
       "low": "$179.20",
       "high": "$190.00",
-      "percentage": "-0.79%"
+      "percentage": "-0.83%"
     },
     "one_month": {
       "low": "$145.06",
       "high": "$190.00",
-      "percentage": "20.09%"
+      "percentage": "20.05%"
     },
     "six_month": {
       "low": "$66.12",
       "high": "$190.00",
-      "percentage": "45.43%"
+      "percentage": "45.38%"
     },
     "one_year": {
       "low": "$29.31",
       "high": "$190.00",
-      "percentage": "484.61%"
+      "percentage": "484.42%"
     }
   },
   {
@@ -1926,27 +1926,27 @@
     "previous_day": {
       "low": "$10.45",
       "high": "$17.08",
-      "percentage": "-1.80%"
+      "percentage": "-1.88%"
     },
     "five_day": {
       "low": "$13.62",
       "high": "$17.08",
-      "percentage": "1.91%"
+      "percentage": "1.82%"
     },
     "one_month": {
       "low": "$9.71",
       "high": "$17.08",
-      "percentage": "37.55%"
+      "percentage": "37.44%"
     },
     "six_month": {
       "low": "$6.52",
       "high": "$17.08",
-      "percentage": "41.63%"
+      "percentage": "41.52%"
     },
     "one_year": {
       "low": "$4.32",
       "high": "$24.98",
-      "percentage": "225.36%"
+      "percentage": "225.10%"
     }
   },
   {
@@ -1956,27 +1956,27 @@
     "previous_day": {
       "low": "$39.20",
       "high": "$47.67",
-      "percentage": "-8.06%"
+      "percentage": "-7.32%"
     },
     "five_day": {
       "low": "$39.20",
       "high": "$47.67",
-      "percentage": "-11.11%"
+      "percentage": "-10.40%"
     },
     "one_month": {
       "low": "$32.82",
       "high": "$53.08",
-      "percentage": "8.02%"
+      "percentage": "8.88%"
     },
     "six_month": {
       "low": "$7.57",
       "high": "$53.08",
-      "percentage": "64.40%"
+      "percentage": "65.71%"
     },
     "one_year": {
       "low": "$7.57",
       "high": "$53.08",
-      "percentage": "64.40%"
+      "percentage": "65.71%"
     }
   },
   {
@@ -1986,27 +1986,27 @@
     "previous_day": {
       "low": "$4.75",
       "high": "$7.39",
-      "percentage": "-2.60%"
+      "percentage": "-2.15%"
     },
     "five_day": {
       "low": "$4.75",
       "high": "$7.39",
-      "percentage": "-20.19%"
+      "percentage": "-19.82%"
     },
     "one_month": {
       "low": "$4.75",
       "high": "$8.59",
-      "percentage": "-20.52%"
+      "percentage": "-20.15%"
     },
     "six_month": {
       "low": "$2.36",
       "high": "$9.45",
-      "percentage": "-32.79%"
+      "percentage": "-32.48%"
     },
     "one_year": {
       "low": "$1.21",
       "high": "$10.36",
-      "percentage": "367.67%"
+      "percentage": "369.83%"
     }
   },
   {
@@ -2014,29 +2014,29 @@
     "sector": "AI Service",
     "isleverage": false,
     "previous_day": {
-      "low": "$102.08",
+      "low": "$101.00",
       "high": "$148.80",
-      "percentage": "-12.67%"
+      "percentage": "-13.49%"
     },
     "five_day": {
-      "low": "$102.08",
+      "low": "$101.00",
       "high": "$148.80",
-      "percentage": "-26.43%"
+      "percentage": "-27.12%"
     },
     "one_month": {
       "low": "$100.80",
       "high": "$148.80",
-      "percentage": "-28.10%"
+      "percentage": "-28.78%"
     },
     "six_month": {
       "low": "$33.51",
       "high": "$187.00",
-      "percentage": "157.10%"
+      "percentage": "154.69%"
     },
     "one_year": {
       "low": "$33.51",
       "high": "$187.00",
-      "percentage": "157.10%"
+      "percentage": "154.69%"
     }
   },
   {
@@ -2046,27 +2046,27 @@
     "previous_day": {
       "low": "$15.41",
       "high": "$18.95",
-      "percentage": "-2.62%"
+      "percentage": "-3.01%"
     },
     "five_day": {
       "low": "$16.32",
       "high": "$18.95",
-      "percentage": "1.84%"
+      "percentage": "1.43%"
     },
     "one_month": {
       "low": "$15.41",
       "high": "$21.06",
-      "percentage": "-16.04%"
+      "percentage": "-16.39%"
     },
     "six_month": {
       "low": "$14.32",
       "high": "$44.15",
-      "percentage": "-35.30%"
+      "percentage": "-35.56%"
     },
     "one_year": {
       "low": "$2.31",
       "high": "$44.15",
-      "percentage": "582.85%"
+      "percentage": "580.08%"
     }
   },
   {
@@ -2076,7 +2076,7 @@
     "previous_day": {
       "low": "$14.70",
       "high": "$23.76",
-      "percentage": "-3.77%"
+      "percentage": "-3.76%"
     },
     "five_day": {
       "low": "$14.70",
@@ -2106,27 +2106,27 @@
     "previous_day": {
       "low": "$53.54",
       "high": "$75.96",
-      "percentage": "-4.29%"
+      "percentage": "-4.40%"
     },
     "five_day": {
-      "low": "$67.58",
+      "low": "$67.45",
       "high": "$75.96",
-      "percentage": "-3.76%"
+      "percentage": "-3.87%"
     },
     "one_month": {
       "low": "$49.00",
       "high": "$75.96",
-      "percentage": "26.81%"
+      "percentage": "26.66%"
     },
     "six_month": {
       "low": "$18.31",
       "high": "$75.96",
-      "percentage": "40.63%"
+      "percentage": "40.47%"
     },
     "one_year": {
       "low": "$14.09",
       "high": "$75.96",
-      "percentage": "238.00%"
+      "percentage": "237.62%"
     }
   },
   {
@@ -2136,27 +2136,27 @@
     "previous_day": {
       "low": "$92.30",
       "high": "$114.66",
-      "percentage": "-3.40%"
+      "percentage": "-3.45%"
     },
     "five_day": {
       "low": "$102.57",
       "high": "$114.66",
-      "percentage": "-1.73%"
+      "percentage": "-1.79%"
     },
     "one_month": {
       "low": "$68.43",
       "high": "$114.66",
-      "percentage": "41.12%"
+      "percentage": "41.04%"
     },
     "six_month": {
       "low": "$16.53",
       "high": "$114.66",
-      "percentage": "54.34%"
+      "percentage": "54.25%"
     },
     "one_year": {
       "low": "$16.53",
       "high": "$114.66",
-      "percentage": "303.83%"
+      "percentage": "303.60%"
     }
   },
   {
@@ -2166,27 +2166,27 @@
     "previous_day": {
       "low": "$22.13",
       "high": "$54.24",
-      "percentage": "-2.75%"
+      "percentage": "-3.69%"
     },
     "five_day": {
       "low": "$36.48",
       "high": "$54.24",
-      "percentage": "3.59%"
+      "percentage": "2.59%"
     },
     "one_month": {
       "low": "$19.16",
       "high": "$54.24",
-      "percentage": "68.46%"
+      "percentage": "66.83%"
     },
     "six_month": {
       "low": "$19.16",
       "high": "$54.24",
-      "percentage": "130.96%"
+      "percentage": "128.72%"
     },
     "one_year": {
       "low": "$19.16",
       "high": "$54.24",
-      "percentage": "130.96%"
+      "percentage": "128.72%"
     }
   },
   {
@@ -2196,27 +2196,27 @@
     "previous_day": {
       "low": "$758.58",
       "high": "$795.46",
-      "percentage": "0.85%"
+      "percentage": "0.78%"
     },
     "five_day": {
       "low": "$764.67",
       "high": "$795.46",
-      "percentage": "2.72%"
+      "percentage": "2.65%"
     },
     "one_month": {
       "low": "$691.20",
       "high": "$795.46",
-      "percentage": "11.92%"
+      "percentage": "11.84%"
     },
     "six_month": {
       "low": "$479.43",
       "high": "$795.46",
-      "percentage": "10.00%"
+      "percentage": "9.92%"
     },
     "one_year": {
       "low": "$479.43",
       "high": "$795.46",
-      "percentage": "49.86%"
+      "percentage": "49.75%"
     }
   },
   {
@@ -2226,27 +2226,27 @@
     "previous_day": {
       "low": "$212.87",
       "high": "$231.72",
-      "percentage": "3.09%"
+      "percentage": "3.11%"
     },
     "five_day": {
       "low": "$219.05",
       "high": "$231.72",
-      "percentage": "4.61%"
+      "percentage": "4.63%"
     },
     "one_month": {
       "low": "$211.42",
       "high": "$236.53",
-      "percentage": "3.73%"
+      "percentage": "3.75%"
     },
     "six_month": {
       "low": "$161.38",
       "high": "$236.53",
-      "percentage": "2.14%"
+      "percentage": "2.16%"
     },
     "one_year": {
       "low": "$161.38",
       "high": "$242.52",
-      "percentage": "36.10%"
+      "percentage": "36.13%"
     }
   },
   {
@@ -2256,27 +2256,27 @@
     "previous_day": {
       "low": "$305.50",
       "high": "$348.98",
-      "percentage": "-2.08%"
+      "percentage": "-1.74%"
     },
     "five_day": {
       "low": "$330.40",
       "high": "$348.98",
-      "percentage": "-1.97%"
+      "percentage": "-1.63%"
     },
     "one_month": {
       "low": "$297.82",
       "high": "$348.98",
-      "percentage": "3.32%"
+      "percentage": "3.67%"
     },
     "six_month": {
       "low": "$214.25",
       "high": "$367.71",
-      "percentage": "-6.15%"
+      "percentage": "-5.82%"
     },
     "one_year": {
       "low": "$198.75",
       "high": "$488.54",
-      "percentage": "65.03%"
+      "percentage": "65.60%"
     }
   },
   {
@@ -2286,27 +2286,27 @@
     "previous_day": {
       "low": "$46.68",
       "high": "$51.19",
-      "percentage": "1.70%"
+      "percentage": "1.52%"
     },
     "five_day": {
       "low": "$47.40",
       "high": "$51.19",
-      "percentage": "5.43%"
+      "percentage": "5.25%"
     },
     "one_month": {
       "low": "$39.40",
       "high": "$51.19",
-      "percentage": "22.43%"
+      "percentage": "22.21%"
     },
     "six_month": {
       "low": "$19.99",
       "high": "$51.19",
-      "percentage": "3.95%"
+      "percentage": "3.77%"
     },
     "one_year": {
       "low": "$19.99",
       "high": "$51.55",
-      "percentage": "76.92%"
+      "percentage": "76.61%"
     }
   },
   {
@@ -2316,27 +2316,27 @@
     "previous_day": {
       "low": "$33.82",
       "high": "$39.83",
-      "percentage": "6.20%"
+      "percentage": "6.28%"
     },
     "five_day": {
       "low": "$35.68",
       "high": "$39.83",
-      "percentage": "9.20%"
+      "percentage": "9.29%"
     },
     "one_month": {
       "low": "$33.37",
       "high": "$42.14",
-      "percentage": "5.35%"
+      "percentage": "5.43%"
     },
     "six_month": {
       "low": "$21.11",
       "high": "$44.21",
-      "percentage": "-8.11%"
+      "percentage": "-8.04%"
     },
     "one_year": {
       "low": "$21.11",
       "high": "$49.92",
-      "percentage": "48.10%"
+      "percentage": "48.21%"
     }
   },
   {
@@ -2346,27 +2346,27 @@
     "previous_day": {
       "low": "$10.48",
       "high": "$13.59",
-      "percentage": "-4.12%"
+      "percentage": "-3.47%"
     },
     "five_day": {
       "low": "$12.18",
       "high": "$13.59",
-      "percentage": "-3.97%"
+      "percentage": "-3.31%"
     },
     "one_month": {
       "low": "$9.97",
       "high": "$13.59",
-      "percentage": "4.14%"
+      "percentage": "4.85%"
     },
     "six_month": {
       "low": "$6.25",
       "high": "$21.20",
-      "percentage": "-37.52%"
+      "percentage": "-37.10%"
     },
     "one_year": {
       "low": "$6.25",
       "high": "$40.74",
-      "percentage": "46.65%"
+      "percentage": "47.65%"
     }
   },
   {
@@ -2376,27 +2376,27 @@
     "previous_day": {
       "low": "$85.72",
       "high": "$93.56",
-      "percentage": "0.24%"
+      "percentage": "0.47%"
     },
     "five_day": {
       "low": "$88.86",
       "high": "$93.50",
-      "percentage": "-0.50%"
+      "percentage": "-0.27%"
     },
     "one_month": {
       "low": "$75.58",
       "high": "$93.56",
-      "percentage": "11.06%"
+      "percentage": "11.31%"
     },
     "six_month": {
       "low": "$23.12",
       "high": "$93.56",
-      "percentage": "40.08%"
+      "percentage": "40.40%"
     },
     "one_year": {
       "low": "$23.12",
       "high": "$93.56",
-      "percentage": "56.26%"
+      "percentage": "56.62%"
     }
   },
   {
@@ -2436,27 +2436,27 @@
     "previous_day": {
       "low": "$21.06",
       "high": "$28.32",
-      "percentage": "-0.43%"
+      "percentage": "-0.23%"
     },
     "five_day": {
       "low": "$25.90",
       "high": "$28.32",
-      "percentage": "4.88%"
+      "percentage": "5.09%"
     },
     "one_month": {
       "low": "$20.93",
       "high": "$28.32",
-      "percentage": "21.23%"
+      "percentage": "21.48%"
     },
     "six_month": {
       "low": "$15.83",
       "high": "$36.13",
-      "percentage": "-19.82%"
+      "percentage": "-19.66%"
     },
     "one_year": {
       "low": "$15.83",
       "high": "$40.21",
-      "percentage": "-9.12%"
+      "percentage": "-8.93%"
     }
   },
   {
@@ -2466,27 +2466,27 @@
     "previous_day": {
       "low": "$41.33",
       "high": "$45.96",
-      "percentage": "2.33%"
+      "percentage": "2.20%"
     },
     "five_day": {
       "low": "$42.79",
       "high": "$45.96",
-      "percentage": "3.16%"
+      "percentage": "3.03%"
     },
     "one_month": {
       "low": "$36.22",
       "high": "$45.96",
-      "percentage": "23.16%"
+      "percentage": "23.01%"
     },
     "six_month": {
       "low": "$23.40",
       "high": "$45.96",
-      "percentage": "11.19%"
+      "percentage": "11.04%"
     },
     "one_year": {
       "low": "$23.40",
       "high": "$52.93",
-      "percentage": "33.12%"
+      "percentage": "32.95%"
     }
   },
   {
@@ -2496,27 +2496,27 @@
     "previous_day": {
       "low": "$53.14",
       "high": "$57.37",
-      "percentage": "1.36%"
+      "percentage": "1.38%"
     },
     "five_day": {
       "low": "$53.38",
       "high": "$56.18",
-      "percentage": "0.59%"
+      "percentage": "0.61%"
     },
     "one_month": {
       "low": "$50.07",
       "high": "$61.16",
-      "percentage": "6.15%"
+      "percentage": "6.18%"
     },
     "six_month": {
       "low": "$24.86",
       "high": "$61.16",
-      "percentage": "51.53%"
+      "percentage": "51.56%"
     },
     "one_year": {
       "low": "$24.86",
       "high": "$61.16",
-      "percentage": "36.57%"
+      "percentage": "36.59%"
     }
   },
   {
@@ -2526,27 +2526,27 @@
     "previous_day": {
       "low": "$85.42",
       "high": "$96.32",
-      "percentage": "0.06%"
+      "percentage": "0.22%"
     },
     "five_day": {
       "low": "$90.72",
       "high": "$96.32",
-      "percentage": "3.91%"
+      "percentage": "4.07%"
     },
     "one_month": {
       "low": "$81.86",
       "high": "$96.32",
-      "percentage": "11.58%"
+      "percentage": "11.75%"
     },
     "six_month": {
       "low": "$34.90",
       "high": "$96.32",
-      "percentage": "5.62%"
+      "percentage": "5.78%"
     },
     "one_year": {
       "low": "$34.90",
       "high": "$96.32",
-      "percentage": "50.92%"
+      "percentage": "51.16%"
     }
   },
   {
@@ -2556,27 +2556,27 @@
     "previous_day": {
       "low": "$69.65",
       "high": "$85.35",
-      "percentage": "-6.40%"
+      "percentage": "-6.11%"
     },
     "five_day": {
       "low": "$69.65",
       "high": "$83.60",
-      "percentage": "0.84%"
+      "percentage": "1.16%"
     },
     "one_month": {
       "low": "$58.88",
       "high": "$85.35",
-      "percentage": "12.58%"
+      "percentage": "12.93%"
     },
     "six_month": {
       "low": "$17.42",
       "high": "$85.35",
-      "percentage": "44.38%"
+      "percentage": "44.83%"
     },
     "one_year": {
       "low": "$5.35",
       "high": "$85.35",
-      "percentage": "852.23%"
+      "percentage": "855.19%"
     }
   },
   {
@@ -2586,27 +2586,27 @@
     "previous_day": {
       "low": "$34.28",
       "high": "$39.30",
-      "percentage": "-4.41%"
+      "percentage": "-4.02%"
     },
     "five_day": {
       "low": "$34.28",
       "high": "$37.77",
-      "percentage": "-1.79%"
+      "percentage": "-1.39%"
     },
     "one_month": {
       "low": "$32.60",
       "high": "$43.75",
-      "percentage": "-6.81%"
+      "percentage": "-6.43%"
     },
     "six_month": {
       "low": "$17.26",
       "high": "$43.75",
-      "percentage": "9.52%"
+      "percentage": "9.97%"
     },
     "one_year": {
       "low": "$6.52",
       "high": "$48.05",
-      "percentage": "333.96%"
+      "percentage": "335.72%"
     }
   },
   {
@@ -2616,27 +2616,27 @@
     "previous_day": {
       "low": "$35.22",
       "high": "$48.56",
-      "percentage": "-5.38%"
+      "percentage": "-4.79%"
     },
     "five_day": {
       "low": "$35.22",
       "high": "$40.74",
-      "percentage": "-7.73%"
+      "percentage": "-7.15%"
     },
     "one_month": {
       "low": "$35.22",
       "high": "$53.50",
-      "percentage": "-23.42%"
+      "percentage": "-22.94%"
     },
     "six_month": {
       "low": "$11.08",
       "high": "$53.50",
-      "percentage": "60.14%"
+      "percentage": "61.14%"
     },
     "one_year": {
       "low": "$6.88",
       "high": "$53.50",
-      "percentage": "274.28%"
+      "percentage": "276.62%"
     }
   },
   {
@@ -2646,27 +2646,27 @@
     "previous_day": {
       "low": "$9.03",
       "high": "$10.74",
-      "percentage": "4.26%"
+      "percentage": "4.68%"
     },
     "five_day": {
       "low": "$9.18",
       "high": "$10.15",
-      "percentage": "3.17%"
+      "percentage": "3.59%"
     },
     "one_month": {
       "low": "$7.56",
       "high": "$10.74",
-      "percentage": "20.33%"
+      "percentage": "20.81%"
     },
     "six_month": {
       "low": "$3.20",
       "high": "$10.74",
-      "percentage": "100.71%"
+      "percentage": "101.52%"
     },
     "one_year": {
       "low": "$3.20",
       "high": "$10.74",
-      "percentage": "118.87%"
+      "percentage": "119.76%"
     }
   },
   {
@@ -2676,27 +2676,27 @@
     "previous_day": {
       "low": "$6.66",
       "high": "$7.28",
-      "percentage": "-0.66%"
+      "percentage": "-0.37%"
     },
     "five_day": {
       "low": "$6.66",
       "high": "$7.01",
-      "percentage": "-1.54%"
+      "percentage": "-1.24%"
     },
     "one_month": {
       "low": "$6.30",
       "high": "$7.45",
-      "percentage": "-2.95%"
+      "percentage": "-2.67%"
     },
     "six_month": {
       "low": "$3.91",
       "high": "$7.45",
-      "percentage": "9.51%"
+      "percentage": "9.84%"
     },
     "one_year": {
       "low": "$3.91",
       "high": "$8.96",
-      "percentage": "14.15%"
+      "percentage": "14.49%"
     }
   },
   {
@@ -2706,27 +2706,27 @@
     "previous_day": {
       "low": "$28.00",
       "high": "$42.11",
-      "percentage": "-12.28%"
+      "percentage": "-11.93%"
     },
     "five_day": {
       "low": "$28.00",
       "high": "$39.69",
-      "percentage": "0.20%"
+      "percentage": "0.61%"
     },
     "one_month": {
       "low": "$21.12",
       "high": "$42.11",
-      "percentage": "15.88%"
+      "percentage": "16.34%"
     },
     "six_month": {
       "low": "$16.09",
       "high": "$42.11",
-      "percentage": "23.70%"
+      "percentage": "24.20%"
     },
     "one_year": {
       "low": "$16.09",
       "high": "$42.11",
-      "percentage": "23.70%"
+      "percentage": "24.20%"
     }
   },
   {
@@ -2736,27 +2736,27 @@
     "previous_day": {
       "low": "$45.28",
       "high": "$64.11",
-      "percentage": "-4.74%"
+      "percentage": "-4.92%"
     },
     "five_day": {
       "low": "$45.28",
       "high": "$52.10",
-      "percentage": "-7.88%"
+      "percentage": "-8.06%"
     },
     "one_month": {
       "low": "$45.28",
       "high": "$70.43",
-      "percentage": "-11.21%"
+      "percentage": "-11.38%"
     },
     "six_month": {
       "low": "$23.97",
       "high": "$72.98",
-      "percentage": "-21.30%"
+      "percentage": "-21.45%"
     },
     "one_year": {
       "low": "$13.47",
       "high": "$72.98",
-      "percentage": "198.38%"
+      "percentage": "197.80%"
     }
   },
   {
@@ -2766,27 +2766,27 @@
     "previous_day": {
       "low": "$54.88",
       "high": "$74.40",
-      "percentage": "1.41%"
+      "percentage": "0.62%"
     },
     "five_day": {
       "low": "$59.82",
       "high": "$74.40",
-      "percentage": "16.10%"
+      "percentage": "15.19%"
     },
     "one_month": {
       "low": "$53.39",
       "high": "$74.40",
-      "percentage": "17.74%"
+      "percentage": "16.83%"
     },
     "six_month": {
       "low": "$36.22",
       "high": "$91.28",
-      "percentage": "-13.84%"
+      "percentage": "-14.51%"
     },
     "one_year": {
       "low": "$31.36",
       "high": "$91.45",
-      "percentage": "64.59%"
+      "percentage": "63.31%"
     }
   },
   {
@@ -2796,27 +2796,27 @@
     "previous_day": {
       "low": "$45.05",
       "high": "$51.30",
-      "percentage": "-1.43%"
+      "percentage": "-1.30%"
     },
     "five_day": {
       "low": "$49.38",
       "high": "$51.24",
-      "percentage": "0.60%"
+      "percentage": "0.74%"
     },
     "one_month": {
       "low": "$45.05",
       "high": "$71.80",
-      "percentage": "-25.16%"
+      "percentage": "-25.06%"
     },
     "six_month": {
       "low": "$45.05",
       "high": "$92.31",
-      "percentage": "-38.08%"
+      "percentage": "-37.99%"
     },
     "one_year": {
       "low": "$45.05",
       "high": "$137.52",
-      "percentage": "-61.93%"
+      "percentage": "-61.88%"
     }
   },
   {
@@ -2826,27 +2826,27 @@
     "previous_day": {
       "low": "$15.75",
       "high": "$32.90",
-      "percentage": "-9.33%"
+      "percentage": "-9.65%"
     },
     "five_day": {
       "low": "$15.75",
       "high": "$21.07",
-      "percentage": "-15.61%"
+      "percentage": "-15.91%"
     },
     "one_month": {
       "low": "$15.75",
       "high": "$39.82",
-      "percentage": "-27.78%"
+      "percentage": "-28.04%"
     },
     "six_month": {
       "low": "$9.00",
       "high": "$57.00",
-      "percentage": "-4.00%"
+      "percentage": "-4.35%"
     },
     "one_year": {
       "low": "$9.00",
       "high": "$57.00",
-      "percentage": "-4.00%"
+      "percentage": "-4.35%"
     }
   },
   {
@@ -2856,27 +2856,27 @@
     "previous_day": {
       "low": "$15.60",
       "high": "$28.06",
-      "percentage": "3.00%"
+      "percentage": "1.42%"
     },
     "five_day": {
       "low": "$18.45",
       "high": "$28.06",
-      "percentage": "33.28%"
+      "percentage": "31.23%"
     },
     "one_month": {
       "low": "$14.82",
       "high": "$28.06",
-      "percentage": "32.31%"
+      "percentage": "30.28%"
     },
     "six_month": {
       "low": "$14.82",
       "high": "$33.19",
-      "percentage": "-15.68%"
+      "percentage": "-16.97%"
     },
     "one_year": {
       "low": "$14.82",
       "high": "$33.19",
-      "percentage": "-15.68%"
+      "percentage": "-16.97%"
     }
   },
   {
@@ -2886,27 +2886,27 @@
     "previous_day": {
       "low": "$2.40",
       "high": "$3.09",
-      "percentage": "-2.64%"
+      "percentage": "-2.48%"
     },
     "five_day": {
       "low": "$2.86",
       "high": "$3.07",
-      "percentage": "1.37%"
+      "percentage": "1.55%"
     },
     "one_month": {
       "low": "$2.40",
       "high": "$6.76",
-      "percentage": "-50.42%"
+      "percentage": "-50.34%"
     },
     "six_month": {
       "low": "$2.40",
       "high": "$13.20",
-      "percentage": "-71.28%"
+      "percentage": "-71.23%"
     },
     "one_year": {
       "low": "$2.40",
       "high": "$21.09",
-      "percentage": "-85.38%"
+      "percentage": "-85.36%"
     }
   },
   {
@@ -2916,27 +2916,27 @@
     "previous_day": {
       "low": "$46.40",
       "high": "$70.49",
-      "percentage": "4.26%"
+      "percentage": "3.94%"
     },
     "five_day": {
       "low": "$53.04",
       "high": "$70.49",
-      "percentage": "17.66%"
+      "percentage": "17.30%"
     },
     "one_month": {
       "low": "$23.71",
       "high": "$70.49",
-      "percentage": "161.99%"
+      "percentage": "161.18%"
     },
     "six_month": {
       "low": "$9.72",
       "high": "$70.49",
-      "percentage": "167.81%"
+      "percentage": "166.99%"
     },
     "one_year": {
       "low": "$9.72",
       "high": "$70.49",
-      "percentage": "167.81%"
+      "percentage": "166.99%"
     }
   },
   {
@@ -2976,27 +2976,27 @@
     "previous_day": {
       "low": "$82.07",
       "high": "$99.24",
-      "percentage": "-1.12%"
+      "percentage": "-1.25%"
     },
     "five_day": {
       "low": "$82.07",
       "high": "$96.34",
-      "percentage": "-7.35%"
+      "percentage": "-7.46%"
     },
     "one_month": {
       "low": "$72.30",
       "high": "$123.05",
-      "percentage": "7.28%"
+      "percentage": "7.14%"
     },
     "six_month": {
       "low": "$15.78",
       "high": "$123.05",
-      "percentage": "240.16%"
+      "percentage": "239.72%"
     },
     "one_year": {
       "low": "$15.78",
       "high": "$123.05",
-      "percentage": "240.16%"
+      "percentage": "239.72%"
     }
   },
   {
@@ -3036,27 +3036,27 @@
     "previous_day": {
       "low": "$9.76",
       "high": "$11.06",
-      "percentage": "-3.35%"
+      "percentage": "-3.88%"
     },
     "five_day": {
       "low": "$9.76",
       "high": "$10.95",
-      "percentage": "-2.80%"
+      "percentage": "-3.32%"
     },
     "one_month": {
       "low": "$9.50",
       "high": "$12.40",
-      "percentage": "-14.49%"
+      "percentage": "-14.96%"
     },
     "six_month": {
       "low": "$4.66",
       "high": "$14.30",
-      "percentage": "-14.64%"
+      "percentage": "-15.10%"
     },
     "one_year": {
       "low": "$4.66",
       "high": "$24.35",
-      "percentage": "-11.26%"
+      "percentage": "-11.74%"
     }
   },
   {
@@ -3066,27 +3066,27 @@
     "previous_day": {
       "low": "$31.15",
       "high": "$37.82",
-      "percentage": "-8.62%"
+      "percentage": "-8.88%"
     },
     "five_day": {
       "low": "$31.15",
       "high": "$35.50",
-      "percentage": "-3.92%"
+      "percentage": "-4.20%"
     },
     "one_month": {
       "low": "$30.89",
       "high": "$50.21",
-      "percentage": "-27.04%"
+      "percentage": "-27.25%"
     },
     "six_month": {
       "low": "$11.00",
       "high": "$50.21",
-      "percentage": "98.87%"
+      "percentage": "98.30%"
     },
     "one_year": {
       "low": "$3.72",
       "high": "$52.79",
-      "percentage": "314.43%"
+      "percentage": "313.25%"
     }
   },
   {
@@ -3096,27 +3096,27 @@
     "previous_day": {
       "low": "$38.61",
       "high": "$46.82",
-      "percentage": "-3.93%"
+      "percentage": "-4.01%"
     },
     "five_day": {
       "low": "$39.28",
       "high": "$46.82",
-      "percentage": "-11.90%"
+      "percentage": "-11.98%"
     },
     "one_month": {
       "low": "$37.25",
       "high": "$47.72",
-      "percentage": "-9.07%"
+      "percentage": "-9.15%"
     },
     "six_month": {
       "low": "$17.88",
       "high": "$48.94",
-      "percentage": "16.65%"
+      "percentage": "16.55%"
     },
     "one_year": {
       "low": "$6.54",
       "high": "$54.74",
-      "percentage": "441.59%"
+      "percentage": "441.12%"
     }
   },
   {
@@ -3126,27 +3126,27 @@
     "previous_day": {
       "low": "$0.32",
       "high": "$0.44",
-      "percentage": "3.38%"
+      "percentage": "2.49%"
     },
     "five_day": {
       "low": "$0.32",
       "high": "$0.44",
-      "percentage": "8.85%"
+      "percentage": "7.91%"
     },
     "one_month": {
       "low": "$0.14",
       "high": "$0.98",
-      "percentage": "83.22%"
+      "percentage": "81.63%"
     },
     "six_month": {
       "low": "$0.14",
       "high": "$2.08",
-      "percentage": "-79.99%"
+      "percentage": "-80.17%"
     },
     "one_year": {
       "low": "$0.14",
       "high": "$4.49",
-      "percentage": "-67.82%"
+      "percentage": "-68.10%"
     }
   },
   {
@@ -3156,27 +3156,27 @@
     "previous_day": {
       "low": "$13.55",
       "high": "$15.85",
-      "percentage": "-1.76%"
+      "percentage": "-2.47%"
     },
     "five_day": {
       "low": "$13.83",
       "high": "$15.85",
-      "percentage": "3.64%"
+      "percentage": "2.89%"
     },
     "one_month": {
       "low": "$9.75",
       "high": "$15.85",
-      "percentage": "44.53%"
+      "percentage": "43.49%"
     },
     "six_month": {
       "low": "$3.31",
       "high": "$15.85",
-      "percentage": "50.99%"
+      "percentage": "49.90%"
     },
     "one_year": {
       "low": "$3.01",
       "high": "$15.85",
-      "percentage": "278.65%"
+      "percentage": "275.91%"
     }
   },
   {
@@ -3186,27 +3186,27 @@
     "previous_day": {
       "low": "$21.02",
       "high": "$24.50",
-      "percentage": "-3.51%"
+      "percentage": "-3.30%"
     },
     "five_day": {
       "low": "$21.72",
       "high": "$24.50",
-      "percentage": "2.48%"
+      "percentage": "2.70%"
     },
     "one_month": {
       "low": "$19.82",
       "high": "$25.11",
-      "percentage": "7.41%"
+      "percentage": "7.64%"
     },
     "six_month": {
       "low": "$8.60",
       "high": "$25.11",
-      "percentage": "36.51%"
+      "percentage": "36.81%"
     },
     "one_year": {
       "low": "$6.56",
       "high": "$25.11",
-      "percentage": "247.58%"
+      "percentage": "248.34%"
     }
   },
   {
@@ -3216,27 +3216,27 @@
     "previous_day": {
       "low": "$1144.71",
       "high": "$1244.09",
-      "percentage": "3.05%"
+      "percentage": "2.99%"
     },
     "five_day": {
       "low": "$1201.93",
       "high": "$1244.09",
-      "percentage": "1.88%"
+      "percentage": "1.82%"
     },
     "one_month": {
       "low": "$1144.71",
       "high": "$1277.50",
-      "percentage": "-0.73%"
+      "percentage": "-0.79%"
     },
     "six_month": {
       "low": "$821.10",
       "high": "$1341.15",
-      "percentage": "19.83%"
+      "percentage": "19.76%"
     },
     "one_year": {
       "low": "$648.70",
       "high": "$1341.15",
-      "percentage": "87.59%"
+      "percentage": "87.48%"
     }
   },
   {
@@ -3246,27 +3246,27 @@
     "previous_day": {
       "low": "$201.93",
       "high": "$235.11",
-      "percentage": "-0.23%"
+      "percentage": "-0.14%"
     },
     "five_day": {
       "low": "$224.76",
       "high": "$235.11",
-      "percentage": "2.47%"
+      "percentage": "2.57%"
     },
     "one_month": {
       "low": "$201.27",
       "high": "$235.11",
-      "percentage": "10.89%"
+      "percentage": "11.00%"
     },
     "six_month": {
       "low": "$168.80",
       "high": "$249.39",
-      "percentage": "-4.54%"
+      "percentage": "-4.45%"
     },
     "one_year": {
       "low": "$168.80",
       "high": "$259.18",
-      "percentage": "5.48%"
+      "percentage": "5.58%"
     }
   },
   {
@@ -3276,27 +3276,27 @@
     "previous_day": {
       "low": "$194.47",
       "high": "$205.43",
-      "percentage": "1.02%"
+      "percentage": "0.96%"
     },
     "five_day": {
       "low": "$198.64",
       "high": "$205.43",
-      "percentage": "1.72%"
+      "percentage": "1.66%"
     },
     "one_month": {
       "low": "$181.50",
       "high": "$205.43",
-      "percentage": "11.60%"
+      "percentage": "11.54%"
     },
     "six_month": {
       "low": "$142.49",
       "high": "$205.43",
-      "percentage": "10.64%"
+      "percentage": "10.58%"
     },
     "one_year": {
       "low": "$142.49",
       "high": "$208.21",
-      "percentage": "27.19%"
+      "percentage": "27.11%"
     }
   },
   {
@@ -3306,27 +3306,27 @@
     "previous_day": {
       "low": "$175.90",
       "high": "$184.48",
-      "percentage": "0.11%"
+      "percentage": "0.23%"
     },
     "five_day": {
       "low": "$179.35",
       "high": "$184.48",
-      "percentage": "-0.15%"
+      "percentage": "-0.03%"
     },
     "one_month": {
       "low": "$164.58",
       "high": "$184.48",
-      "percentage": "6.08%"
+      "percentage": "6.21%"
     },
     "six_month": {
       "low": "$86.61",
       "high": "$184.48",
-      "percentage": "30.43%"
+      "percentage": "30.58%"
     },
     "one_year": {
       "low": "$86.61",
       "high": "$184.48",
-      "percentage": "54.00%"
+      "percentage": "54.19%"
     }
   },
   {
@@ -3336,27 +3336,27 @@
     "previous_day": {
       "low": "$517.55",
       "high": "$537.30",
-      "percentage": "0.65%"
+      "percentage": "0.66%"
     },
     "five_day": {
       "low": "$519.37",
       "high": "$532.70",
-      "percentage": "0.42%"
+      "percentage": "0.43%"
     },
     "one_month": {
       "low": "$500.70",
       "high": "$555.45",
-      "percentage": "3.63%"
+      "percentage": "3.64%"
     },
     "six_month": {
       "low": "$344.16",
       "high": "$555.45",
-      "percentage": "28.40%"
+      "percentage": "28.41%"
     },
     "one_year": {
       "low": "$344.16",
       "high": "$555.45",
-      "percentage": "26.66%"
+      "percentage": "26.67%"
     }
   },
   {
@@ -3366,27 +3366,27 @@
     "previous_day": {
       "low": "$559.73",
       "high": "$583.32",
-      "percentage": "0.03%"
+      "percentage": "0.08%"
     },
     "five_day": {
       "low": "$571.57",
       "high": "$583.32",
-      "percentage": "1.34%"
+      "percentage": "1.39%"
     },
     "one_month": {
       "low": "$551.56",
       "high": "$583.32",
-      "percentage": "4.17%"
+      "percentage": "4.22%"
     },
     "six_month": {
       "low": "$401.94",
       "high": "$583.32",
-      "percentage": "7.91%"
+      "percentage": "7.96%"
     },
     "one_year": {
       "low": "$401.94",
       "high": "$583.32",
-      "percentage": "26.16%"
+      "percentage": "26.22%"
     }
   },
   {
@@ -3396,27 +3396,27 @@
     "previous_day": {
       "low": "$21.48",
       "high": "$41.64",
-      "percentage": "-10.93%"
+      "percentage": "-9.45%"
     },
     "five_day": {
       "low": "$21.48",
       "high": "$28.80",
-      "percentage": "-14.66%"
+      "percentage": "-13.24%"
     },
     "one_month": {
       "low": "$21.48",
       "high": "$52.00",
-      "percentage": "-46.64%"
+      "percentage": "-45.75%"
     },
     "six_month": {
       "low": "$21.48",
       "high": "$52.00",
-      "percentage": "-20.21%"
+      "percentage": "-18.87%"
     },
     "one_year": {
       "low": "$21.48",
       "high": "$52.00",
-      "percentage": "-20.21%"
+      "percentage": "-18.87%"
     }
   }
 ]
