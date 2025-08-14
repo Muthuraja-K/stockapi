@@ -562,12 +562,14 @@ def get_stock_summary_today(sectors_param, isleverage_param):
             finviz_stock_data = finviz_data[ticker]
             
             # Create stock summary entry with proper structure for frontend (matching 1D,1W,1M format)
-            # Use specific Finviz columns: 1=Ticker, 81=Prev Close, 86=Open, 65=Price, 66=Change
+            # Use specific Finviz columns: 1=Ticker, 81=Prev Close, 86=Open, 65=Price, 66=Change, 71=AH Close, 72=AH Change, 87=Low, 88=High
             # For Today filter: startDateClosePrice = Prev Close, endDateClosePrice = Open
             current_price = finviz_stock_data.get('Price', 'N/A')  # Column 65
             prev_close = finviz_stock_data.get('Prev Close', 'N/A')  # Column 81
             open_price = finviz_stock_data.get('Open', 'N/A')  # Column 86
             change_percent = finviz_stock_data.get('Change', 'N/A')  # Column 66 (percentage change)
+            low_price = finviz_stock_data.get('Low', 'N/A')  # Column 87
+            high_price = finviz_stock_data.get('High', 'N/A')  # Column 88
             
             # Format prices with currency symbol to match other periods
             def format_price(price_str):
@@ -605,8 +607,10 @@ def get_stock_summary_today(sectors_param, isleverage_param):
                 'startDateClosePrice': format_price(prev_close),  # Prev Close Price (Prev Close column 81)
                 'endDateClosePrice': format_price(open_price),  # Open Price (Open column 86)
                 'percentageChange': format_percentage(change_percent),  # Percentage change (Change column)
+                'lowPrice': format_price(low_price),  # Low price (Low column 87)
+                'highPrice': format_price(high_price),  # High price (High column 88)
                 'volume': 'N/A',  # Not available in selected columns
-                'marketCap': 'N/A',  # Not available in selected columns
+                'marketCap': stock.get('market_cap', 'N/A'),  # Use market cap from stock.json
                 'peRatio': 'N/A',  # Not available in selected columns
                 'forwardPE': 'N/A',  # Not available in selected columns
                 'pegRatio': 'N/A',  # Not available in selected columns

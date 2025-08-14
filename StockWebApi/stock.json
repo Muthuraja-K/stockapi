@@ -568,5 +568,15 @@
     "ticker": "SMU",
     "sector": "Energy",
     "isleverage": true
+  },
+  {
+    "ticker": "VERI",
+    "sector": "AI Service",
+    "isleverage": false
+  },
+  {
+    "ticker": "WULF",
+    "sector": "Crypto",
+    "isleverage": false
   }
 ]

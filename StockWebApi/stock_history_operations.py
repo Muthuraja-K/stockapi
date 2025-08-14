@@ -376,13 +376,13 @@ class StockHistoryOperations:
                 logger.error("No valid tickers found")
                 return False
             
-            # Prepare Finviz API request with AH data
+            # Prepare Finviz API request with AH data and Low/High values
             tickers_param = ','.join(tickers)
             params = {
                 'v': '152',
                 't': tickers_param,
                 'auth': self.finviz_auth_id,
-                'c': '1,6,65,68,66,67,71,72'  # Added columns 71=AH Price, 72=AH Change
+                'c': '1,6,65,68,66,67,71,72,87,88'  # Columns: 1=Ticker, 6=Market Cap, 65=Price, 68=Earnings Date, 66=Change, 67=Volume, 71=AH Close, 72=AH Change, 87=Low, 88=High
             }
             
             try:
@@ -423,12 +423,28 @@ class StockHistoryOperations:
                         continue
                     
                     # Extract market data
-                    market_cap = row_data.get('Market Cap', 'N/A')
+                    market_cap_raw = row_data.get('Market Cap', 'N/A')
                     earning_date = row_data.get('Earnings Date', 'N/A')  # Fixed: was 'Earnings', now 'Earnings Date'
                     current_price = row_data.get('Price', 'N/A')
                     
+                    # Format market cap properly - Finviz returns market cap in millions
+                    market_cap = 'N/A'  # Initialize default value
+                    try:
+                        from utils import fmt_market_cap
+                        if market_cap_raw != 'N/A' and market_cap_raw:
+                            # Finviz returns market cap in millions, so multiply by 1M to get actual value
+                            market_cap_value = float(market_cap_raw) * 1000000
+                            market_cap = fmt_market_cap(market_cap_value)
+                    except (ImportError, ValueError, TypeError):
+                        # Fallback if utils not available or conversion fails
+                        market_cap = market_cap_raw
+                    
                     # Extract today's data
                     today_change = row_data.get('Change', 'N/A')
+                    
+                    # Extract Low and High values
+                    low_price = row_data.get('Low', 'N/A')
+                    high_price = row_data.get('High', 'N/A')
                     
                     # Extract AH data
                     ah_price = row_data.get('After-Hours Close', 'N/A')
@@ -450,7 +466,9 @@ class StockHistoryOperations:
                         formatted_percentage = "N/A"
                     
                     today_data = {
-                        "percentage": formatted_percentage
+                        "percentage": formatted_percentage,
+                        "low": low_price,
+                        "high": high_price
                     }
                     
                     # Create market data entry
@@ -499,14 +517,14 @@ class StockHistoryOperations:
             
             logger.info(f"Fetching Finviz data for {len(tickers)} tickers")
             
-            # Prepare Finviz API request with required columns including AH data
-            # Column mapping: 1=Ticker, 81=Prev Close, 86=Open, 65=Price, 66=Change, 71=AH Price, 72=AH Change
+            # Prepare Finviz API request with required columns including AH data and Low/High
+            # Column mapping: 1=Ticker, 81=Prev Close, 86=Open, 65=Price, 66=Change, 71=AH Close, 72=AH Change, 87=Low, 88=High
             tickers_param = ','.join(tickers)
             params = {
                 'v': '152',
                 't': tickers_param,
                 'auth': self.finviz_auth_id,
-                'c': '1,81,86,65,66,71,72'
+                'c': '1,81,86,65,66,71,72,87,88'
             }
             
             try:
@@ -578,7 +596,9 @@ class StockHistoryOperations:
                     "current_price": market_item.get('current_price', 'N/A'),
                     "today": market_item.get('today', history_item.get('today', {})),
                     "ah_price": market_item.get('ah_price', 'N/A'),
-                    "ah_change": market_item.get('ah_change', 'N/A')
+                    "ah_change": market_item.get('ah_change', 'N/A'),
+                    "low": market_item.get('today', {}).get('low', 'N/A'),
+                    "high": market_item.get('today', {}).get('high', 'N/A')
                 }
                 
                 combined_data.append(combined_item)
