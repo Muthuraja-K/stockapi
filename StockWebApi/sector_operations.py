@@ -24,8 +24,8 @@ def save_sectors(sectors: List[Dict[str, Any]]) -> bool:
         print(f"Error saving sectors: {e}")
         return False
 
-def get_sectors_with_filters(filter_text: str = "", page: int = 1, per_page: int = 10) -> Dict[str, Any]:
-    """Get sectors with filtering and pagination"""
+def get_sectors_with_filters(filter_text: str = "") -> Dict[str, Any]:
+    """Get sectors with filtering (no pagination)"""
     sectors = load_sectors()
     
     # Apply filters
@@ -34,17 +34,9 @@ def get_sectors_with_filters(filter_text: str = "", page: int = 1, per_page: int
     if filter_text:
         filtered_sectors = [s for s in sectors if filter_text.lower() in s.get('sector', '').lower()]
     
-    # Apply pagination
-    total = len(filtered_sectors)
-    start_index = (page - 1) * per_page
-    end_index = start_index + per_page
-    paginated_sectors = filtered_sectors[start_index:end_index]
-    
     return {
-        'results': paginated_sectors,
-        'total': total,
-        'page': page,
-        'per_page': per_page
+        'results': filtered_sectors,
+        'total': len(filtered_sectors)
     }
 
 def add_sector_to_file(sector: str) -> Tuple[bool, str]:

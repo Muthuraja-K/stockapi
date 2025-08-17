@@ -312,6 +312,8 @@ def process_stock_summary_from_batch_data(stock: Dict, batch_data: Dict, date_fr
         if not start_price or not end_price or not current_price:
             return None
         
+
+        
         return {
             'ticker': ticker,
             'currentPrice': fmt_currency(current_price),
@@ -598,6 +600,8 @@ def get_stock_summary_today(sectors_param, isleverage_param):
                     return 'N/A'
                 except (ValueError, TypeError):
                     return 'N/A'
+            
+
             
             stock_entry = {
                 'ticker': ticker,

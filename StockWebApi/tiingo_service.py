@@ -9,6 +9,7 @@ going back many years and higher rate limits.
 import logging
 import requests
 import pandas as pd
+import time
 from datetime import datetime, timedelta
 from typing import Dict, Any, Optional, List
 from config import config
@@ -26,6 +27,11 @@ class TiingoService:
             'Content-Type': 'application/json',
             'Authorization': f'Token {self.api_key}'
         })
+        # Rate limiting: Tiingo allows 1000 requests per day
+        self.requests_per_day = 1000
+        self.requests_made = 0
+        self.last_request_time = None
+        self.min_request_interval = 1.0  # Minimum 1 second between requests
     
     def get_intraday_data(self, ticker: str, start_date: datetime, end_date: datetime, 
                           interval: str = '1min', prepost: bool = True) -> Optional[pd.DataFrame]:
@@ -46,6 +52,14 @@ class TiingoService:
             if not self.api_key:
                 logger.warning("Tiingo API key not configured, falling back to Yahoo Finance")
                 return None
+            
+            # Rate limiting: Check if we need to wait
+            if self.last_request_time:
+                time_since_last = time.time() - self.last_request_time
+                if time_since_last < self.min_request_interval:
+                    sleep_time = self.min_request_interval - time_since_last
+                    logger.info(f"Rate limiting: waiting {sleep_time:.2f} seconds before next request")
+                    time.sleep(sleep_time)
             
             # Format dates for Tiingo API
             start_str = start_date.strftime('%Y-%m-%d')
@@ -68,10 +82,40 @@ class TiingoService:
             
             logger.info(f"Fetching Tiingo data for {ticker} from {start_str} to {end_str} with {interval} interval")
             
-            # Make API request
-            response = self.session.get(url, params=params)
-            response.raise_for_status()
+            # Make API request with retry logic
+            max_retries = 3
+            retry_delay = 5  # Start with 5 seconds
             
+            for attempt in range(max_retries):
+                try:
+                    # Update request tracking
+                    self.last_request_time = time.time()
+                    self.requests_made += 1
+                    
+                    # Make API request
+                    response = self.session.get(url, params=params)
+                    
+                    if response.status_code == 429:  # Rate limited
+                        retry_after = int(response.headers.get('Retry-After', retry_delay))
+                        logger.warning(f"Rate limited by Tiingo API. Waiting {retry_after} seconds before retry {attempt + 1}/{max_retries}")
+                        time.sleep(retry_after)
+                        retry_delay *= 2  # Exponential backoff
+                        continue
+                    elif response.status_code == 200:
+                        break  # Success, exit retry loop
+                    else:
+                        response.raise_for_status()
+                        
+                except requests.exceptions.RequestException as e:
+                    if attempt < max_retries - 1:
+                        logger.warning(f"Request failed (attempt {attempt + 1}/{max_retries}): {str(e)}")
+                        time.sleep(retry_delay)
+                        retry_delay *= 2
+                        continue
+                    else:
+                        raise e
+            
+            # If we get here, we should have a successful response
             data = response.json()
             
             if not data:
@@ -189,6 +233,16 @@ class TiingoService:
             True if Tiingo is available, False otherwise
         """
         return bool(self.api_key)
+    
+    def reset_rate_limiting(self):
+        """Reset rate limiting counters - useful for testing or after long periods"""
+        self.requests_made = 0
+        self.last_request_time = None
+        logger.info("Tiingo rate limiting counters reset")
+    
+    def get_remaining_requests(self) -> int:
+        """Get remaining requests for today"""
+        return max(0, self.requests_per_day - self.requests_made)
     
     def get_data_with_fallback(self, ticker: str, target_date: datetime, 
                               preferred_interval: str = '1min') -> Optional[pd.DataFrame]:

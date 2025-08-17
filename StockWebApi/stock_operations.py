@@ -1,6 +1,60 @@
 import json
 import os
+import requests
 from typing import List, Dict, Any, Optional, Tuple
+
+def get_company_name_from_finviz(ticker: str) -> str:
+    """Get company name from Finviz CSV export API"""
+    try:
+        # Use the Finviz CSV export API for more reliable data
+        url = f"https://elite.finviz.com/export.ashx?v=152&t={ticker}&auth=22a5d2df-8313-42f4-b2ab-cab5e0f26758"
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+        }
+        
+        response = requests.get(url, headers=headers, timeout=10)
+        response.raise_for_status()
+        
+        # Parse CSV response
+        csv_content = response.text.strip()
+        if not csv_content:
+            return "Unknown Company"
+        
+        # Split by lines and get the data row (skip header)
+        lines = csv_content.split('\n')
+        if len(lines) < 2:
+            return "Unknown Company"
+        
+        # Parse the data row (second line)
+        data_line = lines[1]
+        
+        # Handle CSV parsing more carefully - split by "," and handle quoted fields
+        data_parts = []
+        current_part = ""
+        in_quotes = False
+        
+        for char in data_line:
+            if char == '"':
+                in_quotes = not in_quotes
+            elif char == ',' and not in_quotes:
+                data_parts.append(current_part.strip())
+                current_part = ""
+            else:
+                current_part += char
+        
+        # Add the last part
+        data_parts.append(current_part.strip())
+        
+        if len(data_parts) >= 3:  # Ensure we have enough columns
+            company_name = data_parts[2]  # Company name is in the 3rd column (index 2)
+            if company_name and company_name != "N/A" and company_name != "Unknown Company":
+                return company_name
+        
+        return "Unknown Company"
+        
+    except Exception as e:
+        print(f"Error getting company name for {ticker} from Finviz CSV API: {str(e)}")
+        return "Unknown Company"
 
 def load_stocks() -> List[Dict[str, Any]]:
     """Load stocks from the JSON file"""
@@ -90,16 +144,22 @@ def add_stock_to_file(ticker: str, sector: str, isleverage: bool = False) -> Tup
         if any(s.get('ticker', '').upper() == ticker.upper() for s in stocks):
             return False, f"Stock with ticker {ticker} already exists"
         
+        # Automatically fetch company name from Finviz
+        print(f"Fetching company name for {ticker} from Finviz...")
+        company_name = get_company_name_from_finviz(ticker)
+        print(f"Company name for {ticker}: {company_name}")
+        
         new_stock = {
             'ticker': ticker.upper(),
             'sector': sector,
-            'isleverage': isleverage
+            'isleverage': isleverage,
+            'company_name': company_name
         }
         
         stocks.append(new_stock)
         
         if save_stocks(stocks):
-            return True, f"Stock {ticker} added successfully"
+            return True, f"Stock {ticker} added successfully with company name: {company_name}"
         else:
             return False, "Failed to save stocks"
             
@@ -125,12 +185,21 @@ def update_stock_in_file(old_ticker: str, sector: str, isleverage: bool, new_tic
         if new_ticker.upper() != old_ticker.upper():
             if any(s.get('ticker', '').upper() == new_ticker.upper() for s in stocks):
                 return False, f"Stock with ticker {new_ticker} already exists"
+            
+            # If ticker is changing, fetch new company name from Finviz
+            print(f"Fetching company name for new ticker {new_ticker} from Finviz...")
+            company_name = get_company_name_from_finviz(new_ticker)
+            print(f"Company name for {new_ticker}: {company_name}")
+        else:
+            # Keep existing company name if ticker is not changing
+            company_name = stocks[stock_index].get('company_name', 'Unknown Company')
         
         # Update the stock
         stocks[stock_index] = {
             'ticker': new_ticker.upper(),
             'sector': sector,
-            'isleverage': isleverage
+            'isleverage': isleverage,
+            'company_name': company_name
         }
         
         if save_stocks(stocks):

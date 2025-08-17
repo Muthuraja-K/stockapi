@@ -2,581 +2,697 @@
   {
     "ticker": "RGTI",
     "sector": "Quantum",
-    "isleverage": false
+    "isleverage": false,
+    "company_name": "Rigetti Computing Inc"
   },
   {
     "ticker": "QBTS",
     "sector": "Quantum",
-    "isleverage": false
+    "isleverage": false,
+    "company_name": "D-Wave Quantum Inc"
   },
   {
     "ticker": "QUBT",
     "sector": "Quantum",
-    "isleverage": false
+    "isleverage": false,
+    "company_name": "Quantum Computing Inc"
   },
   {
     "ticker": "IONX",
     "sector": "Quantum",
-    "isleverage": true
+    "isleverage": true,
+    "company_name": "Defiance Daily Target 2X Long IONQ ETF"
   },
   {
     "ticker": "RGTX",
     "sector": "Quantum",
-    "isleverage": true
+    "isleverage": true,
+    "company_name": "Defiance Daily Target 2X Long RGTI ETF"
   },
   {
     "ticker": "QBTX",
     "sector": "Quantum",
-    "isleverage": true
+    "isleverage": true,
+    "company_name": "Tradr 2X Long QBTS Daily ETF"
   },
   {
     "ticker": "QUBX",
     "sector": "Quantum",
-    "isleverage": true
+    "isleverage": true,
+    "company_name": "Tradr 2X Long QUBT Daily ETF"
   },
   {
     "ticker": "UBER",
     "sector": "Drone Delivery/FlyingTaxi",
-    "isleverage": false
+    "isleverage": false,
+    "company_name": "Uber Technologies Inc"
   },
   {
     "ticker": "JOBY",
     "sector": "Drone Delivery/FlyingTaxi",
-    "isleverage": false
+    "isleverage": false,
+    "company_name": "Joby Aviation Inc"
   },
   {
     "ticker": "SRFM",
     "sector": "Drone Delivery/FlyingTaxi",
-    "isleverage": false
+    "isleverage": false,
+    "company_name": "Surf Air Mobility Inc"
   },
   {
     "ticker": "ARCX",
     "sector": "Drone Delivery/FlyingTaxi",
-    "isleverage": true
+    "isleverage": true,
+    "company_name": "Tradr 2X Long ACHR Daily ETF"
   },
   {
     "ticker": "UBRL",
     "sector": "Drone Delivery/FlyingTaxi",
-    "isleverage": true
+    "isleverage": true,
+    "company_name": "GraniteShares 2x Long UBER Daily ETF"
   },
   {
     "ticker": "SMCI",
     "sector": "SemiConductor",
-    "isleverage": false
+    "isleverage": false,
+    "company_name": "Super Micro Computer Inc"
   },
   {
     "ticker": "AMD",
     "sector": "SemiConductor",
-    "isleverage": false
+    "isleverage": false,
+    "company_name": "Advanced Micro Devices Inc"
   },
   {
     "ticker": "MRVL",
     "sector": "SemiConductor",
-    "isleverage": false
+    "isleverage": false,
+    "company_name": "Marvell Technology Inc"
   },
   {
     "ticker": "ARM",
     "sector": "SemiConductor",
-    "isleverage": false
+    "isleverage": false,
+    "company_name": "Arm Holdings plc. ADR"
   },
   {
     "ticker": "SNPS",
     "sector": "SemiConductor",
-    "isleverage": false
+    "isleverage": false,
+    "company_name": "Synopsys, Inc"
   },
   {
     "ticker": "NXPI",
     "sector": "SemiConductor",
-    "isleverage": false
+    "isleverage": false,
+    "company_name": "NXP Semiconductors NV"
   },
   {
     "ticker": "CDNS",
     "sector": "SemiConductor",
-    "isleverage": false
+    "isleverage": false,
+    "company_name": "Cadence Design Systems, Inc"
   },
   {
     "ticker": "SMTC",
     "sector": "SemiConductor",
-    "isleverage": false
+    "isleverage": false,
+    "company_name": "Semtech Corp"
   },
   {
     "ticker": "NVTS",
     "sector": "SemiConductor",
-    "isleverage": false
+    "isleverage": false,
+    "company_name": "Navitas Semiconductor Corp"
   },
   {
     "ticker": "SMCX",
     "sector": "SemiConductor",
-    "isleverage": true
+    "isleverage": true,
+    "company_name": "Defiance Daily Target 2x Long SMCI ETF"
   },
   {
     "ticker": "AMDL",
     "sector": "SemiConductor",
-    "isleverage": true
+    "isleverage": true,
+    "company_name": "GraniteShares 2x Long AMD Daily ETF"
   },
   {
     "ticker": "MVLL",
     "sector": "SemiConductor",
-    "isleverage": true
+    "isleverage": true,
+    "company_name": "GraniteShares 2x Long MRVL Daily ETF"
   },
   {
     "ticker": "ARMU",
     "sector": "SemiConductor",
-    "isleverage": true
+    "isleverage": true,
+    "company_name": "T-REX 2X Long ARM Daily Target ETF"
   },
   {
     "ticker": "NAIL",
     "sector": "Real Estate",
-    "isleverage": false
+    "isleverage": false,
+    "company_name": "Direxion Daily Homebuilders & Supplies Bull 3X Shares"
   },
   {
     "ticker": "OPEN",
     "sector": "Real Estate",
-    "isleverage": false
+    "isleverage": false,
+    "company_name": "Unknown Company"
   },
   {
     "ticker": "FNMA",
     "sector": "Real Estate",
-    "isleverage": false
+    "isleverage": false,
+    "company_name": "Unknown Company"
   },
   {
     "ticker": "FMCC",
     "sector": "Real Estate",
-    "isleverage": false
+    "isleverage": false,
+    "company_name": "Unknown Company"
   },
   {
     "ticker": "RKT",
     "sector": "Real Estate",
-    "isleverage": false
+    "isleverage": false,
+    "company_name": "Rocket Companies Inc"
   },
   {
     "ticker": "COIN",
     "sector": "Crypto",
-    "isleverage": false
+    "isleverage": false,
+    "company_name": "Coinbase Global Inc"
   },
   {
     "ticker": "MARA",
     "sector": "Crypto",
-    "isleverage": false
+    "isleverage": false,
+    "company_name": "MARA Holdings Inc"
   },
   {
     "ticker": "RIOT",
     "sector": "Crypto",
-    "isleverage": false
+    "isleverage": false,
+    "company_name": "Riot Platforms Inc"
   },
   {
     "ticker": "SOL-USD",
     "sector": "Crypto",
-    "isleverage": false
+    "isleverage": false,
+    "company_name": "Unknown Company"
   },
   {
     "ticker": "BTC-USD",
     "sector": "Crypto",
-    "isleverage": false
+    "isleverage": false,
+    "company_name": "Unknown Company"
   },
   {
     "ticker": "ETH-USD",
     "sector": "Crypto",
-    "isleverage": false
+    "isleverage": false,
+    "company_name": "Unknown Company"
   },
   {
     "ticker": "CRCL",
     "sector": "Crypto",
-    "isleverage": false
+    "isleverage": false,
+    "company_name": "Circle Internet Group Inc"
   },
   {
     "ticker": "CONL",
     "sector": "Crypto",
-    "isleverage": true
+    "isleverage": true,
+    "company_name": "GraniteShares 2x Long COIN Daily ETF"
   },
   {
     "ticker": "COIG",
     "sector": "Crypto",
-    "isleverage": true
+    "isleverage": true,
+    "company_name": "Leverage Shares 2X Long COIN Daily ETF"
   },
   {
     "ticker": "MRAL",
     "sector": "Crypto",
-    "isleverage": true
+    "isleverage": true,
+    "company_name": "GraniteShares 2x Long MARA Daily ETF"
   },
   {
     "ticker": "RIOX",
     "sector": "Crypto",
-    "isleverage": true
+    "isleverage": true,
+    "company_name": "Defiance Daily Target 2X Long RIOT ETF"
   },
   {
     "ticker": "MSTX",
     "sector": "Crypto",
-    "isleverage": true
+    "isleverage": true,
+    "company_name": "Defiance Daily Target 2x Long MSTR ETF"
   },
   {
     "ticker": "SOLT",
     "sector": "Crypto",
-    "isleverage": true
+    "isleverage": true,
+    "company_name": "2x Solana ETF"
   },
   {
     "ticker": "BITU",
     "sector": "Crypto",
-    "isleverage": true
+    "isleverage": true,
+    "company_name": "ProShares Ultra Bitcoin ETF"
   },
   {
     "ticker": "ETHU",
     "sector": "Crypto",
-    "isleverage": true
+    "isleverage": true,
+    "company_name": "2x Ether ETF"
   },
   {
     "ticker": "SNOW",
     "sector": "Security/Software Product",
-    "isleverage": false
+    "isleverage": false,
+    "company_name": "Snowflake Inc"
   },
   {
     "ticker": "PANW",
     "sector": "Security/Software Product",
-    "isleverage": false
+    "isleverage": false,
+    "company_name": "Palo Alto Networks Inc"
   },
   {
     "ticker": "CRWD",
     "sector": "Security/Software Product",
-    "isleverage": false
+    "isleverage": false,
+    "company_name": "Crowdstrike Holdings Inc"
   },
   {
     "ticker": "CRM",
     "sector": "Security/Software Product",
-    "isleverage": false
+    "isleverage": false,
+    "company_name": "Salesforce Inc"
   },
   {
     "ticker": "MDB",
     "sector": "Security/Software Product",
-    "isleverage": false
+    "isleverage": false,
+    "company_name": "Unknown Company"
   },
   {
     "ticker": "FTNT",
     "sector": "Security/Software Product",
-    "isleverage": false
+    "isleverage": false,
+    "company_name": "Fortinet Inc"
   },
   {
     "ticker": "ZS",
     "sector": "Security/Software Product",
-    "isleverage": false
+    "isleverage": false,
+    "company_name": "Zscaler Inc"
   },
   {
     "ticker": "OKTA",
     "sector": "Security/Software Product",
-    "isleverage": false
+    "isleverage": false,
+    "company_name": "Okta Inc"
   },
   {
     "ticker": "SNOU",
     "sector": "Security/Software Product",
-    "isleverage": true
+    "isleverage": true,
+    "company_name": "T-REX 2X Long SNOW Daily Target ETF"
   },
   {
     "ticker": "PANG",
     "sector": "Security/Software Product",
-    "isleverage": true
+    "isleverage": true,
+    "company_name": "Leverage Shares 2X Long PANW Daily ETF"
   },
   {
     "ticker": "CRWL",
     "sector": "Security/Software Product",
-    "isleverage": true
+    "isleverage": true,
+    "company_name": "GraniteShares 2x Long CRWD Daily ETF"
   },
   {
     "ticker": "CRMG",
     "sector": "Security/Software Product",
-    "isleverage": true
+    "isleverage": true,
+    "company_name": "Leverage Shares 2X Long CRM Daily ETF"
   },
   {
     "ticker": "HOOD",
     "sector": "Finance",
-    "isleverage": false
+    "isleverage": false,
+    "company_name": "Robinhood Markets Inc"
   },
   {
     "ticker": "UPST",
     "sector": "Finance",
-    "isleverage": false
+    "isleverage": false,
+    "company_name": "Upstart Holdings Inc"
   },
   {
     "ticker": "SOFX",
     "sector": "Finance",
-    "isleverage": true
+    "isleverage": true,
+    "company_name": "Defiance Daily Target 2X Long SOFI ETF"
   },
   {
     "ticker": "ROBN",
     "sector": "Finance",
-    "isleverage": true
+    "isleverage": true,
+    "company_name": "T-Rex 2X Long HOOD Daily Target ETF"
   },
   {
     "ticker": "HOOX",
     "sector": "Finance",
-    "isleverage": true
+    "isleverage": true,
+    "company_name": "Defiance Daily Target 2X Long HOOD ETF"
   },
   {
     "ticker": "UPSX",
     "sector": "Finance",
-    "isleverage": true
+    "isleverage": true,
+    "company_name": "Tradr 2X Long UPST Daily ETF"
   },
   {
     "ticker": "PLTR",
     "sector": "AI Service",
-    "isleverage": false
+    "isleverage": false,
+    "company_name": "Palantir Technologies Inc"
   },
   {
     "ticker": "SOUN",
     "sector": "AI Service",
-    "isleverage": false
+    "isleverage": false,
+    "company_name": "SoundHound AI Inc"
   },
   {
     "ticker": "VRTL",
     "sector": "AI Service",
-    "isleverage": true
+    "isleverage": true,
+    "company_name": "GraniteShares 2x Long VRT Daily ETF"
   },
   {
     "ticker": "BBAI",
     "sector": "AI Service",
-    "isleverage": false
+    "isleverage": false,
+    "company_name": "BigBear.ai Holdings Inc"
   },
   {
     "ticker": "CRWV",
     "sector": "AI Service",
-    "isleverage": false
+    "isleverage": false,
+    "company_name": "CoreWeave Inc"
   },
   {
     "ticker": "GRRR",
     "sector": "AI Service",
-    "isleverage": false
+    "isleverage": false,
+    "company_name": "Gorilla Technology Group Inc"
   },
   {
     "ticker": "AI",
     "sector": "AI Service",
-    "isleverage": false
+    "isleverage": false,
+    "company_name": "Unknown Company"
   },
   {
     "ticker": "NBIS",
     "sector": "AI Service",
-    "isleverage": false
+    "isleverage": false,
+    "company_name": "Nebius Group N.V"
   },
   {
     "ticker": "PLTU",
     "sector": "AI Service",
-    "isleverage": true
+    "isleverage": true,
+    "company_name": "Direxion Daily PLTR Bull 2X Shares"
   },
   {
     "ticker": "SOUX",
     "sector": "AI Service",
-    "isleverage": true
+    "isleverage": true,
+    "company_name": "Defiance Daily Target 2X Long SOUN ETF"
   },
   {
     "ticker": "META",
     "sector": "Mega Stocks",
-    "isleverage": false
+    "isleverage": false,
+    "company_name": "Meta Platforms Inc"
   },
   {
     "ticker": "AMZN",
     "sector": "Mega Stocks",
-    "isleverage": false
+    "isleverage": false,
+    "company_name": "Amazon.com Inc"
   },
   {
     "ticker": "TSLA",
     "sector": "Mega Stocks",
-    "isleverage": false
+    "isleverage": false,
+    "company_name": "Tesla Inc"
   },
   {
     "ticker": "METU",
     "sector": "Mega Stocks",
-    "isleverage": true
+    "isleverage": true,
+    "company_name": "Direxion Daily META Bull 2X Shares"
   },
   {
     "ticker": "AMZU",
     "sector": "Mega Stocks",
-    "isleverage": true
+    "isleverage": true,
+    "company_name": "Direxion Daily AMZN Bull 2X Shares"
   },
   {
     "ticker": "TSLL",
     "sector": "Mega Stocks",
-    "isleverage": true
+    "isleverage": true,
+    "company_name": "Direxion Daily TSLA Bull 2X Shares"
   },
   {
     "ticker": "NVDL",
     "sector": "Mega Stocks",
-    "isleverage": true
+    "isleverage": true,
+    "company_name": "GraniteShares 2x Long NVDA Daily ETF"
   },
   {
     "ticker": "NFXL",
     "sector": "Mega Stocks",
-    "isleverage": true
+    "isleverage": true,
+    "company_name": "Direxion Daily NFLX Bull 2X Shares"
   },
   {
     "ticker": "AAPU",
     "sector": "Mega Stocks",
-    "isleverage": true
+    "isleverage": true,
+    "company_name": "Direxion Daily AAPL Bull 2X Shares"
   },
   {
     "ticker": "GGLL",
     "sector": "Mega Stocks",
-    "isleverage": true
+    "isleverage": true,
+    "company_name": "Direxion Daily GOOGL Bull 2X Shares"
   },
   {
     "ticker": "MSFU",
     "sector": "Mega Stocks",
-    "isleverage": true
+    "isleverage": true,
+    "company_name": "Direxion Daily MSFT Bull 2X Shares"
   },
   {
     "ticker": "TQQQ",
     "sector": "Mega Stocks",
-    "isleverage": true
+    "isleverage": true,
+    "company_name": "ProShares UltraPro QQQ 3x Shares"
   },
   {
     "ticker": "OKLO",
     "sector": "Energy",
-    "isleverage": false
+    "isleverage": false,
+    "company_name": "Oklo Inc"
   },
   {
     "ticker": "NNE",
     "sector": "Energy",
-    "isleverage": false
+    "isleverage": false,
+    "company_name": "Nano Nuclear Energy Inc"
   },
   {
     "ticker": "SMR",
     "sector": "Energy",
-    "isleverage": false
+    "isleverage": false,
+    "company_name": "NuScale Power Corporation"
   },
   {
     "ticker": "UUUU",
     "sector": "Energy",
-    "isleverage": false
+    "isleverage": false,
+    "company_name": "Energy Fuels Inc"
   },
   {
     "ticker": "NXE",
     "sector": "Energy",
-    "isleverage": false
+    "isleverage": false,
+    "company_name": "NexGen Energy Ltd"
   },
   {
     "ticker": "OKLL",
     "sector": "Energy",
-    "isleverage": true
+    "isleverage": true,
+    "company_name": "Defiance Daily Target 2x Long OKLO ETF"
   },
   {
     "ticker": "HIMS",
     "sector": "Healthcare",
-    "isleverage": false
+    "isleverage": false,
+    "company_name": "Hims & Hers Health Inc"
   },
   {
     "ticker": "TEM",
     "sector": "Healthcare",
-    "isleverage": false
+    "isleverage": false,
+    "company_name": "Unknown Company"
   },
   {
     "ticker": "NVO",
     "sector": "Healthcare",
-    "isleverage": false
+    "isleverage": false,
+    "company_name": "Unknown Company"
   },
   {
     "ticker": "HIMZ",
     "sector": "Healthcare",
-    "isleverage": true
+    "isleverage": true,
+    "company_name": "Defiance Daily Target 2X Long HIMS ETF"
   },
   {
     "ticker": "TEMT",
     "sector": "Healthcare",
-    "isleverage": true
+    "isleverage": true,
+    "company_name": "Tradr 2X Long TEM Daily ETF"
   },
   {
     "ticker": "NVOX",
     "sector": "Healthcare",
-    "isleverage": true
+    "isleverage": true,
+    "company_name": "Defiance Daily Target 2X Long NVO ETF"
   },
   {
     "ticker": "RDTL",
     "sector": "Others",
-    "isleverage": false
+    "isleverage": false,
+    "company_name": "GraniteShares 2x Long RDDT Daily ETF"
   },
   {
     "ticker": "APPS",
     "sector": "Others",
-    "isleverage": false
+    "isleverage": false,
+    "company_name": "Digital Turbine Inc"
   },
   {
     "ticker": "RBLU",
     "sector": "Others",
-    "isleverage": false
+    "isleverage": false,
+    "company_name": "T-REX 2X Long RBLX Daily Target ETF"
   },
   {
     "ticker": "CVNX",
     "sector": "Others",
-    "isleverage": false
+    "isleverage": false,
+    "company_name": "Defiance Daily Target 2X Long CVNA ETF"
   },
   {
     "ticker": "SERV",
     "sector": "Others",
-    "isleverage": false
+    "isleverage": false,
+    "company_name": "Serve Robotics Inc"
   },
   {
     "ticker": "ARQQ",
     "sector": "Quantum",
-    "isleverage": false
+    "isleverage": false,
+    "company_name": "Arqit Quantum Inc"
   },
   {
     "ticker": "IONQ",
     "sector": "Quantum",
-    "isleverage": false
+    "isleverage": false,
+    "company_name": "IonQ Inc"
   },
   {
     "ticker": "AIRE",
     "sector": "Real Estate",
-    "isleverage": false
+    "isleverage": false,
+    "company_name": "reAlpha Tech Corp"
   },
   {
     "ticker": "APLD",
     "sector": "AI Service",
-    "isleverage": false
+    "isleverage": false,
+    "company_name": "Applied Digital Corporation"
   },
   {
     "ticker": "SOFI",
     "sector": "Finance",
-    "isleverage": false
+    "isleverage": false,
+    "company_name": "SoFi Technologies Inc"
   },
   {
     "ticker": "NFLX",
     "sector": "Mega Stocks",
-    "isleverage": false
+    "isleverage": false,
+    "company_name": "Netflix Inc"
   },
   {
     "ticker": "AAPL",
     "sector": "Mega Stocks",
-    "isleverage": false
+    "isleverage": false,
+    "company_name": "Apple Inc"
   },
   {
     "ticker": "GOOG",
     "sector": "Mega Stocks",
-    "isleverage": false
+    "isleverage": false,
+    "company_name": "Alphabet Inc"
   },
   {
     "ticker": "NVDA",
     "sector": "Mega Stocks",
-    "isleverage": false
+    "isleverage": false,
+    "company_name": "NVIDIA Corp"
   },
   {
     "ticker": "MSFT",
     "sector": "Mega Stocks",
-    "isleverage": false
+    "isleverage": false,
+    "company_name": "Microsoft Corporation"
   },
   {
     "ticker": "QQQ",
     "sector": "Mega Stocks",
-    "isleverage": false
+    "isleverage": false,
+    "company_name": "Invesco QQQ Trust Series 1"
   },
   {
     "ticker": "SMU",
     "sector": "Energy",
-    "isleverage": true
+    "isleverage": true,
+    "company_name": "Unknown Company"
   },
   {
     "ticker": "VERI",
     "sector": "AI Service",
-    "isleverage": false
+    "isleverage": false,
+    "company_name": "Veritone Inc"
   },
   {
     "ticker": "WULF",
     "sector": "Crypto",
-    "isleverage": false
+    "isleverage": false,
+    "company_name": "TeraWulf Inc"
   }
 ]

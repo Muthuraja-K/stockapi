@@ -327,21 +327,19 @@ class StockHistoryOperations:
                                 except (ValueError, TypeError):
                                     range_percentage = "N/A"
                                 
-                                # Store both percentage and range data with clean format
+                                # Store both percentage and range data
                                 history_data[period_name] = {
                                     "low": f"${low:.2f}" if not pd.isna(low) else "N/A",
                                     "high": f"${high:.2f}" if not pd.isna(high) else "N/A",
                                     "percentage": percentage_str,
-                                    "range": range_percentage,
-                                    "display": f"L: ${low:.2f} H: ${high:.2f} {percentage_str}" if not pd.isna(low) and not pd.isna(high) and percentage_str != "N/A" else "N/A"
+                                    "range": range_percentage
                                 }
                             else:
                                 history_data[period_name] = {
                                     "low": "N/A",
                                     "high": "N/A",
                                     "percentage": "N/A",
-                                    "range": "N/A",
-                                    "display": "N/A"
+                                    "range": "N/A"
                                 }
                         except Exception as e:
                             logger.warning(f"Error processing {period_name} for {ticker}: {e}")
@@ -349,8 +347,7 @@ class StockHistoryOperations:
                                 "low": "N/A",
                                 "high": "N/A",
                                 "percentage": "N/A",
-                                "range": "N/A",
-                                "display": "N/A"
+                                "range": "N/A"
                             }
                     
                     # Create stock history entry
@@ -367,7 +364,7 @@ class StockHistoryOperations:
                 except Exception as e:
                     logger.error(f"Error processing {ticker}: {e}")
                     # Add placeholder entry with consistent N/A values
-                    placeholder_data = {"low": "N/A", "high": "N/A", "percentage": "N/A", "range": "N/A", "display": "N/A"}
+                    placeholder_data = {"low": "N/A", "high": "N/A", "percentage": "N/A", "range": "N/A"}
                     stock_entry = {
                         "ticker": ticker,
                         "sector": sector,

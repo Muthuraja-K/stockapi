@@ -241,23 +241,19 @@ async def delete_stock_route(
 @app.get('/api/sectors')
 async def get_sectors_route(
     filter: str = "",
-    page: int = 1,
-    per_page: int = 10,
     current_user: Dict[str, Any] = Depends(require_auth)
 ):
     filter_param = filter.strip().lower()
-    result = get_sectors_with_filters(filter_param, page, per_page)
+    result = get_sectors_with_filters(filter_param)
     return result
 
 @app.get('/api/sectors/public')
 async def get_sectors_public_route(
-    filter: str = "",
-    page: int = 1,
-    per_page: int = 10
+    filter: str = ""
 ):
-    """Get sectors with filtering and pagination (Public access - no authentication required)"""
+    """Get sectors with filtering (Public access - no authentication required, no pagination)"""
     filter_param = filter.strip().lower()
-    result = get_sectors_with_filters(filter_param, page, per_page)
+    result = get_sectors_with_filters(filter_param)
     return result
 
 @app.post('/api/sectors')
