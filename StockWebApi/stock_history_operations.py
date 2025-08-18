@@ -2,10 +2,11 @@ import json
 import os
 import yfinance as yf
 import pandas as pd
-import requests
 from datetime import datetime, timedelta
 from typing import List, Dict, Any
 import logging
+import requests
+from config import config
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -14,97 +15,325 @@ logger = logging.getLogger(__name__)
 class StockHistoryOperations:
     def __init__(self):
         self.stockhistory_file = "stockhistory.json"
-        self.stockhistory_market_file = "stockhistorymarketdata.json"
         self.stocks_file = "stock.json"
-        from config import config
-        self.finviz_auth_id = config.FINVIZ_AUTH_ID
-        self.finviz_base_url = "https://elite.finviz.com/export.ashx"
-        
-    def load_stocks(self) -> List[Dict[str, Any]]:
-        """Load stocks from stock.json file"""
-        try:
-            with open(self.stocks_file, 'r') as f:
-                return json.load(f)
-        except FileNotFoundError:
-            logger.error(f"Stocks file {self.stocks_file} not found")
-            return []
-        except json.JSONDecodeError as e:
-            logger.error(f"Error parsing stocks file: {e}")
-            return []
+        self._cache_timestamp_file = "cache_timestamps.json"
     
-    def load_stock_history(self) -> List[Dict[str, Any]]:
-        """Load stock history data"""
+    def _save_cache_timestamp(self, cache_type: str):
+        """Save cache timestamp for a specific cache type"""
         try:
-            if os.path.exists(self.stockhistory_file):
-                with open(self.stockhistory_file, 'r') as f:
-                    return json.load(f)
-            return []
+            timestamps = {}
+            if os.path.exists(self._cache_timestamp_file):
+                with open(self._cache_timestamp_file, 'r') as f:
+                    timestamps = json.load(f)
+            
+            timestamps[cache_type] = datetime.now().isoformat()
+            
+            with open(self._cache_timestamp_file, 'w') as f:
+                json.dump(timestamps, f, indent=2)
+                
         except Exception as e:
-            logger.error(f"Error loading stock history: {e}")
-            return []
+            logger.warning(f"Could not save cache timestamp for {cache_type}: {e}")
     
-    def load_stock_market_data(self) -> List[Dict[str, Any]]:
-        """Load stock market data"""
+    def should_populate_history(self) -> bool:
+        """Check if stock history should be populated based on cache timestamp"""
         try:
-            if os.path.exists(self.stockhistory_market_file):
-                with open(self.stockhistory_market_file, 'r') as f:
-                    return json.load(f)
-            return []
+            if not os.path.exists(self._cache_timestamp_file):
+                return True
+            
+            with open(self._cache_timestamp_file, 'r') as f:
+                timestamps = json.load(f)
+            
+            if 'history' not in timestamps:
+                return True
+            
+            last_update = datetime.fromisoformat(timestamps['history'])
+            current_time = datetime.now()
+            
+            # Populate history if it's been more than 24 hours since last update
+            return (current_time - last_update).total_seconds() > 24 * 3600
+            
         except Exception as e:
-            logger.error(f"Error loading stock market data: {e}")
-            return []
+            logger.warning(f"Error checking history population status: {e}")
+            return True  # Default to populate if there's an error
     
-    def save_stock_history(self, data: List[Dict[str, Any]]) -> bool:
-        """Save stock history data to file"""
+    def should_populate_market_data(self) -> bool:
+        """Check if market data should be populated based on cache timestamp"""
         try:
-            with open(self.stockhistory_file, 'w') as f:
-                json.dump(data, f, indent=2)
-            logger.info(f"Stock history data saved successfully")
-            return True
+            if not os.path.exists(self._cache_timestamp_file):
+                return True
+            
+            with open(self._cache_timestamp_file, 'r') as f:
+                timestamps = json.load(f)
+            
+            if 'market' not in timestamps:
+                return True
+            
+            last_update = datetime.fromisoformat(timestamps['market'])
+            current_time = datetime.now()
+            
+            # Populate market data if it's been more than 1 hour since last update
+            return (current_time - last_update).total_seconds() > 3600
+            
         except Exception as e:
-            logger.error(f"Error saving stock history: {e}")
-            return False
+            logger.warning(f"Error checking market data population status: {e}")
+            return True  # Default to populate if there's an error
     
-    def save_stock_market_data(self, data: List[Dict[str, Any]]) -> bool:
-        """Save stock market data to file"""
+    def get_finviz_data_for_tickers(self, tickers: List[str]) -> Dict[str, Dict]:
+        """Get real-time market data from Finviz API for multiple tickers"""
         try:
-            with open(self.stockhistory_market_file, 'w') as f:
-                json.dump(data, f, indent=2)
-            logger.info(f"Stock market data saved successfully")
-            return True
+            if not config.FINVIZ_AUTH_ID:
+                logger.warning("FINVIZ_AUTH_ID not configured, skipping Finviz data fetch")
+                return {}
+            
+            # Finviz CSV export API endpoint - using view 152 with column parameter to get specific fields
+            url = f"https://elite.finviz.com/export.ashx"
+            params = {
+                'v': '152',  # View 152 as specified by user
+                't': ','.join(tickers),
+                'c': '1,6,7,65,66,67,68,71,72,81,86,87,88',  # Include Ticker (1) + Market Cap, P/E, Price, Change, Volume, Earnings Date, After-Hours Close, After-Hours Change, Prev Close, Open, High, Low
+                'auth': config.FINVIZ_AUTH_ID
+            }
+            
+            logger.info(f"Fetching Finviz data for {len(tickers)} tickers")
+            response = requests.get(url, params=params, timeout=30)
+            
+            if response.status_code != 200:
+                logger.error(f"Finviz API request failed with status {response.status_code}")
+                return {}
+            
+            # DEBUG: Log the actual response
+            logger.info(f"Finviz API response status: {response.status_code}")
+            logger.info(f"Response headers: {dict(response.headers)}")
+            logger.info(f"Response text (first 500 chars): {response.text[:500]}")
+            
+            # Parse CSV response
+            lines = response.text.strip().split('\n')
+            if len(lines) < 2:  # Need header + at least one data row
+                logger.warning("Finviz API returned insufficient data")
+                return {}
+            
+            # Parse header to get column indices
+            header = lines[0].split(',')
+            column_map = {}
+            for i, col in enumerate(header):
+                column_map[col.strip()] = i
+            
+            logger.info(f"Available columns: {list(column_map.keys())}")
+            logger.info(f"Column mapping: {column_map}")
+            
+            # Parse data rows
+            finviz_data = {}
+            for line in lines[1:]:  # Skip header
+                if not line.strip():
+                    continue
+                
+                values = line.split(',')
+                if len(values) < len(header):
+                    continue
+                
+                ticker = values[column_map.get('"Ticker"', 0)].strip().strip('"')  # Remove quotes
+                if not ticker:
+                    continue
+                
+                logger.info(f"Processing ticker: {ticker}, values: {values}")
+                
+                # Extract market data using actual column names from CSV
+                finviz_data[ticker] = {
+                    'Ticker': ticker,
+                    'Market Cap': values[column_map.get('"Market Cap"', 0)].strip('"') if '"Market Cap"' in column_map else 'N/A',
+                    'P/E': values[column_map.get('"P/E"', 0)].strip('"') if '"P/E"' in column_map else 'N/A',
+                    'Price': values[column_map.get('"Price"', 0)].strip('"') if '"Price"' in column_map else 'N/A',
+                    'Change': values[column_map.get('"Change"', 0)].strip('"') if '"Change"' in column_map else 'N/A',
+                    'Volume': values[column_map.get('"Volume"', 0)].strip('"') if '"Volume"' in column_map else 'N/A',
+                    'Earnings Date': values[column_map.get('"Earnings Date"', 0)].strip('"') if '"Earnings Date"' in column_map else 'N/A',
+                    'After-Hours Close': values[column_map.get('"After-Hours Close"', 0)].strip('"') if '"After-Hours Close"' in column_map else 'N/A',
+                    'After-Hours Change': values[column_map.get('"After-Hours Change"', 0)].strip('"') if '"After-Hours Change"' in column_map else 'N/A',
+                    'Prev Close': values[column_map.get('"Prev Close"', 0)].strip('"') if '"Prev Close"' in column_map else 'N/A',
+                    'Open': values[column_map.get('"Open"', 0)].strip('"') if '"Open"' in column_map else 'N/A',
+                    'High': values[column_map.get('"High"', 0)].strip('"') if '"High"' in column_map else 'N/A',
+                    'Low': values[column_map.get('"Low"', 0)].strip('"') if '"Low"' in column_map else 'N/A'
+                }
+            
+            logger.info(f"Successfully fetched Finviz data for {len(finviz_data)} tickers")
+            return finviz_data
+            
         except Exception as e:
-            logger.error(f"Error saving stock market data: {e}")
-            return False
+            logger.error(f"Error fetching Finviz data: {e}")
+            return {}
     
-    def populate_stock_history(self) -> bool:
-        """Populate stock history data using yfinance download method for all stocks"""
+    def populate_stock_market_data(self) -> bool:
+        """Populate stock market data for all stocks using Finviz API and yfinance for missing fields"""
         try:
-            stocks = self.load_stocks()
-            if not stocks:
-                logger.error("No stocks found to populate history")
+            logger.info("Starting stock market data population using Finviz and yfinance...")
+            
+            # Load stocks
+            if not os.path.exists(self.stocks_file):
+                logger.error(f"Stocks file {self.stocks_file} not found")
                 return False
             
-            logger.info(f"Starting to populate history for {len(stocks)} stocks")
-            stock_history_data = []
+            with open(self.stocks_file, 'r') as f:
+                stocks = json.load(f)
+            
+            if not stocks:
+                logger.error("No stocks found in stocks file")
+                return False
+            
+            logger.info(f"Found {len(stocks)} stocks to process for market data")
             
             # Get all tickers
             tickers = [stock.get('ticker') for stock in stocks if stock.get('ticker')]
+            
             if not tickers:
                 logger.error("No valid tickers found")
                 return False
             
-            logger.info(f"Downloading data for {len(tickers)} tickers...")
+            # Fetch data from Finviz API for basic market data
+            finviz_data = self.get_finviz_data_for_tickers(tickers)
             
-            # Download all data at once using yf.download() - more efficient
+            # Create market data structure
+            market_data = []
+            
+            for stock in stocks:
+                ticker = stock.get('ticker')
+                sector = stock.get('sector', 'Unknown')
+                
+                if not ticker:
+                    continue
+                
+                # Get Finviz data for this ticker
+                ticker_finviz_data = finviz_data.get(ticker, {})
+                # Only use Finviz data for stockhistorymarketdata, do not use yfinance
+                # Extract today's metrics from Finviz data only
+                today_metrics = {}
+                try:
+                    low = ticker_finviz_data.get('Low', 'N/A')
+                    high = ticker_finviz_data.get('High', 'N/A')
+                    open_price = ticker_finviz_data.get('Open', 'N/A')
+                    close_price = ticker_finviz_data.get('Price', 'N/A')
+                    prev_close = ticker_finviz_data.get('Prev Close', 'N/A')
+                    ah_close = ticker_finviz_data.get('After-Hours Close', 'N/A')
+                    ah_change = ticker_finviz_data.get('After-Hours Change', 'N/A')
+                    change = ticker_finviz_data.get('Change', 'N/A')
+                    volume = ticker_finviz_data.get('Volume', 'N/A')
+
+                    # Convert numeric values and round to 2 decimal places
+                    def safe_float(val):
+                        try:
+                            return round(float(val), 2)
+                        except (ValueError, TypeError):
+                            return None
+
+                    low = safe_float(low) if low not in ('N/A', None, '') else None
+                    high = safe_float(high) if high not in ('N/A', None, '') else None
+                    open_price = safe_float(open_price) if open_price not in ('N/A', None, '') else None
+                    close_price = safe_float(close_price) if close_price not in ('N/A', None, '') else None
+                    prev_close = safe_float(prev_close) if prev_close not in ('N/A', None, '') else None
+                    volume = int(volume) if isinstance(volume, (int, float, str)) and str(volume).replace('.', '', 1).isdigit() else None
+
+                    today_metrics = {
+                        "low": low,
+                        "high": high,
+                        "open": open_price,
+                        "close": close_price,
+                        "prev_close": prev_close,
+                        "ah_close": ah_close,
+                        "ah_change": ah_change,
+                        "change": change,
+                        "volume": volume
+                    }
+                except Exception as e:
+                    logger.warning(f"Error extracting Finviz OHLC data for {ticker}: {e}")
+                    today_metrics = {}
+
+                # Compose the market data entry
+                market_entry = {
+                    "ticker": ticker,
+                    "sector": sector,
+                    "earning_date": ticker_finviz_data.get('Earnings Date', 'N/A'),
+                    "market_cap": ticker_finviz_data.get('Market Cap', 'N/A'),
+                    "pe_ratio": ticker_finviz_data.get('P/E', 'N/A'),
+                    "price": ticker_finviz_data.get('Price', 'N/A'),
+                    "after_hour_price": ticker_finviz_data.get('After-Hours Close', 'N/A'),
+                    "volume": today_metrics.get("volume"),
+                    "today": {
+                        "low": today_metrics.get("low"),
+                        "high": today_metrics.get("high"),
+                        "open": today_metrics.get("open"),
+                        "close": today_metrics.get("close"),
+                        "prev_close": today_metrics.get("prev_close"),
+                        "ah_change": today_metrics.get("ah_change"),
+                        "change": today_metrics.get("change")
+                    },
+                    "last_updated": datetime.now().isoformat()
+                }
+                market_data.append(market_entry)
+                logger.info(f"Processed market data for {ticker}")
+            
+            # Save market data to file
+            market_data_file = "stockhistorymarketdata.json"
+            try:
+                with open(market_data_file, 'w') as f:
+                    json.dump(market_data, f, indent=2)
+                logger.info(f"Market data saved to {market_data_file}")
+                
+                # Save cache timestamp for successful population
+                self._save_cache_timestamp('market')
+                
+                return True
+                
+            except Exception as e:
+                logger.error(f"Error saving market data: {e}")
+                return False
+                
+        except Exception as e:
+            logger.error(f"Error in populate_stock_market_data: {e}")
+            return False
+    
+    def populate_stock_history(self) -> bool:
+        """Populate stock history data for all stocks"""
+        try:
+            logger.info("Starting stock history population...")
+            
+            # Load stocks
+            if not os.path.exists(self.stocks_file):
+                logger.error(f"Stocks file {self.stocks_file} not found")
+                return False
+            
+            with open(self.stocks_file, 'r') as f:
+                stocks = json.load(f)
+            
+            if not stocks:
+                logger.error("No stocks found in stocks file")
+                return False
+            
+            logger.info(f"Found {len(stocks)} stocks to process")
+            
+            # Get all tickers
+            tickers = [stock.get('ticker') for stock in stocks if stock.get('ticker')]
+            
+            if not tickers:
+                logger.error("No valid tickers found")
+                return False
+            
+            logger.info(f"Processing tickers: {tickers}")
+            
+            # Download data
             try:
                 # Download 1 year of data for all tickers (covers all periods we need)
                 all_data = yf.download(tickers, period="1y", group_by='ticker', progress=False)
                 logger.info("Data download completed successfully")
+                
+                # The issue is that when downloading multiple tickers, some may have incomplete data
+                # Instead of trying to fill missing data, let's ensure we get the most recent data
+                # by using a more robust data extraction approach
+                logger.info("Data download completed - will handle missing data during processing")
+                        
             except Exception as e:
                 logger.error(f"Error downloading data: {e}")
                 return False
             
             # Process each stock
+            stock_history_data = []
             for stock in stocks:
                 ticker = stock.get('ticker')
                 sector = stock.get('sector', 'Unknown')
@@ -122,6 +351,8 @@ class StockHistoryOperations:
                         # Multiple tickers case - data is multi-level
                         if ticker in all_data.columns.levels[0]:
                             hist = all_data[ticker]
+                            # Ensure we have the complete date range by reindexing
+                            hist = hist.reindex(all_data.index)
                         else:
                             logger.warning(f"Ticker {ticker} not found in downloaded data")
                             continue
@@ -131,15 +362,42 @@ class StockHistoryOperations:
                         continue
                     
                     # Define periods and their corresponding data ranges
-                    periods_data = {
-                        '1D': hist.tail(10),              # Last 10 days (for today's open/close intraday change)
-                        '5D': hist.tail(5),                # Last 5 days (for period change)
-                        '1M': hist.tail(30),               # Last 30 days (for period change)
-                        '6M': hist.tail(180),              # Last 180 days (for period change)
-                        '1Y': hist                         # Full year (for period change)
-                    }
+                    # Ensure we get complete data by filtering out NaN values
+                    periods_data = {}
                     
-                    # Helper function to get Close, Low, High data handling multi-level columns
+                    # For 5D, get the last 5 valid trading days
+                    valid_5d = hist.dropna().tail(5)
+                    if len(valid_5d) >= 5:
+                        periods_data['5D'] = valid_5d
+                    else:
+                        # If we don't have 5 valid days, get what we have
+                        periods_data['5D'] = valid_5d
+                    
+                    # For 1M, get the last 30 valid trading days
+                    valid_1m = hist.dropna().tail(30)
+                    if len(valid_1m) >= 30:
+                        periods_data['1M'] = valid_1m
+                    else:
+                        periods_data['1M'] = valid_1m
+                    
+                    # For 6M, get the last 180 valid trading days
+                    valid_6m = hist.dropna().tail(180)
+                    if len(valid_6m) >= 180:
+                        periods_data['6M'] = valid_6m
+                    else:
+                        periods_data['6M'] = valid_6m
+                    
+                    # For 1Y, use all valid data
+                    periods_data['1Y'] = hist.dropna()
+                    
+                    # For 1D, get the last valid trading day
+                    valid_1d = hist.dropna().tail(1)
+                    if len(valid_1d) >= 1:
+                        periods_data['1D'] = valid_1d
+                    else:
+                        periods_data['1D'] = valid_1d
+                    
+                    # FIXED: Helper function to get column data handling MultiIndex columns properly
                     def get_column_data(data, column_name):
                         """Get column data handling both single and multi-level columns"""
                         if isinstance(data.columns, pd.MultiIndex):
@@ -165,192 +423,181 @@ class StockHistoryOperations:
                     history_data = {}
                     for period_name, period_data in periods_data.items():
                         try:
-                            if not period_data.empty and len(period_data) >= 2:
+                            # FIXED: For 1D, we need at least 1 day; for other periods, we need at least 2 days
+                            min_required_days = 1 if period_name == '1D' else 2
+                            if not period_data.empty and len(period_data) >= min_required_days:
                                 try:
                                     low_data = get_column_data(period_data, 'Low')
                                     high_data = get_column_data(period_data, 'High')
                                     
                                     if not low_data.empty and not high_data.empty:
+                                        # Extract the actual values from the Series
                                         low = low_data.min()
                                         high = high_data.max()
+                                        
+                                        # If the result is still a Series, get the first value
+                                        if isinstance(low, pd.Series):
+                                            low = low.iloc[0] if not low.empty else None
+                                        if isinstance(high, pd.Series):
+                                            high = high.iloc[0] if not high.empty else None
+                                        
+                                        # Round to 2 decimal places for cleaner display
+                                        if low is not None and not pd.isna(low):
+                                            low = round(float(low), 2)
+                                        if high is not None and not pd.isna(high):
+                                            high = round(float(high), 2)
                                     else:
                                         low = None
                                         high = None
                                     
                                     # Validate low and high values
-                                    if pd.isna(low) or not isinstance(low, (int, float)):
+                                    if low is None or pd.isna(low) or not isinstance(low, (int, float)):
                                         low = None
-                                    if pd.isna(high) or not isinstance(high, (int, float)):
+                                    if high is None or pd.isna(high) or not isinstance(high, (int, float)):
                                         high = None
                                 except Exception as e:
                                     logger.warning(f"Error getting low/high for {period_name} {ticker}: {e}")
                                     low = None
                                     high = None
                                 
-                                # Calculate percentage change
+                                # Calculate percentage changes and additional data
                                 percentage = None
+                                open_val = None
+                                close_val = None
+                                high_low_percentage = None
+                                
                                 try:
                                     if period_name == '1D':
                                         # For 1D calculation - use today's open vs close (intraday change)
                                         if len(period_data) >= 1:
-                                            # Sort by date to ensure proper order
                                             period_sorted = period_data.sort_index()
                                             open_data = get_column_data(period_sorted, 'Open')
                                             close_data = get_column_data(period_sorted, 'Close')
                                             
                                             if not open_data.empty and not close_data.empty:
-                                                # Find the last valid open and close prices (skip NaN values)
+                                                # Find the last valid open and close prices
                                                 today_open = None
                                                 today_close = None
                                                 
-                                                # Look for last valid open price
                                                 for i in range(len(open_data) - 1, -1, -1):
-                                                    if not pd.isna(open_data.iloc[i]) and open_data.iloc[i] != 0:
-                                                        today_open = open_data.iloc[i]
-                                                        break
-                                                
-                                                # Look for last valid close price
-                                                for i in range(len(close_data) - 1, -1, -1):
-                                                    if not pd.isna(close_data.iloc[i]) and close_data.iloc[i] != 0:
-                                                        today_close = close_data.iloc[i]
-                                                        break
-                                                
-                                                # Check for valid numeric values
-                                                if today_open is None or today_close is None:
-                                                    percentage = None
-                                                    if len(history_data) < 3:
-                                                        logger.warning(f"{ticker} 1D: Could not find valid open/close prices")
-                                                else:
-                                                    percentage = ((today_close - today_open) / today_open) * 100
+                                                    open_val_temp = open_data.iloc[i]
+                                                    # Convert to scalar if it's a Series
+                                                    if isinstance(open_val_temp, pd.Series):
+                                                        open_val_temp = open_val_temp.iloc[0] if not open_val_temp.empty else None
                                                     
-                                                    # Debug logging for first few stocks
-                                                    if len(history_data) < 3:
-                                                        logger.info(f"{ticker} 1D: Today Open=${today_open:.2f}, Today Close=${today_close:.2f}, Intraday Change={percentage:.2f}%")
-                                            else:
-                                                if len(history_data) < 3:
-                                                    logger.warning(f"{ticker}: Not enough open/close data for 1D calculation")
-                                                percentage = None
+                                                    if open_val_temp is not None and not pd.isna(open_val_temp) and open_val_temp != 0:
+                                                        today_open = open_val_temp
+                                                        break
+                                                
+                                                for i in range(len(close_data) - 1, -1, -1):
+                                                    close_val_temp = close_data.iloc[i]
+                                                    # Convert to scalar if it's a Series
+                                                    if isinstance(close_val_temp, pd.Series):
+                                                        close_val_temp = close_val_temp.iloc[0] if not close_val_temp.empty else None
+                                                    
+                                                    if close_val_temp is not None and not pd.isna(close_val_temp) and close_val_temp != 0:
+                                                        today_close = close_val_temp
+                                                        break
+                                                
+                                                if today_open is not None and today_close is not None:
+                                                    percentage = ((today_close - today_open) / today_open) * 100
+                                                    open_val = today_open
+                                                    close_val = today_close
+                                                
                                     else:
-                                        # For other periods (5D, 1M, 6M, 1Y), use period-to-period change (start vs end)
+                                        # For other periods (5D, 1M, 6M, 1Y), calculate multiple metrics
                                         if len(period_data) >= 2:
-                                            # Sort by date to ensure proper order
                                             period_sorted = period_data.sort_index()
+                                            open_data = get_column_data(period_sorted, 'Open')
                                             close_data = get_column_data(period_sorted, 'Close')
                                             
                                             if not close_data.empty:
-                                                # Find first and last valid close prices for period-to-period calculation
+                                                # Find first and last valid close prices for period-to-period change
                                                 first_close = None
                                                 last_close = None
                                                 
-                                                # Look for first valid close price
                                                 for i in range(len(close_data)):
-                                                    if not pd.isna(close_data.iloc[i]) and close_data.iloc[i] != 0:
-                                                        first_close = close_data.iloc[i]
-                                                        break
-                                                
-                                                # Look for last valid close price
-                                                for i in range(len(close_data) - 1, -1, -1):
-                                                    if not pd.isna(close_data.iloc[i]) and close_data.iloc[i] != 0:
-                                                        last_close = close_data.iloc[i]
-                                                        break
-                                                
-                                                # Check for valid numeric values
-                                                if first_close is None or last_close is None:
-                                                    percentage = None
-                                                    if len(history_data) < 3:
-                                                        logger.warning(f"{ticker} {period_name}: Could not find valid first/last close prices")
-                                                else:
-                                                    # Calculate period-to-period change: (Last Close - First Close) / First Close * 100
-                                                    percentage = ((last_close - first_close) / first_close) * 100
+                                                    close_val_temp = close_data.iloc[i]
+                                                    # Convert to scalar if it's a Series
+                                                    if isinstance(close_val_temp, pd.Series):
+                                                        close_val_temp = close_val_temp.iloc[0] if not close_val_temp.empty else None
                                                     
-                                                    # Debug logging for first few stocks
-                                                    if len(history_data) < 3:
-                                                        logger.info(f"{ticker} {period_name}: First Close=${first_close:.2f}, Last Close=${last_close:.2f}, Period Change={percentage:.2f}%")
-                                            else:
-                                                if len(history_data) < 3:
-                                                    logger.warning(f"{ticker}: Not enough close data for {period_name} calculation")
-                                                percentage = None
-                                        else:
-                                            if len(history_data) < 3:
-                                                logger.warning(f"{ticker}: Not enough data points for {period_name} calculation (need at least 2)")
-                                            percentage = None
-                                    
-                                    # Validate percentage value
-                                    if percentage is not None:
-                                        if pd.isna(percentage) or not isinstance(percentage, (int, float)):
-                                            percentage = None
-                                        elif abs(percentage) > 100000:  # Unrealistic percentage change (1000x)
-                                            percentage = None
-                                            
+                                                    if close_val_temp is not None and not pd.isna(close_val_temp) and close_val_temp != 0:
+                                                        first_close = close_val_temp
+                                                        break
+                                                
+                                                for i in range(len(close_data) - 1, -1, -1):
+                                                    close_val_temp = close_data.iloc[i]
+                                                    # Convert to scalar if it's a Series
+                                                    if isinstance(close_val_temp, pd.Series):
+                                                        close_val_temp = close_val_temp.iloc[0] if not close_val_temp.empty else None
+                                                    
+                                                    if close_val_temp is not None and not pd.isna(close_val_temp) and close_val_temp != 0:
+                                                        last_close = close_val_temp
+                                                        break
+                                                
+                                                if first_close is not None and last_close is not None:
+                                                    percentage = ((last_close - first_close) / first_close) * 100
+                                                    open_val = first_close
+                                                    close_val = last_close
+                                
                                 except Exception as e:
                                     logger.warning(f"Error calculating {period_name} percentage for {ticker}: {e}")
                                     percentage = None
                                 
-                                # Add debug logging for percentage calculation
-                                if len(history_data) < 3:  # Only log for first few stocks to avoid spam
-                                    logger.info(f"{ticker} {period_name}: percentage={percentage}, type={type(percentage)}")
+                                # Calculate high-low percentage whenever we have valid low and high values
+                                if low is not None and high is not None and low != 0:
+                                    try:
+                                        high_low_percentage = ((high - low) / low) * 100
+                                    except Exception as e:
+                                        logger.warning(f"Error calculating high-low percentage for {period_name} {ticker}: {e}")
+                                        high_low_percentage = None
+                                else:
+                                    high_low_percentage = None
                                 
-                                # Add detailed debug logging for validation steps (only for first few stocks)
-                                if len(history_data) < 3:  # Log for first 3 stocks to see pattern
-                                    logger.info(f"{ticker} {period_name}: period_data.shape={period_data.shape}, period_data.empty={period_data.empty}")
-                                    if not period_data.empty:
-                                        period_sorted = period_data.sort_index()
-                                        close_data = get_column_data(period_sorted, 'Close')
-                                        logger.info(f"{ticker} {period_name}: close_data.shape={close_data.shape}, close_data.empty={close_data.empty}")
-                                        if not close_data.empty and len(close_data) >= 2:
-                                            first_close = close_data.iloc[0]
-                                            last_close = close_data.iloc[-1]
-                                            logger.info(f"{ticker} {period_name}: first_close={first_close}, last_close={last_close}")
-                                            logger.info(f"{ticker} {period_name}: first_close_isna={pd.isna(first_close)}, last_close_isna={pd.isna(last_close)}, first_close==0={first_close == 0}")
-                                        else:
-                                            logger.warning(f"{ticker} {period_name}: close_data validation failed - empty={close_data.empty}, len={len(close_data) if not close_data.empty else 0}")
-                                    else:
-                                        logger.warning(f"{ticker} {period_name}: period_data is empty")
-                                
-                                # Format the data with proper fallbacks
+                                # Format the data
                                 if percentage is not None and not pd.isna(percentage):
                                     percentage_str = f"{percentage:.2f}%"
                                 else:
                                     percentage_str = "N/A"
                                 
-                                # Add debug logging for final formatting
-                                if len(history_data) < 3:  # Only log for first few stocks to avoid spam
-                                    logger.info(f"{ticker} {period_name}: final_percentage={percentage_str}")
+                                # Format additional percentages
+                                if high_low_percentage is not None and not pd.isna(high_low_percentage):
+                                    high_low_percentage_str = f"{high_low_percentage:.2f}%"
+                                else:
+                                    high_low_percentage_str = "N/A"
                                 
-                                # Calculate Range (R) percentage for this period (Low vs High)
-                                range_percentage = "N/A"
-                                try:
-                                    if low is not None and high is not None and not pd.isna(low) and not pd.isna(high):
-                                        if low > 0:
-                                            range_val = ((high - low) / low) * 100
-                                            range_percentage = f"{range_val:.2f}%"
-                                except (ValueError, TypeError):
-                                    range_percentage = "N/A"
-                                
-                                # Store both percentage and range data with clean format
-                                history_data[period_name] = {
-                                    "low": f"${low:.2f}" if not pd.isna(low) else "N/A",
-                                    "high": f"${high:.2f}" if not pd.isna(high) else "N/A",
+                                # Create the period data structure with all fields (consistent for all periods)
+                                period_info = {
+                                    "low": low,
+                                    "high": high,
+                                    "open": open_val,
+                                    "close": close_val,
                                     "percentage": percentage_str,
-                                    "range": range_percentage,
-                                    "display": f"L: ${low:.2f} H: ${high:.2f} {percentage_str}" if not pd.isna(low) and not pd.isna(high) and percentage_str != "N/A" else "N/A"
+                                    "high_low_percentage": high_low_percentage_str
                                 }
+                                
+                                history_data[period_name] = period_info
+                                
                             else:
                                 history_data[period_name] = {
-                                    "low": "N/A",
-                                    "high": "N/A",
+                                    "low": None,
+                                    "high": None,
+                                    "open": None,
+                                    "close": None,
                                     "percentage": "N/A",
-                                    "range": "N/A",
-                                    "display": "N/A"
+                                    "high_low_percentage": "N/A"
                                 }
+                                
                         except Exception as e:
-                            logger.warning(f"Error processing {period_name} for {ticker}: {e}")
+                            logger.error(f"Error processing {period_name} for {ticker}: {e}")
                             history_data[period_name] = {
-                                "low": "N/A",
-                                "high": "N/A",
+                                "low": None,
+                                "high": None,
+                                "open": None,
+                                "close": None,
                                 "percentage": "N/A",
-                                "range": "N/A",
-                                "display": "N/A"
+                                "high_low_percentage": "N/A"
                             }
                     
                     # Create stock history entry
@@ -366,8 +613,15 @@ class StockHistoryOperations:
                     
                 except Exception as e:
                     logger.error(f"Error processing {ticker}: {e}")
-                    # Add placeholder entry with consistent N/A values
-                    placeholder_data = {"low": "N/A", "high": "N/A", "percentage": "N/A", "range": "N/A", "display": "N/A"}
+                    # Add placeholder entry with all required fields
+                    placeholder_data = {
+                        "low": None, 
+                        "high": None, 
+                        "open": None,
+                        "close": None,
+                        "percentage": "N/A", 
+                        "high_low_percentage": "N/A"
+                    }
                     stock_entry = {
                         "ticker": ticker,
                         "sector": sector,
@@ -392,408 +646,119 @@ class StockHistoryOperations:
             logger.error(f"Error in populate_stock_history: {e}")
             return False
     
-    def populate_stock_market_data(self) -> bool:
-        """Populate stock market data using Finviz API"""
+    def save_stock_history(self, data: List[Dict]) -> bool:
+        """Save stock history data to file"""
         try:
-            stocks = self.load_stocks()
-            if not stocks:
-                logger.error("No stocks found to populate market data")
-                return False
-            
-            logger.info(f"Starting to populate market data for {len(stocks)} stocks")
-            
-            # Get all tickers
-            tickers = [stock.get('ticker') for stock in stocks if stock.get('ticker')]
-            if not tickers:
-                logger.error("No valid tickers found")
-                return False
-            
-            # Prepare Finviz API request with AH data and Low/High values
-            tickers_param = ','.join(tickers)
-            params = {
-                'v': '152',
-                't': tickers_param,
-                'auth': self.finviz_auth_id,
-                'c': '1,6,65,68,66,67,71,72,87,88'  # Columns: 1=Ticker, 6=Market Cap, 65=Price, 68=Earnings Date, 66=Change, 67=Volume, 71=AH Close, 72=AH Change, 87=Low, 88=High
-            }
-            
-            try:
-                response = requests.get(self.finviz_base_url, params=params, timeout=30)
-                response.raise_for_status()
-                
-                # Parse CSV data
-                csv_data = response.text
-                lines = csv_data.strip().split('\n')
-                
-                if len(lines) < 2:  # Need header + at least one data row
-                    logger.error("Invalid CSV response from Finviz")
-                    return False
-                
-                # Parse header - clean up carriage returns and quotes
-                header = [h.strip().strip('"').strip('\r') for h in lines[0].split(',')]
-                
-                # Parse data rows
-                market_data = []
-                for line in lines[1:]:
-                    if not line.strip():
-                        continue
-                    
-                    values = line.split(',')
-                    if len(values) != len(header):
-                        continue
-                    
-                    # Create data dictionary - clean up values
-                    row_data = dict(zip(header, [v.strip().strip('"').strip('\r') for v in values]))
-                    
-                    ticker = row_data.get('Ticker', '')
-                    if not ticker:
-                        continue
-                    
-                    # Find corresponding stock info
-                    stock_info = next((s for s in stocks if s.get('ticker') == ticker), None)
-                    if not stock_info:
-                        continue
-                    
-                    # Extract market data
-                    market_cap_raw = row_data.get('Market Cap', 'N/A')
-                    earning_date = row_data.get('Earnings Date', 'N/A')
-                    current_price = row_data.get('Price', 'N/A')
-                    
-                    # Format market cap properly - Finviz returns market cap in millions
-                    market_cap = 'N/A'  # Initialize default value
-                    try:
-                        from utils import fmt_market_cap
-                        if market_cap_raw != 'N/A' and market_cap_raw:
-                            # Finviz returns market cap in millions, so multiply by 1M to get actual value
-                            market_cap_value = float(market_cap_raw) * 1000000
-                            market_cap = fmt_market_cap(market_cap_value)
-                    except (ImportError, ValueError, TypeError):
-                        # Fallback if utils not available or conversion fails
-                        market_cap = market_cap_raw
-                    
-                    # Extract today's data
-                    today_change = row_data.get('Change', 'N/A')
-                    
-                    # Extract Low and High values
-                    low_price = row_data.get('Low', 'N/A')
-                    high_price = row_data.get('High', 'N/A')
-                    
-                    # Extract AH data
-                    ah_price = row_data.get('After-Hours Close', 'N/A')
-                    ah_change = row_data.get('After-Hours Change', 'N/A')
-                    
-                    # Format today's data
-                    if today_change != 'N/A':
-                        # Remove any existing % symbols and clean the value
-                        clean_change = str(today_change).replace('%', '').strip()
-                        try:
-                            # Convert to float and format properly
-                            change_val = float(clean_change)
-                            formatted_percentage = f"{change_val:+.2f}%" if change_val != 0 else "0.00%"
-                        except (ValueError, TypeError):
-                            # If conversion fails, use the original value
-                            formatted_percentage = f"{clean_change}%" if clean_change else "N/A"
-                    else:
-                        formatted_percentage = "N/A"
-                    
-                    today_data = {
-                        "percentage": formatted_percentage,
-                        "low": low_price,
-                        "high": high_price
-                    }
-                    
-                    # Calculate True Range (TR) percentage for today
-                    today_tr = "N/A"
-                    try:
-                        if low_price != 'N/A' and high_price != 'N/A':
-                            low_val = float(low_price)
-                            high_val = float(high_price)
-                            if low_val > 0:
-                                tr_percentage = ((high_val - low_val) / low_val) * 100
-                                today_tr = f"{tr_percentage:.2f}%"
-                    except (ValueError, TypeError):
-                        today_tr = "N/A"
-                    
-                    # Create market data entry
-                    market_entry = {
-                        "ticker": ticker,
-                        "market_cap": market_cap,
-                        "earning_date": earning_date,
-                        "current_price": current_price,
-                        "today": today_data,
-                        "ah_price": ah_price,
-                        "ah_change": ah_change
-                    }
-                    
-                    market_data.append(market_entry)
-                
-                # Save the data
-                success = self.save_stock_market_data(market_data)
-                if success:
-                    logger.info(f"Successfully populated market data for {len(market_data)} stocks")
-                    # Save cache timestamp for successful population
-                    self._save_cache_timestamp('market')
-                return success
-                
-            except requests.RequestException as e:
-                logger.error(f"Error calling Finviz API: {e}")
-                return False
-                
+            with open(self.stockhistory_file, 'w') as f:
+                json.dump(data, f, indent=2)
+            logger.info(f"Stock history data saved to {self.stockhistory_file}")
+            return True
         except Exception as e:
-            logger.error(f"Error in populate_stock_market_data: {e}")
+            logger.error(f"Error saving stock history: {e}")
             return False
     
-    def get_finviz_data_for_tickers(self, tickers: List[str]) -> Dict[str, Dict[str, Any]]:
-        """
-        Get real-time data for specific tickers using Finviz API.
-        
-        Args:
-            tickers: List of ticker symbols
-            
-        Returns:
-            Dictionary with ticker as key and Finviz data as value
-        """
+    def load_stock_history(self) -> List[Dict]:
+        """Load stock history data from file"""
         try:
-            if not tickers:
-                logger.warning("No tickers provided for Finviz data")
-                return {}
+            if not os.path.exists(self.stockhistory_file):
+                logger.warning(f"Stock history file {self.stockhistory_file} not found")
+                return []
             
-            logger.info(f"Fetching Finviz data for {len(tickers)} tickers")
+            with open(self.stockhistory_file, 'r') as f:
+                data = json.load(f)
             
-            # Prepare Finviz API request with required columns including AH data and Low/High
-            tickers_param = ','.join(tickers)
-            params = {
-                'v': '152',
-                't': tickers_param,
-                'auth': self.finviz_auth_id,
-                'c': '1,81,86,65,66,71,72,87,88'
-            }
+            if not isinstance(data, list):
+                logger.error(f"Invalid data format in {self.stockhistory_file}")
+                return []
             
-            try:
-                response = requests.get(self.finviz_base_url, params=params, timeout=30)
-                response.raise_for_status()
-                
-                # Parse CSV data
-                csv_data = response.text
-                lines = csv_data.strip().split('\n')
-                
-                if len(lines) < 2:  # Need header + at least one data row
-                    logger.error("Invalid CSV response from Finviz")
-                    return {}
-                
-                # Parse header - clean up carriage returns and quotes
-                header = [h.strip().strip('"').strip('\r') for h in lines[0].split(',')]
-                logger.debug(f"Finviz columns: {header}")
-                
-                # Parse data rows
-                finviz_data = {}
-                for line in lines[1:]:
-                    if not line.strip():
-                        continue
-                    
-                    values = line.split(',')
-                    if len(values) != len(header):
-                        continue
-                    
-                    # Create data dictionary - clean up values
-                    row_data = dict(zip(header, [v.strip().strip('"').strip('\r') for v in values]))
-                    
-                    ticker = row_data.get('Ticker', '')
-                    if not ticker:
-                        continue
-                    
-                    # Store all available data for this ticker
-                    finviz_data[ticker] = row_data
-                
-                logger.info(f"Successfully fetched Finviz data for {len(finviz_data)} tickers")
-                return finviz_data
-                
-            except requests.RequestException as e:
-                logger.error(f"Error calling Finviz API: {e}")
-                return {}
+            logger.info(f"Loaded {len(data)} stock history records")
+            return data
                 
         except Exception as e:
-            logger.error(f"Error in get_finviz_data_for_tickers: {e}")
-            return {}
+            logger.error(f"Error loading stock history: {e}")
+            return []
+    
+    def load_stock_market_data(self) -> List[Dict]:
+        """Load stock market data from file"""
+        try:
+            market_data_file = "stockhistorymarketdata.json"
+            if not os.path.exists(market_data_file):
+                logger.warning(f"Market data file {market_data_file} not found")
+                return []
+            
+            with open(market_data_file, 'r') as f:
+                data = json.load(f)
+            
+            if not isinstance(data, list):
+                logger.error(f"Invalid data format in {market_data_file}")
+                return []
+            
+            logger.info(f"Loaded {len(data)} market data records")
+            return data
+                
+        except Exception as e:
+            logger.error(f"Error loading market data: {e}")
+            return []
     
     def get_combined_stock_data(self) -> Dict[str, Any]:
-        """Get combined data from both history and market data files"""
+        """Get combined stock data from both history and market data files"""
         try:
+            # Load both data sources
             history_data = self.load_stock_history()
             market_data = self.load_stock_market_data()
             
-            # Create lookup for market data
+            # Create a lookup for market data by ticker
             market_lookup = {item['ticker']: item for item in market_data}
             
             # Combine the data
-            combined_data = []
+            combined_results = []
             for history_item in history_data:
-                ticker = history_item['ticker']
-                market_item = market_lookup.get(ticker, {})
-                
-                combined_item = {
-                    **history_item,
-                    "market_cap": market_item.get('market_cap', 'N/A'),
-                    "earning_date": market_item.get('earning_date', 'N/A'),
-                    "current_price": market_item.get('current_price', 'N/A'),
-                    "today": market_item.get('today', history_item.get('today', {})),
-                    "ah_price": market_item.get('ah_price', 'N/A'),
-                    "ah_change": market_item.get('ah_change', 'N/A'),
-                    "low": market_item.get('today', {}).get('low', 'N/A'),
-                    "high": market_item.get('today', {}).get('high', 'N/A'),
-                    "today_tr": market_item.get('today', {}).get('tr', 'N/A')
-                }
-                
-                combined_data.append(combined_item)
+                ticker = history_item.get('ticker')
+                if ticker:
+                    # Get corresponding market data
+                    market_item = market_lookup.get(ticker, {})
+                    
+                    # Combine history and market data
+                    combined_item = {
+                        **history_item,  # Include all history data
+                        **market_item    # Override with market data (if available)
+                    }
+                    combined_results.append(combined_item)
             
             return {
-                "results": combined_data,
-                "total": len(combined_data)
+                "results": combined_results,
+                "total": len(combined_results)
             }
             
         except Exception as e:
-            logger.error(f"Error getting combined stock data: {e}")
-            return {"results": [], "total": 0}
-    
-    def _get_cache_file_path(self, file_type: str) -> str:
-        """Get cache file path for storing population timestamps"""
-        return f"{file_type}_cache.json"
-    
-    def _load_cache_timestamp(self, file_type: str) -> datetime:
-        """Load cached timestamp for when data was last populated"""
-        try:
-            cache_file = self._get_cache_file_path(file_type)
-            if os.path.exists(cache_file):
-                with open(cache_file, 'r') as f:
-                    cache_data = json.load(f)
-                    timestamp_str = cache_data.get('last_populated', '')
-                    if timestamp_str:
-                        return datetime.fromisoformat(timestamp_str)
-        except Exception as e:
-            logger.warning(f"Error loading cache timestamp for {file_type}: {e}")
-        
-        # Return a very old date if no cache found
-        return datetime(2000, 1, 1)
-    
-    def _save_cache_timestamp(self, file_type: str, timestamp: datetime = None) -> bool:
-        """Save cache timestamp for when data was last populated"""
-        try:
-            if timestamp is None:
-                timestamp = datetime.now()
-            
-            cache_file = self._get_cache_file_path(file_type)
-            cache_data = {
-                'last_populated': timestamp.isoformat(),
-                'file_type': file_type
+            logger.error(f"Error combining stock data: {e}")
+            return {
+                "results": [],
+                "total": 0
             }
-            
-            with open(cache_file, 'w') as f:
-                json.dump(cache_data, f, indent=2)
-            
-            logger.info(f"Cache timestamp saved for {file_type}: {timestamp}")
-            return True
-        except Exception as e:
-            logger.error(f"Error saving cache timestamp for {file_type}: {e}")
-            return False
-    
-    def should_populate_history(self) -> bool:
-        """Check if we should populate history data based on cached date"""
-        try:
-            # Check if file exists and has data
-            if not os.path.exists(self.stockhistory_file):
-                logger.info("History file doesn't exist, should populate")
-                return True
-            
-            # Check if file is empty
-            try:
-                with open(self.stockhistory_file, 'r') as f:
-                    content = f.read().strip()
-                    if not content or content == '[]':
-                        logger.info("History file is empty, should populate")
-                        return True
-            except Exception as e:
-                logger.warning(f"Error reading history file: {e}, should populate")
-                return True
-            
-            # Check cached date vs current date
-            cached_date = self._load_cache_timestamp('history')
-            current_date = datetime.now().date()
-            
-            if cached_date.date() < current_date:
-                logger.info(f"History cache date ({cached_date.date()}) is older than current date ({current_date}), should populate")
-                return True
-            
-            logger.info(f"History cache date ({cached_date.date()}) is current, no need to populate")
-            return False
-            
-        except Exception as e:
-            logger.error(f"Error checking history population time: {e}")
-            return True
-    
-    def should_populate_market_data(self) -> bool:
-        """Check if we should populate market data based on cached datetime + 1 minute"""
-        try:
-            # Check if file exists and has data
-            if not os.path.exists(self.stockhistory_market_file):
-                logger.info("Market data file doesn't exist, should populate")
-                return True
-            
-            # Check if file is empty
-            try:
-                with open(self.stockhistory_market_file, 'r') as f:
-                    content = f.read().strip()
-                    if not content or content == '[]':
-                        logger.info("Market data file is empty, should populate")
-                        return True
-            except Exception as e:
-                logger.warning(f"Error reading market data file: {e}, should populate")
-                return True
-            
-            # Check cached datetime + 1 minute vs current datetime
-            cached_datetime = self._load_cache_timestamp('market')
-            current_datetime = datetime.now()
-            
-            # Add 1 minute to cached time for market data updates
-            next_update_time = cached_datetime + timedelta(minutes=1)
-            
-            if current_datetime >= next_update_time:
-                logger.info(f"Market data cache time ({cached_datetime}) + 1 minute is past current time ({current_datetime}), should populate")
-                return True
-            
-            logger.info(f"Market data cache time ({cached_datetime}) + 1 minute is in future, no need to populate yet")
-            return False
-            
-        except Exception as e:
-            logger.error(f"Error checking market data population time: {e}")
-            return True
     
     def get_cache_status(self) -> Dict[str, Any]:
-        """Get current cache status for both history and market data"""
+        """Get cache status for both history and market data"""
         try:
-            history_cache = self._load_cache_timestamp('history')
-            market_cache = self._load_cache_timestamp('market')
-            current_time = datetime.now()
+            if not os.path.exists(self._cache_timestamp_file):
+                return {
+                    "history": "Never updated",
+                    "market": "Never updated"
+                }
+            
+            with open(self._cache_timestamp_file, 'r') as f:
+                timestamps = json.load(f)
             
             return {
-                "history": {
-                    "last_populated": history_cache.isoformat(),
-                    "next_population": (history_cache + timedelta(days=1)).isoformat(),
-                    "should_populate": self.should_populate_history(),
-                    "cache_age_hours": (current_time - history_cache).total_seconds() / 3600
-                },
-                "market": {
-                    "last_populated": market_cache.isoformat(),
-                    "next_population": (market_cache + timedelta(minutes=1)).isoformat(),
-                    "should_populate": self.should_populate_market_data(),
-                    "cache_age_minutes": (current_time - market_cache).total_seconds() / 60
-                },
-                "current_time": current_time.isoformat()
+                "history": timestamps.get('history', 'Never updated'),
+                "market": timestamps.get('market', 'Never updated')
             }
+            
         except Exception as e:
             logger.error(f"Error getting cache status: {e}")
             return {
-                "error": str(e),
-                "current_time": datetime.now().isoformat()
+                "history": "Error",
+                "market": "Error"
             }
 
 # Global instance
