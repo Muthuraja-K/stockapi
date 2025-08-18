@@ -93,13 +93,13 @@ def get_current_user(authorization: Optional[str] = Header(None)) -> Dict[str, A
     return payload
 
 def require_auth(current_user: Dict[str, Any] = Depends(get_current_user)) -> Dict[str, Any]:
-    """Dependency to require authentication"""
+    """Require authentication for protected endpoints"""
     return current_user
 
 def require_admin(current_user: Dict[str, Any] = Depends(get_current_user)) -> Dict[str, Any]:
-    """Dependency to require admin role"""
+    """Require admin privileges for admin-only endpoints"""
     if current_user.get('role') != 'admin':
-        raise HTTPException(status_code=403, detail={'error': 'Admin access required'})
+        raise HTTPException(status_code=403, detail="Admin privileges required")
     return current_user
 
 def create_default_users():

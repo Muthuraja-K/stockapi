@@ -52,11 +52,13 @@ class BackgroundScheduler:
                 
                 # Check if we need to populate market data (every minute)
                 if stock_history_ops.should_populate_market_data():
-                    logger.info("Populating stock market data...")
+                    logger.info(f"Populating stock market data at {current_time.strftime('%H:%M:%S')}...")
                     if stock_history_ops.populate_stock_market_data():
-                        logger.info("Stock market data populated successfully")
+                        logger.info(f"Stock market data populated successfully at {current_time.strftime('%H:%M:%S')}")
                     else:
-                        logger.error("Failed to populate stock market data")
+                        logger.error(f"Failed to populate stock market data at {current_time.strftime('%H:%M:%S')}")
+                else:
+                    logger.debug(f"Market data is up-to-date, skipping update at {current_time.strftime('%H:%M:%S')}")
                 
                 # Reset history populated flag at midnight
                 if current_time.hour == 0 and current_time.minute == 0:
@@ -85,8 +87,8 @@ class BackgroundScheduler:
                     except Exception as e:
                         logger.error(f"Error in earning summary cache refresh: {e}")
                 
-                # Wait for 1 minute before next check
-                time.sleep(60)
+                # Wait for 30 seconds before next check for more responsive market data updates
+                time.sleep(30)
                 
             except Exception as e:
                 logger.error(f"Error in scheduler loop: {e}")

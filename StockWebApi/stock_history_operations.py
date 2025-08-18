@@ -7,6 +7,7 @@ from typing import List, Dict, Any
 import logging
 import requests
 from config import config
+from utils import fmt_market_cap, format_finviz_market_cap
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
@@ -71,8 +72,8 @@ class StockHistoryOperations:
             last_update = datetime.fromisoformat(timestamps['market'])
             current_time = datetime.now()
             
-            # Populate market data if it's been more than 1 hour since last update
-            return (current_time - last_update).total_seconds() > 3600
+            # Populate market data if it's been more than 1 minute since last update
+            return (current_time - last_update).total_seconds() > 60
             
         except Exception as e:
             logger.warning(f"Error checking market data population status: {e}")
@@ -250,7 +251,7 @@ class StockHistoryOperations:
                     "ticker": ticker,
                     "sector": sector,
                     "earning_date": ticker_finviz_data.get('Earnings Date', 'N/A'),
-                    "market_cap": ticker_finviz_data.get('Market Cap', 'N/A'),
+                    "market_cap": format_finviz_market_cap(ticker_finviz_data.get('Market Cap', 'N/A')),
                     "pe_ratio": ticker_finviz_data.get('P/E', 'N/A'),
                     "price": ticker_finviz_data.get('Price', 'N/A'),
                     "after_hour_price": ticker_finviz_data.get('After-Hours Close', 'N/A'),
@@ -738,27 +739,86 @@ class StockHistoryOperations:
             }
     
     def get_cache_status(self) -> Dict[str, Any]:
-        """Get cache status for both history and market data"""
+        """Get the current cache status for all data types"""
         try:
-            if not os.path.exists(self._cache_timestamp_file):
-                return {
-                    "history": "Never updated",
-                    "market": "Never updated"
+            status = {
+                'stock_history': {
+                    'enabled': True,
+                    'last_updated': None,
+                    'total_records': 0,
+                    'status': 'Not populated'
+                },
+                'stock_market_data': {
+                    'enabled': True,
+                    'last_updated': None,
+                    'total_records': 0,
+                    'status': 'Not populated'
+                },
+                'earning_summary': {
+                    'enabled': True,
+                    'last_updated': None,
+                    'total_records': 0,
+                    'status': 'Not populated'
                 }
-            
-            with open(self._cache_timestamp_file, 'r') as f:
-                timestamps = json.load(f)
-            
-            return {
-                "history": timestamps.get('history', 'Never updated'),
-                "market": timestamps.get('market', 'Never updated')
             }
+            
+            # Check stock history cache
+            if os.path.exists(self._cache_file):
+                try:
+                    with open(self._cache_file, 'r') as f:
+                        data = json.load(f)
+                    status['stock_history']['total_records'] = len(data) if isinstance(data, list) else 0
+                    status['stock_history']['status'] = 'Populated'
+                except Exception as e:
+                    logger.error(f"Error reading stock history cache: {e}")
+                    status['stock_history']['status'] = 'Error reading cache'
+            
+            # Check market data cache
+            if os.path.exists(self._market_data_cache_file):
+                try:
+                    with open(self._market_data_cache_file, 'r') as f:
+                        data = json.load(f)
+                    status['stock_market_data']['total_records'] = len(data) if isinstance(data, list) else 0
+                    status['stock_market_data']['status'] = 'Populated'
+                except Exception as e:
+                    logger.error(f"Error reading market data cache: {e}")
+                    status['stock_market_data']['status'] = 'Error reading cache'
+            
+            # Check earning summary cache
+            if os.path.exists(self._earning_summary_cache_file):
+                try:
+                    with open(self._earning_summary_cache_file, 'r') as f:
+                        data = json.load(f)
+                    status['earning_summary']['total_records'] = len(data) if isinstance(data, list) else 0
+                    status['earning_summary']['status'] = 'Populated'
+                except Exception as e:
+                    logger.error(f"Error reading earning summary cache: {e}")
+                    status['earning_summary']['status'] = 'Error reading cache'
+            
+            # Get last update timestamps
+            if os.path.exists(self._cache_timestamp_file):
+                try:
+                    with open(self._cache_timestamp_file, 'r') as f:
+                        timestamps = json.load(f)
+                    
+                    if 'history' in timestamps:
+                        status['stock_history']['last_updated'] = timestamps['history']
+                    if 'market' in timestamps:
+                        status['stock_market_data']['last_updated'] = timestamps['market']
+                    if 'earning' in timestamps:
+                        status['earning_summary']['last_updated'] = timestamps['earning']
+                except Exception as e:
+                    logger.error(f"Error reading cache timestamps: {e}")
+            
+            return status
             
         except Exception as e:
             logger.error(f"Error getting cache status: {e}")
             return {
-                "history": "Error",
-                "market": "Error"
+                'error': f'Failed to get cache status: {str(e)}',
+                'stock_history': {'enabled': False, 'status': 'Error'},
+                'stock_market_data': {'enabled': False, 'status': 'Error'},
+                'earning_summary': {'enabled': False, 'status': 'Error'}
             }
 
 # Global instance

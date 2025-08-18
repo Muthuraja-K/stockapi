@@ -1,13 +1,13 @@
 [
   {
     "username": "admin",
-    "password": "$2b$12$TeKWYNjB7N0xz6vmWg8PrO8TpB1h/gyRwfe7dhyZTsNOm2rDs25jq",
+    "password": "$2b$12$Pqhk3rnKvFoo8Z6QiT0YZepjgRcnF6./kB3OluD.YVTBQBVH3372K",
     "role": "admin",
     "firstname": "Admin",
     "lastname": "User"
   },
   {
-    "username": "test",
+    "username": "readonlyuser",
     "password": "$2b$12$Q6oK3aWFfzeFO5rQ1m98ve8pw9hXzFfporFcUiBue9VxJ0y6.EB1u",
     "role": "user",
     "firstname": "Friends",

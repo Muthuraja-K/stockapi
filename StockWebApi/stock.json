@@ -546,12 +546,6 @@
     "company_name": "Defiance Daily Target 2x Long OKLO ETF"
   },
   {
-    "ticker": "HIMS",
-    "sector": "Healthcare",
-    "isleverage": false,
-    "company_name": "Hims & Hers Health Inc"
-  },
-  {
     "ticker": "TEM",
     "sector": "Healthcare",
     "isleverage": false,
@@ -694,5 +688,23 @@
     "sector": "Crypto",
     "isleverage": false,
     "company_name": "TeraWulf Inc"
+  },
+  {
+    "ticker": "HIMS",
+    "sector": "Health & Pharma",
+    "isleverage": false,
+    "company_name": "Hims & Hers Health Inc"
+  },
+  {
+    "ticker": "UNH",
+    "sector": "Health & Pharma",
+    "isleverage": false,
+    "company_name": "Unitedhealth Group Inc"
+  },
+  {
+    "ticker": "UNHG",
+    "sector": "Health & Pharma",
+    "isleverage": true,
+    "company_name": "Leverage Shares 2X Long UNH Daily ETF"
   }
 ]

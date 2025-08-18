@@ -36,23 +36,84 @@ def fmt_percent(val):
 
 def fmt_market_cap(val):
     """
-    Format market cap values to show billions and trillions with proper suffixes
-    Examples: 1500000000 -> $1.50B, 2500000000000 -> $2.50T
+    Format market cap values to show billions and trillions with proper suffixes.
+    Finviz returns market cap values in billions, so we need to multiply by 1,000,000,000.
+    Examples: 3416.26 -> $3.42T, 2500 -> $2.50T, 750 -> $750.00B
     """
     try:
+        if val is None or val == '' or val == 'N/A':
+            return 'N/A'
+            
         f = float(val)
-        if f >= 1e12:  # Trillion
-            return f"${f/1e12:.2f}T"
-        elif f >= 1e9:  # Billion
-            return f"${f/1e9:.2f}B"
-        elif f >= 1e6:  # Million
-            return f"${f/1e6:.2f}M"
-        elif f >= 1e3:  # Thousand
-            return f"${f/1e3:.2f}K"
+        
+        # Check for NaN or infinite values
+        if math.isnan(f) or math.isinf(f):
+            return 'N/A'
+            
+        # If value is less than 10,000, assume it's in billions (Finviz format)
+        # If value is 10,000 or greater, assume it's already in actual dollars
+        if f < 10000:
+            # Finviz format: multiply by 1,000,000,000 to get actual value
+            actual_value = f * 1000000000
         else:
-            return f"${f:,.2f}"
+            # Already in actual dollars
+            actual_value = f
+        
+        # Now format the actual value
+        if actual_value >= 1e12:  # Trillion
+            return f"${actual_value/1e12:.2f}T"
+        elif actual_value >= 1e9:  # Billion
+            return f"${actual_value/1e9:.2f}B"
+        elif actual_value >= 1e6:  # Million
+            return f"${actual_value/1e6:.2f}M"
+        elif actual_value >= 1e3:  # Thousand
+            return f"${actual_value/1e3:.2f}K"
+        else:
+            return f"${actual_value:,.2f}"
     except Exception:
         return val
+
+def format_finviz_market_cap(val):
+    """
+    Format Finviz 'Market Cap' values to $ + T/B/M/K.
+    Handles both pre-formatted strings (e.g., '3.42T', '$750B') and numeric values where:
+    - Large numeric (>= 1e6) is treated as millions (e.g., 3416257.65 -> 3,416,257.65M -> $3.42T)
+    - Smaller numeric (< 1e6) is treated as billions (e.g., 3416.26 -> 3,416.26B -> $3.42T)
+    """
+    try:
+        if val is None or val == '' or str(val).strip().upper() == 'N/A':
+            return 'N/A'
+        s = str(val).strip()
+        # If already formatted with suffix
+        if s.startswith('$') and s[-1] in ('T','B','M','K'):
+            return s
+        if (not s.startswith('$')) and s[-1] in ('T','B','M','K'):
+            return f"${s}"
+        # Parse numeric and infer scale
+        f = float(s)
+        if math.isnan(f) or math.isinf(f):
+            return 'N/A'
+        # Heuristic:
+        # - Very large numbers (>= 1e13) assume already dollars
+        # - Numbers >= 1e6 likely millions value from Finviz CSV
+        # - Numbers < 1e6 likely billions value from Finviz CSV
+        if f >= 1e13:
+            actual_value = f
+        elif f >= 1e6:
+            actual_value = f * 1_000_000.0   # treat as millions
+        else:
+            actual_value = f * 1_000_000_000.0  # treat as billions
+        if actual_value >= 1e12:
+            return f"${actual_value/1e12:.2f}T"
+        if actual_value >= 1e9:
+            return f"${actual_value/1e9:.2f}B"
+        if actual_value >= 1e6:
+            return f"${actual_value/1e6:.2f}M"
+        if actual_value >= 1e3:
+            return f"${actual_value/1e3:.2f}K"
+        return f"${actual_value:,.2f}"
+    except Exception:
+        return 'N/A'
 
 def convert_ui_date_to_iso(ui_date):
     """

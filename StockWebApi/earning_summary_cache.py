@@ -227,30 +227,50 @@ class EarningSummaryCache:
         logger.info("Earning summary cache cleared (1M only, 1D/1W filter from it)")
     
     def get_cache_status(self) -> Dict[str, Any]:
-        """Get cache status information."""
-        today = date.today()
-        cache_date = self.cache_data.get('cache_date')
-        
-        status = {
-            'cache_file': self.cache_file,
-            'last_updated': self.cache_data.get('last_updated'),
-            'cache_date': cache_date,
-            'is_valid': cache_date == today.isoformat() if cache_date else False,
-            'periods': {},
-            'sector_cache_count': len(self.cache_data.get('sector_cache', {}))
-        }
-        
-        # Add period status - all periods share the same 1M data
-        for period in ['1D', '1W', '1M']:
-            period_1m_data = self.cache_data['periods'].get('1M', {})
-            status['periods'][period] = {
-                'has_data': period_1m_data.get('data') is not None,
-                'last_updated': period_1m_data.get('last_updated'),
-                'result_count': len(period_1m_data.get('data', {}).get('results', [])) if period_1m_data.get('data') else 0,
-                'source': '1M cache' if period != '1M' else 'direct'
+        """Get the current cache status."""
+        try:
+            status = {
+                'is_valid': False,
+                'last_updated': self.cache_data.get('last_updated'),
+                'cache_date': self.cache_data.get('cache_date'),
+                'periods': {},
+                'total_records': 0
             }
-        
-        return status
+            
+            # Check if cache is valid for any period
+            for period in ['1D', '1W', '1M']:
+                period_1m_data = self.cache_data['periods'].get('1M', {})
+                status['periods'][period] = {
+                    'has_data': period_1m_data.get('data') is not None,
+                    'last_updated': period_1m_data.get('last_updated'),
+                    'result_count': len(period_1m_data.get('data', {}).get('results', [])) if period_1m_data.get('data') else 0,
+                    'source': '1M cache' if period != '1M' else 'direct'
+                }
+            
+            return status
+            
+        except Exception as e:
+            logger.error(f"Error getting cache status: {e}")
+            return {'error': str(e)}
+
+    def populate_earning_summary(self) -> bool:
+        """Force populate the earning summary cache regardless of cache status."""
+        try:
+            logger.info("Force populating earning summary cache...")
+            
+            # Force fetch 1M data (which will populate the cache)
+            result = self.get_or_fetch_summary('1M')
+            
+            if result and result.get('results'):
+                logger.info(f"Successfully populated earning summary cache with {len(result['results'])} records")
+                return True
+            else:
+                logger.error("Failed to populate earning summary cache - no data returned")
+                return False
+                
+        except Exception as e:
+            logger.error(f"Error populating earning summary cache: {e}")
+            return False
 
 # Global cache instance
 earning_cache = EarningSummaryCache()

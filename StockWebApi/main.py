@@ -113,6 +113,19 @@ async def health_check():
         "version": "1.0.0"
     }
 
+@app.get("/api/scheduler/status")
+async def get_scheduler_status_route(current_user: Dict[str, Any] = Depends(require_auth)):
+    """Get the background scheduler status"""
+    try:
+        from background_scheduler import get_scheduler_status
+        return get_scheduler_status()
+    except Exception as e:
+        logger.error(f"Error getting scheduler status: {e}")
+        return {
+            "error": "Failed to get scheduler status",
+            "message": str(e)
+        }
+
 # Authentication endpoints
 @app.post('/api/login')
 async def login_route(request: LoginRequest):
@@ -924,6 +937,234 @@ async def get_stock_history_route(
             "total": 0
         }
 
+# Real-time prices endpoint for stock history component
+@app.get("/api/realtime-prices")
+async def get_realtime_prices_route(
+    tickers: str = Query(..., description="Comma-separated list of stock tickers"),
+    current_user: Dict[str, Any] = Depends(require_auth)
+):
+    
+    try:
+        from stock_history_operations import stock_history_ops
+        
+        # Parse tickers parameter
+        ticker_list = [t.strip() for t in tickers.split(',') if t.strip()]
+        
+        if not ticker_list:
+            raise HTTPException(status_code=400, detail="No valid tickers provided")
+        
+        logger.info(f"Fetching real-time prices for {len(ticker_list)} tickers: {ticker_list}")
+        
+        # Get real-time data from Finviz API
+        finviz_data = stock_history_ops.get_finviz_data_for_tickers(ticker_list)
+        
+        if not finviz_data:
+            logger.warning("No Finviz data received")
+            return {}
+        
+        # Format response for frontend - return current prices and changes
+        realtime_prices = {}
+        
+        for ticker in ticker_list:
+            if ticker in finviz_data:
+                stock_data = finviz_data[ticker]
+                
+                # Extract key data from Finviz response
+                current_price = stock_data.get('Price', 'N/A')
+                change_percent = stock_data.get('Change', 'N/A')
+                change_amount = stock_data.get('Change', 'N/A')
+                
+                realtime_prices[ticker] = {
+                    'price': current_price,
+                    'change': change_amount,
+                    'changePercent': change_percent,
+                    'timestamp': datetime.now().isoformat()
+                }
+            else:
+                logger.warning(f"No data available for ticker: {ticker}")
+                realtime_prices[ticker] = {
+                    'price': 'N/A',
+                    'change': 'N/A',
+                    'changePercent': 'N/A',
+                    'timestamp': datetime.now().isoformat()
+                }
+        
+        logger.info(f"Returning real-time prices for {len(realtime_prices)} tickers")
+        return realtime_prices
+        
+    except Exception as e:
+        logger.error(f"Error getting real-time prices: {e}")
+        raise HTTPException(status_code=500, detail=f"Failed to get real-time prices: {str(e)}")
+
+# Market data updates endpoint for stock history component
+@app.get("/api/market-data-updates")
+async def get_market_data_updates_route(
+    tickers: str = Query(..., description="Comma-separated list of stock tickers"),
+    current_user: Dict[str, Any] = Depends(require_auth)
+):
+    """Get market data updates from stockhistorymarketdata.json for specified tickers"""
+    try:
+        from stock_history_operations import stock_history_ops
+        
+        # Parse tickers parameter
+        ticker_list = [t.strip() for t in tickers.split(',') if t.strip()]
+        
+        if not ticker_list:
+            raise HTTPException(status_code=400, detail="No valid tickers provided")
+        
+        logger.info(f"Fetching market data updates for {len(ticker_list)} tickers: {ticker_list}")
+        
+        # Load market data from stockhistorymarketdata.json
+        market_data = stock_history_ops.load_stock_market_data()
+        
+        if not market_data:
+            logger.warning("No market data available")
+            return {}
+        
+        # Filter market data for requested tickers and return only relevant fields
+        market_updates = {}
+        
+        for ticker in ticker_list:
+            # Find matching stock in market data
+            stock_data = next((stock for stock in market_data if stock.get('ticker') == ticker), None)
+            
+            if stock_data:
+                # Return only the fields that the stock history component needs for updates
+                market_updates[ticker] = {
+                    'price': stock_data.get('price', 'N/A'),
+                    'after_hour_price': stock_data.get('after_hour_price', 'N/A'),
+                    'volume': stock_data.get('volume', 0),
+                    'today': {
+                        'low': stock_data.get('today', {}).get('low', 'N/A'),
+                        'high': stock_data.get('today', {}).get('high', 'N/A'),
+                        'open': stock_data.get('today', {}).get('open', 'N/A'),
+                        'close': stock_data.get('today', {}).get('close', 'N/A'),
+                        'prev_close': stock_data.get('today', {}).get('prev_close', 'N/A'),
+                        'ah_change': stock_data.get('today', {}).get('ah_change', 'N/A'),
+                        'change': stock_data.get('today', {}).get('change', 'N/A')
+                    },
+                    'last_updated': stock_data.get('last_updated', 'N/A')
+                }
+            else:
+                logger.warning(f"No market data available for ticker: {ticker}")
+                market_updates[ticker] = {
+                    'price': 'N/A',
+                    'after_hour_price': 'N/A',
+                    'volume': 0,
+                    'today': {
+                        'low': 'N/A',
+                        'high': 'N/A',
+                        'open': 'N/A',
+                        'close': 'N/A',
+                        'prev_close': 'N/A',
+                        'ah_change': 'N/A',
+                        'change': 'N/A'
+                    },
+                    'last_updated': 'N/A'
+                }
+        
+        logger.info(f"Returning market data updates for {len(market_updates)} tickers")
+        return market_updates
+        
+    except Exception as e:
+        logger.error(f"Error getting market data updates: {e}")
+        raise HTTPException(status_code=500, detail=f"Failed to get market data updates: {str(e)}")
+
+# Enhanced stock details endpoint for stock history component
+@app.get("/api/getenhancedstockdetails")
+async def get_enhanced_stock_details_route(
+    ticker: Optional[str] = Query(None, description="Filter by ticker"),
+    sector: Optional[str] = Query(None, description="Filter by sector"),
+    leverage_filter: Optional[str] = Query(None, description="Filter by leverage (true/false)"),
+    sort_by: Optional[str] = Query('today_percentage', description="Sort by field"),
+    sort_order: Optional[str] = Query('desc', description="Sort order (asc/desc)"),
+    current_user: Dict[str, Any] = Depends(require_auth)
+):
+    """Get enhanced stock details with real-time data and time-based analysis"""
+    try:
+        from stock_summary_optimized import get_stock_summary_today
+        
+        # Convert leverage filter to boolean
+        isleverage_param = None
+        if leverage_filter is not None:
+            if leverage_filter.lower() == "true":
+                isleverage_param = True
+            elif leverage_filter.lower() == "false":
+                isleverage_param = False
+        
+        logger.info(f"Getting enhanced stock details - Ticker: {ticker}, Sector: {sector}, Leverage: {leverage_filter}, Sort: {sort_by} {sort_order}")
+        
+        # Get today's stock summary data
+        sector_groups = get_stock_summary_today(sector, isleverage_param)
+        
+        if not sector_groups:
+            logger.warning("No stock data available")
+            return {"stocks": [], "total": 0}
+        
+        # Flatten sector groups into a single list
+        all_stocks = []
+        for sector_name, stocks in sector_groups.items():
+            all_stocks.extend(stocks)
+        
+        # Apply ticker filter if specified
+        if ticker:
+            ticker_lower = ticker.lower()
+            all_stocks = [stock for stock in all_stocks if ticker_lower in stock.get('ticker', '').lower()]
+        
+        # Apply sorting
+        if sort_by and all_stocks:
+            try:
+                # Handle different sort fields
+                if sort_by == 'today_percentage':
+                    # Sort by percentage change (remove % and convert to number)
+                    all_stocks.sort(key=lambda x: _extract_percentage_value(x.get('percentageChange', '0%')), reverse=(sort_order == 'desc'))
+                elif sort_by == 'currentPrice':
+                    # Sort by current price (remove $ and convert to number)
+                    all_stocks.sort(key=lambda x: _extract_price_value(x.get('currentPrice', '$0')), reverse=(sort_order == 'desc'))
+                elif sort_by == 'ticker':
+                    # Sort by ticker alphabetically
+                    all_stocks.sort(key=lambda x: x.get('ticker', ''), reverse=(sort_order == 'desc'))
+                elif sort_by == 'sector':
+                    # Sort by sector alphabetically
+                    all_stocks.sort(key=lambda x: x.get('sector', ''), reverse=(sort_order == 'desc'))
+                else:
+                    # Default sort by ticker
+                    all_stocks.sort(key=lambda x: x.get('ticker', ''), reverse=(sort_order == 'desc'))
+            except Exception as e:
+                logger.warning(f"Error during sorting: {e}, using default sort")
+                all_stocks.sort(key=lambda x: x.get('ticker', ''), reverse=(sort_order == 'desc'))
+        
+        logger.info(f"Returning {len(all_stocks)} enhanced stock details")
+        return {
+            "stocks": all_stocks,
+            "total": len(all_stocks)
+        }
+        
+    except Exception as e:
+        logger.error(f"Error getting enhanced stock details: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Failed to get enhanced stock details: {str(e)}")
+
+def _extract_percentage_value(percentage_str: str) -> float:
+    """Extract numeric value from percentage string for sorting"""
+    try:
+        if not percentage_str or percentage_str == 'N/A':
+            return 0.0
+        # Remove % and + symbols, convert to float
+        clean_value = str(percentage_str).replace('%', '').replace('+', '').strip()
+        return float(clean_value) if clean_value else 0.0
+    except (ValueError, TypeError):
+        return 0.0
+
+def _extract_price_value(price_str: str) -> float:
+    """Extract numeric value from price string for sorting"""
+    try:
+        if not price_str or price_str == 'N/A':
+            return 0.0
+        # Remove $ and , symbols, convert to float
+        clean_value = str(price_str).replace('$', '').replace(',', '').strip()
+        return float(clean_value) if clean_value else 0.0
+    except (ValueError, TypeError):
+        return 0.0
 
 
 @app.get("/api/stock-history/status")
@@ -1229,6 +1470,89 @@ async def force_populate_history_route(current_user: Dict[str, Any] = Depends(re
     except Exception as e:
         logger.error(f"Error forcing stock history population: {e}")
         raise HTTPException(status_code=500, detail=f"Error forcing stock history population: {str(e)}")
+
+@app.post('/api/admin/force-populate-market-data')
+async def force_populate_market_data_route(current_user: Dict[str, Any] = Depends(require_admin)):
+    """Force populate stock market data regardless of cache status - Admin only"""
+    try:
+        from stock_history_operations import stock_history_ops
+        
+        logger.info("Admin forced stock market data population")
+        
+        # Force populate market data
+        market_success = stock_history_ops.populate_stock_market_data()
+        
+        return {
+            "status": "success",
+            "message": "Stock market data population completed",
+            "market_population": market_success,
+            "timestamp": datetime.now().isoformat()
+        }
+        
+    except Exception as e:
+        logger.error(f"Error forcing stock market data population: {e}")
+        raise HTTPException(status_code=500, detail=f"Error forcing stock market data population: {str(e)}")
+
+@app.post('/api/admin/force-populate-earning-summary')
+async def force_populate_earning_summary_route(current_user: Dict[str, Any] = Depends(require_admin)):
+    """Force populate earning summary data regardless of cache status - Admin only"""
+    try:
+        from earning_summary_cache import earning_cache
+        
+        logger.info("Admin forced earning summary population")
+        
+        # Force populate earning summary
+        earning_success = earning_cache.populate_earning_summary()
+        
+        return {
+            "status": "success",
+            "message": "Earning summary population completed",
+            "earning_population": earning_success,
+            "timestamp": datetime.now().isoformat()
+        }
+        
+    except Exception as e:
+        logger.error(f"Error forcing earning summary population: {e}")
+        raise HTTPException(status_code=500, detail=f"Error forcing earning summary population: {str(e)}")
+
+@app.post('/api/admin/clear-all-caches')
+async def clear_all_caches_route(current_user: Dict[str, Any] = Depends(require_admin)):
+    """Clear all cache files and force fresh population - Admin only"""
+    try:
+        from stock_history_operations import stock_history_ops
+        from earning_summary_cache import earning_cache
+        import os
+        
+        logger.info("Admin clearing all caches")
+        
+        # Clear cache files
+        cache_files = [
+            "stockhistory.json",
+            "stockhistorymarketdata.json",
+            "earning_summary_cache.json",
+            "cache_timestamps.json"
+        ]
+        
+        cleared_files = []
+        for cache_file in cache_files:
+            if os.path.exists(cache_file):
+                try:
+                    os.remove(cache_file)
+                    cleared_files.append(cache_file)
+                    logger.info(f"Cleared cache file: {cache_file}")
+                except Exception as e:
+                    logger.error(f"Error clearing cache file {cache_file}: {e}")
+        
+        return {
+            "status": "success",
+            "message": "All caches cleared successfully",
+            "cleared_files": cleared_files,
+            "timestamp": datetime.now().isoformat()
+        }
+        
+    except Exception as e:
+        logger.error(f"Error clearing all caches: {e}")
+        raise HTTPException(status_code=500, detail=f"Error clearing all caches: {str(e)}")
 
 # Admin page route
 @app.get("/admin/cache")
