@@ -519,7 +519,7 @@ def get_enhanced_earnings_data(ticker: str, earning_date_str: str) -> List[Dict[
         earning_date_str: Earning date string in format "7/31/2025 4:30:00 PM"
     
     Returns:
-        List of earnings data dictionaries for the previous 2 earnings
+        List of earnings data dictionaries for the most recent 2 earnings
     """
     try:
         # Get the ticker object
@@ -534,17 +534,14 @@ def get_enhanced_earnings_data(ticker: str, earning_date_str: str) -> List[Dict[
         # Sort earnings by date (most recent first)
         earnings_dates = earnings_dates.sort_index(ascending=False)
         
-        # Get the previous 2 earnings (excluding the most recent one)
-        # This gives us the 2nd and 3rd most recent earnings
+        # Get the most recent 2 earnings (including the most recent one)
+        # This gives us the 1st and 2nd most recent earnings
         last_two_earnings = []
         
-        # Skip the most recent earning and get the next 2
-        for i, (date, row) in enumerate(earnings_dates.head(3).iterrows()):
-            # Skip the first (most recent) earning
-            if i == 0:
-                continue
-            # Get the previous 2 earnings
-            if i <= 2:
+        # Get the most recent 2 earnings (don't skip any)
+        for i, (date, row) in enumerate(earnings_dates.head(2).iterrows()):
+            # Get the most recent 2 earnings (including the most recent)
+            if i <= 1:
                 try:
                     # Get earnings data from the row
                     actual_eps_raw = row.get('Reported EPS', 'N/A')
