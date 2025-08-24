@@ -593,7 +593,7 @@ class EarningSummaryFileManager:
             
             try:
                 # Use Yahoo Finance daily data instead of Tiingo to avoid rate limiting
-            ticker_obj = yf.Ticker(ticker)
+                ticker_obj = yf.Ticker(ticker)
             
                 # Get daily data around the earning date
                 start_date = date - timedelta(days=5)
@@ -635,7 +635,7 @@ class EarningSummaryFileManager:
                         'after_earning_price': f"${after_price:.2f}",
                         'after_earning_change': f"{after_change:+.2f}%"
                     }
-            else:
+                else:
                     logger.warning(f"Insufficient daily data for {ticker} around earning date")
                     return self._get_fallback_price_data()
                     
@@ -644,64 +644,68 @@ class EarningSummaryFileManager:
                 return self._get_fallback_price_data()
         
         # Within 7 days: Prioritize Finviz, then Yahoo Finance (for daily updates)
-            else:
-            logger.info(f"{ticker} earning is within 7 days, using Finviz priority strategy")
-            
-            # Method 1: Try Finviz first (real-time data)
+        else:
             try:
-                logger.info(f"Attempting to get data from Finviz for {ticker}")
-                finviz_data = self._get_finviz_price_data(ticker, date)
-                if finviz_data and all(v != 'N/A' for v in finviz_data.values()):
-                    logger.info(f"Successfully got complete data from Finviz for {ticker}")
-                    return finviz_data
-                else:
-                    logger.info(f"Finviz data incomplete for {ticker}, trying Yahoo Finance")
-            except Exception as e:
-                logger.warning(f"Error getting Finviz data for {ticker}: {str(e)}")
-            
-            # Method 2: Try Yahoo Finance daily data
-            try:
-                logger.info(f"Attempting to get daily data from Yahoo Finance for {ticker}")
-                yahoo_data = self._get_yahoo_daily_data(ticker, date)
-                if yahoo_data and all(v != 'N/A' for v in yahoo_data.values()):
-                    logger.info(f"Successfully got daily data from Yahoo Finance for {ticker}")
-                    return yahoo_data
-                else:
-                    logger.info(f"Yahoo Finance daily data incomplete for {ticker}")
-                except Exception as e:
-                logger.warning(f"Error getting Yahoo Finance daily data for {ticker}: {str(e)}")
-            
-            # Method 3: Try Tiingo as last resort (with rate limiting protection)
-            try:
-                logger.info(f"Attempting to get precise 1-minute data from Tiingo for {ticker}")
-                tiingo_data = self.tiingo_service.get_1min_data_for_date(ticker, date, prepost=True)
+                logger.info(f"{ticker} earning is within 7 days, using Finviz priority strategy")
                 
-                if tiingo_data and not tiingo_data.empty:
-                    # Process Tiingo data
-                    price_data = self._process_tiingo_data(ticker, date, tiingo_data)
-                    if price_data and all(v != 'N/A' for v in price_data.values()):
-                        logger.info(f"Successfully got precise data from Tiingo for {ticker}")
-                        return price_data
+                # Method 1: Try Finviz first (real-time data)
+                try:
+                    logger.info(f"Attempting to get data from Finviz for {ticker}")
+                    finviz_data = self._get_finviz_price_data(ticker, date)
+                    if finviz_data and all(v != 'N/A' for v in finviz_data.values()):
+                        logger.info(f"Successfully got complete data from Finviz for {ticker}")
+                        return finviz_data
                     else:
-                        logger.warning(f"Tiingo data processing failed for {ticker}")
-                else:
-                    logger.warning(f"No Tiingo data available for {ticker}")
-                    
+                        logger.info(f"Finviz data incomplete for {ticker}, trying Yahoo Finance")
                 except Exception as e:
-                logger.warning(f"Error getting Tiingo data for {ticker}: {str(e)}")
-        
-        # If all methods fail, return fallback data
-        logger.warning(f"All data sources failed for {ticker}, using fallback data")
-        return self._get_fallback_price_data()
+                    logger.warning(f"Error getting Finviz data for {ticker}: {str(e)}")
+                
+                # Method 2: Try Yahoo Finance daily data
+                try:
+                    logger.info(f"Attempting to get daily data from Yahoo Finance for {ticker}")
+                    yahoo_data = self._get_yahoo_daily_data(ticker, date)
+                    if yahoo_data and all(v != 'N/A' for v in yahoo_data.values()):
+                        logger.info(f"Successfully got daily data from Yahoo Finance for {ticker}")
+                        return yahoo_data
+                    else:
+                        logger.info(f"Yahoo Finance daily data incomplete for {ticker}")
+                except Exception as e:
+                    logger.warning(f"Error getting Yahoo Finance daily data for {ticker}: {str(e)}")
+                
+                # Method 3: Try Tiingo as last resort (with rate limiting protection)
+                try:
+                    logger.info(f"Attempting to get precise 1-minute data from Tiingo for {ticker}")
+                    tiingo_data = self.tiingo_service.get_1min_data_for_date(ticker, date, prepost=True)
+                    
+                    if tiingo_data and not tiingo_data.empty:
+                        # Process Tiingo data
+                        price_data = self._process_tiingo_data(ticker, date, tiingo_data)
+                        if price_data and all(v != 'N/A' for v in price_data.values()):
+                            logger.info(f"Successfully got precise data from Tiingo for {ticker}")
+                            return price_data
+                        else:
+                            logger.warning(f"Tiingo data processing failed for {ticker}")
+                    else:
+                        logger.warning(f"No Tiingo data available for {ticker}")
+                except Exception as e:
+                    logger.warning(f"Error getting Tiingo data for {ticker}: {str(e)}")
+                
+                # If all methods fail, return fallback data
+                logger.warning(f"All data sources failed for {ticker}, using fallback data")
+                return self._get_fallback_price_data()
+                
+            except Exception as e:
+                logger.warning(f"Error in within 7 days strategy for {ticker}: {str(e)}")
+                return self._get_fallback_price_data()
     
     def _get_fallback_price_data(self) -> Dict[str, str]:
         """Return fallback price data when all sources fail."""
-            return {
-                'close_b4_earning_price': 'N/A',
-                'close_b4_earning_change': 'N/A',
-                'after_earning_price': 'N/A',
-                'after_earning_change': 'N/A'
-            }
+        return {
+            'close_b4_earning_price': 'N/A',
+            'close_b4_earning_change': 'N/A',
+            'after_earning_price': 'N/A',
+            'after_earning_change': 'N/A'
+        }
     
     def _get_yahoo_daily_data(self, ticker: str, date: datetime) -> Dict[str, str]:
         """Get daily data from Yahoo Finance for price calculations."""
@@ -827,8 +831,8 @@ class EarningSummaryFileManager:
                     b4_change = ((open_price - prev_day_close) / prev_day_close) * 100
                 
                 after_change = ((close_price - open_price) / open_price) * 100
-            
-            return {
+                
+                return {
                     'close_b4_earning_price': f"${open_price:.2f}",
                     'close_b4_earning_change': f"{b4_change:+.2f}%",
                     'after_earning_price': f"${close_price:.2f}",

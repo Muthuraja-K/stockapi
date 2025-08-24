@@ -12,5 +12,15 @@
     "role": "user",
     "firstname": "Friends",
     "lastname": "Test"
+  },
+  {
+    "username": "testuser",
+    "password": "$2b$12$7ph2lGbCpierkyiP7vEpgu8xmUG.tCgZyKiXnKGwj8rbwMEIljH5W",
+    "role": "user",
+    "token": "hPedkfAtu1heSu3rJfn9mfdMiA2t7SmiedpeRmZOas4",
+    "token_expiry": "2025-09-22T23:01:22.217086",
+    "created_at": "2025-08-23T23:01:48.184149",
+    "firstname": "Test",
+    "lastname": "User"
   }
 ]
