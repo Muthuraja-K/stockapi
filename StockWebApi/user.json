@@ -1,10 +1,10 @@
 [
   {
     "username": "admin",
-    "password": "$2b$12$Pqhk3rnKvFoo8Z6QiT0YZepjgRcnF6./kB3OluD.YVTBQBVH3372K",
     "role": "admin",
-    "firstname": "Admin",
-    "lastname": "User"
+    "firstname": "M",
+    "lastname": "K",
+    "password": "$2b$12$lIiupolZrUCnuKs6pOR8DefrwRAM6x5.wfHSfizRG5YrtxMXzEpGG"
   },
   {
     "username": "readonlyuser",
@@ -22,5 +22,12 @@
     "created_at": "2025-08-23T23:01:48.184149",
     "firstname": "Test",
     "lastname": "User"
+  },
+  {
+    "username": "volleyball",
+    "password": "$2b$12$WBEY.xFahw6BlGke3wZACex0dy7RJd3WFFXz7jQ8XV9w9Lx.GlDvm",
+    "role": "user",
+    "firstname": "Stock",
+    "lastname": "Friends"
   }
 ]
