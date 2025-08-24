@@ -21,7 +21,7 @@ from sector_operations import get_sectors_with_filters, add_sector_to_file, upda
 from user_operations import get_users_with_filters, add_user_to_file, update_user_in_file, delete_user_from_file
 from earning_summary_optimized import get_earning_summary
 from sentiment_analysis import get_sentiment_analysis
-from api_rate_limiter import get_rate_limiter
+from api_rate_limiter import get_rate_limiter, enforce_rate_limit, safe_yfinance_call
 from cache_manager import get_cache_stats, clear_cache, invalidate_cache
 from yahoo_finance_proxy import initialize_yahoo_finance_proxy, clear_expired_cache
 from stock_history_operations import stock_history_ops
@@ -796,6 +796,10 @@ async def get_sentiment_route(
     except Exception as e:
         logging.error(f"Error getting sentiment for {ticker}: {str(e)}")
         raise HTTPException(status_code=500, detail={'error': 'Failed to get sentiment data'})
+
+# Options endpoint removed - now included in sentiment endpoint
+
+# Options by expiration endpoint removed - now included in sentiment endpoint
 
 # Test Earnings Data endpoint
 # Test earnings endpoint removed during cleanup - was using removed history_cache module

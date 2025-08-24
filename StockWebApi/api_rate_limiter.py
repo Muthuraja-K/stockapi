@@ -324,6 +324,16 @@ def safe_yfinance_call(ticker_symbol: str, operation: str = "info"):
             result = ticker.earnings_dates
             logger.info(f"Successfully got earnings dates for {ticker_symbol}")
             return result
+        elif operation == "options":
+            # Get available option expiration dates
+            result = ticker.options
+            logger.info(f"Successfully got options for {ticker_symbol} with {len(result) if result else 0} expiration dates")
+            return result
+        elif operation == "option_chain":
+            # Get option chain for a specific expiration date
+            # This requires the expiration_date parameter, so we'll handle it separately
+            logger.info(f"Option chain operation requested for {ticker_symbol}")
+            return ticker
         else:
             result = ticker.info
             logger.info(f"Successfully got default info for {ticker_symbol}")

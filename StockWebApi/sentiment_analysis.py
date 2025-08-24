@@ -4,6 +4,7 @@ from datetime import datetime, timedelta
 import json
 import time
 from api_rate_limiter import enforce_rate_limit, safe_yfinance_call
+import logging
 
 # Remove old rate limiting variables and functions - now using centralized rate limiter
 
@@ -81,6 +82,9 @@ def get_sentiment_analysis(ticker):
         # Generate top mutual fund holders
         top_mutual_fund_holders = generate_top_mutual_fund_holders(ticker, overall_sentiment)
         
+        # Get option chain data from Yahoo Finance
+        option_data = get_option_chain_data(ticker, current_price)
+        
         return {
             "ticker": ticker,
             "overall_sentiment": overall_sentiment,
@@ -96,7 +100,8 @@ def get_sentiment_analysis(ticker):
             "individual_holdings": individual_holdings,
             "major_holders": major_holders,
             "top_institutional_holders": top_institutional_holders,
-            "top_mutual_fund_holders": top_mutual_fund_holders
+            "top_mutual_fund_holders": top_mutual_fund_holders,
+            "option_data": option_data
         }
         
     except Exception as e:
@@ -596,6 +601,116 @@ def generate_top_mutual_fund_holders(ticker, overall_sentiment):
         "holdings": holdings
     }
 
+def get_option_chain_data(ticker, current_price):
+    """Fetch real option chain data from Yahoo Finance"""
+    try:
+        logging.info(f"Starting to fetch option chain data for {ticker}")
+        
+        # Get available option expiration dates
+        options = safe_yfinance_call(ticker, "options")
+        logging.info(f"Retrieved options for {ticker}: {options}")
+        
+        if not options:
+            logging.warning(f"No options available for {ticker}")
+            return {
+                "expiration_dates": [],
+                "calls": [],
+                "puts": [],
+                "message": "No options available for this stock",
+                "current_price": current_price
+            }
+        
+        # Get the first few expiration dates (limit to avoid too many API calls)
+        expiration_dates = options[:4]  # Limit to 4 expiration dates
+        logging.info(f"Processing {len(expiration_dates)} expiration dates for {ticker}: {expiration_dates}")
+        
+        all_calls = []
+        all_puts = []
+        
+        # Get the ticker object for option chain calls
+        ticker_obj = safe_yfinance_call(ticker, "option_chain")
+        logging.info(f"Got ticker object for {ticker}")
+        
+        # Fetch options data for each expiration date
+        for exp_date in expiration_dates:
+            try:
+                logging.info(f"Fetching options for {ticker} at {exp_date}")
+                # Enforce rate limiting between option chain calls
+                enforce_rate_limit()
+                
+                opt = ticker_obj.option_chain(exp_date)
+                logging.info(f"Retrieved option chain for {ticker} at {exp_date}")
+                
+                # Process calls
+                if opt.calls is not None and not opt.calls.empty:
+                    logging.info(f"Processing {len(opt.calls)} calls for {ticker} at {exp_date}")
+                    for _, call in opt.calls.head(10).iterrows():  # Limit to 10 calls per expiration
+                        call_data = {
+                            "ticker": ticker,
+                            "expiration_date": exp_date,
+                            "strike_price": float(call['strike']),
+                            "option_type": "call",
+                            "last_price": float(call['lastPrice']) if call['lastPrice'] > 0 else 0,
+                            "bid": float(call['bid']) if call['bid'] > 0 else 0,
+                            "ask": float(call['ask']) if call['ask'] > 0 else 0,
+                            "volume": int(call['volume']) if call['volume'] > 0 else 0,
+                            "open_interest": int(call['openInterest']) if call['openInterest'] > 0 else 0,
+                            "implied_volatility": float(call['impliedVolatility']) if call['impliedVolatility'] > 0 else 0,
+                            "delta": 0,  # Not available in Yahoo Finance API
+                            "gamma": 0,  # Not available in Yahoo Finance API
+                            "theta": 0,  # Not available in Yahoo Finance API
+                            "vega": 0,   # Not available in Yahoo Finance API
+                            "in_the_money": call['inTheMoney'] if 'inTheMoney' in call else False
+                        }
+                        all_calls.append(call_data)
+                
+                # Process puts
+                if opt.puts is not None and not opt.puts.empty:
+                    logging.info(f"Processing {len(opt.puts)} puts for {ticker} at {exp_date}")
+                    for _, put in opt.puts.head(10).iterrows():  # Limit to 10 puts per expiration
+                        put_data = {
+                            "ticker": ticker,
+                            "expiration_date": exp_date,
+                            "strike_price": float(put['strike']),
+                            "option_type": "put",
+                            "last_price": float(put['lastPrice']) if put['lastPrice'] > 0 else 0,
+                            "bid": float(put['bid']) if put['bid'] > 0 else 0,
+                            "ask": float(put['ask']) if put['ask'] > 0 else 0,
+                            "volume": int(put['volume']) if put['volume'] > 0 else 0,
+                            "open_interest": int(put['openInterest']) if put['openInterest'] > 0 else 0,
+                            "implied_volatility": float(put['impliedVolatility']) if put['impliedVolatility'] > 0 else 0,
+                            "delta": 0,  # Not available in Yahoo Finance API
+                            "gamma": 0,  # Not available in Yahoo Finance API
+                            "theta": 0,  # Not available in Yahoo Finance API
+                            "vega": 0,   # Not available in Yahoo Finance API
+                            "in_the_money": put['inTheMoney'] if 'inTheMoney' in put else False
+                        }
+                        all_puts.append(put_data)
+                        
+            except Exception as e:
+                logging.warning(f"Failed to fetch options for {ticker} at {exp_date}: {str(e)}")
+                continue
+        
+        logging.info(f"Successfully processed options for {ticker}: {len(all_calls)} calls, {len(all_puts)} puts")
+        
+        return {
+            "expiration_dates": expiration_dates,
+            "calls": all_calls,
+            "puts": all_puts,
+            "last_updated": datetime.now().isoformat(),
+            "current_price": current_price
+        }
+        
+    except Exception as e:
+        logging.error(f"Failed to fetch option chain for {ticker}: {str(e)}")
+        return {
+            "expiration_dates": [],
+            "calls": [],
+            "puts": [],
+            "error": f"Failed to fetch options: {str(e)}",
+            "current_price": current_price
+        }
+
 def get_fallback_sentiment(ticker):
     """Return fallback sentiment data if API fails"""
     return {
@@ -695,9 +810,17 @@ def get_fallback_sentiment(ticker):
                 {"holder": "Vanguard Total Stock Market Index Fund", "shares": 500000, "date_reported": (datetime.now() - timedelta(days=150)).strftime("%Y-%m-%d"), "percentage_out": 10.0, "value": 10000000.0},
                 {"holder": "Fidelity Total Market Index Fund", "shares": 400000, "date_reported": (datetime.now() - timedelta(days=180)).strftime("%Y-%m-%d"), "percentage_out": 8.0, "value": 8000000.0},
                 {"holder": "T. Rowe Price Blue Chip Growth Fund", "shares": 300000, "date_reported": (datetime.now() - timedelta(days=210)).strftime("%Y-%m-%d"), "percentage_out": 6.0, "value": 6000000.0},
-                {"holder": "American Funds Growth Fund of America", "shares": 250000, "date_reported": (datetime.now() - timedelta(days=240)).strftime("%Y-%m-%d"), "percentage_out": 5.0, "value": 5000000.0},
+                {"holder": "American Funds Growth Fund of America", "shares": 250000, "date_reported": (datetime.now() - timedelta(days=240)).strftime("%Y-%m-%d"), "percentage_out": 5.0, "value": 50000000.0},
                 {"holder": "Dodge & Cox Stock Fund", "shares": 200000, "date_reported": (datetime.now() - timedelta(days=270)).strftime("%Y-%m-%d"), "percentage_out": 4.0, "value": 4000000.0},
                 {"holder": "Fidelity Contrafund", "shares": 150000, "date_reported": (datetime.now() - timedelta(days=300)).strftime("%Y-%m-%d"), "percentage_out": 3.0, "value": 3000000.0}
             ]
+        },
+        "option_data": {
+            "expiration_dates": [],
+            "calls": [],
+            "puts": [],
+            "last_updated": datetime.now().isoformat(),
+            "current_price": 0,
+            "message": "No options available in fallback mode"
         }
     } 

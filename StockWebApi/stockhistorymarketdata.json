@@ -17,7 +17,7 @@
       "ah_change": "0.76%",
       "change": "3.85%"
     },
-    "last_updated": "2025-08-23T23:12:39.631381"
+    "last_updated": "2025-08-24T14:27:55.377424"
   },
   {
     "ticker": "QBTS",
@@ -37,7 +37,7 @@
       "ah_change": "0.26%",
       "change": "4.93%"
     },
-    "last_updated": "2025-08-23T23:12:39.631688"
+    "last_updated": "2025-08-24T14:27:55.377506"
   },
   {
     "ticker": "QUBT",
@@ -57,7 +57,7 @@
       "ah_change": "0.57%",
       "change": "7.76%"
     },
-    "last_updated": "2025-08-23T23:12:39.631854"
+    "last_updated": "2025-08-24T14:27:55.377628"
   },
   {
     "ticker": "IONX",
@@ -77,7 +77,7 @@
       "ah_change": "0.73%",
       "change": "13.85%"
     },
-    "last_updated": "2025-08-23T23:12:39.632007"
+    "last_updated": "2025-08-24T14:27:55.377716"
   },
   {
     "ticker": "RGTX",
@@ -97,7 +97,7 @@
       "ah_change": "1.20%",
       "change": "7.49%"
     },
-    "last_updated": "2025-08-23T23:12:39.632329"
+    "last_updated": "2025-08-24T14:27:55.377815"
   },
   {
     "ticker": "QBTX",
@@ -117,7 +117,7 @@
       "ah_change": "1.53%",
       "change": "8.89%"
     },
-    "last_updated": "2025-08-23T23:12:39.632509"
+    "last_updated": "2025-08-24T14:27:55.377890"
   },
   {
     "ticker": "QUBX",
@@ -137,7 +137,7 @@
       "ah_change": "2.77%",
       "change": "15.16%"
     },
-    "last_updated": "2025-08-23T23:12:39.632623"
+    "last_updated": "2025-08-24T14:27:55.377979"
   },
   {
     "ticker": "UBER",
@@ -157,7 +157,7 @@
       "ah_change": "0.06%",
       "change": "2.72%"
     },
-    "last_updated": "2025-08-23T23:12:39.632780"
+    "last_updated": "2025-08-24T14:27:55.378053"
   },
   {
     "ticker": "JOBY",
@@ -177,13 +177,13 @@
       "ah_change": "0.87%",
       "change": "3.46%"
     },
-    "last_updated": "2025-08-23T23:12:39.633013"
+    "last_updated": "2025-08-24T14:27:55.378163"
   },
   {
     "ticker": "SRFM",
     "sector": "Drone Delivery/FlyingTaxi",
     "earning_date": "8/12/2025 4:30:00 PM",
-    "market_cap": "$199.57M",
+    "market_cap": "$199.59M",
     "pe_ratio": "",
     "price": "4.66",
     "after_hour_price": "4.65",
@@ -197,7 +197,7 @@
       "ah_change": "-0.23%",
       "change": "5.91%"
     },
-    "last_updated": "2025-08-23T23:12:39.633396"
+    "last_updated": "2025-08-24T14:27:55.378283"
   },
   {
     "ticker": "ARCX",
@@ -217,7 +217,7 @@
       "ah_change": "-0.77%",
       "change": "5.10%"
     },
-    "last_updated": "2025-08-23T23:12:39.633554"
+    "last_updated": "2025-08-24T14:27:55.378436"
   },
   {
     "ticker": "UBRL",
@@ -237,7 +237,7 @@
       "ah_change": "0.43%",
       "change": "5.93%"
     },
-    "last_updated": "2025-08-23T23:12:39.633727"
+    "last_updated": "2025-08-24T14:27:55.378638"
   },
   {
     "ticker": "SMCI",
@@ -257,7 +257,7 @@
       "ah_change": "0.39%",
       "change": "3.71%"
     },
-    "last_updated": "2025-08-23T23:12:39.633857"
+    "last_updated": "2025-08-24T14:27:55.378744"
   },
   {
     "ticker": "AMD",
@@ -277,7 +277,7 @@
       "ah_change": "0.36%",
       "change": "2.47%"
     },
-    "last_updated": "2025-08-23T23:12:39.633993"
+    "last_updated": "2025-08-24T14:27:55.378880"
   },
   {
     "ticker": "MRVL",
@@ -297,7 +297,7 @@
       "ah_change": "0.93%",
       "change": "2.51%"
     },
-    "last_updated": "2025-08-23T23:12:39.634268"
+    "last_updated": "2025-08-24T14:27:55.378975"
   },
   {
     "ticker": "ARM",
@@ -317,7 +317,7 @@
       "ah_change": "0.28%",
       "change": "3.48%"
     },
-    "last_updated": "2025-08-23T23:12:39.634422"
+    "last_updated": "2025-08-24T14:27:55.379093"
   },
   {
     "ticker": "SNPS",
@@ -337,13 +337,13 @@
       "ah_change": "0.00%",
       "change": "1.40%"
     },
-    "last_updated": "2025-08-23T23:12:39.634557"
+    "last_updated": "2025-08-24T14:27:55.379183"
   },
   {
     "ticker": "NXPI",
     "sector": "SemiConductor",
     "earning_date": "7/21/2025 4:30:00 PM",
-    "market_cap": "$59.20B",
+    "market_cap": "$59.21B",
     "pe_ratio": "27.99",
     "price": "234.83",
     "after_hour_price": "235.43",
@@ -357,7 +357,7 @@
       "ah_change": "0.25%",
       "change": "4.87%"
     },
-    "last_updated": "2025-08-23T23:12:39.634681"
+    "last_updated": "2025-08-24T14:27:55.379271"
   },
   {
     "ticker": "CDNS",
@@ -377,7 +377,7 @@
       "ah_change": "0.22%",
       "change": "0.59%"
     },
-    "last_updated": "2025-08-23T23:12:39.634956"
+    "last_updated": "2025-08-24T14:27:55.379368"
   },
   {
     "ticker": "SMTC",
@@ -397,7 +397,7 @@
       "ah_change": "-0.06%",
       "change": "3.44%"
     },
-    "last_updated": "2025-08-23T23:12:39.635158"
+    "last_updated": "2025-08-24T14:27:55.379470"
   },
   {
     "ticker": "NVTS",
@@ -417,7 +417,7 @@
       "ah_change": "0.31%",
       "change": "3.54%"
     },
-    "last_updated": "2025-08-23T23:12:39.635331"
+    "last_updated": "2025-08-24T14:27:55.379546"
   },
   {
     "ticker": "SMCX",
@@ -437,7 +437,7 @@
       "ah_change": "0.79%",
       "change": "7.17%"
     },
-    "last_updated": "2025-08-23T23:12:39.635918"
+    "last_updated": "2025-08-24T14:27:55.379627"
   },
   {
     "ticker": "AMDL",
@@ -457,7 +457,7 @@
       "ah_change": "0.87%",
       "change": "4.90%"
     },
-    "last_updated": "2025-08-23T23:12:39.637420"
+    "last_updated": "2025-08-24T14:27:55.379708"
   },
   {
     "ticker": "MVLL",
@@ -477,7 +477,7 @@
       "ah_change": "0.80%",
       "change": "4.98%"
     },
-    "last_updated": "2025-08-23T23:12:39.637838"
+    "last_updated": "2025-08-24T14:27:55.379803"
   },
   {
     "ticker": "ARMU",
@@ -497,7 +497,7 @@
       "ah_change": "",
       "change": "7.44%"
     },
-    "last_updated": "2025-08-23T23:12:39.638704"
+    "last_updated": "2025-08-24T14:27:55.379871"
   },
   {
     "ticker": "NAIL",
@@ -517,7 +517,7 @@
       "ah_change": "0.29%",
       "change": "15.33%"
     },
-    "last_updated": "2025-08-23T23:12:39.639217"
+    "last_updated": "2025-08-24T14:27:55.379942"
   },
   {
     "ticker": "OPEN",
@@ -537,7 +537,7 @@
       "ah_change": "3.79%",
       "change": "39.17%"
     },
-    "last_updated": "2025-08-23T23:12:39.639493"
+    "last_updated": "2025-08-24T14:27:55.380032"
   },
   {
     "ticker": "FNMA",
@@ -557,7 +557,7 @@
       "ah_change": "N/A",
       "change": "N/A"
     },
-    "last_updated": "2025-08-23T23:12:39.639704"
+    "last_updated": "2025-08-24T14:27:55.380108"
   },
   {
     "ticker": "FMCC",
@@ -577,13 +577,13 @@
       "ah_change": "N/A",
       "change": "N/A"
     },
-    "last_updated": "2025-08-23T23:12:39.640031"
+    "last_updated": "2025-08-24T14:27:55.380212"
   },
   {
     "ticker": "RKT",
     "sector": "Real Estate",
     "earning_date": "7/31/2025 4:30:00 PM",
-    "market_cap": "$40.43B",
+    "market_cap": "$4.91B",
     "pe_ratio": "",
     "price": "19.21",
     "after_hour_price": "19.27",
@@ -597,7 +597,7 @@
       "ah_change": "0.32%",
       "change": "9.27%"
     },
-    "last_updated": "2025-08-23T23:12:39.640280"
+    "last_updated": "2025-08-24T14:27:55.380315"
   },
   {
     "ticker": "COIN",
@@ -617,7 +617,7 @@
       "ah_change": "0.23%",
       "change": "6.52%"
     },
-    "last_updated": "2025-08-23T23:12:39.640464"
+    "last_updated": "2025-08-24T14:27:55.380393"
   },
   {
     "ticker": "MARA",
@@ -637,7 +637,7 @@
       "ah_change": "0.15%",
       "change": "5.03%"
     },
-    "last_updated": "2025-08-23T23:12:39.641292"
+    "last_updated": "2025-08-24T14:27:55.380447"
   },
   {
     "ticker": "RIOT",
@@ -657,7 +657,7 @@
       "ah_change": "0.76%",
       "change": "7.74%"
     },
-    "last_updated": "2025-08-23T23:12:39.641600"
+    "last_updated": "2025-08-24T14:27:55.380517"
   },
   {
     "ticker": "SOL-USD",
@@ -677,7 +677,7 @@
       "ah_change": "N/A",
       "change": "N/A"
     },
-    "last_updated": "2025-08-23T23:12:39.641913"
+    "last_updated": "2025-08-24T14:27:55.380595"
   },
   {
     "ticker": "BTC-USD",
@@ -697,7 +697,7 @@
       "ah_change": "N/A",
       "change": "N/A"
     },
-    "last_updated": "2025-08-23T23:12:39.642041"
+    "last_updated": "2025-08-24T14:27:55.380732"
   },
   {
     "ticker": "ETH-USD",
@@ -717,13 +717,13 @@
       "ah_change": "N/A",
       "change": "N/A"
     },
-    "last_updated": "2025-08-23T23:12:39.642275"
+    "last_updated": "2025-08-24T14:27:55.380798"
   },
   {
     "ticker": "CRCL",
     "sector": "Crypto",
     "earning_date": "8/12/2025 8:30:00 AM",
-    "market_cap": "$30.98B",
+    "market_cap": "$31.05B",
     "pe_ratio": "",
     "price": "135.04",
     "after_hour_price": "136.20",
@@ -737,7 +737,7 @@
       "ah_change": "0.86%",
       "change": "2.46%"
     },
-    "last_updated": "2025-08-23T23:12:39.642410"
+    "last_updated": "2025-08-24T14:27:55.380904"
   },
   {
     "ticker": "CONL",
@@ -757,7 +757,7 @@
       "ah_change": "0.83%",
       "change": "12.94%"
     },
-    "last_updated": "2025-08-23T23:12:39.642606"
+    "last_updated": "2025-08-24T14:27:55.380996"
   },
   {
     "ticker": "COIG",
@@ -777,7 +777,7 @@
       "ah_change": "0.17%",
       "change": "12.96%"
     },
-    "last_updated": "2025-08-23T23:12:39.642877"
+    "last_updated": "2025-08-24T14:27:55.381132"
   },
   {
     "ticker": "MRAL",
@@ -797,7 +797,7 @@
       "ah_change": "0.66%",
       "change": "10.02%"
     },
-    "last_updated": "2025-08-23T23:12:39.643136"
+    "last_updated": "2025-08-24T14:27:55.381334"
   },
   {
     "ticker": "RIOX",
@@ -817,7 +817,7 @@
       "ah_change": "2.29%",
       "change": "15.28%"
     },
-    "last_updated": "2025-08-23T23:12:39.643282"
+    "last_updated": "2025-08-24T14:27:55.381509"
   },
   {
     "ticker": "MSTX",
@@ -837,7 +837,7 @@
       "ah_change": "0.57%",
       "change": "11.88%"
     },
-    "last_updated": "2025-08-23T23:12:39.643455"
+    "last_updated": "2025-08-24T14:27:55.381616"
   },
   {
     "ticker": "SOLT",
@@ -857,7 +857,7 @@
       "ah_change": "1.96%",
       "change": "21.11%"
     },
-    "last_updated": "2025-08-23T23:12:39.643728"
+    "last_updated": "2025-08-24T14:27:55.381707"
   },
   {
     "ticker": "BITU",
@@ -877,7 +877,7 @@
       "ah_change": "0.36%",
       "change": "7.95%"
     },
-    "last_updated": "2025-08-23T23:12:39.644176"
+    "last_updated": "2025-08-24T14:27:55.381784"
   },
   {
     "ticker": "ETHU",
@@ -897,7 +897,7 @@
       "ah_change": "0.50%",
       "change": "29.62%"
     },
-    "last_updated": "2025-08-23T23:12:39.644473"
+    "last_updated": "2025-08-24T14:27:55.381841"
   },
   {
     "ticker": "SNOW",
@@ -917,7 +917,7 @@
       "ah_change": "0.35%",
       "change": "1.09%"
     },
-    "last_updated": "2025-08-23T23:12:39.644644"
+    "last_updated": "2025-08-24T14:27:55.381914"
   },
   {
     "ticker": "PANW",
@@ -937,7 +937,7 @@
       "ah_change": "0.04%",
       "change": "1.40%"
     },
-    "last_updated": "2025-08-23T23:12:39.644801"
+    "last_updated": "2025-08-24T14:27:55.382010"
   },
   {
     "ticker": "CRWD",
@@ -957,7 +957,7 @@
       "ah_change": "0.13%",
       "change": "1.57%"
     },
-    "last_updated": "2025-08-23T23:12:39.645073"
+    "last_updated": "2025-08-24T14:27:55.382080"
   },
   {
     "ticker": "CRM",
@@ -977,7 +977,7 @@
       "ah_change": "0.12%",
       "change": "1.00%"
     },
-    "last_updated": "2025-08-23T23:12:39.645304"
+    "last_updated": "2025-08-24T14:27:55.382132"
   },
   {
     "ticker": "MDB",
@@ -997,7 +997,7 @@
       "ah_change": "0.29%",
       "change": "3.35%"
     },
-    "last_updated": "2025-08-23T23:12:39.645484"
+    "last_updated": "2025-08-24T14:27:55.382201"
   },
   {
     "ticker": "FTNT",
@@ -1017,7 +1017,7 @@
       "ah_change": "0.04%",
       "change": "2.92%"
     },
-    "last_updated": "2025-08-23T23:12:39.646513"
+    "last_updated": "2025-08-24T14:27:55.382271"
   },
   {
     "ticker": "ZS",
@@ -1037,7 +1037,7 @@
       "ah_change": "0.01%",
       "change": "0.80%"
     },
-    "last_updated": "2025-08-23T23:12:39.646800"
+    "last_updated": "2025-08-24T14:27:55.382336"
   },
   {
     "ticker": "OKTA",
@@ -1057,7 +1057,7 @@
       "ah_change": "0.37%",
       "change": "2.53%"
     },
-    "last_updated": "2025-08-23T23:12:39.647002"
+    "last_updated": "2025-08-24T14:27:55.382424"
   },
   {
     "ticker": "SNOU",
@@ -1077,7 +1077,7 @@
       "ah_change": "0.79%",
       "change": "2.09%"
     },
-    "last_updated": "2025-08-23T23:12:39.647265"
+    "last_updated": "2025-08-24T14:27:55.382515"
   },
   {
     "ticker": "PANG",
@@ -1097,7 +1097,7 @@
       "ah_change": "-0.75%",
       "change": "2.70%"
     },
-    "last_updated": "2025-08-23T23:12:39.647470"
+    "last_updated": "2025-08-24T14:27:55.382594"
   },
   {
     "ticker": "CRWL",
@@ -1117,7 +1117,7 @@
       "ah_change": "0.94%",
       "change": "2.62%"
     },
-    "last_updated": "2025-08-23T23:12:39.647732"
+    "last_updated": "2025-08-24T14:27:55.382655"
   },
   {
     "ticker": "CRMG",
@@ -1137,7 +1137,7 @@
       "ah_change": "1.17%",
       "change": "1.54%"
     },
-    "last_updated": "2025-08-23T23:12:39.647951"
+    "last_updated": "2025-08-24T14:27:55.382739"
   },
   {
     "ticker": "HOOD",
@@ -1157,7 +1157,7 @@
       "ah_change": "0.13%",
       "change": "2.84%"
     },
-    "last_updated": "2025-08-23T23:12:39.648217"
+    "last_updated": "2025-08-24T14:27:55.382815"
   },
   {
     "ticker": "UPST",
@@ -1177,7 +1177,7 @@
       "ah_change": "0.44%",
       "change": "8.39%"
     },
-    "last_updated": "2025-08-23T23:12:39.648455"
+    "last_updated": "2025-08-24T14:27:55.382908"
   },
   {
     "ticker": "SOFX",
@@ -1197,7 +1197,7 @@
       "ah_change": "1.28%",
       "change": "14.20%"
     },
-    "last_updated": "2025-08-23T23:12:39.648672"
+    "last_updated": "2025-08-24T14:27:55.383015"
   },
   {
     "ticker": "ROBN",
@@ -1217,7 +1217,7 @@
       "ah_change": "0.23%",
       "change": "6.23%"
     },
-    "last_updated": "2025-08-23T23:12:39.648985"
+    "last_updated": "2025-08-24T14:27:55.383086"
   },
   {
     "ticker": "HOOX",
@@ -1237,7 +1237,7 @@
       "ah_change": "0.69%",
       "change": "5.36%"
     },
-    "last_updated": "2025-08-23T23:12:39.649185"
+    "last_updated": "2025-08-24T14:27:55.383143"
   },
   {
     "ticker": "UPSX",
@@ -1257,7 +1257,7 @@
       "ah_change": "0.57%",
       "change": "16.96%"
     },
-    "last_updated": "2025-08-23T23:12:39.649743"
+    "last_updated": "2025-08-24T14:27:55.383208"
   },
   {
     "ticker": "PLTR",
@@ -1277,7 +1277,7 @@
       "ah_change": "0.59%",
       "change": "1.64%"
     },
-    "last_updated": "2025-08-23T23:12:39.650003"
+    "last_updated": "2025-08-24T14:27:55.383266"
   },
   {
     "ticker": "SOUN",
@@ -1297,7 +1297,7 @@
       "ah_change": "1.67%",
       "change": "2.70%"
     },
-    "last_updated": "2025-08-23T23:12:39.650303"
+    "last_updated": "2025-08-24T14:27:55.383321"
   },
   {
     "ticker": "VRTL",
@@ -1317,7 +1317,7 @@
       "ah_change": "1.33%",
       "change": "-1.34%"
     },
-    "last_updated": "2025-08-23T23:12:39.650549"
+    "last_updated": "2025-08-24T14:27:55.383427"
   },
   {
     "ticker": "BBAI",
@@ -1337,7 +1337,7 @@
       "ah_change": "-0.17%",
       "change": "0.36%"
     },
-    "last_updated": "2025-08-23T23:12:39.650801"
+    "last_updated": "2025-08-24T14:27:55.383507"
   },
   {
     "ticker": "CRWV",
@@ -1357,13 +1357,13 @@
       "ah_change": "0.84%",
       "change": "3.52%"
     },
-    "last_updated": "2025-08-23T23:12:39.651043"
+    "last_updated": "2025-08-24T14:27:55.383593"
   },
   {
     "ticker": "GRRR",
     "sector": "AI Service",
     "earning_date": "8/14/2025 8:30:00 AM",
-    "market_cap": "$408.72M",
+    "market_cap": "$408.74M",
     "pe_ratio": "",
     "price": "18.03",
     "after_hour_price": "17.85",
@@ -1377,7 +1377,7 @@
       "ah_change": "-1.00%",
       "change": "4.28%"
     },
-    "last_updated": "2025-08-23T23:12:39.651294"
+    "last_updated": "2025-08-24T14:27:55.383689"
   },
   {
     "ticker": "AI",
@@ -1397,7 +1397,7 @@
       "ah_change": "0.57%",
       "change": "3.80%"
     },
-    "last_updated": "2025-08-23T23:12:39.651525"
+    "last_updated": "2025-08-24T14:27:55.383948"
   },
   {
     "ticker": "NBIS",
@@ -1417,7 +1417,7 @@
       "ah_change": "0.72%",
       "change": "4.23%"
     },
-    "last_updated": "2025-08-23T23:12:39.651717"
+    "last_updated": "2025-08-24T14:27:55.384128"
   },
   {
     "ticker": "PLTU",
@@ -1437,7 +1437,7 @@
       "ah_change": "1.25%",
       "change": "3.22%"
     },
-    "last_updated": "2025-08-23T23:12:39.652287"
+    "last_updated": "2025-08-24T14:27:55.384210"
   },
   {
     "ticker": "SOUX",
@@ -1457,7 +1457,7 @@
       "ah_change": "3.83%",
       "change": "4.82%"
     },
-    "last_updated": "2025-08-23T23:12:39.653859"
+    "last_updated": "2025-08-24T14:27:55.384302"
   },
   {
     "ticker": "META",
@@ -1477,7 +1477,7 @@
       "ah_change": "0.13%",
       "change": "2.12%"
     },
-    "last_updated": "2025-08-23T23:12:39.654327"
+    "last_updated": "2025-08-24T14:27:55.384397"
   },
   {
     "ticker": "AMZN",
@@ -1497,7 +1497,7 @@
       "ah_change": "0.02%",
       "change": "3.10%"
     },
-    "last_updated": "2025-08-23T23:12:39.654852"
+    "last_updated": "2025-08-24T14:27:55.384481"
   },
   {
     "ticker": "TSLA",
@@ -1517,7 +1517,7 @@
       "ah_change": "0.41%",
       "change": "6.22%"
     },
-    "last_updated": "2025-08-23T23:12:39.655360"
+    "last_updated": "2025-08-24T14:27:55.384552"
   },
   {
     "ticker": "METU",
@@ -1537,7 +1537,7 @@
       "ah_change": "0.50%",
       "change": "4.09%"
     },
-    "last_updated": "2025-08-23T23:12:39.655723"
+    "last_updated": "2025-08-24T14:27:55.384630"
   },
   {
     "ticker": "AMZU",
@@ -1557,7 +1557,7 @@
       "ah_change": "0.10%",
       "change": "6.15%"
     },
-    "last_updated": "2025-08-23T23:12:39.655949"
+    "last_updated": "2025-08-24T14:27:55.384721"
   },
   {
     "ticker": "TSLL",
@@ -1577,7 +1577,7 @@
       "ah_change": "0.47%",
       "change": "12.18%"
     },
-    "last_updated": "2025-08-23T23:12:39.656376"
+    "last_updated": "2025-08-24T14:27:55.384787"
   },
   {
     "ticker": "NVDL",
@@ -1597,7 +1597,7 @@
       "ah_change": "0.53%",
       "change": "3.41%"
     },
-    "last_updated": "2025-08-23T23:12:39.656791"
+    "last_updated": "2025-08-24T14:27:55.384854"
   },
   {
     "ticker": "NFXL",
@@ -1617,7 +1617,7 @@
       "ah_change": "0.07%",
       "change": "-0.25%"
     },
-    "last_updated": "2025-08-23T23:12:39.657444"
+    "last_updated": "2025-08-24T14:27:55.384918"
   },
   {
     "ticker": "AAPU",
@@ -1637,7 +1637,7 @@
       "ah_change": "0.38%",
       "change": "2.51%"
     },
-    "last_updated": "2025-08-23T23:12:39.657890"
+    "last_updated": "2025-08-24T14:27:55.384985"
   },
   {
     "ticker": "GGLL",
@@ -1657,7 +1657,7 @@
       "ah_change": "0.71%",
       "change": "6.27%"
     },
-    "last_updated": "2025-08-23T23:12:39.658250"
+    "last_updated": "2025-08-24T14:27:55.385065"
   },
   {
     "ticker": "MSFU",
@@ -1677,7 +1677,7 @@
       "ah_change": "-0.08%",
       "change": "1.07%"
     },
-    "last_updated": "2025-08-23T23:12:39.658577"
+    "last_updated": "2025-08-24T14:27:55.385131"
   },
   {
     "ticker": "TQQQ",
@@ -1697,7 +1697,7 @@
       "ah_change": "0.42%",
       "change": "4.50%"
     },
-    "last_updated": "2025-08-23T23:12:39.659414"
+    "last_updated": "2025-08-24T14:27:55.385217"
   },
   {
     "ticker": "OKLO",
@@ -1717,7 +1717,7 @@
       "ah_change": "1.14%",
       "change": "4.75%"
     },
-    "last_updated": "2025-08-23T23:12:39.660161"
+    "last_updated": "2025-08-24T14:27:55.385287"
   },
   {
     "ticker": "NNE",
@@ -1737,13 +1737,13 @@
       "ah_change": "1.05%",
       "change": "7.55%"
     },
-    "last_updated": "2025-08-23T23:12:39.660371"
+    "last_updated": "2025-08-24T14:27:55.385347"
   },
   {
     "ticker": "SMR",
     "sector": "Energy",
     "earning_date": "8/7/2025 4:30:00 PM",
-    "market_cap": "$9.98B",
+    "market_cap": "$4.69B",
     "pe_ratio": "",
     "price": "35.04",
     "after_hour_price": "35.65",
@@ -1757,7 +1757,7 @@
       "ah_change": "1.74%",
       "change": "4.63%"
     },
-    "last_updated": "2025-08-23T23:12:39.660589"
+    "last_updated": "2025-08-24T14:27:55.385402"
   },
   {
     "ticker": "UUUU",
@@ -1777,7 +1777,7 @@
       "ah_change": "0.57%",
       "change": "12.55%"
     },
-    "last_updated": "2025-08-23T23:12:39.660808"
+    "last_updated": "2025-08-24T14:27:55.385471"
   },
   {
     "ticker": "NXE",
@@ -1797,7 +1797,7 @@
       "ah_change": "0.00%",
       "change": "7.74%"
     },
-    "last_updated": "2025-08-23T23:12:39.661005"
+    "last_updated": "2025-08-24T14:27:55.385527"
   },
   {
     "ticker": "OKLL",
@@ -1817,7 +1817,7 @@
       "ah_change": "2.30%",
       "change": "9.49%"
     },
-    "last_updated": "2025-08-23T23:12:39.661236"
+    "last_updated": "2025-08-24T14:27:55.385584"
   },
   {
     "ticker": "TEM",
@@ -1837,7 +1837,7 @@
       "ah_change": "0.87%",
       "change": "4.97%"
     },
-    "last_updated": "2025-08-23T23:12:39.661471"
+    "last_updated": "2025-08-24T14:27:55.385656"
   },
   {
     "ticker": "NVO",
@@ -1857,7 +1857,7 @@
       "ah_change": "0.23%",
       "change": "2.76%"
     },
-    "last_updated": "2025-08-23T23:12:39.661852"
+    "last_updated": "2025-08-24T14:27:55.385722"
   },
   {
     "ticker": "HIMZ",
@@ -1877,7 +1877,7 @@
       "ah_change": "0.80%",
       "change": "2.38%"
     },
-    "last_updated": "2025-08-23T23:12:39.662090"
+    "last_updated": "2025-08-24T14:27:55.385797"
   },
   {
     "ticker": "TEMT",
@@ -1897,7 +1897,7 @@
       "ah_change": "2.04%",
       "change": "9.67%"
     },
-    "last_updated": "2025-08-23T23:12:39.662311"
+    "last_updated": "2025-08-24T14:27:55.385855"
   },
   {
     "ticker": "NVOX",
@@ -1917,7 +1917,7 @@
       "ah_change": "0.52%",
       "change": "5.51%"
     },
-    "last_updated": "2025-08-23T23:12:39.662557"
+    "last_updated": "2025-08-24T14:27:55.385921"
   },
   {
     "ticker": "RDTL",
@@ -1937,13 +1937,13 @@
       "ah_change": "-0.53%",
       "change": "-1.53%"
     },
-    "last_updated": "2025-08-23T23:12:39.662835"
+    "last_updated": "2025-08-24T14:27:55.386008"
   },
   {
     "ticker": "APPS",
     "sector": "Others",
     "earning_date": "8/5/2025 4:30:00 PM",
-    "market_cap": "$458.43M",
+    "market_cap": "$458.45M",
     "pe_ratio": "",
     "price": "4.23",
     "after_hour_price": "4.18",
@@ -1957,7 +1957,7 @@
       "ah_change": "-1.16%",
       "change": "9.59%"
     },
-    "last_updated": "2025-08-23T23:12:39.663039"
+    "last_updated": "2025-08-24T14:27:55.386083"
   },
   {
     "ticker": "RBLU",
@@ -1977,7 +1977,7 @@
       "ah_change": "1.94%",
       "change": "4.85%"
     },
-    "last_updated": "2025-08-23T23:12:39.663252"
+    "last_updated": "2025-08-24T14:27:55.386172"
   },
   {
     "ticker": "CVNX",
@@ -1997,13 +1997,13 @@
       "ah_change": "0.87%",
       "change": "10.20%"
     },
-    "last_updated": "2025-08-23T23:12:39.663460"
+    "last_updated": "2025-08-24T14:27:55.386255"
   },
   {
     "ticker": "SERV",
     "sector": "Others",
     "earning_date": "8/7/2025 4:30:00 PM",
-    "market_cap": "$581.45M",
+    "market_cap": "$581.43M",
     "pe_ratio": "",
     "price": "9.71",
     "after_hour_price": "9.76",
@@ -2017,13 +2017,13 @@
       "ah_change": "0.51%",
       "change": "4.97%"
     },
-    "last_updated": "2025-08-23T23:12:39.663702"
+    "last_updated": "2025-08-24T14:27:55.386318"
   },
   {
     "ticker": "ARQQ",
     "sector": "Quantum",
     "earning_date": "5/22/2025 8:30:00 AM",
-    "market_cap": "$442.27M",
+    "market_cap": "$442.12M",
     "pe_ratio": "",
     "price": "30.81",
     "after_hour_price": "30.88",
@@ -2037,7 +2037,7 @@
       "ah_change": "0.23%",
       "change": "7.65%"
     },
-    "last_updated": "2025-08-23T23:12:39.663917"
+    "last_updated": "2025-08-24T14:27:55.386380"
   },
   {
     "ticker": "IONQ",
@@ -2057,13 +2057,13 @@
       "ah_change": "0.23%",
       "change": "7.02%"
     },
-    "last_updated": "2025-08-23T23:12:39.664134"
+    "last_updated": "2025-08-24T14:27:55.386462"
   },
   {
     "ticker": "AIRE",
     "sector": "Real Estate",
     "earning_date": "8/14/2025 8:30:00 AM",
-    "market_cap": "$30.98M",
+    "market_cap": "$25.68M",
     "pe_ratio": "",
     "price": "0.37",
     "after_hour_price": "0.37",
@@ -2077,7 +2077,7 @@
       "ah_change": "-1.24%",
       "change": "13.78%"
     },
-    "last_updated": "2025-08-23T23:12:39.664358"
+    "last_updated": "2025-08-24T14:27:55.386538"
   },
   {
     "ticker": "APLD",
@@ -2097,7 +2097,7 @@
       "ah_change": "0.81%",
       "change": "1.78%"
     },
-    "last_updated": "2025-08-23T23:12:39.664566"
+    "last_updated": "2025-08-24T14:27:55.386611"
   },
   {
     "ticker": "SOFI",
@@ -2117,7 +2117,7 @@
       "ah_change": "0.36%",
       "change": "7.24%"
     },
-    "last_updated": "2025-08-23T23:12:39.664785"
+    "last_updated": "2025-08-24T14:27:55.386684"
   },
   {
     "ticker": "NFLX",
@@ -2137,7 +2137,7 @@
       "ah_change": "-0.12%",
       "change": "-0.13%"
     },
-    "last_updated": "2025-08-23T23:12:39.665002"
+    "last_updated": "2025-08-24T14:27:55.386749"
   },
   {
     "ticker": "AAPL",
@@ -2157,7 +2157,7 @@
       "ah_change": "0.15%",
       "change": "1.27%"
     },
-    "last_updated": "2025-08-23T23:12:39.665353"
+    "last_updated": "2025-08-24T14:27:55.386821"
   },
   {
     "ticker": "GOOG",
@@ -2177,7 +2177,7 @@
       "ah_change": "0.28%",
       "change": "3.04%"
     },
-    "last_updated": "2025-08-23T23:12:39.665564"
+    "last_updated": "2025-08-24T14:27:55.386889"
   },
   {
     "ticker": "NVDA",
@@ -2197,7 +2197,7 @@
       "ah_change": "0.19%",
       "change": "1.72%"
     },
-    "last_updated": "2025-08-23T23:12:39.665840"
+    "last_updated": "2025-08-24T14:27:55.386965"
   },
   {
     "ticker": "MSFT",
@@ -2217,7 +2217,7 @@
       "ah_change": "0.04%",
       "change": "0.59%"
     },
-    "last_updated": "2025-08-23T23:12:39.666093"
+    "last_updated": "2025-08-24T14:27:55.387025"
   },
   {
     "ticker": "QQQ",
@@ -2237,7 +2237,7 @@
       "ah_change": "0.12%",
       "change": "1.54%"
     },
-    "last_updated": "2025-08-23T23:12:39.666352"
+    "last_updated": "2025-08-24T14:27:55.387082"
   },
   {
     "ticker": "SMU",
@@ -2257,7 +2257,7 @@
       "ah_change": "2.97%",
       "change": "9.16%"
     },
-    "last_updated": "2025-08-23T23:12:39.666581"
+    "last_updated": "2025-08-24T14:27:55.387147"
   },
   {
     "ticker": "VERI",
@@ -2277,7 +2277,7 @@
       "ah_change": "1.28%",
       "change": "3.51%"
     },
-    "last_updated": "2025-08-23T23:12:39.666866"
+    "last_updated": "2025-08-24T14:27:55.387224"
   },
   {
     "ticker": "WULF",
@@ -2297,7 +2297,7 @@
       "ah_change": "0.76%",
       "change": "-0.33%"
     },
-    "last_updated": "2025-08-23T23:12:39.667096"
+    "last_updated": "2025-08-24T14:27:55.387305"
   },
   {
     "ticker": "HIMS",
@@ -2317,7 +2317,7 @@
       "ah_change": "0.36%",
       "change": "1.39%"
     },
-    "last_updated": "2025-08-23T23:12:39.667342"
+    "last_updated": "2025-08-24T14:27:55.387381"
   },
   {
     "ticker": "UNH",
@@ -2337,7 +2337,7 @@
       "ah_change": "-0.02%",
       "change": "1.34%"
     },
-    "last_updated": "2025-08-23T23:12:39.667554"
+    "last_updated": "2025-08-24T14:27:55.387447"
   },
   {
     "ticker": "UNHG",
@@ -2357,6 +2357,6 @@
       "ah_change": "-0.11%",
       "change": "2.48%"
     },
-    "last_updated": "2025-08-23T23:12:39.667786"
+    "last_updated": "2025-08-24T14:27:55.387516"
   }
 ]
