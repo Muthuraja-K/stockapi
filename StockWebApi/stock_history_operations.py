@@ -277,6 +277,9 @@ class StockHistoryOperations:
                     json.dump(market_data, f, indent=2)
                 logger.info(f"Market data saved to {market_data_file}")
                 
+                # Update currentPrice in earningsummary.json
+                self._update_earningsummary_current_prices(market_data)
+                
                 # Save cache timestamp for successful population
                 self._save_cache_timestamp('market')
                 
@@ -737,6 +740,63 @@ class StockHistoryOperations:
                 "results": [],
                 "total": 0
             }
+    
+    def _update_earningsummary_current_prices(self, market_data: List[Dict]) -> bool:
+        """
+        Update currentPrice field in earningsummary.json using the latest market data
+        """
+        try:
+            earningsummary_file = "earningsummary.json"
+            if not os.path.exists(earningsummary_file):
+                logger.warning(f"Earningsummary file {earningsummary_file} not found, skipping currentPrice update")
+                return False
+            
+            # Load current earningsummary data
+            with open(earningsummary_file, 'r') as f:
+                earningsummary_data = json.load(f)
+            
+            if not earningsummary_data:
+                logger.warning("No data found in earningsummary.json, skipping currentPrice update")
+                return False
+            
+            # Create a lookup dictionary for market data by ticker
+            market_data_lookup = {item['ticker']: item for item in market_data}
+            
+            updated_count = 0
+            for earning_item in earningsummary_data:
+                ticker = earning_item.get('ticker')
+                if not ticker:
+                    continue
+                
+                # Get market data for this ticker
+                ticker_market_data = market_data_lookup.get(ticker)
+                if not ticker_market_data:
+                    continue
+                
+                # Get current price from market data
+                current_price = ticker_market_data.get('price')
+                if current_price and current_price != 'N/A':
+                    # Update the currentPrice field
+                    old_price = earning_item.get('currentPrice', 'N/A')
+                    earning_item['currentPrice'] = str(current_price)
+                    
+                    if old_price != str(current_price):
+                        updated_count += 1
+                        logger.debug(f"Updated {ticker} currentPrice: {old_price} -> {current_price}")
+            
+            # Save updated earningsummary data
+            if updated_count > 0:
+                with open(earningsummary_file, 'w') as f:
+                    json.dump(earningsummary_data, f, indent=2)
+                logger.info(f"Updated currentPrice for {updated_count} stocks in earningsummary.json")
+            else:
+                logger.debug("No currentPrice updates needed in earningsummary.json")
+            
+            return True
+            
+        except Exception as e:
+            logger.error(f"Error updating earningsummary currentPrice: {e}")
+            return False
     
     def get_cache_status(self) -> Dict[str, Any]:
         """Get the current cache status for all data types"""

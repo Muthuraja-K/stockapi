@@ -76,42 +76,41 @@ def fmt_market_cap(val):
 def format_finviz_market_cap(val):
     """
     Format Finviz 'Market Cap' values to $ + T/B/M/K.
-    Handles both pre-formatted strings (e.g., '3.42T', '$750B') and numeric values where:
-    - Large numeric (>= 1e6) is treated as millions (e.g., 3416257.65 -> 3,416,257.65M -> $3.42T)
-    - Smaller numeric (< 1e6) is treated as billions (e.g., 3416.26 -> 3,416.26B -> $3.42T)
+    Finviz Market Cap values are in millions by default.
+    Handles both pre-formatted strings (e.g., '3.42T', '$750B') and numeric values.
     """
     try:
         if val is None or val == '' or str(val).strip().upper() == 'N/A':
             return 'N/A'
         s = str(val).strip()
+        
         # If already formatted with suffix
         if s.startswith('$') and s[-1] in ('T','B','M','K'):
             return s
         if (not s.startswith('$')) and s[-1] in ('T','B','M','K'):
             return f"${s}"
-        # Parse numeric and infer scale
+            
+        # Parse numeric value
         f = float(s)
         if math.isnan(f) or math.isinf(f):
             return 'N/A'
-        # Heuristic:
-        # - Very large numbers (>= 1e13) assume already dollars
-        # - Numbers >= 1e6 likely millions value from Finviz CSV
-        # - Numbers < 1e6 likely billions value from Finviz CSV
-        if f >= 1e13:
-            actual_value = f
-        elif f >= 1e6:
-            actual_value = f * 1_000_000.0   # treat as millions
-        else:
-            actual_value = f * 1_000_000_000.0  # treat as billions
+            
+        # Finviz Market Cap values are in millions
+        # Convert millions to actual dollars
+        actual_value = f * 1_000_000.0
+        
+        # Format based on size
         if actual_value >= 1e12:
             return f"${actual_value/1e12:.2f}T"
-        if actual_value >= 1e9:
+        elif actual_value >= 1e9:
             return f"${actual_value/1e9:.2f}B"
-        if actual_value >= 1e6:
+        elif actual_value >= 1e6:
             return f"${actual_value/1e6:.2f}M"
-        if actual_value >= 1e3:
+        elif actual_value >= 1e3:
             return f"${actual_value/1e3:.2f}K"
-        return f"${actual_value:,.2f}"
+        else:
+            return f"${actual_value:,.2f}"
+            
     except Exception:
         return 'N/A'
 

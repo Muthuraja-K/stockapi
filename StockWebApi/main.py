@@ -420,58 +420,117 @@ async def get_earning_summary_route(
     date_from_param = date_from.strip()
     date_to_param = date_to.strip()
     
-    # Cache validation and automatic caching for 1D, 1W, and 1M periods (all share 1M cache)
-    if period_param in ['1D', '1W', '1M']:
-        try:
-            from earning_summary_cache import earning_cache, get_cache_status
-            from datetime import date
-            
-            # Check if cache is available and valid for current date
-            cache_status = get_cache_status()
-            today = date.today()
-            is_cache_valid = cache_status.get('is_valid', False)
-            
-            logger.info(f"Cache validation for period {period_param}: valid={is_cache_valid}, date={today}")
-            
-            if is_cache_valid:
-                # Cache is valid, try to get from cache
-                try:
-                    cached_result = earning_cache.get_cached_summary(period_param, sectors_param, page, per_page)
-                    if cached_result:
-                        logger.info(f"Returning cached earning summary for period {period_param}, sectors: {sectors_param}")
-                        return cached_result
-                except Exception as e:
-                    logger.warning(f"Error getting cached data: {e}, will fetch fresh data")
-            
-            # Cache is invalid or missing, fetch fresh data and cache it
-            logger.info(f"Cache invalid or missing for period {period_param}, fetching fresh data and caching")
-            
-            # Fetch fresh data
-            fresh_result = get_earning_summary(sectors_param, period_param, date_from_param, date_to_param, page, per_page)
-            
-            # Cache the full dataset for future use (always cache as 1M since all periods share it)
-            try:
-                # Get all data for caching (not just the current page)
-                # Always cache as 1M since 1D and 1W will filter from it
-                full_data = get_earning_summary(sectors_param, '1M', date_from_param, date_to_param, page=1, per_page=1000)
-                earning_cache.cache_summary('1M', full_data, sectors_param)
-                logger.info(f"Successfully cached fresh data for period 1M (used by {period_param}), sectors: {sectors_param}")
-            except Exception as e:
-                logger.error(f"Error caching data for period 1M: {e}")
-            
-            return fresh_result
-            
-        except Exception as e:
-            logger.error(f"Error in cache validation for period {period_param}: {e}, falling back to direct call")
-            # Fall back to direct call if cache operations fail
-            result = get_earning_summary(sectors_param, period_param, date_from_param, date_to_param, page, per_page)
-            return result
+    try:
+        # Read from earningsummary.json file instead of dynamic fetching
+        from earning_summary_file_manager import earning_summary_manager
+        
+        # Load earning summary data from file
+        earning_data = earning_summary_manager.load_earning_summary()
+        if not earning_data:
+            logger.warning("No earning summary data found in file")
+            return {
+                "page": page,
+                "per_page": per_page,
+                "total": 0,
+                "results": []
+            }
+        
+        logger.info(f"Loaded {len(earning_data)} stocks from earningsummary.json")
+        
+        # Apply period filtering
+        filtered_data = _apply_period_filter(earning_data, period_param, date_from_param, date_to_param)
+        
+        # Apply sector filtering
+        if sectors_param:
+            sectors_list = [s.strip() for s in sectors_param.split(',')]
+            filtered_data = [
+                stock for stock in filtered_data 
+                if stock.get('sector', '') in sectors_list
+            ]
+            logger.info(f"After sector filtering: {len(filtered_data)} stocks")
+        
+        # Apply pagination
+        total = len(filtered_data)
+        start_index = (page - 1) * per_page
+        end_index = start_index + per_page
+        paginated_data = filtered_data[start_index:end_index]
+        
+        logger.info(f"Earnings summary completed: {total} stocks processed, page {page} of {(total + per_page - 1) // per_page}")
+        
+        return {
+            "page": page,
+            "per_page": per_page,
+            "total": total,
+            "results": paginated_data
+        }
+        
+    except Exception as e:
+        logger.error(f"Error in get_earning_summary_route: {str(e)}")
+        return {
+            "page": page,
+            "per_page": per_page,
+            "total": 0,
+            "results": []
+        }
+
+def _apply_period_filter(earning_data: List[Dict[str, Any]], period: str, date_from: str, date_to: str) -> List[Dict[str, Any]]:
+    """Apply period filtering to earning data."""
+    if not period or period not in ['1D', '1W', '1M', 'custom']:
+        return earning_data
     
-    else:
-        # For custom periods or other cases, use direct call without caching
-        logger.info(f"Direct call for period {period_param} (not cached)")
-        result = get_earning_summary(sectors_param, period_param, date_from_param, date_to_param, page, per_page)
-        return result
+    try:
+        from datetime import datetime, timedelta
+        
+        today = datetime.now().date()
+        filtered_data = []
+        
+        for stock in earning_data:
+            earning_date_str = stock.get('earningDate', '')
+            if not earning_date_str or earning_date_str == 'N/A':
+                continue
+            
+            try:
+                # Parse earning date
+                earning_date = datetime.strptime(earning_date_str, '%m/%d/%Y %I:%M:%S %p')
+                earning_date_only = earning_date.date()
+                
+                if period == '1D':
+                    # Show earnings for today
+                    if earning_date_only == today:
+                        filtered_data.append(stock)
+                        
+                elif period == '1W':
+                    # Show earnings within the next 7 days
+                    week_end = today + timedelta(days=7)
+                    if today <= earning_date_only <= week_end:
+                        filtered_data.append(stock)
+                        
+                elif period == '1M':
+                    # Show earnings within the next 30 days
+                    month_end = today + timedelta(days=30)
+                    if today <= earning_date_only <= month_end:
+                        filtered_data.append(stock)
+                        
+                elif period == 'custom' and date_from and date_to:
+                    # Custom date range
+                    try:
+                        from_date = datetime.strptime(date_from, '%Y-%m-%d').date()
+                        to_date = datetime.strptime(date_to, '%Y-%m-%d').date()
+                        if from_date <= earning_date_only <= to_date:
+                            filtered_data.append(stock)
+                    except ValueError:
+                        logger.warning(f"Invalid custom date format: {date_from} to {date_to}")
+                        continue
+                        
+            except ValueError:
+                logger.warning(f"Invalid earning date format: {earning_date_str}")
+                continue
+        
+        return filtered_data
+        
+    except Exception as e:
+        logger.error(f"Error applying period filter: {str(e)}")
+        return earning_data
 
 @app.get('/api/market-status')
 async def get_market_status_route(
@@ -1553,6 +1612,147 @@ async def clear_all_caches_route(current_user: Dict[str, Any] = Depends(require_
     except Exception as e:
         logger.error(f"Error clearing all caches: {e}")
         raise HTTPException(status_code=500, detail=f"Error clearing all caches: {str(e)}")
+
+@app.post('/api/admin/populate-earning-summary-file')
+async def populate_earning_summary_file_route(current_user: Dict[str, Any] = Depends(require_admin)):
+    """Populate the initial earningsummary.json file - Admin only"""
+    try:
+        from earning_summary_file_manager import populate_initial_earning_summary
+        
+        logger.info("Admin requested initial earning summary file population")
+        
+        # Populate initial earning summary file
+        success = populate_initial_earning_summary()
+        
+        if success:
+            return {
+                "status": "success",
+                "message": "Initial earning summary file populated successfully",
+                "success": True,
+                "timestamp": datetime.now().isoformat()
+            }
+        else:
+            raise HTTPException(status_code=500, detail="Failed to populate earning summary file")
+            
+    except Exception as e:
+        logger.error(f"Error populating earning summary file: {e}")
+        raise HTTPException(status_code=500, detail=f"Error populating earning summary file: {str(e)}")
+
+@app.post('/api/admin/run-daily-earning-job')
+async def run_daily_earning_job_route(current_user: Dict[str, Any] = Depends(require_admin)):
+    """Manually run the daily earning job - Admin only"""
+    try:
+        from earning_summary_file_manager import run_daily_earning_job
+        
+        logger.info("Admin requested manual daily earning job execution")
+        
+        # Run daily earning job
+        success = run_daily_earning_job()
+        
+        if success:
+            return {
+                "status": "success",
+                "message": "Daily earning job completed successfully",
+                "success": True,
+                "timestamp": datetime.now().isoformat()
+            }
+        else:
+            raise HTTPException(status_code=500, detail="Failed to run daily earning job")
+            
+    except Exception as e:
+        logger.error(f"Error running daily earning job: {e}")
+        raise HTTPException(status_code=500, detail=f"Error running daily earning job: {str(e)}")
+
+@app.post('/api/admin/update-earning-dates')
+async def update_earning_dates_route(current_user: Dict[str, Any] = Depends(require_admin)):
+    """Manually run the earning date update job - Admin only"""
+    try:
+        from earning_summary_file_manager import update_earning_dates_job
+        
+        logger.info("Admin requested manual earning date update job execution")
+        
+        # Run earning date update job
+        success = update_earning_dates_job()
+        
+        if success:
+            return {
+                "status": "success",
+                "message": "Earning date update job completed successfully",
+                "success": True,
+                "timestamp": datetime.now().isoformat()
+            }
+        else:
+            raise HTTPException(status_code=500, detail="Failed to run earning date update job")
+            
+    except Exception as e:
+        logger.error(f"Error running earning date update job: {e}")
+        raise HTTPException(status_code=500, detail=f"Error running earning date update job: {str(e)}")
+
+# Stock Prediction API Endpoints
+@app.get('/api/stock-prediction/{ticker}')
+async def get_stock_prediction_route(
+    ticker: str,
+    model_type: str = Query("both", description="Model type: chatgpt, lstm, regression, or both"),
+    days: int = Query(30, description="Number of days to predict", ge=1, le=90),
+    current_user: Dict[str, Any] = Depends(require_auth)
+):
+    """Get comprehensive stock prediction using LSTM, regression, and ChatGPT analysis."""
+    try:
+        from stock_prediction_service import stock_prediction_service
+        
+        logger.info(f"Stock prediction request for {ticker} using {model_type} for {days} days")
+        
+        # Validate model type
+        valid_models = ["chatgpt", "lstm", "regression", "both"]
+        if model_type not in valid_models:
+            raise HTTPException(status_code=400, detail=f"Invalid model_type. Must be one of: {valid_models}")
+        
+        # Get prediction
+        result = stock_prediction_service.get_stock_prediction(ticker.upper(), model_type, days)
+        
+        if "error" in result:
+            raise HTTPException(status_code=400, detail=result["error"])
+        
+        logger.info(f"Successfully generated prediction for {ticker}")
+        return result
+        
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Error in stock prediction for {ticker}: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Stock prediction failed: {str(e)}")
+
+@app.get('/api/stock-prediction/{ticker}/summary')
+async def get_stock_prediction_summary_route(
+    ticker: str,
+    model_type: str = Query("both", description="Model type: chatgpt, lstm, regression, or both"),
+    current_user: Dict[str, Any] = Depends(require_auth)
+):
+    """Get a summary of stock predictions for quick analysis."""
+    try:
+        from stock_prediction_service import stock_prediction_service
+        
+        logger.info(f"Stock prediction summary request for {ticker} using {model_type}")
+        
+        # Validate model type
+        valid_models = ["chatgpt", "lstm", "regression", "both"]
+        if model_type not in valid_models:
+            raise HTTPException(status_code=400, detail=f"Invalid model_type. Must be one of: {valid_models}")
+        
+        # Get prediction summary
+        result = stock_prediction_service.get_prediction_summary(ticker.upper(), model_type)
+        
+        if "error" in result:
+            raise HTTPException(status_code=400, detail=result["error"])
+        
+        logger.info(f"Successfully generated prediction summary for {ticker}")
+        return result
+        
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"Error in stock prediction summary for {ticker}: {str(e)}")
+        raise HTTPException(status_code=500, detail=f"Stock prediction summary failed: {str(e)}")
 
 # Admin page route
 @app.get("/admin/cache")

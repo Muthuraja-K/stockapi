@@ -1,0 +1,2496 @@
+[
+  {
+    "ticker": "FTNT",
+    "currentPrice": "80.02",
+    "earningDate": "8/6/2025 4:30:00 PM",
+    "sector": "Security/Software Product",
+    "lastTwoEarnings": [
+      {
+        "earningDate": "06/13/2025",
+        "closeB4EarningPrice": "$101.66",
+        "closeB4EarningChange": "-0.18%",
+        "afterEarningPrice": "$101.95",
+        "afterEarningChange": "+0.29%",
+        "beatExpectation": "Met",
+        "actualValue": "0.38",
+        "expectedValue": "0.38",
+        "epsCategory": "Met",
+        "actualRevenue": "$1.63 billion",
+        "expectedRevenue": "$1.71 billion",
+        "revenueCategory": "Miss",
+        "percentageDifference": "+0.00%"
+      },
+      {
+        "earningDate": "05/07/2025",
+        "closeB4EarningPrice": "$107.14",
+        "closeB4EarningChange": "+1.09%",
+        "afterEarningPrice": "$97.74",
+        "afterEarningChange": "-8.77%",
+        "beatExpectation": "Beat",
+        "actualValue": "0.58",
+        "expectedValue": "0.53",
+        "epsCategory": "Beat",
+        "actualRevenue": "$1.63 billion",
+        "expectedRevenue": "$1.71 billion",
+        "revenueCategory": "Miss",
+        "percentageDifference": "+9.43%"
+      }
+    ]
+  },
+  {
+    "ticker": "ZS",
+    "currentPrice": "272.52",
+    "earningDate": "9/2/2025 4:30:00 PM",
+    "sector": "Security/Software Product",
+    "lastTwoEarnings": [
+      {
+        "earningDate": "05/29/2025",
+        "closeB4EarningPrice": "$253.65",
+        "closeB4EarningChange": "-0.92%",
+        "afterEarningPrice": "$275.70",
+        "afterEarningChange": "+8.69%",
+        "beatExpectation": "Beat",
+        "actualValue": "0.84",
+        "expectedValue": "0.75",
+        "epsCategory": "Beat",
+        "actualRevenue": "$678.03 million",
+        "expectedRevenue": "$707.15 million",
+        "revenueCategory": "Miss",
+        "percentageDifference": "+12.00%"
+      },
+      {
+        "earningDate": "03/05/2025",
+        "closeB4EarningPrice": "$193.82",
+        "closeB4EarningChange": "+3.56%",
+        "afterEarningPrice": "$202.16",
+        "afterEarningChange": "+4.30%",
+        "beatExpectation": "Beat",
+        "actualValue": "0.78",
+        "expectedValue": "0.69",
+        "epsCategory": "Beat",
+        "actualRevenue": "$678.03 million",
+        "expectedRevenue": "$707.15 million",
+        "revenueCategory": "Miss",
+        "percentageDifference": "+13.04%"
+      }
+    ]
+  },
+  {
+    "ticker": "OKTA",
+    "currentPrice": "92.05",
+    "earningDate": "8/26/2025 4:30:00 PM",
+    "sector": "Security/Software Product",
+    "lastTwoEarnings": [
+      {
+        "earningDate": "06/20/2025",
+        "closeB4EarningPrice": "$99.00",
+        "closeB4EarningChange": "-0.24%",
+        "afterEarningPrice": "$98.66",
+        "afterEarningChange": "-0.34%",
+        "beatExpectation": "Met",
+        "actualValue": "0.54",
+        "expectedValue": "0.54",
+        "epsCategory": "Met",
+        "actualRevenue": "$688.00 million",
+        "expectedRevenue": "$711.84 million",
+        "revenueCategory": "Miss",
+        "percentageDifference": "+0.00%"
+      },
+      {
+        "earningDate": "05/27/2025",
+        "closeB4EarningPrice": "$123.72",
+        "closeB4EarningChange": "+1.01%",
+        "afterEarningPrice": "$105.22",
+        "afterEarningChange": "-14.95%",
+        "beatExpectation": "Beat",
+        "actualValue": "0.86",
+        "expectedValue": "0.77",
+        "epsCategory": "Beat",
+        "actualRevenue": "$688.00 million",
+        "expectedRevenue": "$711.84 million",
+        "revenueCategory": "Miss",
+        "percentageDifference": "+11.69%"
+      }
+    ]
+  },
+  {
+    "ticker": "HOOD",
+    "currentPrice": "109.32",
+    "earningDate": "7/30/2025 4:30:00 PM",
+    "sector": "Finance",
+    "lastTwoEarnings": [
+      {
+        "earningDate": "06/26/2025",
+        "closeB4EarningPrice": "$82.75",
+        "closeB4EarningChange": "-2.58%",
+        "afterEarningPrice": "$83.03",
+        "afterEarningChange": "+0.34%",
+        "beatExpectation": "Met",
+        "actualValue": "0.05",
+        "expectedValue": "0.05",
+        "epsCategory": "Met",
+        "actualRevenue": "$989.00 million",
+        "expectedRevenue": "$1.09 billion",
+        "revenueCategory": "Miss",
+        "percentageDifference": "+0.00%"
+      },
+      {
+        "earningDate": "04/30/2025",
+        "closeB4EarningPrice": "$49.37",
+        "closeB4EarningChange": "-0.14%",
+        "afterEarningPrice": "$46.62",
+        "afterEarningChange": "-5.57%",
+        "beatExpectation": "Beat",
+        "actualValue": "0.37",
+        "expectedValue": "0.33",
+        "epsCategory": "Beat",
+        "actualRevenue": "$989.00 million",
+        "expectedRevenue": "$1.09 billion",
+        "revenueCategory": "Miss",
+        "percentageDifference": "+12.12%"
+      }
+    ]
+  },
+  {
+    "ticker": "UPST",
+    "currentPrice": "68.85",
+    "earningDate": "8/5/2025 4:30:00 PM",
+    "sector": "Finance",
+    "lastTwoEarnings": [
+      {
+        "earningDate": "05/29/2025",
+        "closeB4EarningPrice": "$47.01",
+        "closeB4EarningChange": "-1.38%",
+        "afterEarningPrice": "$47.17",
+        "afterEarningChange": "+0.34%",
+        "beatExpectation": "N/A",
+        "actualValue": "N/A",
+        "expectedValue": "0.38",
+        "epsCategory": "Reported",
+        "actualRevenue": "$257.29 million",
+        "expectedRevenue": "$280.79 million",
+        "revenueCategory": "Miss",
+        "percentageDifference": "N/A"
+      },
+      {
+        "earningDate": "05/06/2025",
+        "closeB4EarningPrice": "$52.00",
+        "closeB4EarningChange": "+5.35%",
+        "afterEarningPrice": "$46.44",
+        "afterEarningChange": "-10.69%",
+        "beatExpectation": "Beat",
+        "actualValue": "0.30",
+        "expectedValue": "0.17",
+        "epsCategory": "Beat",
+        "actualRevenue": "$257.29 million",
+        "expectedRevenue": "$280.79 million",
+        "revenueCategory": "Miss",
+        "percentageDifference": "+76.47%"
+      }
+    ]
+  },
+  {
+    "ticker": "PLTR",
+    "currentPrice": "158.74",
+    "earningDate": "8/4/2025 4:30:00 PM",
+    "sector": "AI Service",
+    "lastTwoEarnings": [
+      {
+        "earningDate": "06/05/2025",
+        "closeB4EarningPrice": "$130.01",
+        "closeB4EarningChange": "-2.10%",
+        "afterEarningPrice": "$127.72",
+        "afterEarningChange": "-1.76%",
+        "beatExpectation": "Met",
+        "actualValue": "0.08",
+        "expectedValue": "0.08",
+        "epsCategory": "Met",
+        "actualRevenue": "$1.00 billion",
+        "expectedRevenue": "$1.09 billion",
+        "revenueCategory": "Miss",
+        "percentageDifference": "+0.00%"
+      },
+      {
+        "earningDate": "05/05/2025",
+        "closeB4EarningPrice": "$124.28",
+        "closeB4EarningChange": "+4.74%",
+        "afterEarningPrice": "$108.86",
+        "afterEarningChange": "-12.41%",
+        "beatExpectation": "Met",
+        "actualValue": "0.13",
+        "expectedValue": "0.13",
+        "epsCategory": "Met",
+        "actualRevenue": "$1.00 billion",
+        "expectedRevenue": "$1.09 billion",
+        "revenueCategory": "Miss",
+        "percentageDifference": "+0.00%"
+      }
+    ]
+  },
+  {
+    "ticker": "SOUN",
+    "currentPrice": "12.56",
+    "earningDate": "8/7/2025 4:30:00 PM",
+    "sector": "AI Service",
+    "lastTwoEarnings": [
+      {
+        "earningDate": "06/12/2025",
+        "closeB4EarningPrice": "$9.74",
+        "closeB4EarningChange": "-2.01%",
+        "afterEarningPrice": "$9.10",
+        "afterEarningChange": "-6.57%",
+        "beatExpectation": "N/A",
+        "actualValue": "N/A",
+        "expectedValue": "-0.20",
+        "epsCategory": "Reported",
+        "actualRevenue": "$42.68 million",
+        "expectedRevenue": "$40.52 million",
+        "revenueCategory": "Beat",
+        "percentageDifference": "N/A"
+      },
+      {
+        "earningDate": "05/08/2025",
+        "closeB4EarningPrice": "$9.17",
+        "closeB4EarningChange": "+1.33%",
+        "afterEarningPrice": "$8.98",
+        "afterEarningChange": "-2.07%",
+        "beatExpectation": "Beat",
+        "actualValue": "0.31",
+        "expectedValue": "-0.08",
+        "epsCategory": "Beat",
+        "actualRevenue": "$42.68 million",
+        "expectedRevenue": "$40.52 million",
+        "revenueCategory": "Beat",
+        "percentageDifference": "+487.50%"
+      }
+    ]
+  },
+  {
+    "ticker": "BBAI",
+    "currentPrice": "5.50",
+    "earningDate": "8/11/2025 4:30:00 PM",
+    "sector": "AI Service",
+    "lastTwoEarnings": [
+      {
+        "earningDate": "05/01/2025",
+        "closeB4EarningPrice": "$3.41",
+        "closeB4EarningChange": "+1.49%",
+        "afterEarningPrice": "$3.36",
+        "afterEarningChange": "-1.47%",
+        "beatExpectation": "Miss",
+        "actualValue": "-0.24",
+        "expectedValue": "-0.06",
+        "epsCategory": "Miss",
+        "actualRevenue": "$32.47 million",
+        "expectedRevenue": "$31.82 million",
+        "revenueCategory": "Beat",
+        "percentageDifference": "-300.00%"
+      },
+      {
+        "earningDate": "03/06/2025",
+        "closeB4EarningPrice": "$4.80",
+        "closeB4EarningChange": "+1.48%",
+        "afterEarningPrice": "$3.34",
+        "afterEarningChange": "-30.42%",
+        "beatExpectation": "Miss",
+        "actualValue": "-0.43",
+        "expectedValue": "-0.04",
+        "epsCategory": "Miss",
+        "actualRevenue": "$32.47 million",
+        "expectedRevenue": "$31.82 million",
+        "revenueCategory": "Beat",
+        "percentageDifference": "-975.00%"
+      }
+    ]
+  },
+  {
+    "ticker": "CRWV",
+    "currentPrice": "93.99",
+    "earningDate": "8/12/2025 4:30:00 PM",
+    "sector": "AI Service",
+    "lastTwoEarnings": [
+      {
+        "earningDate": "05/14/2025",
+        "closeB4EarningPrice": "$63.26",
+        "closeB4EarningChange": "+9.83%",
+        "afterEarningPrice": "$65.77",
+        "afterEarningChange": "+3.97%",
+        "beatExpectation": "Miss",
+        "actualValue": "-0.60",
+        "expectedValue": "-0.12",
+        "epsCategory": "Miss",
+        "actualRevenue": "$1.21 billion",
+        "expectedRevenue": "$1.28 billion",
+        "revenueCategory": "Miss",
+        "percentageDifference": "-400.00%"
+      },
+      {
+        "earningDate": "03/31/2025",
+        "closeB4EarningPrice": "$40.00",
+        "closeB4EarningChange": "+2.56%",
+        "afterEarningPrice": "$52.57",
+        "afterEarningChange": "+31.42%",
+        "beatExpectation": "N/A",
+        "actualValue": "N/A",
+        "expectedValue": "N/A",
+        "epsCategory": "Reported",
+        "actualRevenue": "$1.21 billion",
+        "expectedRevenue": "$1.28 billion",
+        "revenueCategory": "Miss",
+        "percentageDifference": "N/A"
+      }
+    ]
+  },
+  {
+    "ticker": "GRRR",
+    "currentPrice": "18.03",
+    "earningDate": "8/14/2025 8:30:00 AM",
+    "sector": "AI Service",
+    "lastTwoEarnings": [
+      {
+        "earningDate": "06/18/2025",
+        "closeB4EarningPrice": "$18.45",
+        "closeB4EarningChange": "-6.96%",
+        "afterEarningPrice": "$25.23",
+        "afterEarningChange": "+36.75%",
+        "beatExpectation": "Miss",
+        "actualValue": "-0.23",
+        "expectedValue": "0.06",
+        "epsCategory": "Miss",
+        "actualRevenue": "$21.07 million",
+        "expectedRevenue": "$26.50 million",
+        "revenueCategory": "Miss",
+        "percentageDifference": "-483.33%"
+      },
+      {
+        "earningDate": "04/04/2024",
+        "closeB4EarningPrice": "$7.32",
+        "closeB4EarningChange": "-1.21%",
+        "afterEarningPrice": "$8.40",
+        "afterEarningChange": "+14.75%",
+        "beatExpectation": "Met",
+        "actualValue": "0.30",
+        "expectedValue": "0.30",
+        "epsCategory": "Met",
+        "actualRevenue": "$21.07 million",
+        "expectedRevenue": "$26.50 million",
+        "revenueCategory": "Miss",
+        "percentageDifference": "+0.00%"
+      }
+    ]
+  },
+  {
+    "ticker": "AI",
+    "currentPrice": "17.50",
+    "earningDate": "9/3/2025 4:30:00 PM",
+    "sector": "AI Service",
+    "lastTwoEarnings": [
+      {
+        "earningDate": "05/28/2025",
+        "closeB4EarningPrice": "$23.92",
+        "closeB4EarningChange": "+1.92%",
+        "afterEarningPrice": "$27.80",
+        "afterEarningChange": "+16.22%",
+        "beatExpectation": "Beat",
+        "actualValue": "-0.16",
+        "expectedValue": "-0.20",
+        "epsCategory": "Beat",
+        "actualRevenue": "$108.72 million",
+        "expectedRevenue": "$93.88 million",
+        "revenueCategory": "Beat",
+        "percentageDifference": "+20.00%"
+      },
+      {
+        "earningDate": "02/26/2025",
+        "closeB4EarningPrice": "$26.33",
+        "closeB4EarningChange": "-0.30%",
+        "afterEarningPrice": "$23.88",
+        "afterEarningChange": "-9.30%",
+        "beatExpectation": "Beat",
+        "actualValue": "-0.12",
+        "expectedValue": "-0.25",
+        "epsCategory": "Beat",
+        "actualRevenue": "$108.72 million",
+        "expectedRevenue": "$93.88 million",
+        "revenueCategory": "Beat",
+        "percentageDifference": "+52.00%"
+      }
+    ]
+  },
+  {
+    "ticker": "NBIS",
+    "currentPrice": "68.98",
+    "earningDate": "8/7/2025 8:30:00 AM",
+    "sector": "AI Service",
+    "lastTwoEarnings": [
+      {
+        "earningDate": "05/20/2025",
+        "closeB4EarningPrice": "$37.56",
+        "closeB4EarningChange": "+4.92%",
+        "afterEarningPrice": "$38.92",
+        "afterEarningChange": "+3.62%",
+        "beatExpectation": "N/A",
+        "actualValue": "N/A",
+        "expectedValue": "-33.11",
+        "epsCategory": "Estimate",
+        "actualRevenue": "$105.10 million",
+        "expectedRevenue": "$157.11 million",
+        "revenueCategory": "Miss",
+        "percentageDifference": "N/A"
+      }
+    ]
+  },
+  {
+    "ticker": "META",
+    "currentPrice": "754.79",
+    "earningDate": "7/30/2025 4:30:00 PM",
+    "sector": "Mega Stocks",
+    "lastTwoEarnings": [
+      {
+        "earningDate": "05/29/2025",
+        "closeB4EarningPrice": "$643.09",
+        "closeB4EarningChange": "+0.15%",
+        "afterEarningPrice": "$646.99",
+        "afterEarningChange": "+0.61%",
+        "beatExpectation": "Beat",
+        "actualValue": "1.80",
+        "expectedValue": "1.60",
+        "epsCategory": "Beat",
+        "actualRevenue": "$47.52 billion",
+        "expectedRevenue": "$49.27 billion",
+        "revenueCategory": "Miss",
+        "percentageDifference": "+12.50%"
+      },
+      {
+        "earningDate": "04/30/2025",
+        "closeB4EarningPrice": "$554.01",
+        "closeB4EarningChange": "+1.55%",
+        "afterEarningPrice": "$571.77",
+        "afterEarningChange": "+3.21%",
+        "beatExpectation": "Beat",
+        "actualValue": "6.43",
+        "expectedValue": "5.28",
+        "epsCategory": "Beat",
+        "actualRevenue": "$47.52 billion",
+        "expectedRevenue": "$49.27 billion",
+        "revenueCategory": "Miss",
+        "percentageDifference": "+21.78%"
+      }
+    ]
+  },
+  {
+    "ticker": "AMZN",
+    "currentPrice": "228.84",
+    "earningDate": "7/31/2025 4:30:00 PM",
+    "sector": "Mega Stocks",
+    "lastTwoEarnings": [
+      {
+        "earningDate": "05/22/2025",
+        "closeB4EarningPrice": "$201.12",
+        "closeB4EarningChange": "-0.24%",
+        "afterEarningPrice": "$200.99",
+        "afterEarningChange": "-0.06%",
+        "beatExpectation": "Beat",
+        "actualValue": "1.80",
+        "expectedValue": "1.60",
+        "epsCategory": "Beat",
+        "actualRevenue": "$167.70 billion",
+        "expectedRevenue": "$177.39 billion",
+        "revenueCategory": "Miss",
+        "percentageDifference": "+12.50%"
+      },
+      {
+        "earningDate": "05/01/2025",
+        "closeB4EarningPrice": "$184.42",
+        "closeB4EarningChange": "+1.24%",
+        "afterEarningPrice": "$189.98",
+        "afterEarningChange": "+3.01%",
+        "beatExpectation": "Beat",
+        "actualValue": "1.59",
+        "expectedValue": "1.36",
+        "epsCategory": "Beat",
+        "actualRevenue": "$167.70 billion",
+        "expectedRevenue": "$177.39 billion",
+        "revenueCategory": "Miss",
+        "percentageDifference": "+16.91%"
+      }
+    ]
+  },
+  {
+    "ticker": "TSLA",
+    "currentPrice": "340.01",
+    "earningDate": "7/23/2025 4:30:00 PM",
+    "sector": "Mega Stocks",
+    "lastTwoEarnings": [
+      {
+        "earningDate": "04/22/2025",
+        "closeB4EarningPrice": "$227.50",
+        "closeB4EarningChange": "-1.20%",
+        "afterEarningPrice": "$250.74",
+        "afterEarningChange": "+10.22%",
+        "beatExpectation": "Miss",
+        "actualValue": "0.27",
+        "expectedValue": "0.39",
+        "epsCategory": "Miss",
+        "actualRevenue": "$22.50 billion",
+        "expectedRevenue": "$24.90 billion",
+        "revenueCategory": "Miss",
+        "percentageDifference": "-30.77%"
+      },
+      {
+        "earningDate": "01/29/2025",
+        "closeB4EarningPrice": "$398.09",
+        "closeB4EarningChange": "+0.30%",
+        "afterEarningPrice": "$400.28",
+        "afterEarningChange": "+0.55%",
+        "beatExpectation": "Miss",
+        "actualValue": "0.73",
+        "expectedValue": "0.76",
+        "epsCategory": "Miss",
+        "actualRevenue": "$22.50 billion",
+        "expectedRevenue": "$24.90 billion",
+        "revenueCategory": "Miss",
+        "percentageDifference": "-3.95%"
+      }
+    ]
+  },
+  {
+    "ticker": "OKLO",
+    "currentPrice": "70.38",
+    "earningDate": "8/11/2025 4:30:00 PM",
+    "sector": "Energy",
+    "lastTwoEarnings": [
+      {
+        "earningDate": "05/13/2025",
+        "closeB4EarningPrice": "$28.85",
+        "closeB4EarningChange": "-2.96%",
+        "afterEarningPrice": "$37.01",
+        "afterEarningChange": "+28.28%",
+        "beatExpectation": "Beat",
+        "actualValue": "-0.07",
+        "expectedValue": "-0.11",
+        "epsCategory": "Beat",
+        "actualRevenue": "N/A",
+        "expectedRevenue": "N/A",
+        "revenueCategory": "Reported",
+        "percentageDifference": "+36.36%"
+      },
+      {
+        "earningDate": "03/24/2025",
+        "closeB4EarningPrice": "$27.16",
+        "closeB4EarningChange": "+0.82%",
+        "afterEarningPrice": "$28.93",
+        "afterEarningChange": "+6.52%",
+        "beatExpectation": "Miss",
+        "actualValue": "-0.09",
+        "expectedValue": "-0.07",
+        "epsCategory": "Miss",
+        "actualRevenue": "N/A",
+        "expectedRevenue": "N/A",
+        "revenueCategory": "Reported",
+        "percentageDifference": "-28.57%"
+      }
+    ]
+  },
+  {
+    "ticker": "NNE",
+    "currentPrice": "31.32",
+    "earningDate": "8/14/2025 4:30:00 PM",
+    "sector": "Energy",
+    "lastTwoEarnings": [
+      {
+        "earningDate": "05/15/2025",
+        "closeB4EarningPrice": "$26.48",
+        "closeB4EarningChange": "-8.53%",
+        "afterEarningPrice": "$27.25",
+        "afterEarningChange": "+2.91%",
+        "beatExpectation": "Miss",
+        "actualValue": "-0.57",
+        "expectedValue": "-0.09",
+        "epsCategory": "Miss",
+        "actualRevenue": "N/A",
+        "expectedRevenue": "$257.50 thousand",
+        "revenueCategory": "Estimate",
+        "percentageDifference": "-533.33%"
+      },
+      {
+        "earningDate": "02/13/2025",
+        "closeB4EarningPrice": "$34.62",
+        "closeB4EarningChange": "+11.68%",
+        "afterEarningPrice": "$32.49",
+        "afterEarningChange": "-6.15%",
+        "beatExpectation": "Beat",
+        "actualValue": "-0.11",
+        "expectedValue": "-0.18",
+        "epsCategory": "Beat",
+        "actualRevenue": "N/A",
+        "expectedRevenue": "$257.50 thousand",
+        "revenueCategory": "Estimate",
+        "percentageDifference": "+38.89%"
+      }
+    ]
+  },
+  {
+    "ticker": "SMR",
+    "currentPrice": "35.04",
+    "earningDate": "8/7/2025 4:30:00 PM",
+    "sector": "Energy",
+    "lastTwoEarnings": [
+      {
+        "earningDate": "05/23/2025",
+        "closeB4EarningPrice": "$25.32",
+        "closeB4EarningChange": "+8.67%",
+        "afterEarningPrice": "$35.52",
+        "afterEarningChange": "+40.28%",
+        "beatExpectation": "N/A",
+        "actualValue": "N/A",
+        "expectedValue": "-0.47",
+        "epsCategory": "Reported",
+        "actualRevenue": "$8.05 million",
+        "expectedRevenue": "$11.63 million",
+        "revenueCategory": "Miss",
+        "percentageDifference": "N/A"
+      },
+      {
+        "earningDate": "05/12/2025",
+        "closeB4EarningPrice": "$17.45",
+        "closeB4EarningChange": "+1.57%",
+        "afterEarningPrice": "$21.64",
+        "afterEarningChange": "+24.01%",
+        "beatExpectation": "Beat",
+        "actualValue": "-0.11",
+        "expectedValue": "-0.15",
+        "epsCategory": "Beat",
+        "actualRevenue": "$8.05 million",
+        "expectedRevenue": "$11.63 million",
+        "revenueCategory": "Miss",
+        "percentageDifference": "+26.67%"
+      }
+    ]
+  },
+  {
+    "ticker": "UUUU",
+    "currentPrice": "10.58",
+    "earningDate": "8/7/2025 8:30:00 AM",
+    "sector": "Energy",
+    "lastTwoEarnings": [
+      {
+        "earningDate": "06/11/2025",
+        "closeB4EarningPrice": "$5.36",
+        "closeB4EarningChange": "-5.96%",
+        "afterEarningPrice": "$5.37",
+        "afterEarningChange": "+0.19%",
+        "beatExpectation": "N/A",
+        "actualValue": "N/A",
+        "expectedValue": "0.06",
+        "epsCategory": "Reported",
+        "actualRevenue": "$4.21 million",
+        "expectedRevenue": "$13.56 million",
+        "revenueCategory": "Miss",
+        "percentageDifference": "N/A"
+      },
+      {
+        "earningDate": "05/08/2025",
+        "closeB4EarningPrice": "$4.75",
+        "closeB4EarningChange": "+3.71%",
+        "afterEarningPrice": "$4.76",
+        "afterEarningChange": "+0.21%",
+        "beatExpectation": "N/A",
+        "actualValue": "N/A",
+        "expectedValue": "0.06",
+        "epsCategory": "Reported",
+        "actualRevenue": "$4.21 million",
+        "expectedRevenue": "$13.56 million",
+        "revenueCategory": "Miss",
+        "percentageDifference": "N/A"
+      }
+    ]
+  },
+  {
+    "ticker": "NXE",
+    "currentPrice": "7.10",
+    "earningDate": "8/6/2025 4:30:00 PM",
+    "sector": "Energy",
+    "lastTwoEarnings": [
+      {
+        "earningDate": "06/17/2025",
+        "closeB4EarningPrice": "$6.99",
+        "closeB4EarningChange": "+1.60%",
+        "afterEarningPrice": "$6.84",
+        "afterEarningChange": "-2.15%",
+        "beatExpectation": "N/A",
+        "actualValue": "N/A",
+        "expectedValue": "-0.11",
+        "epsCategory": "Reported",
+        "actualRevenue": "N/A",
+        "expectedRevenue": "N/A",
+        "revenueCategory": "Reported",
+        "percentageDifference": "N/A"
+      },
+      {
+        "earningDate": "05/20/2025",
+        "closeB4EarningPrice": "$5.37",
+        "closeB4EarningChange": "+0.56%",
+        "afterEarningPrice": "$5.47",
+        "afterEarningChange": "+1.86%",
+        "beatExpectation": "N/A",
+        "actualValue": "N/A",
+        "expectedValue": "-0.11",
+        "epsCategory": "Reported",
+        "actualRevenue": "N/A",
+        "expectedRevenue": "N/A",
+        "revenueCategory": "Reported",
+        "percentageDifference": "N/A"
+      }
+    ]
+  },
+  {
+    "ticker": "TEM",
+    "currentPrice": "80.52",
+    "earningDate": "8/8/2025 8:30:00 AM",
+    "sector": "Healthcare",
+    "lastTwoEarnings": [
+      {
+        "earningDate": "05/06/2025",
+        "closeB4EarningPrice": "$54.07",
+        "closeB4EarningChange": "-2.73%",
+        "afterEarningPrice": "$58.76",
+        "afterEarningChange": "+8.67%",
+        "beatExpectation": "Beat",
+        "actualValue": "-0.24",
+        "expectedValue": "-0.27",
+        "epsCategory": "Beat",
+        "actualRevenue": "$314.63 million",
+        "expectedRevenue": "$328.61 million",
+        "revenueCategory": "Miss",
+        "percentageDifference": "+11.11%"
+      },
+      {
+        "earningDate": "02/24/2025",
+        "closeB4EarningPrice": "$68.09",
+        "closeB4EarningChange": "-11.01%",
+        "afterEarningPrice": "$59.10",
+        "afterEarningChange": "-13.20%",
+        "beatExpectation": "Beat",
+        "actualValue": "-0.18",
+        "expectedValue": "-0.20",
+        "epsCategory": "Beat",
+        "actualRevenue": "$314.63 million",
+        "expectedRevenue": "$328.61 million",
+        "revenueCategory": "Miss",
+        "percentageDifference": "+10.00%"
+      }
+    ]
+  },
+  {
+    "ticker": "NVO",
+    "currentPrice": "56.98",
+    "earningDate": "8/6/2025 8:30:00 AM",
+    "sector": "Healthcare",
+    "lastTwoEarnings": [
+      {
+        "earningDate": "05/08/2025",
+        "closeB4EarningPrice": "$67.55",
+        "closeB4EarningChange": "-2.60%",
+        "afterEarningPrice": "$65.77",
+        "afterEarningChange": "-2.64%",
+        "beatExpectation": "N/A",
+        "actualValue": "N/A",
+        "expectedValue": "4.07",
+        "epsCategory": "Reported",
+        "actualRevenue": "$76.86 billion",
+        "expectedRevenue": "$77.65 billion",
+        "revenueCategory": "Miss",
+        "percentageDifference": "N/A"
+      },
+      {
+        "earningDate": "05/07/2025",
+        "closeB4EarningPrice": "$66.29",
+        "closeB4EarningChange": "-2.46%",
+        "afterEarningPrice": "$64.85",
+        "afterEarningChange": "-2.17%",
+        "beatExpectation": "Beat",
+        "actualValue": "6.53",
+        "expectedValue": "6.11",
+        "epsCategory": "Beat",
+        "actualRevenue": "$76.86 billion",
+        "expectedRevenue": "$77.65 billion",
+        "revenueCategory": "Miss",
+        "percentageDifference": "+6.87%"
+      }
+    ]
+  },
+  {
+    "ticker": "RDTL",
+    "currentPrice": "54.87",
+    "earningDate": "N/A",
+    "sector": "Others",
+    "lastTwoEarnings": [
+      {
+        "earningDate": "N/A",
+        "closeB4EarningPrice": "N/A",
+        "closeB4EarningChange": "N/A",
+        "afterEarningPrice": "N/A",
+        "afterEarningChange": "N/A",
+        "beatExpectation": "N/A",
+        "actualValue": "N/A",
+        "expectedValue": "N/A",
+        "epsCategory": "N/A",
+        "actualRevenue": "N/A",
+        "expectedRevenue": "N/A",
+        "revenueCategory": "N/A",
+        "percentageDifference": "N/A"
+      }
+    ]
+  },
+  {
+    "ticker": "APPS",
+    "currentPrice": "4.23",
+    "earningDate": "8/5/2025 4:30:00 PM",
+    "sector": "Others",
+    "lastTwoEarnings": [
+      {
+        "earningDate": "06/16/2025",
+        "closeB4EarningPrice": "$4.68",
+        "closeB4EarningChange": "-2.30%",
+        "afterEarningPrice": "$7.54",
+        "afterEarningChange": "+61.11%",
+        "beatExpectation": "Beat",
+        "actualValue": "0.10",
+        "expectedValue": "0.04",
+        "epsCategory": "Beat",
+        "actualRevenue": "$130.93 million",
+        "expectedRevenue": "$127.61 million",
+        "revenueCategory": "Beat",
+        "percentageDifference": "+150.00%"
+      },
+      {
+        "earningDate": "02/05/2025",
+        "closeB4EarningPrice": "$2.48",
+        "closeB4EarningChange": "-2.36%",
+        "afterEarningPrice": "$4.99",
+        "afterEarningChange": "+101.21%",
+        "beatExpectation": "Beat",
+        "actualValue": "0.13",
+        "expectedValue": "-0.01",
+        "epsCategory": "Beat",
+        "actualRevenue": "$130.93 million",
+        "expectedRevenue": "$127.61 million",
+        "revenueCategory": "Beat",
+        "percentageDifference": "+1400.00%"
+      }
+    ]
+  },
+  {
+    "ticker": "RBLU",
+    "currentPrice": "74.11",
+    "earningDate": "N/A",
+    "sector": "Others",
+    "lastTwoEarnings": [
+      {
+        "earningDate": "N/A",
+        "closeB4EarningPrice": "N/A",
+        "closeB4EarningChange": "N/A",
+        "afterEarningPrice": "N/A",
+        "afterEarningChange": "N/A",
+        "beatExpectation": "N/A",
+        "actualValue": "N/A",
+        "expectedValue": "N/A",
+        "epsCategory": "N/A",
+        "actualRevenue": "N/A",
+        "expectedRevenue": "N/A",
+        "revenueCategory": "N/A",
+        "percentageDifference": "N/A"
+      }
+    ]
+  },
+  {
+    "ticker": "CVNX",
+    "currentPrice": "22.40",
+    "earningDate": "N/A",
+    "sector": "Others",
+    "lastTwoEarnings": [
+      {
+        "earningDate": "N/A",
+        "closeB4EarningPrice": "N/A",
+        "closeB4EarningChange": "N/A",
+        "afterEarningPrice": "N/A",
+        "afterEarningChange": "N/A",
+        "beatExpectation": "N/A",
+        "actualValue": "N/A",
+        "expectedValue": "N/A",
+        "epsCategory": "N/A",
+        "actualRevenue": "N/A",
+        "expectedRevenue": "N/A",
+        "revenueCategory": "N/A",
+        "percentageDifference": "N/A"
+      }
+    ]
+  },
+  {
+    "ticker": "SERV",
+    "currentPrice": "9.71",
+    "earningDate": "8/7/2025 4:30:00 PM",
+    "sector": "Others",
+    "lastTwoEarnings": [
+      {
+        "earningDate": "05/08/2025",
+        "closeB4EarningPrice": "$5.99",
+        "closeB4EarningChange": "-3.54%",
+        "afterEarningPrice": "$7.46",
+        "afterEarningChange": "+24.54%",
+        "beatExpectation": "Miss",
+        "actualValue": "-0.23",
+        "expectedValue": "-0.20",
+        "epsCategory": "Miss",
+        "actualRevenue": "$642.00 thousand",
+        "expectedRevenue": "$689.34 thousand",
+        "revenueCategory": "Miss",
+        "percentageDifference": "-15.00%"
+      },
+      {
+        "earningDate": "03/06/2025",
+        "closeB4EarningPrice": "$8.28",
+        "closeB4EarningChange": "-1.43%",
+        "afterEarningPrice": "$7.43",
+        "afterEarningChange": "-10.27%",
+        "beatExpectation": "Miss",
+        "actualValue": "-0.23",
+        "expectedValue": "-0.18",
+        "epsCategory": "Miss",
+        "actualRevenue": "$642.00 thousand",
+        "expectedRevenue": "$689.34 thousand",
+        "revenueCategory": "Miss",
+        "percentageDifference": "-27.78%"
+      }
+    ]
+  },
+  {
+    "ticker": "ARQQ",
+    "currentPrice": "30.81",
+    "earningDate": "5/22/2025 8:30:00 AM",
+    "sector": "Quantum",
+    "lastTwoEarnings": [
+      {
+        "earningDate": "05/22/2025",
+        "closeB4EarningPrice": "$25.89",
+        "closeB4EarningChange": "+3.31%",
+        "afterEarningPrice": "$25.11",
+        "afterEarningChange": "-3.01%",
+        "beatExpectation": "N/A",
+        "actualValue": "N/A",
+        "expectedValue": "-2.00",
+        "epsCategory": "Reported",
+        "actualRevenue": "$293.00 thousand",
+        "expectedRevenue": "$1.10 million",
+        "revenueCategory": "Miss",
+        "percentageDifference": "N/A"
+      },
+      {
+        "earningDate": "12/05/2024",
+        "closeB4EarningPrice": "$24.20",
+        "closeB4EarningChange": "-13.57%",
+        "afterEarningPrice": "$22.84",
+        "afterEarningChange": "-5.62%",
+        "beatExpectation": "N/A",
+        "actualValue": "N/A",
+        "expectedValue": "-2.00",
+        "epsCategory": "Reported",
+        "actualRevenue": "$293.00 thousand",
+        "expectedRevenue": "$1.10 million",
+        "revenueCategory": "Miss",
+        "percentageDifference": "N/A"
+      }
+    ]
+  },
+  {
+    "ticker": "IONQ",
+    "currentPrice": "39.78",
+    "earningDate": "8/6/2025 4:30:00 PM",
+    "sector": "Quantum",
+    "lastTwoEarnings": [
+      {
+        "earningDate": "05/07/2025",
+        "closeB4EarningPrice": "$29.42",
+        "closeB4EarningChange": "+3.05%",
+        "afterEarningPrice": "$31.84",
+        "afterEarningChange": "+8.23%",
+        "beatExpectation": "Beat",
+        "actualValue": "-0.14",
+        "expectedValue": "-0.20",
+        "epsCategory": "Beat",
+        "actualRevenue": "$20.69 million",
+        "expectedRevenue": "$26.98 million",
+        "revenueCategory": "Miss",
+        "percentageDifference": "+30.00%"
+      },
+      {
+        "earningDate": "02/26/2025",
+        "closeB4EarningPrice": "$29.73",
+        "closeB4EarningChange": "-3.72%",
+        "afterEarningPrice": "$24.91",
+        "afterEarningChange": "-16.21%",
+        "beatExpectation": "Miss",
+        "actualValue": "-0.93",
+        "expectedValue": "-0.25",
+        "epsCategory": "Miss",
+        "actualRevenue": "$20.69 million",
+        "expectedRevenue": "$26.98 million",
+        "revenueCategory": "Miss",
+        "percentageDifference": "-272.00%"
+      }
+    ]
+  },
+  {
+    "ticker": "AIRE",
+    "currentPrice": "0.37",
+    "earningDate": "8/14/2025 8:30:00 AM",
+    "sector": "Real Estate",
+    "lastTwoEarnings": [
+      {
+        "earningDate": "05/16/2025",
+        "closeB4EarningPrice": "$0.70",
+        "closeB4EarningChange": "+9.06%",
+        "afterEarningPrice": "$0.55",
+        "afterEarningChange": "-21.20%",
+        "beatExpectation": "Miss",
+        "actualValue": "-0.06",
+        "expectedValue": "-0.04",
+        "epsCategory": "Miss",
+        "actualRevenue": "$1.25 million",
+        "expectedRevenue": "$1.30 million",
+        "revenueCategory": "Miss",
+        "percentageDifference": "-50.00%"
+      },
+      {
+        "earningDate": "04/02/2025",
+        "closeB4EarningPrice": "$1.10",
+        "closeB4EarningChange": "+1.85%",
+        "afterEarningPrice": "$1.07",
+        "afterEarningChange": "-2.73%",
+        "beatExpectation": "Miss",
+        "actualValue": "-0.06",
+        "expectedValue": "-0.04",
+        "epsCategory": "Miss",
+        "actualRevenue": "$1.25 million",
+        "expectedRevenue": "$1.30 million",
+        "revenueCategory": "Miss",
+        "percentageDifference": "-50.00%"
+      }
+    ]
+  },
+  {
+    "ticker": "APLD",
+    "currentPrice": "16.05",
+    "earningDate": "7/30/2025 4:30:00 PM",
+    "sector": "AI Service",
+    "lastTwoEarnings": [
+      {
+        "earningDate": "04/14/2025",
+        "closeB4EarningPrice": "$5.29",
+        "closeB4EarningChange": "+2.72%",
+        "afterEarningPrice": "$3.44",
+        "afterEarningChange": "-34.97%",
+        "beatExpectation": "Miss",
+        "actualValue": "-0.13",
+        "expectedValue": "-0.11",
+        "epsCategory": "Miss",
+        "actualRevenue": "$52.92 million",
+        "expectedRevenue": "$57.96 million",
+        "revenueCategory": "Miss",
+        "percentageDifference": "-18.18%"
+      },
+      {
+        "earningDate": "01/14/2025",
+        "closeB4EarningPrice": "$7.76",
+        "closeB4EarningChange": "-2.45%",
+        "afterEarningPrice": "$8.37",
+        "afterEarningChange": "+7.79%",
+        "beatExpectation": "Miss",
+        "actualValue": "-0.66",
+        "expectedValue": "-0.15",
+        "epsCategory": "Miss",
+        "actualRevenue": "$52.92 million",
+        "expectedRevenue": "$57.96 million",
+        "revenueCategory": "Miss",
+        "percentageDifference": "-340.00%"
+      }
+    ]
+  },
+  {
+    "ticker": "SOFI",
+    "currentPrice": "25.02",
+    "earningDate": "7/29/2025 8:30:00 AM",
+    "sector": "Finance",
+    "lastTwoEarnings": [
+      {
+        "earningDate": "05/21/2025",
+        "closeB4EarningPrice": "$13.27",
+        "closeB4EarningChange": "-2.86%",
+        "afterEarningPrice": "$13.19",
+        "afterEarningChange": "-0.60%",
+        "beatExpectation": "Beat",
+        "actualValue": "0.50",
+        "expectedValue": "0.40",
+        "epsCategory": "Beat",
+        "actualRevenue": "$854.94 million",
+        "expectedRevenue": "$871.84 million",
+        "revenueCategory": "Miss",
+        "percentageDifference": "+25.00%"
+      },
+      {
+        "earningDate": "04/29/2025",
+        "closeB4EarningPrice": "$13.20",
+        "closeB4EarningChange": "-0.30%",
+        "afterEarningPrice": "$12.51",
+        "afterEarningChange": "-5.23%",
+        "beatExpectation": "Beat",
+        "actualValue": "0.06",
+        "expectedValue": "0.03",
+        "epsCategory": "Beat",
+        "actualRevenue": "$854.94 million",
+        "expectedRevenue": "$871.84 million",
+        "revenueCategory": "Miss",
+        "percentageDifference": "+100.00%"
+      }
+    ]
+  },
+  {
+    "ticker": "NFLX",
+    "currentPrice": "1204.65",
+    "earningDate": "7/17/2025 4:30:00 PM",
+    "sector": "Mega Stocks",
+    "lastTwoEarnings": [
+      {
+        "earningDate": "06/06/2025",
+        "closeB4EarningPrice": "$1250.52",
+        "closeB4EarningChange": "+0.80%",
+        "afterEarningPrice": "$1224.46",
+        "afterEarningChange": "-2.08%",
+        "beatExpectation": "Beat",
+        "actualValue": "0.50",
+        "expectedValue": "0.40",
+        "epsCategory": "Beat",
+        "actualRevenue": "$11.08 billion",
+        "expectedRevenue": "$11.52 billion",
+        "revenueCategory": "Miss",
+        "percentageDifference": "+25.00%"
+      },
+      {
+        "earningDate": "04/17/2025",
+        "closeB4EarningPrice": "$961.63",
+        "closeB4EarningChange": "-1.50%",
+        "afterEarningPrice": "$987.91",
+        "afterEarningChange": "+2.73%",
+        "beatExpectation": "Beat",
+        "actualValue": "6.61",
+        "expectedValue": "5.71",
+        "epsCategory": "Beat",
+        "actualRevenue": "$11.08 billion",
+        "expectedRevenue": "$11.52 billion",
+        "revenueCategory": "Miss",
+        "percentageDifference": "+15.76%"
+      }
+    ]
+  },
+  {
+    "ticker": "AAPL",
+    "currentPrice": "227.76",
+    "earningDate": "7/31/2025 4:30:00 PM",
+    "sector": "Mega Stocks",
+    "lastTwoEarnings": [
+      {
+        "earningDate": "05/01/2025",
+        "closeB4EarningPrice": "$211.98",
+        "closeB4EarningChange": "+1.53%",
+        "afterEarningPrice": "$204.85",
+        "afterEarningChange": "-3.36%",
+        "beatExpectation": "Beat",
+        "actualValue": "1.65",
+        "expectedValue": "1.63",
+        "epsCategory": "Beat",
+        "actualRevenue": "$94.04 billion",
+        "expectedRevenue": "$101.51 billion",
+        "revenueCategory": "Miss",
+        "percentageDifference": "+1.23%"
+      },
+      {
+        "earningDate": "02/27/2025",
+        "closeB4EarningPrice": "$239.77",
+        "closeB4EarningChange": "-1.62%",
+        "afterEarningPrice": "$241.25",
+        "afterEarningChange": "+0.62%",
+        "beatExpectation": "Beat",
+        "actualValue": "1.80",
+        "expectedValue": "1.60",
+        "epsCategory": "Beat",
+        "actualRevenue": "$94.04 billion",
+        "expectedRevenue": "$101.51 billion",
+        "revenueCategory": "Miss",
+        "percentageDifference": "+12.50%"
+      }
+    ]
+  },
+  {
+    "ticker": "GOOG",
+    "currentPrice": "206.72",
+    "earningDate": "7/23/2025 4:30:00 PM",
+    "sector": "Mega Stocks",
+    "lastTwoEarnings": [
+      {
+        "earningDate": "06/06/2025",
+        "closeB4EarningPrice": "$169.61",
+        "closeB4EarningChange": "-1.05%",
+        "afterEarningPrice": "$177.63",
+        "afterEarningChange": "+4.73%",
+        "beatExpectation": "Beat",
+        "actualValue": "2.50",
+        "expectedValue": "2.20",
+        "epsCategory": "Beat",
+        "actualRevenue": "$96.43 billion",
+        "expectedRevenue": "$99.66 billion",
+        "revenueCategory": "Miss",
+        "percentageDifference": "+13.64%"
+      },
+      {
+        "earningDate": "04/24/2025",
+        "closeB4EarningPrice": "$157.53",
+        "closeB4EarningChange": "-0.12%",
+        "afterEarningPrice": "$163.65",
+        "afterEarningChange": "+3.89%",
+        "beatExpectation": "Beat",
+        "actualValue": "2.27",
+        "expectedValue": "2.01",
+        "epsCategory": "Beat",
+        "actualRevenue": "$96.43 billion",
+        "expectedRevenue": "$99.66 billion",
+        "revenueCategory": "Miss",
+        "percentageDifference": "+12.94%"
+      }
+    ]
+  },
+  {
+    "ticker": "NVDA",
+    "currentPrice": "177.99",
+    "earningDate": "8/27/2025 4:30:00 PM",
+    "sector": "Mega Stocks",
+    "lastTwoEarnings": [
+      {
+        "earningDate": "06/26/2025",
+        "closeB4EarningPrice": "$154.31",
+        "closeB4EarningChange": "+3.38%",
+        "afterEarningPrice": "$157.75",
+        "afterEarningChange": "+2.23%",
+        "beatExpectation": "Met",
+        "actualValue": "5.57",
+        "expectedValue": "5.57",
+        "epsCategory": "Met",
+        "actualRevenue": "$44.06 billion",
+        "expectedRevenue": "$46.00 billion",
+        "revenueCategory": "Miss",
+        "percentageDifference": "+0.00%"
+      },
+      {
+        "earningDate": "05/28/2025",
+        "closeB4EarningPrice": "$135.49",
+        "closeB4EarningChange": "+1.01%",
+        "afterEarningPrice": "$139.18",
+        "afterEarningChange": "+2.72%",
+        "beatExpectation": "Beat",
+        "actualValue": "0.96",
+        "expectedValue": "0.93",
+        "epsCategory": "Beat",
+        "actualRevenue": "$44.06 billion",
+        "expectedRevenue": "$46.00 billion",
+        "revenueCategory": "Miss",
+        "percentageDifference": "+3.23%"
+      }
+    ]
+  },
+  {
+    "ticker": "MSFT",
+    "currentPrice": "507.23",
+    "earningDate": "7/30/2025 4:30:00 PM",
+    "sector": "Mega Stocks",
+    "lastTwoEarnings": [
+      {
+        "earningDate": "04/30/2025",
+        "closeB4EarningPrice": "$392.67",
+        "closeB4EarningChange": "+0.70%",
+        "afterEarningPrice": "$423.92",
+        "afterEarningChange": "+7.96%",
+        "beatExpectation": "Beat",
+        "actualValue": "3.46",
+        "expectedValue": "3.22",
+        "epsCategory": "Beat",
+        "actualRevenue": "$76.44 billion",
+        "expectedRevenue": "$75.46 billion",
+        "revenueCategory": "Beat",
+        "percentageDifference": "+7.45%"
+      },
+      {
+        "earningDate": "01/29/2025",
+        "closeB4EarningPrice": "$444.76",
+        "closeB4EarningChange": "+2.90%",
+        "afterEarningPrice": "$412.72",
+        "afterEarningChange": "-7.20%",
+        "beatExpectation": "Beat",
+        "actualValue": "3.23",
+        "expectedValue": "3.11",
+        "epsCategory": "Beat",
+        "actualRevenue": "$76.44 billion",
+        "expectedRevenue": "$75.46 billion",
+        "revenueCategory": "Beat",
+        "percentageDifference": "+3.86%"
+      }
+    ]
+  },
+  {
+    "ticker": "QQQ",
+    "currentPrice": "571.97",
+    "earningDate": "N/A",
+    "sector": "Mega Stocks",
+    "lastTwoEarnings": [
+      {
+        "earningDate": "02/16/2008",
+        "closeB4EarningPrice": "$37.83",
+        "closeB4EarningChange": "+0.21%",
+        "afterEarningPrice": "$37.76",
+        "afterEarningChange": "-0.18%",
+        "beatExpectation": "N/A",
+        "actualValue": "N/A",
+        "expectedValue": "N/A",
+        "epsCategory": "Reported",
+        "actualRevenue": "N/A",
+        "expectedRevenue": "N/A",
+        "revenueCategory": "Reported",
+        "percentageDifference": "N/A"
+      },
+      {
+        "earningDate": "11/15/2007",
+        "closeB4EarningPrice": "$43.20",
+        "closeB4EarningChange": "-2.53%",
+        "afterEarningPrice": "$43.36",
+        "afterEarningChange": "+0.38%",
+        "beatExpectation": "N/A",
+        "actualValue": "N/A",
+        "expectedValue": "N/A",
+        "epsCategory": "Reported",
+        "actualRevenue": "N/A",
+        "expectedRevenue": "N/A",
+        "revenueCategory": "Reported",
+        "percentageDifference": "N/A"
+      }
+    ]
+  },
+  {
+    "ticker": "VERI",
+    "currentPrice": "2.36",
+    "earningDate": "8/7/2025 4:30:00 PM",
+    "sector": "AI Service",
+    "lastTwoEarnings": [
+      {
+        "earningDate": "06/13/2025",
+        "closeB4EarningPrice": "$1.47",
+        "closeB4EarningChange": "-5.16%",
+        "afterEarningPrice": "$1.59",
+        "afterEarningChange": "+8.16%",
+        "beatExpectation": "Met",
+        "actualValue": "-0.21",
+        "expectedValue": "-0.21",
+        "epsCategory": "Met",
+        "actualRevenue": "$24.01 million",
+        "expectedRevenue": "$28.69 million",
+        "revenueCategory": "Miss",
+        "percentageDifference": "+0.00%"
+      },
+      {
+        "earningDate": "05/08/2025",
+        "closeB4EarningPrice": "$1.86",
+        "closeB4EarningChange": "+0.00%",
+        "afterEarningPrice": "$1.81",
+        "afterEarningChange": "-2.69%",
+        "beatExpectation": "Miss",
+        "actualValue": "-0.25",
+        "expectedValue": "-0.21",
+        "epsCategory": "Miss",
+        "actualRevenue": "$24.01 million",
+        "expectedRevenue": "$28.69 million",
+        "revenueCategory": "Miss",
+        "percentageDifference": "-19.05%"
+      }
+    ]
+  },
+  {
+    "ticker": "WULF",
+    "currentPrice": "9.16",
+    "earningDate": "8/8/2025 8:30:00 AM",
+    "sector": "Crypto",
+    "lastTwoEarnings": [
+      {
+        "earningDate": "05/09/2025",
+        "closeB4EarningPrice": "$3.30",
+        "closeB4EarningChange": "+3.12%",
+        "afterEarningPrice": "$3.48",
+        "afterEarningChange": "+5.45%",
+        "beatExpectation": "Miss",
+        "actualValue": "-0.16",
+        "expectedValue": "-0.07",
+        "epsCategory": "Miss",
+        "actualRevenue": "$47.64 million",
+        "expectedRevenue": "$56.04 million",
+        "revenueCategory": "Miss",
+        "percentageDifference": "-128.57%"
+      },
+      {
+        "earningDate": "02/28/2025",
+        "closeB4EarningPrice": "$3.61",
+        "closeB4EarningChange": "-8.84%",
+        "afterEarningPrice": "$3.67",
+        "afterEarningChange": "+1.66%",
+        "beatExpectation": "Miss",
+        "actualValue": "-0.08",
+        "expectedValue": "-0.03",
+        "epsCategory": "Miss",
+        "actualRevenue": "$47.64 million",
+        "expectedRevenue": "$56.04 million",
+        "revenueCategory": "Miss",
+        "percentageDifference": "-166.67%"
+      }
+    ]
+  },
+  {
+    "ticker": "HIMS",
+    "currentPrice": "44.57",
+    "earningDate": "8/4/2025 4:30:00 PM",
+    "sector": "Health & Pharma",
+    "lastTwoEarnings": [
+      {
+        "earningDate": "06/06/2025",
+        "closeB4EarningPrice": "$52.77",
+        "closeB4EarningChange": "-2.37%",
+        "afterEarningPrice": "$56.86",
+        "afterEarningChange": "+7.75%",
+        "beatExpectation": "Met",
+        "actualValue": "0.01",
+        "expectedValue": "0.01",
+        "epsCategory": "Met",
+        "actualRevenue": "$544.83 million",
+        "expectedRevenue": "$579.33 million",
+        "revenueCategory": "Miss",
+        "percentageDifference": "+0.00%"
+      },
+      {
+        "earningDate": "05/05/2025",
+        "closeB4EarningPrice": "$40.82",
+        "closeB4EarningChange": "+10.74%",
+        "afterEarningPrice": "$49.47",
+        "afterEarningChange": "+21.19%",
+        "beatExpectation": "Beat",
+        "actualValue": "0.20",
+        "expectedValue": "0.12",
+        "epsCategory": "Beat",
+        "actualRevenue": "$544.83 million",
+        "expectedRevenue": "$579.33 million",
+        "revenueCategory": "Miss",
+        "percentageDifference": "+66.67%"
+      }
+    ]
+  },
+  {
+    "ticker": "UNH",
+    "currentPrice": "307.42",
+    "earningDate": "7/29/2025 8:30:00 AM",
+    "sector": "Health & Pharma",
+    "lastTwoEarnings": [
+      {
+        "earningDate": "07/29/2025",
+        "closeB4EarningPrice": "$282.12",
+        "closeB4EarningChange": "-0.49%",
+        "afterEarningPrice": "$266.04",
+        "afterEarningChange": "-5.70%",
+        "beatExpectation": "Beat",
+        "actualValue": "2.50",
+        "expectedValue": "2.20",
+        "epsCategory": "Beat",
+        "actualRevenue": "$111.62 billion",
+        "expectedRevenue": "$113.22 billion",
+        "revenueCategory": "Miss",
+        "percentageDifference": "+13.64%"
+      },
+      {
+        "earningDate": "06/03/2025",
+        "closeB4EarningPrice": "$302.57",
+        "closeB4EarningChange": "+0.53%",
+        "afterEarningPrice": "$298.26",
+        "afterEarningChange": "-1.42%",
+        "beatExpectation": "Beat",
+        "actualValue": "2.50",
+        "expectedValue": "2.20",
+        "epsCategory": "Beat",
+        "actualRevenue": "$111.62 billion",
+        "expectedRevenue": "$113.22 billion",
+        "revenueCategory": "Miss",
+        "percentageDifference": "+13.64%"
+      }
+    ]
+  },
+  {
+    "ticker": "RGTI",
+    "currentPrice": "14.82",
+    "earningDate": "8/12/2025 4:30:00 PM",
+    "sector": "Quantum",
+    "lastTwoEarnings": [
+      {
+        "earningDate": "N/A",
+        "closeB4EarningPrice": "N/A",
+        "closeB4EarningChange": "N/A",
+        "afterEarningPrice": "N/A",
+        "afterEarningChange": "N/A",
+        "beatExpectation": "N/A",
+        "actualValue": "N/A",
+        "expectedValue": "-0.33",
+        "epsCategory": "N/A",
+        "actualRevenue": "N/A",
+        "expectedRevenue": "$7.92 million",
+        "revenueCategory": "N/A",
+        "percentageDifference": "N/A"
+      }
+    ]
+  },
+  {
+    "ticker": "QBTS",
+    "currentPrice": "15.54",
+    "earningDate": "8/7/2025 8:30:00 AM",
+    "sector": "Quantum",
+    "lastTwoEarnings": [
+      {
+        "earningDate": "N/A",
+        "closeB4EarningPrice": "N/A",
+        "closeB4EarningChange": "N/A",
+        "afterEarningPrice": "N/A",
+        "afterEarningChange": "N/A",
+        "beatExpectation": "N/A",
+        "actualValue": "N/A",
+        "expectedValue": "-0.26",
+        "epsCategory": "N/A",
+        "actualRevenue": "N/A",
+        "expectedRevenue": "$22.27 million",
+        "revenueCategory": "N/A",
+        "percentageDifference": "N/A"
+      }
+    ]
+  },
+  {
+    "ticker": "QUBT",
+    "currentPrice": "15.83",
+    "earningDate": "8/14/2025 4:30:00 PM",
+    "sector": "Quantum",
+    "lastTwoEarnings": [
+      {
+        "earningDate": "06/30/2025",
+        "closeB4EarningPrice": "$17.29",
+        "closeB4EarningChange": "+1.71%",
+        "afterEarningPrice": "$18.64",
+        "afterEarningChange": "+7.81%",
+        "beatExpectation": "Beat",
+        "actualValue": "-0.23",
+        "expectedValue": "-0.31",
+        "epsCategory": "Beat",
+        "actualRevenue": "$61.00 thousand",
+        "expectedRevenue": "N/A",
+        "revenueCategory": "Reported",
+        "percentageDifference": "+26.40%"
+      },
+      {
+        "earningDate": "03/31/2025",
+        "closeB4EarningPrice": "$8.45",
+        "closeB4EarningChange": "+9.39%",
+        "afterEarningPrice": "$7.76",
+        "afterEarningChange": "-8.17%",
+        "beatExpectation": "Beat",
+        "actualValue": "0.11",
+        "expectedValue": "-0.31",
+        "epsCategory": "Beat",
+        "actualRevenue": "$39.00 thousand",
+        "expectedRevenue": "N/A",
+        "revenueCategory": "Reported",
+        "percentageDifference": "+134.26%"
+      }
+    ]
+  },
+  {
+    "ticker": "UBER",
+    "currentPrice": "96.79",
+    "earningDate": "8/6/2025 8:30:00 AM",
+    "sector": "Drone Delivery/FlyingTaxi",
+    "lastTwoEarnings": [
+      {
+        "earningDate": "06/30/2025",
+        "closeB4EarningPrice": "$91.53",
+        "closeB4EarningChange": "-0.62%",
+        "afterEarningPrice": "$92.13",
+        "afterEarningChange": "+0.66%",
+        "beatExpectation": "Miss",
+        "actualValue": "0.65",
+        "expectedValue": "2.36",
+        "epsCategory": "Miss",
+        "actualRevenue": "$12.65 billion",
+        "expectedRevenue": "$47.33 billion",
+        "revenueCategory": "Miss",
+        "percentageDifference": "-72.57%"
+      },
+      {
+        "earningDate": "03/31/2025",
+        "closeB4EarningPrice": "$72.75",
+        "closeB4EarningChange": "-2.35%",
+        "afterEarningPrice": "$72.99",
+        "afterEarningChange": "+0.33%",
+        "beatExpectation": "Miss",
+        "actualValue": "0.85",
+        "expectedValue": "2.36",
+        "epsCategory": "Miss",
+        "actualRevenue": "$11.53 billion",
+        "expectedRevenue": "$47.33 billion",
+        "revenueCategory": "Miss",
+        "percentageDifference": "-63.83%"
+      }
+    ]
+  },
+  {
+    "ticker": "JOBY",
+    "currentPrice": "14.95",
+    "earningDate": "8/6/2025 4:30:00 PM",
+    "sector": "Drone Delivery/FlyingTaxi",
+    "lastTwoEarnings": [
+      {
+        "earningDate": "06/30/2025",
+        "closeB4EarningPrice": "$9.44",
+        "closeB4EarningChange": "+1.51%",
+        "afterEarningPrice": "$9.81",
+        "afterEarningChange": "+3.92%",
+        "beatExpectation": "Beat",
+        "actualValue": "-0.38",
+        "expectedValue": "-0.60",
+        "epsCategory": "Beat",
+        "actualRevenue": "$15.00 thousand",
+        "expectedRevenue": "N/A",
+        "revenueCategory": "Reported",
+        "percentageDifference": "+36.78%"
+      },
+      {
+        "earningDate": "03/31/2025",
+        "closeB4EarningPrice": "$6.11",
+        "closeB4EarningChange": "-3.48%",
+        "afterEarningPrice": "$5.93",
+        "afterEarningChange": "-2.95%",
+        "beatExpectation": "Beat",
+        "actualValue": "-0.10",
+        "expectedValue": "-0.60",
+        "epsCategory": "Beat",
+        "actualRevenue": "$0.00",
+        "expectedRevenue": "N/A",
+        "revenueCategory": "Reported",
+        "percentageDifference": "+83.95%"
+      }
+    ]
+  },
+  {
+    "ticker": "SRFM",
+    "currentPrice": "4.66",
+    "earningDate": "8/12/2025 4:30:00 PM",
+    "sector": "Drone Delivery/FlyingTaxi",
+    "lastTwoEarnings": [
+      {
+        "earningDate": "06/30/2025",
+        "closeB4EarningPrice": "$3.27",
+        "closeB4EarningChange": "-10.90%",
+        "afterEarningPrice": "$3.41",
+        "afterEarningChange": "+4.28%",
+        "beatExpectation": "Beat",
+        "actualValue": "-0.65",
+        "expectedValue": "-5.95",
+        "epsCategory": "Beat",
+        "actualRevenue": "$27.43 million",
+        "expectedRevenue": "$107.37 million",
+        "revenueCategory": "Miss",
+        "percentageDifference": "+89.01%"
+      },
+      {
+        "earningDate": "03/31/2025",
+        "closeB4EarningPrice": "$3.33",
+        "closeB4EarningChange": "-5.93%",
+        "afterEarningPrice": "$2.66",
+        "afterEarningChange": "-20.12%",
+        "beatExpectation": "Beat",
+        "actualValue": "-0.43",
+        "expectedValue": "-5.95",
+        "epsCategory": "Beat",
+        "actualRevenue": "$23.51 million",
+        "expectedRevenue": "$107.37 million",
+        "revenueCategory": "Miss",
+        "percentageDifference": "+92.75%"
+      }
+    ]
+  },
+  {
+    "ticker": "SMCI",
+    "currentPrice": "43.88",
+    "earningDate": "8/5/2025 4:30:00 PM",
+    "sector": "SemiConductor",
+    "lastTwoEarnings": [
+      {
+        "earningDate": "03/31/2025",
+        "closeB4EarningPrice": "$34.26",
+        "closeB4EarningChange": "-1.44%",
+        "afterEarningPrice": "$35.05",
+        "afterEarningChange": "+2.31%",
+        "beatExpectation": "Miss",
+        "actualValue": "0.18",
+        "expectedValue": "4.24",
+        "epsCategory": "Miss",
+        "actualRevenue": "$4.60 billion",
+        "expectedRevenue": "$21.97 billion",
+        "revenueCategory": "Miss",
+        "percentageDifference": "-95.70%"
+      },
+      {
+        "earningDate": "12/31/2024",
+        "closeB4EarningPrice": "$30.68",
+        "closeB4EarningChange": "-1.92%",
+        "afterEarningPrice": "$30.05",
+        "afterEarningChange": "-2.05%",
+        "beatExpectation": "Miss",
+        "actualValue": "0.54",
+        "expectedValue": "4.24",
+        "epsCategory": "Miss",
+        "actualRevenue": "$5.68 billion",
+        "expectedRevenue": "$21.97 billion",
+        "revenueCategory": "Miss",
+        "percentageDifference": "-87.33%"
+      }
+    ]
+  },
+  {
+    "ticker": "AMD",
+    "currentPrice": "167.76",
+    "earningDate": "8/5/2025 4:30:00 PM",
+    "sector": "SemiConductor",
+    "lastTwoEarnings": [
+      {
+        "earningDate": "06/30/2025",
+        "closeB4EarningPrice": "$143.81",
+        "closeB4EarningChange": "-0.26%",
+        "afterEarningPrice": "$136.11",
+        "afterEarningChange": "-5.35%",
+        "beatExpectation": "Miss",
+        "actualValue": "0.47",
+        "expectedValue": "5.10",
+        "epsCategory": "Miss",
+        "actualRevenue": "$7.68 billion",
+        "expectedRevenue": "$29.60 billion",
+        "revenueCategory": "Miss",
+        "percentageDifference": "-90.72%"
+      },
+      {
+        "earningDate": "03/31/2025",
+        "closeB4EarningPrice": "$103.22",
+        "closeB4EarningChange": "-2.19%",
+        "afterEarningPrice": "$102.78",
+        "afterEarningChange": "-0.43%",
+        "beatExpectation": "Miss",
+        "actualValue": "0.44",
+        "expectedValue": "5.10",
+        "epsCategory": "Miss",
+        "actualRevenue": "$7.44 billion",
+        "expectedRevenue": "$29.60 billion",
+        "revenueCategory": "Miss",
+        "percentageDifference": "-91.43%"
+      }
+    ]
+  },
+  {
+    "ticker": "MRVL",
+    "currentPrice": "73.00",
+    "earningDate": "8/28/2025 4:30:00 PM",
+    "sector": "SemiConductor",
+    "lastTwoEarnings": [
+      {
+        "earningDate": "04/30/2025",
+        "closeB4EarningPrice": "$58.63",
+        "closeB4EarningChange": "+0.81%",
+        "afterEarningPrice": "$60.90",
+        "afterEarningChange": "+3.87%",
+        "beatExpectation": "Miss",
+        "actualValue": "0.21",
+        "expectedValue": "2.50",
+        "epsCategory": "Miss",
+        "actualRevenue": "$1.90 billion",
+        "expectedRevenue": "$6.50 billion",
+        "revenueCategory": "Miss",
+        "percentageDifference": "-91.75%"
+      },
+      {
+        "earningDate": "01/31/2025",
+        "closeB4EarningPrice": "$110.11",
+        "closeB4EarningChange": "-0.93%",
+        "afterEarningPrice": "$113.34",
+        "afterEarningChange": "+2.93%",
+        "beatExpectation": "Miss",
+        "actualValue": "0.23",
+        "expectedValue": "2.50",
+        "epsCategory": "Miss",
+        "actualRevenue": "$1.82 billion",
+        "expectedRevenue": "$6.50 billion",
+        "revenueCategory": "Miss",
+        "percentageDifference": "-90.71%"
+      }
+    ]
+  },
+  {
+    "ticker": "ARM",
+    "currentPrice": "137.92",
+    "earningDate": "7/30/2025 4:30:00 PM",
+    "sector": "SemiConductor",
+    "lastTwoEarnings": [
+      {
+        "earningDate": "06/30/2025",
+        "closeB4EarningPrice": "$165.46",
+        "closeB4EarningChange": "+4.06%",
+        "afterEarningPrice": "$156.33",
+        "afterEarningChange": "-5.52%",
+        "beatExpectation": "Miss",
+        "actualValue": "0.12",
+        "expectedValue": "2.06",
+        "epsCategory": "Miss",
+        "actualRevenue": "$1.05 billion",
+        "expectedRevenue": "$4.12 billion",
+        "revenueCategory": "Miss",
+        "percentageDifference": "-94.04%"
+      },
+      {
+        "earningDate": "03/31/2025",
+        "closeB4EarningPrice": "$107.80",
+        "closeB4EarningChange": "-3.32%",
+        "afterEarningPrice": "$106.98",
+        "afterEarningChange": "-0.76%",
+        "beatExpectation": "Miss",
+        "actualValue": "0.20",
+        "expectedValue": "2.06",
+        "epsCategory": "Miss",
+        "actualRevenue": "$1.24 billion",
+        "expectedRevenue": "$4.12 billion",
+        "revenueCategory": "Miss",
+        "percentageDifference": "-90.38%"
+      }
+    ]
+  },
+  {
+    "ticker": "SNPS",
+    "currentPrice": "606.52",
+    "earningDate": "9/9/2025 4:30:00 PM",
+    "sector": "SemiConductor",
+    "lastTwoEarnings": [
+      {
+        "earningDate": "04/30/2025",
+        "closeB4EarningPrice": "$460.77",
+        "closeB4EarningChange": "+3.35%",
+        "afterEarningPrice": "$459.36",
+        "afterEarningChange": "-0.31%",
+        "beatExpectation": "Miss",
+        "actualValue": "1.89",
+        "expectedValue": "14.87",
+        "epsCategory": "Miss",
+        "actualRevenue": "$1.60 billion",
+        "expectedRevenue": "$6.22 billion",
+        "revenueCategory": "Miss",
+        "percentageDifference": "-87.31%"
+      },
+      {
+        "earningDate": "01/31/2025",
+        "closeB4EarningPrice": "$526.36",
+        "closeB4EarningChange": "+2.03%",
+        "afterEarningPrice": "$520.25",
+        "afterEarningChange": "-1.16%",
+        "beatExpectation": "Miss",
+        "actualValue": "1.60",
+        "expectedValue": "14.87",
+        "epsCategory": "Miss",
+        "actualRevenue": "$1.46 billion",
+        "expectedRevenue": "$6.22 billion",
+        "revenueCategory": "Miss",
+        "percentageDifference": "-89.25%"
+      }
+    ]
+  },
+  {
+    "ticker": "NXPI",
+    "currentPrice": "234.83",
+    "earningDate": "7/21/2025 4:30:00 PM",
+    "sector": "SemiConductor",
+    "lastTwoEarnings": [
+      {
+        "earningDate": "06/30/2025",
+        "closeB4EarningPrice": "$217.04",
+        "closeB4EarningChange": "-0.51%",
+        "afterEarningPrice": "$221.21",
+        "afterEarningChange": "+1.92%",
+        "beatExpectation": "Miss",
+        "actualValue": "1.77",
+        "expectedValue": "13.07",
+        "epsCategory": "Miss",
+        "actualRevenue": "$2.93 billion",
+        "expectedRevenue": "$12.12 billion",
+        "revenueCategory": "Miss",
+        "percentageDifference": "-86.50%"
+      },
+      {
+        "earningDate": "03/31/2025",
+        "closeB4EarningPrice": "$189.11",
+        "closeB4EarningChange": "-4.18%",
+        "afterEarningPrice": "$189.12",
+        "afterEarningChange": "+0.01%",
+        "beatExpectation": "Miss",
+        "actualValue": "1.94",
+        "expectedValue": "13.07",
+        "epsCategory": "Miss",
+        "actualRevenue": "$2.83 billion",
+        "expectedRevenue": "$12.12 billion",
+        "revenueCategory": "Miss",
+        "percentageDifference": "-85.13%"
+      }
+    ]
+  },
+  {
+    "ticker": "CDNS",
+    "currentPrice": "349.63",
+    "earningDate": "7/28/2025 4:30:00 PM",
+    "sector": "SemiConductor",
+    "lastTwoEarnings": [
+      {
+        "earningDate": "06/30/2025",
+        "closeB4EarningPrice": "$305.20",
+        "closeB4EarningChange": "-0.60%",
+        "afterEarningPrice": "$309.46",
+        "afterEarningChange": "+1.40%",
+        "beatExpectation": "Miss",
+        "actualValue": "0.59",
+        "expectedValue": "6.85",
+        "epsCategory": "Miss",
+        "actualRevenue": "$1.28 billion",
+        "expectedRevenue": "$5.09 billion",
+        "revenueCategory": "Miss",
+        "percentageDifference": "-91.43%"
+      },
+      {
+        "earningDate": "03/31/2025",
+        "closeB4EarningPrice": "$256.69",
+        "closeB4EarningChange": "-2.14%",
+        "afterEarningPrice": "$258.79",
+        "afterEarningChange": "+0.82%",
+        "beatExpectation": "Miss",
+        "actualValue": "1.00",
+        "expectedValue": "6.85",
+        "epsCategory": "Miss",
+        "actualRevenue": "$1.24 billion",
+        "expectedRevenue": "$5.09 billion",
+        "revenueCategory": "Miss",
+        "percentageDifference": "-85.34%"
+      }
+    ]
+  },
+  {
+    "ticker": "SMTC",
+    "currentPrice": "51.09",
+    "earningDate": "8/25/2025 4:30:00 PM",
+    "sector": "SemiConductor",
+    "lastTwoEarnings": [
+      {
+        "earningDate": "04/30/2025",
+        "closeB4EarningPrice": "$31.19",
+        "closeB4EarningChange": "+5.69%",
+        "afterEarningPrice": "$32.34",
+        "afterEarningChange": "+3.69%",
+        "beatExpectation": "Miss",
+        "actualValue": "0.22",
+        "expectedValue": "1.65",
+        "epsCategory": "Miss",
+        "actualRevenue": "$251.06 million",
+        "expectedRevenue": "$954.24 million",
+        "revenueCategory": "Miss",
+        "percentageDifference": "-86.47%"
+      },
+      {
+        "earningDate": "01/31/2025",
+        "closeB4EarningPrice": "$67.69",
+        "closeB4EarningChange": "+8.36%",
+        "afterEarningPrice": "$63.46",
+        "afterEarningChange": "-6.25%",
+        "beatExpectation": "Miss",
+        "actualValue": "0.45",
+        "expectedValue": "1.65",
+        "epsCategory": "Miss",
+        "actualRevenue": "$251.00 million",
+        "expectedRevenue": "$954.24 million",
+        "revenueCategory": "Miss",
+        "percentageDifference": "-72.62%"
+      }
+    ]
+  },
+  {
+    "ticker": "NVTS",
+    "currentPrice": "6.43",
+    "earningDate": "8/4/2025 4:30:00 PM",
+    "sector": "SemiConductor",
+    "lastTwoEarnings": [
+      {
+        "earningDate": "06/30/2025",
+        "closeB4EarningPrice": "$6.67",
+        "closeB4EarningChange": "-0.45%",
+        "afterEarningPrice": "$6.27",
+        "afterEarningChange": "-6.00%",
+        "beatExpectation": "Miss",
+        "actualValue": "-0.23",
+        "expectedValue": "-0.21",
+        "epsCategory": "Miss",
+        "actualRevenue": "$14.49 million",
+        "expectedRevenue": "$68.17 million",
+        "revenueCategory": "Miss",
+        "percentageDifference": "-9.67%"
+      },
+      {
+        "earningDate": "03/31/2025",
+        "closeB4EarningPrice": "$1.83",
+        "closeB4EarningChange": "-9.85%",
+        "afterEarningPrice": "$2.00",
+        "afterEarningChange": "+9.29%",
+        "beatExpectation": "Beat",
+        "actualValue": "-0.08",
+        "expectedValue": "-0.21",
+        "epsCategory": "Beat",
+        "actualRevenue": "$14.02 million",
+        "expectedRevenue": "$68.17 million",
+        "revenueCategory": "Miss",
+        "percentageDifference": "+62.39%"
+      }
+    ]
+  },
+  {
+    "ticker": "OPEN",
+    "currentPrice": "5.01",
+    "earningDate": "8/5/2025 4:30:00 PM",
+    "sector": "Real Estate",
+    "lastTwoEarnings": [
+      {
+        "earningDate": "06/30/2025",
+        "closeB4EarningPrice": "$0.56",
+        "closeB4EarningChange": "+3.33%",
+        "afterEarningPrice": "$0.56",
+        "afterEarningChange": "+1.25%",
+        "beatExpectation": "Beat",
+        "actualValue": "-0.04",
+        "expectedValue": "-0.27",
+        "epsCategory": "Beat",
+        "actualRevenue": "$1.57 billion",
+        "expectedRevenue": "$5.18 billion",
+        "revenueCategory": "Miss",
+        "percentageDifference": "+85.41%"
+      },
+      {
+        "earningDate": "03/31/2025",
+        "closeB4EarningPrice": "$1.13",
+        "closeB4EarningChange": "-2.59%",
+        "afterEarningPrice": "$1.00",
+        "afterEarningChange": "-11.06%",
+        "beatExpectation": "Beat",
+        "actualValue": "-0.12",
+        "expectedValue": "-0.27",
+        "epsCategory": "Beat",
+        "actualRevenue": "$1.15 billion",
+        "expectedRevenue": "$5.18 billion",
+        "revenueCategory": "Miss",
+        "percentageDifference": "+57.22%"
+      }
+    ]
+  },
+  {
+    "ticker": "RKT",
+    "currentPrice": "19.21",
+    "earningDate": "7/31/2025 4:30:00 PM",
+    "sector": "Real Estate",
+    "lastTwoEarnings": [
+      {
+        "earningDate": "06/30/2025",
+        "closeB4EarningPrice": "$14.22",
+        "closeB4EarningChange": "-1.25%",
+        "afterEarningPrice": "$14.48",
+        "afterEarningChange": "+1.83%",
+        "beatExpectation": "Miss",
+        "actualValue": "-0.01",
+        "expectedValue": "0.66",
+        "epsCategory": "Miss",
+        "actualRevenue": "$1.30 billion",
+        "expectedRevenue": "$5.15 billion",
+        "revenueCategory": "Miss",
+        "percentageDifference": "-101.95%"
+      },
+      {
+        "earningDate": "03/31/2025",
+        "closeB4EarningPrice": "$13.03",
+        "closeB4EarningChange": "-3.05%",
+        "afterEarningPrice": "$12.60",
+        "afterEarningChange": "-3.30%",
+        "beatExpectation": "Miss",
+        "actualValue": "-0.07",
+        "expectedValue": "0.66",
+        "epsCategory": "Miss",
+        "actualRevenue": "$998.98 million",
+        "expectedRevenue": "$5.15 billion",
+        "revenueCategory": "Miss",
+        "percentageDifference": "-111.36%"
+      }
+    ]
+  },
+  {
+    "ticker": "COIN",
+    "currentPrice": "319.85",
+    "earningDate": "7/31/2025 4:30:00 PM",
+    "sector": "Crypto",
+    "lastTwoEarnings": [
+      {
+        "earningDate": "06/30/2025",
+        "closeB4EarningPrice": "$353.43",
+        "closeB4EarningChange": "-4.36%",
+        "afterEarningPrice": "$335.33",
+        "afterEarningChange": "-5.12%",
+        "beatExpectation": "Beat",
+        "actualValue": "6.65",
+        "expectedValue": "3.57",
+        "epsCategory": "Beat",
+        "actualRevenue": "$1.50 billion",
+        "expectedRevenue": "$6.71 billion",
+        "revenueCategory": "Miss",
+        "percentageDifference": "+86.17%"
+      },
+      {
+        "earningDate": "03/31/2025",
+        "closeB4EarningPrice": "$173.93",
+        "closeB4EarningChange": "-6.35%",
+        "afterEarningPrice": "$174.52",
+        "afterEarningChange": "+0.34%",
+        "beatExpectation": "Miss",
+        "actualValue": "0.30",
+        "expectedValue": "3.57",
+        "epsCategory": "Miss",
+        "actualRevenue": "$2.03 billion",
+        "expectedRevenue": "$6.71 billion",
+        "revenueCategory": "Miss",
+        "percentageDifference": "-91.46%"
+      }
+    ]
+  },
+  {
+    "ticker": "MARA",
+    "currentPrice": "16.29",
+    "earningDate": "7/29/2025 4:30:00 PM",
+    "sector": "Crypto",
+    "lastTwoEarnings": [
+      {
+        "earningDate": "06/30/2025",
+        "closeB4EarningPrice": "$15.03",
+        "closeB4EarningChange": "-0.73%",
+        "afterEarningPrice": "$15.70",
+        "afterEarningChange": "+4.46%",
+        "beatExpectation": "Beat",
+        "actualValue": "2.18",
+        "expectedValue": "0.04",
+        "epsCategory": "Beat",
+        "actualRevenue": "$238.49 million",
+        "expectedRevenue": "$798.41 million",
+        "revenueCategory": "Miss",
+        "percentageDifference": "+5354.33%"
+      },
+      {
+        "earningDate": "03/31/2025",
+        "closeB4EarningPrice": "$12.47",
+        "closeB4EarningChange": "-7.22%",
+        "afterEarningPrice": "$11.84",
+        "afterEarningChange": "-5.05%",
+        "beatExpectation": "Miss",
+        "actualValue": "-1.44",
+        "expectedValue": "0.04",
+        "epsCategory": "Miss",
+        "actualRevenue": "$213.88 million",
+        "expectedRevenue": "$798.41 million",
+        "revenueCategory": "Miss",
+        "percentageDifference": "-3698.25%"
+      }
+    ]
+  },
+  {
+    "ticker": "RIOT",
+    "currentPrice": "13.22",
+    "earningDate": "7/31/2025 4:30:00 PM",
+    "sector": "Crypto",
+    "lastTwoEarnings": [
+      {
+        "earningDate": "06/30/2025",
+        "closeB4EarningPrice": "$10.55",
+        "closeB4EarningChange": "-0.09%",
+        "afterEarningPrice": "$11.27",
+        "afterEarningChange": "+6.82%",
+        "beatExpectation": "Beat",
+        "actualValue": "0.59",
+        "expectedValue": "-0.34",
+        "epsCategory": "Beat",
+        "actualRevenue": "$152.99 million",
+        "expectedRevenue": "$541.72 million",
+        "revenueCategory": "Miss",
+        "percentageDifference": "+274.62%"
+      },
+      {
+        "earningDate": "03/31/2025",
+        "closeB4EarningPrice": "$7.41",
+        "closeB4EarningChange": "-3.26%",
+        "afterEarningPrice": "$7.54",
+        "afterEarningChange": "+1.75%",
+        "beatExpectation": "Miss",
+        "actualValue": "-0.80",
+        "expectedValue": "-0.34",
+        "epsCategory": "Miss",
+        "actualRevenue": "$161.39 million",
+        "expectedRevenue": "$541.72 million",
+        "revenueCategory": "Miss",
+        "percentageDifference": "-135.83%"
+      }
+    ]
+  },
+  {
+    "ticker": "CRCL",
+    "currentPrice": "135.04",
+    "earningDate": "8/12/2025 8:30:00 AM",
+    "sector": "Crypto",
+    "lastTwoEarnings": [
+      {
+        "earningDate": "06/30/2025",
+        "closeB4EarningPrice": "$180.43",
+        "closeB4EarningChange": "-19.32%",
+        "afterEarningPrice": "$192.53",
+        "afterEarningChange": "+6.71%",
+        "beatExpectation": "N/A",
+        "actualValue": "-482.10M",
+        "expectedValue": "N/A",
+        "epsCategory": "Reported",
+        "actualRevenue": "$658.08 million",
+        "expectedRevenue": "$2.12 billion",
+        "revenueCategory": "Miss",
+        "percentageDifference": "N/A"
+      },
+      {
+        "earningDate": "03/31/2025",
+        "closeB4EarningPrice": "N/A",
+        "closeB4EarningChange": "N/A",
+        "afterEarningPrice": "N/A",
+        "afterEarningChange": "N/A",
+        "beatExpectation": "N/A",
+        "actualValue": "64.79M",
+        "expectedValue": "N/A",
+        "epsCategory": "Reported",
+        "actualRevenue": "$578.57 million",
+        "expectedRevenue": "$2.12 billion",
+        "revenueCategory": "Miss",
+        "percentageDifference": "N/A"
+      }
+    ]
+  },
+  {
+    "ticker": "SNOW",
+    "currentPrice": "196.81",
+    "earningDate": "8/27/2025 4:30:00 PM",
+    "sector": "Security/Software Product",
+    "lastTwoEarnings": [
+      {
+        "earningDate": "04/30/2025",
+        "closeB4EarningPrice": "$160.35",
+        "closeB4EarningChange": "+0.53%",
+        "afterEarningPrice": "$165.36",
+        "afterEarningChange": "+3.12%",
+        "beatExpectation": "Miss",
+        "actualValue": "-1.29",
+        "expectedValue": "0.93",
+        "epsCategory": "Miss",
+        "actualRevenue": "$1.04 billion",
+        "expectedRevenue": "$3.84 billion",
+        "revenueCategory": "Miss",
+        "percentageDifference": "-238.60%"
+      },
+      {
+        "earningDate": "01/31/2025",
+        "closeB4EarningPrice": "$179.29",
+        "closeB4EarningChange": "-0.01%",
+        "afterEarningPrice": "$182.54",
+        "afterEarningChange": "+1.81%",
+        "beatExpectation": "Miss",
+        "actualValue": "-0.98",
+        "expectedValue": "0.93",
+        "epsCategory": "Miss",
+        "actualRevenue": "$986.77 million",
+        "expectedRevenue": "$3.84 billion",
+        "revenueCategory": "Miss",
+        "percentageDifference": "-205.53%"
+      }
+    ]
+  },
+  {
+    "ticker": "PANW",
+    "currentPrice": "185.88",
+    "earningDate": "8/18/2025 4:30:00 PM",
+    "sector": "Security/Software Product",
+    "lastTwoEarnings": [
+      {
+        "earningDate": "04/30/2025",
+        "closeB4EarningPrice": "$186.65",
+        "closeB4EarningChange": "+2.02%",
+        "afterEarningPrice": "$186.27",
+        "afterEarningChange": "-0.20%",
+        "beatExpectation": "Miss",
+        "actualValue": "0.39",
+        "expectedValue": "7.20",
+        "epsCategory": "Miss",
+        "actualRevenue": "$2.29 billion",
+        "expectedRevenue": "$9.22 billion",
+        "revenueCategory": "Miss",
+        "percentageDifference": "-94.55%"
+      },
+      {
+        "earningDate": "01/31/2025",
+        "closeB4EarningPrice": "$187.42",
+        "closeB4EarningChange": "+0.74%",
+        "afterEarningPrice": "$182.79",
+        "afterEarningChange": "-2.47%",
+        "beatExpectation": "Miss",
+        "actualValue": "0.40",
+        "expectedValue": "7.20",
+        "epsCategory": "Miss",
+        "actualRevenue": "$2.26 billion",
+        "expectedRevenue": "$9.22 billion",
+        "revenueCategory": "Miss",
+        "percentageDifference": "-94.44%"
+      }
+    ]
+  },
+  {
+    "ticker": "CRWD",
+    "currentPrice": "420.55",
+    "earningDate": "8/27/2025 4:30:00 PM",
+    "sector": "Security/Software Product",
+    "lastTwoEarnings": [
+      {
+        "earningDate": "04/30/2025",
+        "closeB4EarningPrice": "$430.99",
+        "closeB4EarningChange": "+1.53%",
+        "afterEarningPrice": "$431.88",
+        "afterEarningChange": "+0.21%",
+        "beatExpectation": "Miss",
+        "actualValue": "-0.44",
+        "expectedValue": "4.27",
+        "epsCategory": "Miss",
+        "actualRevenue": "$1.10 billion",
+        "expectedRevenue": "$4.14 billion",
+        "revenueCategory": "Miss",
+        "percentageDifference": "-110.36%"
+      },
+      {
+        "earningDate": "01/31/2025",
+        "closeB4EarningPrice": "$396.87",
+        "closeB4EarningChange": "-0.72%",
+        "afterEarningPrice": "$397.57",
+        "afterEarningChange": "+0.18%",
+        "beatExpectation": "Miss",
+        "actualValue": "-0.37",
+        "expectedValue": "4.27",
+        "epsCategory": "Miss",
+        "actualRevenue": "$1.06 billion",
+        "expectedRevenue": "$4.14 billion",
+        "revenueCategory": "Miss",
+        "percentageDifference": "-108.67%"
+      }
+    ]
+  },
+  {
+    "ticker": "CRM",
+    "currentPrice": "248.29",
+    "earningDate": "9/3/2025 4:30:00 PM",
+    "sector": "Security/Software Product",
+    "lastTwoEarnings": [
+      {
+        "earningDate": "04/30/2025",
+        "closeB4EarningPrice": "$267.34",
+        "closeB4EarningChange": "+0.89%",
+        "afterEarningPrice": "$268.90",
+        "afterEarningChange": "+0.59%",
+        "beatExpectation": "Miss",
+        "actualValue": "1.61",
+        "expectedValue": "11.13",
+        "epsCategory": "Miss",
+        "actualRevenue": "$9.83 billion",
+        "expectedRevenue": "$38.59 billion",
+        "revenueCategory": "Miss",
+        "percentageDifference": "-85.53%"
+      },
+      {
+        "earningDate": "01/31/2025",
+        "closeB4EarningPrice": "$342.49",
+        "closeB4EarningChange": "+0.78%",
+        "afterEarningPrice": "$338.17",
+        "afterEarningChange": "-1.26%",
+        "beatExpectation": "Miss",
+        "actualValue": "1.79",
+        "expectedValue": "11.13",
+        "epsCategory": "Miss",
+        "actualRevenue": "$9.99 billion",
+        "expectedRevenue": "$38.59 billion",
+        "revenueCategory": "Miss",
+        "percentageDifference": "-83.93%"
+      }
+    ]
+  },
+  {
+    "ticker": "MDB",
+    "currentPrice": "219.06",
+    "earningDate": "8/26/2025 4:30:00 PM",
+    "sector": "Security/Software Product",
+    "lastTwoEarnings": [
+      {
+        "earningDate": "04/30/2025",
+        "closeB4EarningPrice": "$174.69",
+        "closeB4EarningChange": "+0.11%",
+        "afterEarningPrice": "$172.19",
+        "afterEarningChange": "-1.43%",
+        "beatExpectation": "Miss",
+        "actualValue": "-0.46",
+        "expectedValue": "3.24",
+        "epsCategory": "Miss",
+        "actualRevenue": "$549.01 million",
+        "expectedRevenue": "$2.10 billion",
+        "revenueCategory": "Miss",
+        "percentageDifference": "-114.21%"
+      },
+      {
+        "earningDate": "01/31/2025",
+        "closeB4EarningPrice": "$271.07",
+        "closeB4EarningChange": "-0.58%",
+        "afterEarningPrice": "$268.83",
+        "afterEarningChange": "-0.83%",
+        "beatExpectation": "Miss",
+        "actualValue": "0.19",
+        "expectedValue": "3.24",
+        "epsCategory": "Miss",
+        "actualRevenue": "$548.40 million",
+        "expectedRevenue": "$2.10 billion",
+        "revenueCategory": "Miss",
+        "percentageDifference": "-94.02%"
+      }
+    ]
+  }
+]

@@ -87,6 +87,36 @@ class BackgroundScheduler:
                     except Exception as e:
                         logger.error(f"Error in earning summary cache refresh: {e}")
                 
+                # Run earning summary daily job at 9 PM
+                if current_time.hour == 21 and current_time.minute == 0:
+                    try:
+                        logger.info("Running daily earning summary job at 9 PM...")
+                        from earning_summary_file_manager import run_daily_earning_job
+                        
+                        success = run_daily_earning_job()
+                        if success:
+                            logger.info("Daily earning summary job completed successfully")
+                        else:
+                            logger.error("Daily earning summary job failed")
+                            
+                    except Exception as e:
+                        logger.error(f"Error in daily earning summary job: {e}")
+                
+                # Run earning date update job at 10 PM (after 9 PM job completes)
+                if current_time.hour == 22 and current_time.minute == 0:
+                    try:
+                        logger.info("Running earning date update job at 10 PM...")
+                        from earning_summary_file_manager import update_earning_dates_job
+                        
+                        success = update_earning_dates_job()
+                        if success:
+                            logger.info("Earning date update job completed successfully")
+                        else:
+                            logger.error("Earning date update job failed")
+                            
+                    except Exception as e:
+                        logger.error(f"Error in earning date update job: {e}")
+                
                 # Wait for 30 seconds before next check for more responsive market data updates
                 time.sleep(30)
                 
